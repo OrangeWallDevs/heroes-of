@@ -815,11 +815,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 't v p f n g j q h z s j j o p w a b y d h y j p z u r u p l s f q s g s
-    i m e m g u t t b r d l d l v n s t f s e r v j z o q q l j c q l p w r z r o
-    j u z v t i k u k j f l d n n g e s g c o b a g b e e c w w h o x s r o g y h
-    l f y o t y x q x p j o z r h y t e p a z u v e y z h c k r k t v r r d l g f
-    x o j s e v t '
+  m_text: <Speech Text>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -888,12 +884,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1131349634}
-    characterCount: 320
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 160
-    wordCount: 160
+    spaceCount: 1
+    wordCount: 3
     linkCount: 0
-    lineCount: 3
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1013,7 +1009,7 @@ RectTransform:
   - {fileID: 782265662}
   - {fileID: 1348243879}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1304,6 +1300,81 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.33333334}
   m_EffectDistance: {x: 16, y: -14}
   m_UseGraphicAlpha: 1
+--- !u!1 &1539836362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539836364}
+  - component: {fileID: 1539836363}
+  - component: {fileID: 1539836365}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1539836363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539836362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3932e28d1a1da4286b0a4da5328e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneTitle: Teste 1
+  textField: {fileID: 1131349634}
+  titleField: {fileID: 153465672}
+  sceneImageField: {fileID: 818021273}
+--- !u!4 &1539836364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539836362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539836365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539836362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06efe5f1e4758874f824439295480050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speeches:
+  - image: {fileID: 21300000, guid: 054411784c3fdf74d9db120b4a792a71, type: 3}
+    setence: Oi
+  - image: {fileID: 21300000, guid: 43a7d98bd4222b64e933596512dc09ad, type: 3}
+    setence: 't v p f n g j q h z s j j o p w a b y d h y j p z u r u p l s f q s
+      g s i m e m g u t t b r d l d l v n s t f s e r v j z o q q l j c q l p w r
+      z r o j u z v t i k u k j f l d n n g e s g c o b a g b e e c w w h o x s r
+      o g y h l f y o t y x q x p j o z r h y t e p a z u v e y z h c k r k t v r
+      r d l g f x o j s e v t '
+  - image: {fileID: 0}
+    setence: Tudo bem?
+  - image: {fileID: 21300000, guid: 90a2dde0942123c4ebb9c4af580c5818, type: 3}
+    setence: Acho que sim
+  - image: {fileID: 21300000, guid: 8eb69fafe4f719b49bb2dd1a7358aaaa, type: 3}
+    setence: "Blz, ent\xE3o"
 --- !u!1 &1584128050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1456,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1584128053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1539836363}
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1584128053

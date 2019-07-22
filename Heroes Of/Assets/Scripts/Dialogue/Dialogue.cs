@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public class Dialogue {
+// When get the Dialogue from the BD this class can be removed
+public class Dialogue : MonoBehaviour {
 
-    public AnimationClip[] animations;
-
-    [TextArea(1, 40)]
-    public string[] sentences;
+    public Speech[] speeches;
 
 }
