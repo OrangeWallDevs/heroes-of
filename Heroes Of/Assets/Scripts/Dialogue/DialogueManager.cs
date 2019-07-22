@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour {
 
     }
 
-    void EndDialog() {
+    public void EndDialog() {
 
         // Finish the cutscene and load the fase
         countSentences = sentences.Count;
