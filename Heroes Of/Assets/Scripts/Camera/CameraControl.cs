@@ -14,7 +14,9 @@ public class CameraControl : MonoBehaviour
     public Transform hero;
 
     private Vector3 cameraPosition;
+    private RaycastHit2D hit;
     private Camera cam;
+    private Vector3 touchStart;
 
     private void Start() {
 
@@ -27,6 +29,8 @@ public class CameraControl : MonoBehaviour
 
         if (zoomSpeed == 0)
             zoomSpeed = 0.05f;
+
+        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
 
     }
 
@@ -50,12 +54,21 @@ public class CameraControl : MonoBehaviour
 
             Touch touch = Input.GetTouch(0);
 
-            Vector2 pick = cam.ScreenToWorldPoint(touch.position);
-            RaycastHit2D hit = Physics2D.Raycast(pick, Vector2.zero);
+            if (touch.phase == TouchPhase.Began) {
+
+                Vector2 pick = cam.ScreenToWorldPoint(touch.position);
+                hit = Physics2D.Raycast(pick, Vector2.zero);
+                touchStart = cam.ScreenToWorldPoint(touch.position);
+
+            }
 
             if (hit.collider == null) {
 
                 if (touch.phase == TouchPhase.Moved && (Mathf.Abs(touch.deltaPosition.x) >= minDragDistance || Mathf.Abs(touch.deltaPosition.y) >= minDragDistance)) { // Mover
+
+                    /*Vector3 direction = touchStart - cam.ScreenToWorldPoint(touch.position);
+                    transform.position += (direction * dragSpeed * Time.deltaTime); change the drag to 10 or higher speed to test*/
+
 
                     cameraPosition = transform.position;
 
@@ -79,6 +92,15 @@ public class CameraControl : MonoBehaviour
         MoveCamera(new Vector3(hero.position.x, hero.position.y, transform.position.z));
 
     }
+    private void MoveCamera(Vector3 direction) {
+
+        // Limits the X and Y that the camera can move
+        direction.x = Mathf.Clamp(direction.x, leftLimit, rightLimit);
+        direction.y = Mathf.Clamp(direction.y, bottomLimit, topLimit);
+
+        transform.position = direction;
+
+    }
 
     private void Zoom(float increment) {
 
@@ -88,13 +110,4 @@ public class CameraControl : MonoBehaviour
 
     }
 
-    private void MoveCamera(Vector3 direction) {
-
-        // Limitar ao mapa
-        direction.x = Mathf.Clamp(direction.x, leftLimit, rightLimit);
-        direction.y = Mathf.Clamp(direction.y, bottomLimit, topLimit);
-
-        transform.position = direction;
-
-    }
 }
