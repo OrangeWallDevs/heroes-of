@@ -33,7 +33,7 @@ public class Hero_Movement : MonoBehaviour {
 
     private void Awake() {
 
-        characterAnimatorScript = GetComponent<IsometricCharacterAnimator>();
+        characterAnimatorScript = GetComponentInChildren<IsometricCharacterAnimator>();
         heroRigidbody = GetComponent<Rigidbody2D>();
         heroColider = GetComponentInChildren<CircleCollider2D>();
         heroTransform = GetComponent<Transform>();

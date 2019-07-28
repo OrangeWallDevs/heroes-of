@@ -4,6 +4,7 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
     private Animator animator;
     private Transform character;
+
     private string lastDirection;
 
     private void Awake() {
@@ -20,9 +21,6 @@ public class IsometricCharacterAnimator : MonoBehaviour {
         string animation = "";
 
         Vector2 actualPoint = character.position;
-
-        Debug.Log("Actual: " + actualPoint);
-        Debug.Log("Target: " + targetPosition);
 
         // Check if the Character is moving
         if (Mathf.Ceil(targetPosition.x) != Mathf.Ceil(actualPoint.x)
@@ -74,7 +72,6 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
         }
 
-        Debug.Log(animation);
         animator.Play(animation);
 
     }
