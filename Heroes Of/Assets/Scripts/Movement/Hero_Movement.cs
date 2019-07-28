@@ -9,6 +9,8 @@ public class Hero_Movement : MonoBehaviour {
     private CircleCollider2D heroColider;
     private Transform heroTransform;
 
+    private IsometricCharacterAnimator characterAnimatorScript;
+
     private bool isHeroSelected;
     private Vector2 currentPosition;
     private Vector2 targetPosition;
@@ -31,6 +33,7 @@ public class Hero_Movement : MonoBehaviour {
 
     private void Awake() {
 
+        characterAnimatorScript = GetComponent<IsometricCharacterAnimator>();
         heroRigidbody = GetComponent<Rigidbody2D>();
         heroColider = GetComponentInChildren<CircleCollider2D>();
         heroTransform = GetComponent<Transform>();
@@ -90,6 +93,7 @@ public class Hero_Movement : MonoBehaviour {
         }
 
     }
+
     private void FixedUpdate() {
 
         currentPosition = heroTransform.position;
@@ -105,6 +109,7 @@ public class Hero_Movement : MonoBehaviour {
             Vector2 newPosition = currentPosition + movement * Time.fixedDeltaTime;
 
             heroRigidbody.MovePosition(newPosition);
+            characterAnimatorScript.SetDirection(newPosition);
 
         }
 
