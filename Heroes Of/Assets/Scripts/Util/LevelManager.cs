@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
-    public Canvas loadingScreen;
+    public GameObject loadingScreen;
 
     public void LoadScene(int sceneBuildIndex) {
         StartCoroutine(LoadSceneAsync(sceneBuildIndex));
@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour {
 
         sceneLoader.allowSceneActivation = false;
 
-        loadingScreen.enabled = true;
+        loadingScreen.SetActive(true);
 
         while(!sceneLoader.isDone) {
 
