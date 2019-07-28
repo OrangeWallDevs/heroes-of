@@ -4,11 +4,14 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
     private Animator animator;
     private Transform character;
+    private string lastDirection;
 
     private void Awake() {
 
         animator = GetComponent<Animator>();
         character = GetComponent<Transform>();
+
+        lastDirection = "SW";
 
     }
 
@@ -26,19 +29,23 @@ public class IsometricCharacterAnimator : MonoBehaviour {
             || Mathf.Ceil(targetPosition.y) != Mathf.Ceil(actualPoint.y)) { // isMoving
 
             animation += "Run ";
+            lastDirection = "";
 
             // Check which vertical direction it have to take
             if (actualPoint.y > targetPosition.y) {
 
                 animation += "S"; // Down
+                lastDirection += "S";
 
             } else if (actualPoint.y < targetPosition.y) {
 
                 animation += "N"; // Up
+                lastDirection += "N";
 
             } else {
 
                 animation += ""; // No vertical movement
+                lastDirection += "";
 
             }
 
@@ -46,21 +53,24 @@ public class IsometricCharacterAnimator : MonoBehaviour {
             if (actualPoint.x > targetPosition.x) {
 
                 animation += "W"; // Left
+                lastDirection += "W";
 
             } else if (actualPoint.x < targetPosition.x) {
 
                 animation += "E"; // Right
+                lastDirection += "E";
 
             } else {
 
                 animation += ""; // No horizontal movement
+                lastDirection += "";
 
             }
 
         }
         else {
 
-            animation += "Static SW";
+            animation += "Static " + lastDirection;
 
         }
 
