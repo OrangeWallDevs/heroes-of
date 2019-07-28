@@ -18,47 +18,49 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
         Vector2 actualPoint = character.position;
 
+        Debug.Log("Actual: " + actualPoint);
+        Debug.Log("Target: " + targetPosition);
+
         // Check if the Character is moving
-        if (actualPoint != targetPosition) { // isMoving
+        if (Mathf.Ceil(targetPosition.x) != Mathf.Ceil(actualPoint.x)
+            || Mathf.Ceil(targetPosition.y) != Mathf.Ceil(actualPoint.y)) { // isMoving
 
             animation += "Run ";
 
+            // Check which vertical direction it have to take
+            if (actualPoint.y > targetPosition.y) {
+
+                animation += "S"; // Down
+
+            } else if (actualPoint.y < targetPosition.y) {
+
+                animation += "N"; // Up
+
+            } else {
+
+                animation += ""; // No vertical movement
+
+            }
+
+            // Check which horizontal direction it have to take
+            if (actualPoint.x > targetPosition.x) {
+
+                animation += "W"; // Left
+
+            } else if (actualPoint.x < targetPosition.x) {
+
+                animation += "E"; // Right
+
+            } else {
+
+                animation += ""; // No horizontal movement
+
+            }
+
         }
         else {
 
-            animation += "Static ";
-
-        }
-
-        // Check which vertical direction it have to take
-        if (actualPoint.y > targetPosition.y) {
-
-            animation += "S"; // Down
-
-        }
-        else if (actualPoint.y < targetPosition.y) {
-
-            animation += "N"; // Up
-
-        }
-        else {
-
-            animation += ""; // No vertical movement
-
-        }
-
-        // Check which horizontal direction it have to take
-        if (actualPoint.x > targetPosition.x) {
-
-            animation += "W"; // Left
-
-        } else if (actualPoint.x < targetPosition.x) {
-
-            animation += "E"; // Right
-
-        } else {
-
-            animation += ""; // No horizontal movement
+            animation += "Static SW";
 
         }
 
