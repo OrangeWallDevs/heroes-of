@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Spawner\Spawner.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
      <Compile Include="Assets\Scripts\TesteAudio.cs" />
+     <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Util\Singleton.cs" />
      <Compile Include="Assets\Scripts\Wave\WaveManager.cs" />
      <Compile Include="Assets\Scripts\Wave\WaveStates.cs" />
