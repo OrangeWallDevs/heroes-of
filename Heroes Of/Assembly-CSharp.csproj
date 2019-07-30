@@ -233,6 +233,7 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
      <Compile Include="Assets\Scripts\Animation\IsometricCharacterAnimator.cs" />
+     <Compile Include="Assets\Scripts\AppInitialization.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioCategory.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioData.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioPoolManager.cs" />
