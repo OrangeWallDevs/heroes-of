@@ -1011,6 +1011,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: efee20b64d1e73942a29ba61ce3379c3,
         type: 3}
+    - target: {fileID: 3165850124665887185, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Name
+      value: Hero_Focus_Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ef23fd613f667dd48b7e6a3c6777685f,
+        type: 3}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1041,17 +1052,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887185, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Name
-      value: Hero_Focus_Image
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ef23fd613f667dd48b7e6a3c6777685f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d1ee5f04c38174db0702c4b22700fd, type: 3}
 --- !u!224 &1033482662 stripped
@@ -37091,6 +37091,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: dragSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: leftLimit
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: rightLimit
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: topLimit
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: bottomLimit
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 1048642786}
     - target: {fileID: 2016541931899603832, guid: 75841ce6575415547af6c57563d1b1da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37146,36 +37176,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: dragSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: leftLimit
-      value: -30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: rightLimit
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: topLimit
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: bottomLimit
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: hero
-      value: 
-      objectReference: {fileID: 1048642786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75841ce6575415547af6c57563d1b1da, type: 3}
 --- !u!1001 &3187053929053343939
