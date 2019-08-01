@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":-2.6580324172973635,"y":-5.7419891357421879,"z":-29.187559127807618},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":23.851299285888673,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":3.6713192462921144,"y":1.6454713344573975,"z":-339.43359375},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":29.700838088989259,"orthographic":true}
+>>>>>>> MainMenu_Scene
