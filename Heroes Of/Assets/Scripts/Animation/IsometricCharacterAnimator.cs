@@ -16,54 +16,55 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
     }
 
-    public void SetDirection(Vector2 targetPosition) {
+    public void SetDirection(Vector2 rawTargetPosition) {
 
         string animation = "";
 
         Vector2 actualPoint = character.position;
 
         // Check if the Character is moving
-        if (Mathf.Ceil(targetPosition.x) != Mathf.Ceil(actualPoint.x)
-            || Mathf.Ceil(targetPosition.y) != Mathf.Ceil(actualPoint.y)) { // isMoving
+        if (Mathf.Ceil(rawTargetPosition.x) != Mathf.Ceil(actualPoint.x)
+            || Mathf.Ceil(rawTargetPosition.y) != Mathf.Ceil(actualPoint.y)) { // isMoving
 
             animation += "Run ";
             lastDirection = "";
 
             // Check which vertical direction it have to take
-            if (actualPoint.y > targetPosition.y) {
+            if (actualPoint.y > rawTargetPosition.y) { // Down
 
-                animation += "S"; // Down
-                lastDirection += "S";
+                animation += "S";
 
-            } else if (actualPoint.y < targetPosition.y) {
+            } 
+            else if (actualPoint.y < rawTargetPosition.y) { // Up
 
-                animation += "N"; // Up
-                lastDirection += "N";
+                animation += "N";
 
-            } else {
+            } 
+            else { // No vertical movement
 
-                animation += ""; // No vertical movement
-                lastDirection += "";
+                animation += "";
 
             }
 
             // Check which horizontal direction it have to take
-            if (actualPoint.x > targetPosition.x) {
+            if (actualPoint.x > rawTargetPosition.x) { // Left
 
-                animation += "W"; // Left
-                lastDirection += "W";
+                animation += "W";
 
-            } else if (actualPoint.x < targetPosition.x) {
+            } 
+            else if (actualPoint.x < rawTargetPosition.x) { // Right
 
-                animation += "E"; // Right
-                lastDirection += "E";
+                animation += "E";
 
-            } else {
+            } 
+            else { // No horizontal movement
 
-                animation += ""; // No horizontal movement
-                lastDirection += "";
+                animation += "";
 
             }
+
+            char[] animationSplit = animation.ToCharArray();
+            lastDirection = ("" + animationSplit[animationSplit.Length - 2] + animationSplit[animationSplit.Length - 1]);
 
         }
         else {
@@ -72,6 +73,7 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
         }
 
+        Debug.Log(animation);
         animator.Play(animation);
 
     }

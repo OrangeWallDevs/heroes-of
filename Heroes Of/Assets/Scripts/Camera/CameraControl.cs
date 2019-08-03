@@ -5,18 +5,18 @@ public class CameraControl : MonoBehaviour {
     public float dragSpeed = 0.6f;
     public float minDragDistance = 0.5f;
 
+    public float zoomSpeed = 0.05f;
     public float zoomOutMin = 3f;
     public float zoomOutMax = 10f;
-    public float zoomSpeed = 0.05f;
 
     public float leftLimit, rightLimit, topLimit, bottomLimit;
+
     public Transform hero;
 
     private Vector2 lastTouch, actualTouch;
     private Vector3 cameraPosition;
     private RaycastHit2D hit;
     private Camera cam;
-
 
     private void Start() {
 
