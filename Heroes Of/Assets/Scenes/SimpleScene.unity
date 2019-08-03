@@ -37094,7 +37094,7 @@ PrefabInstance:
     - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
         type: 3}
       propertyPath: dragSpeed
-      value: 1.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
         type: 3}
@@ -37121,6 +37121,11 @@ PrefabInstance:
       propertyPath: hero
       value: 
       objectReference: {fileID: 1048642786}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: minDragDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2016541931899603832, guid: 75841ce6575415547af6c57563d1b1da,
         type: 3}
       propertyPath: m_LocalPosition.x

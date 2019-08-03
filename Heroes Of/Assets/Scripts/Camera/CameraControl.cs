@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-public class CameraControl : MonoBehaviour
-{
+public class CameraControl : MonoBehaviour {
 
-    public float dragSpeed = 1f;
-    public float minDragDistance = 5.5f;
+    public float dragSpeed = 0.6f;
+    public float minDragDistance = 0.5f;
 
     public float zoomOutMin = 3f;
     public float zoomOutMax = 10f;
@@ -13,10 +12,11 @@ public class CameraControl : MonoBehaviour
     public float leftLimit, rightLimit, topLimit, bottomLimit;
     public Transform hero;
 
+    private Vector2 lastTouch, actualTouch;
     private Vector3 cameraPosition;
     private RaycastHit2D hit;
     private Camera cam;
-    private Vector3 touchStart;
+
 
     private void Start() {
 
@@ -25,7 +25,7 @@ public class CameraControl : MonoBehaviour
         cam = Camera.main;
 
         if (dragSpeed == 0)
-            dragSpeed = 1f;
+            dragSpeed = 0.6f;
 
         if (zoomSpeed == 0)
             zoomSpeed = 0.05f;
@@ -36,62 +36,80 @@ public class CameraControl : MonoBehaviour
 
     private void Update() {
 
-        if (Input.touchCount == 2) { // Zoom
+        if (Input.touchCount <= 1) {
 
-            Touch touchZero = Input.GetTouch(0);
-            Touch touchOne = Input.GetTouch(1);
-
-            Vector2 initialPositionTouchZero = touchZero.position - touchZero.deltaPosition; // Posição do 1° dedo no 1° toque
-            Vector2 initialPositionTouchOne = touchOne.position - touchOne.deltaPosition; // Posição do 2° dedo no 1° toque
-
-            float initialDistance = (initialPositionTouchZero - initialPositionTouchOne).magnitude; // Distância entre dedos
-            float actualDistance = (touchZero.position - touchOne.position).magnitude;
-
-            Zoom((initialDistance - actualDistance) * -zoomSpeed);
+            HandleMovement();
 
         } 
-        else if (Input.touchCount == 1) { 
+        else if (Input.touchCount == 2) {
 
-            Touch touch = Input.GetTouch(0);
+            HandleTouchZoom();
 
-            if (touch.phase == TouchPhase.Began) {
+        }
 
-                Vector2 pick = cam.ScreenToWorldPoint(touch.position);
-                hit = Physics2D.Raycast(pick, Vector2.zero);
-                touchStart = cam.ScreenToWorldPoint(touch.position);
+        if (Input.mouseScrollDelta.y != 0)
+            HandleMouseZoom();
+
+    }
+    
+    private void HandleMovement() {
+
+        if (Input.GetMouseButtonDown(0)) {
+
+            lastTouch = Input.mousePosition;
+
+            Vector2 pick = cam.ScreenToWorldPoint(lastTouch);
+            hit = Physics2D.Raycast(pick, Vector2.zero);
+
+        } 
+        else if (Input.GetMouseButton(0) && hit.collider == null) {
+
+            actualTouch = Input.mousePosition;
+
+            Vector2 deltaTouchPosition = actualTouch - lastTouch;
+
+            if (Mathf.Abs(deltaTouchPosition.x) >= minDragDistance || Mathf.Abs(deltaTouchPosition.y) >= minDragDistance) {
+
+                float cameraStep = dragSpeed * Time.deltaTime;
+
+                cameraPosition = transform.position;
+
+                cameraPosition.x -= deltaTouchPosition.x * cameraStep;
+                cameraPosition.y -= deltaTouchPosition.y * cameraStep;
+
+                MoveCamera(cameraPosition);
 
             }
 
-            if (hit.collider == null) {
-
-                if (touch.phase == TouchPhase.Moved && (Mathf.Abs(touch.deltaPosition.x) >= minDragDistance || Mathf.Abs(touch.deltaPosition.y) >= minDragDistance)) { // Mover
-
-                    /*Vector3 direction = touchStart - cam.ScreenToWorldPoint(touch.position);
-                    transform.position += (direction * dragSpeed * Time.deltaTime); change the drag to 10 or higher speed to test*/
-
-
-                    cameraPosition = transform.position;
-
-                    float cameraStep = dragSpeed * Time.deltaTime;
-
-                    cameraPosition.x -= touch.deltaPosition.x * cameraStep;
-                    cameraPosition.y -= touch.deltaPosition.y * cameraStep;
-
-                    MoveCamera(cameraPosition);
-
-                }
-
-            }
+            lastTouch = actualTouch;
 
         }
 
     }
 
-    public void FocusHero() {
+    private void HandleTouchZoom() {
 
-        MoveCamera(new Vector3(hero.position.x, hero.position.y, transform.position.z));
+        Touch touchZero = Input.GetTouch(0);
+        Touch touchOne = Input.GetTouch(1);
+
+        Vector2 initialPositionTouchZero = touchZero.position - touchZero.deltaPosition; // Position of finger 1 on 1° touch
+        Vector2 initialPositionTouchOne = touchOne.position - touchOne.deltaPosition; // Position of finger 2 on 1° touch
+
+        float initialDistance = (initialPositionTouchZero - initialPositionTouchOne).magnitude; // Distence between 2 fingers
+        float actualDistance = (touchZero.position - touchOne.position).magnitude;
+
+        Zoom((initialDistance - actualDistance) * -zoomSpeed);
 
     }
+
+    private void HandleMouseZoom() {
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        Zoom(zoomSpeed * scroll * 100f);
+
+    }
+
     private void MoveCamera(Vector3 direction) {
 
         // Limits the X and Y that the camera can move
@@ -107,6 +125,12 @@ public class CameraControl : MonoBehaviour
         float zoomValue = cam.orthographicSize - increment;
 
         cam.orthographicSize = Mathf.Clamp(zoomValue, zoomOutMin, zoomOutMax);
+
+    }
+
+    public void FocusHero() {
+
+        MoveCamera(new Vector3(hero.position.x, hero.position.y, transform.position.z));
 
     }
 
