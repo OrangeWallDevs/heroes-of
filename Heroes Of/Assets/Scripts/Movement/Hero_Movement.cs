@@ -11,84 +11,43 @@ public class Hero_Movement : MonoBehaviour {
 
     private IsometricCharacterAnimator characterAnimatorScript;
 
-    private bool isHeroSelected;
-    private Vector2 currentPosition;
-    private Vector2 targetPosition;
-    private Vector2 touchIniPosition;
+    private Vector2 currentPosition, targetPosition;
 
+    private RaycastHit2D hit;
+    private bool isHeroSelected, isCoroutineAllowed;
     private float firstClickTime, timeBetweenClicks;
-    private bool coroutineAllowed;
     private int clickCounter;
 
     private void Start() {
 
         firstClickTime = 0f;
-        timeBetweenClicks = 0.5f;
+        timeBetweenClicks = 0.2f;
         clickCounter = 0;
-        coroutineAllowed = true;
-
-        touchIniPosition = new Vector2();
+        isCoroutineAllowed = true;
 
     }
 
     private void Awake() {
 
         characterAnimatorScript = GetComponentInChildren<IsometricCharacterAnimator>();
-        heroRigidbody = GetComponent<Rigidbody2D>();
         heroColider = GetComponentInChildren<CircleCollider2D>();
+
+        heroRigidbody = GetComponent<Rigidbody2D>();
         heroTransform = GetComponent<Transform>();
+
+        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
+
         targetPosition = heroTransform.position;
 
     }
 
     private void Update() {
 
-        Camera camera = Camera.main;
+        if (Input.touchCount <= 1) {
 
-        if (Input.touchCount > 0) {
+            HandleHeroSelection();
 
-            Touch touch = Input.GetTouch(0);
-
-            Vector2 pick = camera.ScreenToWorldPoint(touch.position);
-            RaycastHit2D hit = Physics2D.Raycast(pick, Vector2.zero);
-
-            if (isHeroSelected && hit.collider == null) {
-
-                if (touch.phase == TouchPhase.Ended)
-                    clickCounter++;
-
-                if (clickCounter == 1 && coroutineAllowed) {
-
-                    firstClickTime = Time.time;
-                    StartCoroutine(WasHeroUnselected());
-
-                }
-
-            } 
-            else if (hit.collider != null) {
-
-                if (hit.collider.Equals(heroColider)) {
-
-                    isHeroSelected = true;
-                    Debug.Log("Selecionado");
-
-                }
-
-            }
-
-            if (isHeroSelected) {
-
-                if (hit.collider != null && hit.transform.tag == "Path") {
-
-                    if (touch.phase == TouchPhase.Began)
-                        touchIniPosition = touch.position;
-
-                    if (touch.phase == TouchPhase.Ended && touchIniPosition == touch.position)
-                        targetPosition = camera.ScreenToWorldPoint(touch.position);
-
-                }
-
-            }
+            HandleMovement();
 
         }
 
@@ -102,7 +61,6 @@ public class Hero_Movement : MonoBehaviour {
         directionMovement = Vector2.ClampMagnitude(directionMovement, 1);
 
         Vector2 movement = directionMovement * movementSpeed;
-
         Vector2 newPosition = currentPosition + movement * Time.fixedDeltaTime;
 
         if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
@@ -116,16 +74,74 @@ public class Hero_Movement : MonoBehaviour {
 
     }
 
-    private IEnumerator WasHeroUnselected() {
+    private void HandleHeroSelection() {
 
-        coroutineAllowed = false;
+        if (Input.GetMouseButtonDown(0)) {
+
+            hit = DetectHit(Input.mousePosition);
+
+        }
+        else if (Input.GetMouseButtonUp(0)) {
+
+            if (hit.collider == null && isHeroSelected) { // Action to unselect
+
+                clickCounter++;
+
+                if (clickCounter == 1 && isCoroutineAllowed) {
+
+                    firstClickTime = Time.time;
+                    StartCoroutine(HeroUnselection());
+
+                }
+
+            }
+            else if (hit.collider == heroColider) { // Action to select
+
+                isHeroSelected = true;
+                Debug.Log("Hero Selected!");
+
+            }
+
+        }
+
+    }
+
+    private void HandleMovement() {
+
+        if (Input.GetMouseButtonDown(0) && isHeroSelected) {
+
+            hit = DetectHit(Input.mousePosition);
+
+            if (hit.collider != null && hit.transform.tag == "Path") {
+
+                targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            }
+
+        }
+
+    }
+
+    private RaycastHit2D DetectHit(Vector2 eventPosition) {
+
+        Camera camera = Camera.main;
+
+        Vector2 pick = camera.ScreenToWorldPoint(eventPosition);
+
+        return Physics2D.Raycast(pick, Vector2.zero);
+
+    }
+
+    private IEnumerator HeroUnselection() {
+
+        isCoroutineAllowed = false;
 
         while (Time.time <= timeBetweenClicks + firstClickTime) {
 
             if (clickCounter >= 2) {
 
                 isHeroSelected = false;
-                Debug.Log("Deselecionado");
+                Debug.Log("Hero Unselected :(");
                 break;
 
             }
@@ -136,7 +152,7 @@ public class Hero_Movement : MonoBehaviour {
 
         clickCounter = 0;
         firstClickTime = 0f;
-        coroutineAllowed = true;
+        isCoroutineAllowed = true;
 
     }
 
