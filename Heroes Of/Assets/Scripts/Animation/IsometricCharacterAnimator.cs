@@ -73,7 +73,6 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
         }
 
-        Debug.Log(animation);
         animator.Play(animation);
 
     }
