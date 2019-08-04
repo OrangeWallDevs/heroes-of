@@ -11,7 +11,7 @@ public class WavePanelManager : MonoBehaviour {
     public int maxWaves, actualWave;
 
     private int counters, actualCounterIndex;
-    private ArrayList waveCounters;
+    private ArrayList waveCounters, waveCountersText;
 
     private void Awake() {
 
@@ -25,20 +25,21 @@ public class WavePanelManager : MonoBehaviour {
 
     private void CreateCounters() {
 
-        int waveCountersSize = (maxWaves >= 5) ? 5 : maxWaves;
-        GameObject waveCounter;
-
         waveCounters = new ArrayList();
+        waveCountersText = new ArrayList();
+
+        int waveCountersSize = (maxWaves >= 5) ? 5 : maxWaves;
 
         for (int i = 0; i < waveCountersSize; i++) {
 
-            waveCounter = Instantiate(counterPrefab, counterPrefab.transform.position, counterPrefab.transform.rotation);
-            waveCounter.transform.SetParent(transform, false);
-
+            GameObject waveCounter = Instantiate(counterPrefab, counterPrefab.transform.position, counterPrefab.transform.rotation);
             TextMeshProUGUI waveCounterNumber = waveCounter.GetComponentInChildren<TextMeshProUGUI>();
+
+            waveCounter.transform.SetParent(transform, false);
             waveCounterNumber.text = ("" + (i + 1));
 
             waveCounters.Add(waveCounter);
+            waveCountersText.Add(waveCounterNumber);
 
         }
 
@@ -49,10 +50,10 @@ public class WavePanelManager : MonoBehaviour {
 
     public void UpdateCounters() {
 
-        GameObject finalCounter = (GameObject) waveCounters[waveCounters.Count - 1];
-        int finalCounterNumber = int.Parse(finalCounter.GetComponentInChildren<TextMeshProUGUI>().text);
+        TextMeshProUGUI finalCounterText = (TextMeshProUGUI) waveCountersText[waveCountersText.Count - 1];
+        int finalCounterNumber = int.Parse(finalCounterText.text);
 
-        if (actualCounterIndex < waveCounters.Count - 1) {
+        if (actualCounterIndex < waveCounters.Count - 1) { // Didn't reach the end
 
             ReduceCounterOpacity(actualCounterIndex);
 
@@ -61,33 +62,36 @@ public class WavePanelManager : MonoBehaviour {
             ResetCounterOpacity(actualCounterIndex);
 
         }
-        else if (finalCounterNumber < maxWaves) {
+        else if (finalCounterNumber < maxWaves) { // Has reached the end but not the final wave
 
             ArrayList destroyCounters = new ArrayList();
 
-            foreach (GameObject counter in waveCounters) {
+            for (int i = 0; i < waveCounters.Count; i++) {
 
-                TextMeshProUGUI counterNumber = counter.GetComponentInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI waveCounterNumber = (TextMeshProUGUI) waveCountersText[i];
 
-                int updatedNumber = (waveCounters.Count + int.Parse(counterNumber.text));
+                int updatedNumber = (waveCounters.Count + int.Parse(waveCounterNumber.text));
 
                 if (updatedNumber > maxWaves) {
-
-                    destroyCounters.Add(counter);
-
-                } 
+                    destroyCounters.Add(i);
+                }
                 else {
-
-                    counterNumber.text = ("" + (waveCounters.Count + int.Parse(counterNumber.text)));
-
+                    waveCounterNumber.text = "" + updatedNumber;
                 }
 
             }
 
-            foreach (GameObject counter in destroyCounters) {
+            for (int i = destroyCounters.Count - 1; i >= 0; i--) {
 
-                waveCounters.Remove(counter);
-                Destroy(counter);
+                int counterIndex = (int) destroyCounters[i];
+
+                GameObject waveCounter = (GameObject) waveCounters[counterIndex];
+                TextMeshProUGUI waveCounterNumber = (TextMeshProUGUI) waveCountersText[counterIndex];
+
+                waveCounters.Remove(waveCounter);
+                waveCountersText.Remove(waveCounterNumber);
+
+                Destroy(waveCounter);
 
             }
 
