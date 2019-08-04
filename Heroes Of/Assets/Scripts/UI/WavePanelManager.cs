@@ -1,15 +1,27 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WavePanelManager : MonoBehaviour {
 
     public WaveManager waveManager;
     public GameObject counterPrefab;
 
-    public int maxWaves, actualWave;
+    public int maxCountersDisplay;
+
+    public int maxWaves, actualWave; // Make it private and get from waveManager
 
     private int actualCounterIndex;
     private ArrayList waveCounters;
+
+    private struct WaveCounterUIElements {
+
+        public GameObject counter;
+        public TextMeshProUGUI number;
+        public Image image;
+
+    }
 
     private void Awake() {
 
@@ -25,15 +37,20 @@ public class WavePanelManager : MonoBehaviour {
 
         waveCounters = new ArrayList();
 
-        int waveCountersSize = (maxWaves >= 5) ? 5 : maxWaves;
+        int waveCountersSize = (maxWaves >= maxCountersDisplay) ? maxCountersDisplay : maxWaves;
 
         for (int i = 0; i < waveCountersSize; i++) {
 
+            WaveCounterUIElements waveCounter = new WaveCounterUIElements();
+
             GameObject newCounter = Instantiate(counterPrefab, counterPrefab.transform.position, counterPrefab.transform.rotation);
-            WaveCounterUIElements waveCounter = newCounter.GetComponent<WaveCounterUIElements>();
+
+            waveCounter.counter = newCounter;
+            waveCounter.image = newCounter.GetComponent<Image>();
+            waveCounter.number = newCounter.GetComponentInChildren<TextMeshProUGUI>();
 
             newCounter.transform.SetParent(transform, false);
-            waveCounter.Number.text = ("" + (i + 1));
+            waveCounter.number.text = ("" + (i + 1));
 
             waveCounters.Add(waveCounter);
 
@@ -47,7 +64,7 @@ public class WavePanelManager : MonoBehaviour {
     public void UpdateCounters() {
 
         WaveCounterUIElements finalCounter = (WaveCounterUIElements) waveCounters[waveCounters.Count - 1];
-        int finalCounterNumber = int.Parse(finalCounter.Number.text);
+        int finalCounterNumber = int.Parse(finalCounter.number.text);
 
         if (actualCounterIndex < waveCounters.Count - 1) { // Didn't reach the end
 
@@ -64,12 +81,13 @@ public class WavePanelManager : MonoBehaviour {
 
             foreach (WaveCounterUIElements counter in waveCounters) {
 
-                int updatedNumber = (waveCounters.Count + int.Parse(counter.Number.text));
+                int updatedNumber = (waveCounters.Count + int.Parse(counter.number.text));
 
                 if (updatedNumber > maxWaves) {
                     destroyCounters.Add(counter);
-                } else {
-                    counter.Number.text = "" + updatedNumber;
+                } 
+                else {
+                    counter.number.text = "" + updatedNumber;
                 }
 
             }
@@ -77,7 +95,7 @@ public class WavePanelManager : MonoBehaviour {
             foreach (WaveCounterUIElements counter in destroyCounters) {
 
                 waveCounters.Remove(counter);
-                Destroy(counter.CounterObject);
+                Destroy(counter.counter);
 
             }
 
@@ -93,7 +111,7 @@ public class WavePanelManager : MonoBehaviour {
 
         WaveCounterUIElements counter = (WaveCounterUIElements) waveCounters[i];
 
-        counter.Image.color = new Color(255, 255, 255, 0.7f);
+        counter.image.color = new Color(255, 255, 255, 0.7f);
 
     }
 
@@ -101,7 +119,7 @@ public class WavePanelManager : MonoBehaviour {
 
         WaveCounterUIElements counter = (WaveCounterUIElements) waveCounters[i];
 
-        counter.Image.color = new Color(255, 255, 255, 1f);
+        counter.image.color = new Color(255, 255, 255, 1f);
 
     }
 

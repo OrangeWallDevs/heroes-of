@@ -88,15 +88,8 @@ public class WaveManager : MonoBehaviour {
 
     }
 
-    public int GetMaxWaves() {
+    public int MaxWaves { get { return maxWaves; } }
 
-        return maxWaves;
+    public int ActualWave { get { return actualWave; } }
 
-    }
-
-    public int GetActualWave() {
-
-        return actualWave;
-
-    }
 }

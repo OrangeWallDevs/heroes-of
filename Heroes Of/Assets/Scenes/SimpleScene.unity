@@ -1417,6 +1417,7 @@ MonoBehaviour:
   waveManager: {fileID: 0}
   counterPrefab: {fileID: 4559306980039302224, guid: cfcb9716d9d4f6240a9aef5c0e6d9680,
     type: 3}
+  maxCountersDisplay: 5
   maxWaves: 12
   actualWave: 1
 --- !u!1 &1256942909
