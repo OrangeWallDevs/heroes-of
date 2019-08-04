@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WavePanelManager : MonoBehaviour {
 
@@ -10,8 +8,8 @@ public class WavePanelManager : MonoBehaviour {
 
     public int maxWaves, actualWave;
 
-    private int counters, actualCounterIndex;
-    private ArrayList waveCounters, waveCountersText;
+    private int actualCounterIndex;
+    private ArrayList waveCounters;
 
     private void Awake() {
 
@@ -26,20 +24,18 @@ public class WavePanelManager : MonoBehaviour {
     private void CreateCounters() {
 
         waveCounters = new ArrayList();
-        waveCountersText = new ArrayList();
 
         int waveCountersSize = (maxWaves >= 5) ? 5 : maxWaves;
 
         for (int i = 0; i < waveCountersSize; i++) {
 
-            GameObject waveCounter = Instantiate(counterPrefab, counterPrefab.transform.position, counterPrefab.transform.rotation);
-            TextMeshProUGUI waveCounterNumber = waveCounter.GetComponentInChildren<TextMeshProUGUI>();
+            GameObject newCounter = Instantiate(counterPrefab, counterPrefab.transform.position, counterPrefab.transform.rotation);
+            WaveCounterUIElements waveCounter = newCounter.GetComponent<WaveCounterUIElements>();
 
-            waveCounter.transform.SetParent(transform, false);
-            waveCounterNumber.text = ("" + (i + 1));
+            newCounter.transform.SetParent(transform, false);
+            waveCounter.Number.text = ("" + (i + 1));
 
             waveCounters.Add(waveCounter);
-            waveCountersText.Add(waveCounterNumber);
 
         }
 
@@ -50,8 +46,8 @@ public class WavePanelManager : MonoBehaviour {
 
     public void UpdateCounters() {
 
-        TextMeshProUGUI finalCounterText = (TextMeshProUGUI) waveCountersText[waveCountersText.Count - 1];
-        int finalCounterNumber = int.Parse(finalCounterText.text);
+        WaveCounterUIElements finalCounter = (WaveCounterUIElements) waveCounters[waveCounters.Count - 1];
+        int finalCounterNumber = int.Parse(finalCounter.Number.text);
 
         if (actualCounterIndex < waveCounters.Count - 1) { // Didn't reach the end
 
@@ -66,32 +62,22 @@ public class WavePanelManager : MonoBehaviour {
 
             ArrayList destroyCounters = new ArrayList();
 
-            for (int i = 0; i < waveCounters.Count; i++) {
+            foreach (WaveCounterUIElements counter in waveCounters) {
 
-                TextMeshProUGUI waveCounterNumber = (TextMeshProUGUI) waveCountersText[i];
-
-                int updatedNumber = (waveCounters.Count + int.Parse(waveCounterNumber.text));
+                int updatedNumber = (waveCounters.Count + int.Parse(counter.Number.text));
 
                 if (updatedNumber > maxWaves) {
-                    destroyCounters.Add(i);
-                }
-                else {
-                    waveCounterNumber.text = "" + updatedNumber;
+                    destroyCounters.Add(counter);
+                } else {
+                    counter.Number.text = "" + updatedNumber;
                 }
 
             }
 
-            for (int i = destroyCounters.Count - 1; i >= 0; i--) {
+            foreach (WaveCounterUIElements counter in destroyCounters) {
 
-                int counterIndex = (int) destroyCounters[i];
-
-                GameObject waveCounter = (GameObject) waveCounters[counterIndex];
-                TextMeshProUGUI waveCounterNumber = (TextMeshProUGUI) waveCountersText[counterIndex];
-
-                waveCounters.Remove(waveCounter);
-                waveCountersText.Remove(waveCounterNumber);
-
-                Destroy(waveCounter);
+                waveCounters.Remove(counter);
+                Destroy(counter.CounterObject);
 
             }
 
@@ -105,17 +91,17 @@ public class WavePanelManager : MonoBehaviour {
 
     private void ReduceCounterOpacity(int i) {
 
-        GameObject counter = (GameObject) waveCounters[i];
+        WaveCounterUIElements counter = (WaveCounterUIElements) waveCounters[i];
 
-        counter.GetComponent<Image>().color = new Color(255, 255, 255, 0.7f);
+        counter.Image.color = new Color(255, 255, 255, 0.7f);
 
     }
 
     private void ResetCounterOpacity(int i) {
 
-        GameObject counter = (GameObject) waveCounters[i];
+        WaveCounterUIElements counter = (WaveCounterUIElements) waveCounters[i];
 
-        counter.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        counter.Image.color = new Color(255, 255, 255, 1f);
 
     }
 

@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaveCounter : MonoBehaviour {
+public class WaveCounterUIElements : MonoBehaviour {
 
     private GameObject counter;
     private TextMeshProUGUI number;
     private Image image;
 
-    private void Start() {
+    private void Awake() {
 
         number = GetComponentInChildren<TextMeshProUGUI>();
         image = GetComponent<Image>();
@@ -16,7 +16,7 @@ public class WaveCounter : MonoBehaviour {
 
     }
 
-    public GameObject Counter { get { return counter; } }
+    public GameObject CounterObject { get { return counter; } }
 
     public TextMeshProUGUI Number { get { return number; } }
 
