@@ -7,7 +7,9 @@ public class SoundManager : MonoBehaviour {
     public AudioCategory referenceCategory;
     public AudioData song;
 
+    public ToggleButtonImageController toggleMuteBtnController;
     void Start() {
+        referenceCategory.AudioToggleEvent.RegisterListener(toggleMuteBtnController.action);
         song.Play();
     }
 
