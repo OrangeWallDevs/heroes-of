@@ -87,4 +87,16 @@ public class WaveManager : MonoBehaviour {
         return hasEnemys;
 
     }
+
+    public int GetMaxWaves() {
+
+        return maxWaves;
+
+    }
+
+    public int GetActualWave() {
+
+        return actualWave;
+
+    }
 }
