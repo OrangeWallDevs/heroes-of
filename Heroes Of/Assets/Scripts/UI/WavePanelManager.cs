@@ -10,9 +10,7 @@ public class WavePanelManager : MonoBehaviour {
 
     public int maxCountersDisplay;
 
-    public int maxWaves, actualWave; // Make it private and get from waveManager
-
-    private int actualCounterIndex;
+    private int actualCounterIndex, maxWaves;
     private ArrayList waveCounters;
 
     private struct WaveCounterUIElements {
@@ -25,9 +23,8 @@ public class WavePanelManager : MonoBehaviour {
 
     private void Awake() {
 
-        //maxWaves = waveManager.GetMaxWaves();
-
-        //actualWave = waveManager.GetActualWave();
+        //maxWaves = waveManager.MaxWaves;
+        maxWaves = 5;
 
         CreateCounters();
 
