@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 1020752749}
   - component: {fileID: 1020752748}
   - component: {fileID: 1020752747}
+  - component: {fileID: 1020752750}
   m_Layer: 5
   m_Name: MusicToggleBtn
   m_TagString: Untagged
@@ -739,6 +740,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020752745}
   m_CullTransparentMesh: 0
+--- !u!114 &1020752750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020752745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3f366bd26fef4a9c2aa9638476306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1180276083 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3714211493733428516, guid: d2a2621f050d7ed47a0b3f3345b73fed,
