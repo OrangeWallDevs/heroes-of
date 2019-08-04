@@ -109,11 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d3f4915b00e214daded59e071857ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragSpeed: 1
-  minDragDistance: 5.5
+  dragSpeed: 0.6
+  minDragDistance: 0.5
+  zoomSpeed: 0.05
   zoomOutMin: 3
   zoomOutMax: 10
-  zoomSpeed: 0.05
   leftLimit: 0
   rightLimit: 0
   topLimit: 0
