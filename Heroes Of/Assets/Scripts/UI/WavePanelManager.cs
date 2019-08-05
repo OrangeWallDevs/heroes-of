@@ -23,8 +23,7 @@ public class WavePanelManager : MonoBehaviour {
 
     private void Awake() {
 
-        //maxWaves = waveManager.MaxWaves;
-        maxWaves = 5;
+        maxWaves = waveManager.maxWaves;
 
         CreateCounters();
 

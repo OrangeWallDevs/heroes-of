@@ -4,47 +4,61 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
     public GameObject enemyPrefab;
-    public int spawnLimit = 15;
+    public int spawnLimit = 1;
     public float spawnFrequency = 1f;
 
-    // Public apenas para Debug
-    public int countSpawnedEnemys = 0;
-    public SpawnerStates actualState = SpawnerStates.WAITING;
+    private int countSpawnedEnemys = 0;
+    private SpawnerStates actualState = SpawnerStates.WAITING;
 
-    // Essa função apenas spawnad e seta o statos do spawner de acordo com o limimte
-    // Ela não controla os turnos
+    private Transform spawnPoint;
+
+    private void Start() {
+        
+        spawnPoint = transform.Find("Spawn_Point");
+
+    }
+
     public IEnumerator SpawnCicle() {
 
-        // Se o spawner atinge seu limite ele para
-        if (countSpawnedEnemys >= spawnLimit || actualState == SpawnerStates.WAITING) {
+        for (countSpawnedEnemys = 0; countSpawnedEnemys < spawnLimit; countSpawnedEnemys++) {
 
-            actualState = SpawnerStates.WAITING;
+            if (!actualState.Equals(SpawnerStates.WAITING)) {
 
-            Debug.Log("Limite spawn atingido estado de espera");
+                SpawnEnemy();
+                yield return new WaitForSeconds(spawnFrequency);
 
-            yield break;
+            }
+            else {
 
-        }
+                break;
 
-        for (int i = 0; i < spawnLimit; i++) {
-
-            SpawnEnemy();
-
-            // Faz a cazerna esperar para spawnar o próximo
-            yield return new WaitForSeconds(spawnFrequency);
+            }
 
         }
 
-        yield break;
+        actualState = SpawnerStates.WAITING;
+
     }
 
     private void SpawnEnemy() {
 
-        countSpawnedEnemys++;
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        Debug.Log("Spawn enemy: " + countSpawnedEnemys);
+    }
 
-        Instantiate(enemyPrefab, transform.position, transform.rotation);
+    public int CountSpawnedEnemys {
+
+        set { countSpawnedEnemys = value; }
+
+        get { return countSpawnedEnemys; }
+
+    }
+
+    public SpawnerStates ActualState {
+
+        set { actualState = value; }
+
+        get { return actualState; }
 
     }
 }

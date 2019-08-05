@@ -6,6 +6,8 @@ public class WaveManager : MonoBehaviour {
     public float countDown = 0f;
     public int maxWaves = 1;
 
+    public WavePanelManager wavesCounterPanel;
+
     private int actualWave = 0;
     private WaveStates actualState = WaveStates.COUNTING;
 
@@ -53,8 +55,8 @@ public class WaveManager : MonoBehaviour {
 
         foreach (Spawner spawnPoint in spawners) {
 
-            spawnPoint.countSpawnedEnemys = 0;
-            spawnPoint.actualState = SpawnerStates.SPAWNING;
+            spawnPoint.CountSpawnedEnemys = 0;
+            spawnPoint.ActualState = SpawnerStates.SPAWNING;
 
             StartCoroutine(spawnPoint.SpawnCicle());
 
@@ -64,9 +66,16 @@ public class WaveManager : MonoBehaviour {
 
     private void CompleteWave() {
 
-        if (actualWave >= maxWaves) {
-            Debug.Log("Nível Completo. Restart ... ");
+        foreach (Spawner spawnPoint in spawners) {
+            spawnPoint.ActualState = SpawnerStates.WAITING;
         }
+
+        if (actualWave >= maxWaves) {
+            Debug.Log("Level completed");
+            return ;
+        }
+
+        wavesCounterPanel.UpdateCounters();
 
         countDown = timeCountDown;
         actualState = WaveStates.COUNTING;
@@ -87,8 +96,6 @@ public class WaveManager : MonoBehaviour {
         return hasEnemys;
 
     }
-
-    public int MaxWaves { get { return maxWaves; } }
 
     public int ActualWave { get { return actualWave; } }
 
