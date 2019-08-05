@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 1942809372799516714}
   - component: {fileID: 8285845562555603341}
   - component: {fileID: 2374547902290497560}
+  - component: {fileID: 8279941396912377185}
   m_Layer: 8
   m_Name: Hunter
   m_TagString: Enemy
@@ -112,6 +113,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df0b7d65b82abbd49a5dc9f19cb70f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8279941396912377185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabad55a4029396418276e8d69fbc811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7039024901831482771
