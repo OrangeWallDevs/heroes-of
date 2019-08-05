@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public Transform typeEnemy;
+    public GameObject enemyPrefab;
     public int spawnLimit = 15;
     public float spawnFrequency = 1f;
 
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour {
 
         Debug.Log("Spawn enemy: " + countSpawnedEnemys);
 
-        Instantiate(typeEnemy, transform.position, transform.rotation);
+        Instantiate(enemyPrefab, transform.position, transform.rotation);
 
     }
 }
