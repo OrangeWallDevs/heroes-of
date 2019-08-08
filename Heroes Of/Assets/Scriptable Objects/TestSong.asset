@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f2e713ce948d8be5b8e5e26ccd94a94, type: 3}
-  m_Name: New Audio Data
+  m_Name: TestSong
   m_EditorClassIdentifier: 
-  Audio: {fileID: 0}
+  Audio: {fileID: 8300000, guid: 3e55768149eaf6b488b2fb8bfe2a8ab1, type: 3}
   AlternativeAudios: []
-  Category: {fileID: 0}
+  Category: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
   loop: 0
   volume: 1
   pitch: 1
