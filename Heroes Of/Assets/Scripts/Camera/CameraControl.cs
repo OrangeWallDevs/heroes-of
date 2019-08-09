@@ -62,7 +62,7 @@ public class CameraControl : MonoBehaviour {
             hit = Physics2D.Raycast(pick, Vector2.zero);
 
         } 
-        else if (Input.GetMouseButton(0) && hit.collider == null) {
+        else if (Input.GetMouseButton(0)) {
 
             actualTouch = Input.mousePosition;
 
