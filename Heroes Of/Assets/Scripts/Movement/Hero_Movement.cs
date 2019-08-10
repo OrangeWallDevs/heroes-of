@@ -14,16 +14,24 @@ public class Hero_Movement : MonoBehaviour {
     private Vector2 currentPosition, targetPosition;
 
     private RaycastHit2D hit;
-    private bool isHeroSelected, isCoroutineAllowed;
+    private bool isHeroSelected, isCoroutineAllowedSelection;
     private float firstClickTime, timeBetweenClicks;
     private int clickCounter;
+
+    private bool clickDown, clickUp;
+    private float timeBetweenDownToUp, clickDownTime;
 
     private void Start() {
 
         firstClickTime = 0f;
         timeBetweenClicks = 0.2f;
         clickCounter = 0;
-        isCoroutineAllowed = true;
+        isCoroutineAllowedSelection = true;
+
+        clickDown = false;
+        clickUp = false;
+        clickDownTime = 0f;
+        timeBetweenDownToUp = 0.5f;
 
     }
 
@@ -87,7 +95,7 @@ public class Hero_Movement : MonoBehaviour {
 
                 clickCounter++;
 
-                if (clickCounter == 1 && isCoroutineAllowed) {
+                if (clickCounter == 1 && isCoroutineAllowedSelection) {
 
                     firstClickTime = Time.time;
                     StartCoroutine(HeroUnselection());
@@ -112,11 +120,31 @@ public class Hero_Movement : MonoBehaviour {
 
             hit = DetectHit(Input.mousePosition);
 
+            clickDown = true;
+            clickDownTime = Time.time;
+
+            StartCoroutine(RestartClick());
+
+        }
+        else if (Input.GetMouseButtonUp(0) && isHeroSelected && clickDown) {
+
+            clickUp = true;
+
+            StopCoroutine(RestartClick());
+
+        }
+
+        if (clickDown && clickUp) {
+
             if (hit.collider != null && hit.transform.tag == "Path") {
 
                 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             }
+
+            clickUp = false;
+            clickDown = false;
+            clickDownTime = 0f;
 
         }
 
@@ -134,7 +162,7 @@ public class Hero_Movement : MonoBehaviour {
 
     private IEnumerator HeroUnselection() {
 
-        isCoroutineAllowed = false;
+        isCoroutineAllowedSelection = false;
 
         while (Time.time <= timeBetweenClicks + firstClickTime) {
 
@@ -152,7 +180,31 @@ public class Hero_Movement : MonoBehaviour {
 
         clickCounter = 0;
         firstClickTime = 0f;
-        isCoroutineAllowed = true;
+        isCoroutineAllowedSelection = true;
+
+    }
+
+    private IEnumerator RestartClick() {
+
+        while (Time.time <= timeBetweenDownToUp + clickDownTime) {
+
+            if (clickUp) {
+                break;
+            }
+
+            yield return new WaitForFixedUpdate();
+
+        }
+
+        if (!clickUp) {
+
+            clickUp = false;
+            clickDown = false;
+            clickDownTime = 0f;
+
+        }
+
+        yield break;
 
     }
 

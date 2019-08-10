@@ -245,6 +245,7 @@
     <Compile Include="Assets\Scripts\Audio\AudioData.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioPoolManager.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioSourceController.cs" />
+    <Compile Include="Assets\Scripts\Audio\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
@@ -257,6 +258,7 @@
     <Compile Include="Assets\Scripts\Spawner\Spawner.cs" />
     <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
     <Compile Include="Assets\Scripts\TesteAudio.cs" />
+    <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
     <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
     <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton.cs" />
