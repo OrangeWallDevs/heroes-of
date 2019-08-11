@@ -4,6 +4,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
     public GameObject enemyPrefab;
+
     public int spawnLimit = 1;
     public float spawnFrequency = 1f;
 
@@ -48,17 +49,34 @@ public class Spawner : MonoBehaviour {
 
     public int CountSpawnedEnemys {
 
-        set { countSpawnedEnemys = value; }
-
         get { return countSpawnedEnemys; }
+
+        set { countSpawnedEnemys = value; }
 
     }
 
     public SpawnerStates ActualState {
 
-        set { actualState = value; }
-
         get { return actualState; }
 
+        set { actualState = value; }
+
     }
+
+    public int SpawnLimit {
+
+        get { return spawnLimit; }
+
+        set { spawnLimit = value; }
+
+    }
+
+    public float SpawnFrequency {
+
+        get { return spawnFrequency; }
+
+        set { spawnFrequency = value; }
+
+    }
+
 }
