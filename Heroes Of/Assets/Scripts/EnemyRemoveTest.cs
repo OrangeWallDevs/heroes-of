@@ -4,7 +4,7 @@ public class EnemyRemoveTest : MonoBehaviour {
     
     void Update() {
     
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
             Destroy(gameObject);
 
     }

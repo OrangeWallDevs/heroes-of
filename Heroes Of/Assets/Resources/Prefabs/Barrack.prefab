@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ee648ee15e8db48915fabb7be4cce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 6516010080651671553, guid: 8952081146540a44b920c9eb956999db,
+    type: 3}
   spawnLimit: 15
   spawnFrequency: 1

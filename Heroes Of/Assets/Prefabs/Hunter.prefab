@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 1942809372799516714}
   - component: {fileID: 8285845562555603341}
   - component: {fileID: 2374547902290497560}
-  - component: {fileID: 8279941396912377185}
+  - component: {fileID: 4267446530108153083}
   m_Layer: 8
   m_Name: Hunter
   m_TagString: Enemy
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0b7d65b82abbd49a5dc9f19cb70f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8279941396912377185
+--- !u!114 &4267446530108153083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,7 +194,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 625670825f3ef88499b6e5325d886f50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
