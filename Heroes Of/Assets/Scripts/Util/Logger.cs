@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-class Logger : Singleton<Logger> {
+public class Logger : Singleton<Logger> {
 
     public void PrintObject(object obj) {
         var fields = Reflection.GetFields(obj);
