@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class WavePanelManager : MonoBehaviour {
 
-    public WaveManager waveManager;
     public GameObject counterPrefab;
 
     public int maxCountersDisplay;
 
     private int actualCounterIndex, maxWaves;
     private ArrayList waveCounters;
+
+    private UnityAction action;
 
     private struct WaveCounterUIElements {
 
@@ -23,9 +25,14 @@ public class WavePanelManager : MonoBehaviour {
 
     private void Awake() {
 
+        WaveManager waveManager = WaveManager.Instance;
+
         maxWaves = waveManager.maxWaves;
 
         CreateCounters();
+
+        action = UpdateCounters;
+        waveManager.waveEnd.RegisterListener(action);
 
     }
 

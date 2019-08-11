@@ -45,10 +45,7 @@ public class BarrackConstruction : MonoBehaviour {
 
                 Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                Barrack newBarrack = BuildBarrack(clickPosition);
-                Spawner barrackSpawner = newBarrack.GameObject.GetComponent<Spawner>();
-
-                waveManager.AddSpawner(barrackSpawner);
+                BuildBarrack(clickPosition);
 
                 yield break;
 

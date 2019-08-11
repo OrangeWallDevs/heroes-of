@@ -1,23 +1,25 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class WaveManager : MonoBehaviour {
+public class WaveManager : Singleton<WaveManager> {
 
     public float timeCountDown = 5f;
     public float countDown = 0f;
     public int maxWaves = 1;
 
-    public WavePanelManager wavesCounterPanel;
+    private int registeredSpawners = 0;
+    public GameEvent newWaveStart, waveEnd;
 
     private int actualWave = 0;
-    private WaveStates actualState = WaveStates.COUNTING;
+    private WaveStates actualState = WaveStates.WAITING;
 
     private float winConditionCheckCount = 1f;
-    private List<Spawner> spawners;
 
-    private void Start() {
+    private void Awake() {
 
-        spawners = new List<Spawner>();
+        newWaveStart = ScriptableObject.CreateInstance<GameEvent>();
+        waveEnd = ScriptableObject.CreateInstance<GameEvent>();
 
         countDown = timeCountDown;
 
@@ -27,14 +29,17 @@ public class WaveManager : MonoBehaviour {
 
         if (actualState == WaveStates.RUNNING) {
 
-            if (!StillHaveEnemys())
+            if (!StillHaveEnemys()) {
+
                 CompleteWave();
+
+            }
 
             return;
 
         }
 
-        if (spawners.Count > 0) {
+        if (registeredSpawners > 0) {
 
             if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
                 StartWave();
@@ -53,28 +58,18 @@ public class WaveManager : MonoBehaviour {
         actualState = WaveStates.RUNNING;
         actualWave++;
 
-        foreach (Spawner spawnPoint in spawners) {
-
-            spawnPoint.ActualState = SpawnerStates.SPAWNING;
-
-            StartCoroutine(spawnPoint.SpawnCicle());
-
-        }
+        newWaveStart.Raise();
 
     }
 
     private void CompleteWave() {
 
-        foreach (Spawner spawnPoint in spawners) {
-            spawnPoint.ActualState = SpawnerStates.WAITING;
-        }
+        waveEnd.Raise();
 
         if (actualWave >= maxWaves) {
             Debug.Log("Level completed");
             return;
         }
-
-        wavesCounterPanel.UpdateCounters();
 
         countDown = timeCountDown;
         actualState = WaveStates.COUNTING;
@@ -98,19 +93,43 @@ public class WaveManager : MonoBehaviour {
 
     public int ActualWave { get { return actualWave; } }
 
-    public void AddSpawner(Spawner spawner) {
+    public void RegisterSpawner(UnityAction waveStartAction, UnityAction waveEndAction) {
+
+        newWaveStart.RegisterListener(waveStartAction);
+        waveEnd.RegisterListener(waveEndAction);
+        registeredSpawners++;
+
+        if (actualState == WaveStates.RUNNING) {
+
+            waveStartAction();
+
+        }
+
+    }
+
+    public void UnregisterSpawner(UnityAction waveStartAction, UnityAction waveEndAction) {
+
+        newWaveStart.UnregisterListener(waveStartAction);
+        waveEnd.UnregisterListener(waveEndAction);
+        registeredSpawners--;
+
+    }
+
+    /*public void AddSpawner(Spawner spawner) {
 
         spawners.Add(spawner);
 
-        spawner.ActualState = SpawnerStates.SPAWNING;
-        StartCoroutine(spawner.SpawnCicle());
+        if (actualState == WaveStates.RUNNING) {
+
+            spawner.StartSpawnCicle();
+
+        } 
 
     }
 
     public void RemoveSpawner(Spawner spawner) {
 
-        spawner.ActualState = SpawnerStates.WAITING;
-        StopCoroutine(spawner.SpawnCicle());
+        spawner.StopSpawnCicle();
 
         spawners.Remove(spawner);
 
@@ -120,6 +139,6 @@ public class WaveManager : MonoBehaviour {
 
         spawners.Clear();
 
-    }
+    }*/
 
 }
