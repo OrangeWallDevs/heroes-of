@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
 
@@ -12,16 +13,11 @@ public class WaveManager : MonoBehaviour {
     private WaveStates actualState = WaveStates.COUNTING;
 
     private float winConditionCheckCount = 1f;
-    private Spawner[] spawners;
+    private List<Spawner> spawners;
 
     private void Start() {
 
-        GameObject[] spawnersObjetcs = GameObject.FindGameObjectsWithTag("Spawner");
-        spawners = new Spawner[spawnersObjetcs.Length];
-
-        for (int i = 0; i < spawnersObjetcs.Length; i++) {
-            spawners[i] = spawnersObjetcs[i].GetComponent<Spawner>();
-        }
+        spawners = new List<Spawner>();
 
         countDown = timeCountDown;
 
@@ -31,19 +27,23 @@ public class WaveManager : MonoBehaviour {
 
         if (actualState == WaveStates.RUNNING) {
 
-            if (!StillHaveEnemys()) 
+            if (!StillHaveEnemys())
                 CompleteWave();
 
             return;
 
         }
 
-        if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
-            StartWave();
-        } 
-        else {
-            actualState = WaveStates.COUNTING;
-            countDown -= Time.deltaTime;
+        if (spawners.Count > 0) {
+
+            if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
+                StartWave();
+            } 
+            else {
+                actualState = WaveStates.COUNTING;
+                countDown -= Time.deltaTime;
+            }
+
         }
 
     }
@@ -55,7 +55,6 @@ public class WaveManager : MonoBehaviour {
 
         foreach (Spawner spawnPoint in spawners) {
 
-            spawnPoint.CountSpawnedEnemys = 0;
             spawnPoint.ActualState = SpawnerStates.SPAWNING;
 
             StartCoroutine(spawnPoint.SpawnCicle());
@@ -72,7 +71,7 @@ public class WaveManager : MonoBehaviour {
 
         if (actualWave >= maxWaves) {
             Debug.Log("Level completed");
-            return ;
+            return;
         }
 
         wavesCounterPanel.UpdateCounters();
@@ -98,5 +97,29 @@ public class WaveManager : MonoBehaviour {
     }
 
     public int ActualWave { get { return actualWave; } }
+
+    public void AddSpawner(Spawner spawner) {
+
+        spawners.Add(spawner);
+
+        spawner.ActualState = SpawnerStates.SPAWNING;
+        StartCoroutine(spawner.SpawnCicle());
+
+    }
+
+    public void RemoveSpawner(Spawner spawner) {
+
+        spawner.ActualState = SpawnerStates.WAITING;
+        StopCoroutine(spawner.SpawnCicle());
+
+        spawners.Remove(spawner);
+
+    }
+
+    public void ClearSpawners() {
+
+        spawners.Clear();
+
+    }
 
 }
