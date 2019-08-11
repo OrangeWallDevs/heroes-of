@@ -243,6 +243,7 @@
      <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Dialogue\Speech.cs" />
+     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
      <Compile Include="Assets\Scripts\Event\GameEvent.cs" />
      <Compile Include="Assets\Scripts\Event\GameEventListener.cs" />
      <Compile Include="Assets\Scripts\Movement\Hero_Movement.cs" />
