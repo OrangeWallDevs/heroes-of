@@ -2,15 +2,26 @@
 
 public class Barrack : Entity {
 
+    private string type;
     private string name;
     private string description;
 
+    private Minion minion;
+
     private float spawnFrequency;
     private int spawnLimit;
-
+    
     private int moneyValue;
 
     public Barrack(GameObject gameObject) : base (gameObject) { }
+
+    public string Type {
+
+        get { return type; }
+
+        set { type = value; }
+
+    }
 
     public string Name {
 
@@ -25,6 +36,14 @@ public class Barrack : Entity {
         get { return description; }
 
         set { description = value; }
+
+    }
+
+    public Minion Minion {
+
+        get { return minion; }
+
+        set { minion = value; }
 
     }
 
