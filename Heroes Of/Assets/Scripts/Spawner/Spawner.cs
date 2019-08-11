@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
 
     private Transform spawnPoint;
 
-    private void Start() {
+    private void Awake() {
         
         spawnPoint = transform.Find("Spawn_Point");
 
@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour {
 
     public IEnumerator SpawnCicle() {
 
-        for (countSpawnedEnemys = 0; countSpawnedEnemys < spawnLimit; countSpawnedEnemys++) {
+        for (countSpawnedEnemys = 1; countSpawnedEnemys < spawnLimit; countSpawnedEnemys++) {
 
             if (!actualState.Equals(SpawnerStates.WAITING)) {
 
