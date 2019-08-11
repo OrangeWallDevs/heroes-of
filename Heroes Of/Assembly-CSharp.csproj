@@ -253,6 +253,7 @@
      <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
      <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
      <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\Util\Logger.cs" />
      <Compile Include="Assets\Scripts\Util\Reflection.cs" />
      <Compile Include="Assets\Scripts\Util\Singleton.cs" />
      <Compile Include="Assets\Scripts\Wave\WaveManager.cs" />
