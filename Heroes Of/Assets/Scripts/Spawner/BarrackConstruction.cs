@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BarrackConstruction : MonoBehaviour {
 
-    public WaveManager waveManager;
-
     private GameObject barrackPrefab;
     private List<Sprite> barrackSprites;
 
