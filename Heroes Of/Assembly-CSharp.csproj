@@ -474,6 +474,9 @@
  <Reference Include="nunit.framework">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.1.12f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/home/daniel/Documentos/Projeto Heroes Of/Repositories/heroes-of/Heroes Of/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>/home/daniel/Documentos/Projeto Heroes Of/Repositories/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
@@ -482,9 +485,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
  <HintPath>/home/daniel/Documentos/Projeto Heroes Of/Repositories/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>/home/daniel/Documentos/Projeto Heroes Of/Repositories/heroes-of/Heroes Of/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.1.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
