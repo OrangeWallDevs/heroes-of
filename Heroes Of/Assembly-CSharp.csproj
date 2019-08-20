@@ -263,6 +263,7 @@
     <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
     <Compile Include="Assets\Scripts\TesteAudio.cs" />
     <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
+    <Compile Include="Assets\Scripts\UI\BarracksPanel.cs" />
     <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
     <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Util\Logger.cs" />
