@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class BarrackConstruction : MonoBehaviour {
 
-    private GameObject barrackPrefab;
-    private List<Sprite> barrackSprites;
+    public GameObject barrackPrefab;
+    public List<Sprite> barrackSprites;
 
     private int barrackID;
 
     private bool isPlaceSelected;
 
     private void Start() {
-
-        barrackPrefab = (GameObject) Resources.Load("Prefabs/Barrack", typeof(GameObject));
-
-        barrackSprites = new List<Sprite>();
-        foreach (Sprite sprite in Resources.LoadAll("Sprites/Barracks", typeof(Sprite))) {
-
-            barrackSprites.Add(sprite);
-
-        }
 
     }
 
