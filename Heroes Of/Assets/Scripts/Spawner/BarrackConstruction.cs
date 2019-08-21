@@ -57,7 +57,7 @@ public class BarrackConstruction : MonoBehaviour {
 
         foreach (Sprite sprite in barrackSprites) {
 
-            if (sprite.name == barrack.Type + "_Barrack") {
+            if (sprite.name == barrack.NamBarrack) {
 
                 barrack.GameObject.GetComponent<SpriteRenderer>().sprite = sprite;
                 break;
@@ -77,48 +77,43 @@ public class BarrackConstruction : MonoBehaviour {
         switch (barrackID) {
 
             case 1:
-                barrack.Type = "Assassin";
-                barrack.Name = "Assassins Barrack";
-                barrack.Description = "Spawn a bunch of Assassins";
-                barrack.SpawnFrequency = 1f;
-                barrack.SpawnLimit = 15;
-                barrack.MoneyValue = 25;
+                barrack.NamBarrack = "Assassin_Barrack";
+                barrack.DesBarrack = "Spawn a bunch of Assassins";
+                barrack.VlrSpawnFrequency = 1f;
+                barrack.NumTroopLimit = 15;
+                barrack.VlrCost = 25;
                 break;
 
             case 2:
-                barrack.Type = "Hunter";
-                barrack.Name = "Hunters Barrack";
-                barrack.Description = "Spawn a bunch of Hunters";
-                barrack.SpawnFrequency = 1f;
-                barrack.SpawnLimit = 15;
-                barrack.MoneyValue = 25;
+                barrack.NamBarrack = "Hunter_Barrack";
+                barrack.DesBarrack = "Spawn a bunch of Hunters";
+                barrack.VlrSpawnFrequency = 1f;
+                barrack.NumTroopLimit = 15;
+                barrack.VlrCost = 25;
                 break;
 
             case 3:
-                barrack.Type = "Knight";
-                barrack.Name = "Knights Barrack";
-                barrack.Description = "Spawn a bunch of Knights";
-                barrack.SpawnFrequency = 1f;
-                barrack.SpawnLimit = 15;
-                barrack.MoneyValue = 25;
+                barrack.NamBarrack = "Knight_Barrack";
+                barrack.DesBarrack = "Spawn a bunch of Knights";
+                barrack.VlrSpawnFrequency = 1f;
+                barrack.NumTroopLimit = 15;
+                barrack.VlrCost = 25;
                 break;
 
             case 4:
-                barrack.Type = "Mage";
-                barrack.Name = "Mages Barrack";
-                barrack.Description = "Spawn a bunch of Mages";
-                barrack.SpawnFrequency = 1f;
-                barrack.SpawnLimit = 15;
-                barrack.MoneyValue = 25;
+                barrack.NamBarrack = "Mage_Barrack";
+                barrack.DesBarrack = "Spawn a bunch of Mages";
+                barrack.VlrSpawnFrequency = 1f;
+                barrack.NumTroopLimit = 15;
+                barrack.VlrCost = 25;
                 break;
 
             case 5:
-                barrack.Type = "Soldier";
-                barrack.Name = "Soldiers Barrack";
-                barrack.Description = "Spawn a bunch of Soldiers";
-                barrack.SpawnFrequency = 1f;
-                barrack.SpawnLimit = 15;
-                barrack.MoneyValue = 25;
+                barrack.NamBarrack = "Soldier_Barrack";
+                barrack.DesBarrack = "Spawn a bunch of Soldiers";
+                barrack.VlrSpawnFrequency = 1f;
+                barrack.NumTroopLimit = 15;
+                barrack.VlrCost = 25;
                 break;
 
         }
