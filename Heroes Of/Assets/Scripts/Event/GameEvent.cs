@@ -33,6 +33,10 @@ public class GameEvent : ScriptableObject {
         simpleRuntimeListeners.Remove(action);
     }
 
+    public int ListenersCount {
+        get { return gameEventListeners.Count + simpleRuntimeListeners.Count; }
+    }
+
 }
 
 public class GameEvent<T> : ScriptableObject {
@@ -51,6 +55,10 @@ public class GameEvent<T> : ScriptableObject {
 
     public void UnregisterListener(UnityAction<T> action) {
         simpleRuntimeListeners.Remove(action);
+    }
+
+    public int ListenersCount {
+        get { return simpleRuntimeListeners.Count; }
     }
 
 }
