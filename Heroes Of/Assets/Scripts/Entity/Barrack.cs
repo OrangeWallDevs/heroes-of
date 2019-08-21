@@ -2,87 +2,66 @@
 
 public class Barrack : Entity {
 
-    private string type;
-    private string name;
-    private string description;
+    private int codBarrack;
+    private int codPart;
+    private int codTroop;
+    private string namBarrack;
+    private string desBarrack;
+    private float vlrSpawnFrequency;
+    private int vlrCost;
+    private int numTroopLimit;
 
-    private Minion minion;
-
-    private float spawnFrequency;
-    private int spawnLimit;
-    
-    private int moneyValue;
-
-    public Barrack(GameObject gameObject) : base (gameObject) { }
-
-    public string Type {
-
-        get { return type; }
-
-        set { type = value; }
+    public Barrack(GameObject gameObject) : base(gameObject) {
 
     }
 
-    public string Name {
-
-        get { return name; }
-
-        set { name = value; }
-
+    public Barrack(int codBarrack, int codPart, int codTroop, string namBarrack
+    , string desBarrack, int vlrSpawnFrequency, int vlrCost, int numTroopLimit)
+    : base(null) {
+        this.codBarrack = codBarrack;
+        this.codPart = codPart;
+        this.codTroop = codTroop;
+        this.namBarrack = namBarrack;
+        this.desBarrack = desBarrack;
+        this.vlrSpawnFrequency = vlrSpawnFrequency;
+        this.vlrCost = vlrCost;
+        this.numTroopLimit = numTroopLimit;
     }
 
-    public string Description {
-
-        get { return description; }
-
-        set { description = value; }
-
-    }
-
-    public Minion Minion {
-
-        get { return minion; }
-
-        set { minion = value; }
-
-    }
-
-    public float SpawnFrequency {
-
-        get { return spawnFrequency; }
-
+    public int CodBarrack { get => codBarrack; set => codBarrack = value; }
+    public int CodPart { get => codPart; set => codPart = value; }
+    public int CodTroop { get => codTroop; set => codTroop = value; }
+    public string NamBarrack { get => namBarrack; set => namBarrack = value; }
+    public string DesBarrack { get => desBarrack; set => desBarrack = value; }
+    public float VlrSpawnFrequency {
+        get => vlrSpawnFrequency;
         set {
 
-            spawnFrequency = value;
+            vlrSpawnFrequency = value;
 
-            Spawner spawnerScript = GameObject.GetComponent<Spawner>();
-            spawnerScript.SpawnFrequency = spawnFrequency;
+            if (GameObject != null) {
+
+                Spawner spawner = GameObject.GetComponent<Spawner>();
+                spawner.SpawnFrequency = vlrSpawnFrequency;
+
+            }
 
         }
-
     }
-
-    public int SpawnLimit {
-
-        get { return spawnLimit; }
-
+    public int VlrCost { get => vlrCost; set => vlrCost = value; }
+    public int NumTroopLimit {
+        get => numTroopLimit;
         set {
 
-            spawnLimit = value;
+            numTroopLimit = value;
 
-            Spawner spawnerScript = GameObject.GetComponent<Spawner>();
-            spawnerScript.SpawnLimit = spawnLimit;
+            if (GameObject != null) {
+
+                Spawner spawner = GameObject.GetComponent<Spawner>();
+                spawner.SpawnLimit = numTroopLimit;
+
+            }
 
         }
-
     }
-
-    public int MoneyValue {
-
-        get { return moneyValue; }
-
-        set { moneyValue = value; }
-
-    }
-
 }
