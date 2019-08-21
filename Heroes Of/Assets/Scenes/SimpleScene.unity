@@ -3616,7 +3616,7 @@ GameObject:
   - component: {fileID: 910859930}
   - component: {fileID: 910859929}
   m_Layer: 0
-  m_Name: WaveManager
+  m_Name: Wave_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3634,11 +3634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d90bd5b2d9d5744974414eba3d3864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCountDown: 5
-  countDown: 0
-  maxWaves: 7
-  newWaveStart: {fileID: 0}
-  waveEnd: {fileID: 0}
+  startTimeCountDown: 5
+  maxWaves: 1
+  waveStartEvent: {fileID: 11400000, guid: 07ec5189294f2ae45bed6786037eaca0, type: 2}
+  waveEndEvent: {fileID: 11400000, guid: fef4180933e2be34c950944cf69940e7, type: 2}
+  finalWaveCompleted: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
 --- !u!4 &910859930
 Transform:
   m_ObjectHideFlags: 0
