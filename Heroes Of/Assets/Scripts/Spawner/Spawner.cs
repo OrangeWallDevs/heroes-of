@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour {
 
@@ -14,17 +13,16 @@ public class Spawner : MonoBehaviour {
 
     private Transform spawnPoint;
 
-    private UnityAction newTurnAction, endTurnAction;
-
     private void Awake() {
         
         spawnPoint = transform.Find("Spawn_Point");
 
-        newTurnAction = StartSpawnCicle;
-        endTurnAction = StopSpawnCicle;
+    }
+
+    private void Start() {
 
         WaveManager waveManager = WaveManager.Instance;
-        waveManager.RegisterSpawner(newTurnAction, endTurnAction);
+        waveManager.RegisterSpawnerAsListener(this);
 
     }
 

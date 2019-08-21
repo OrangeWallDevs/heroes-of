@@ -1,27 +1,20 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class WaveManager : Singleton<WaveManager> {
 
-    public float timeCountDown = 5f;
-    public float countDown = 0f;
+    public float startTimeCountDown = 5f;
     public int maxWaves = 1;
 
-    private int registeredSpawners = 0;
-    public GameEvent newWaveStart, waveEnd;
+    public GameEvent waveStartEvent, waveEndEvent, finalWaveCompleted;
 
     private int actualWave = 0;
     private WaveStates actualState = WaveStates.WAITING;
 
-    private float winConditionCheckCount = 1f;
+    private float winConditionCheckCount = 1f, countDown = 0f;
 
     private void Awake() {
 
-        newWaveStart = ScriptableObject.CreateInstance<GameEvent>();
-        waveEnd = ScriptableObject.CreateInstance<GameEvent>();
-
-        countDown = timeCountDown;
+        countDown = startTimeCountDown;
 
     }
 
@@ -39,14 +32,18 @@ public class WaveManager : Singleton<WaveManager> {
 
         }
 
-        if (registeredSpawners > 0) {
+        if (waveStartEvent.ListenersCount > 0) {
 
             if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
+
                 StartWave();
+
             } 
             else {
+
                 actualState = WaveStates.COUNTING;
                 countDown -= Time.deltaTime;
+
             }
 
         }
@@ -58,20 +55,22 @@ public class WaveManager : Singleton<WaveManager> {
         actualState = WaveStates.RUNNING;
         actualWave++;
 
-        newWaveStart.Raise();
+        waveStartEvent.Raise();
 
     }
 
     private void CompleteWave() {
 
-        waveEnd.Raise();
+        waveEndEvent.Raise();
 
         if (actualWave >= maxWaves) {
-            Debug.Log("Level completed");
+
+            finalWaveCompleted.Raise();
             return;
+
         }
 
-        countDown = timeCountDown;
+        countDown = startTimeCountDown;
         actualState = WaveStates.COUNTING;
 
     }
@@ -91,54 +90,36 @@ public class WaveManager : Singleton<WaveManager> {
 
     }
 
-    public int ActualWave { get { return actualWave; } }
+    public void RegisterSpawnerAsListener(Spawner spawner) {
 
-    public void RegisterSpawner(UnityAction waveStartAction, UnityAction waveEndAction) {
+        waveStartEvent.RegisterListener(spawner.StartSpawnCicle);
+        waveEndEvent.RegisterListener(spawner.StopSpawnCicle);
 
-        newWaveStart.RegisterListener(waveStartAction);
-        waveEnd.RegisterListener(waveEndAction);
-        registeredSpawners++;
+        if (actualState.Equals(WaveStates.RUNNING)) {
 
-        if (actualState == WaveStates.RUNNING) {
-
-            waveStartAction();
+            spawner.StartSpawnCicle();
 
         }
 
     }
 
-    public void UnregisterSpawner(UnityAction waveStartAction, UnityAction waveEndAction) {
+    public void UnregisterSpawnerAsListener(Spawner spawner) {
 
-        newWaveStart.UnregisterListener(waveStartAction);
-        waveEnd.UnregisterListener(waveEndAction);
-        registeredSpawners--;
+        waveStartEvent.UnregisterListener(spawner.StartSpawnCicle);
+        waveEndEvent.UnregisterListener(spawner.StopSpawnCicle);
 
-    }
+        if (actualState.Equals(WaveStates.RUNNING)) {
 
-    /*public void AddSpawner(Spawner spawner) {
+            spawner.StopSpawnCicle();
 
-        spawners.Add(spawner);
-
-        if (actualState == WaveStates.RUNNING) {
-
-            spawner.StartSpawnCicle();
-
-        } 
+        }
 
     }
 
-    public void RemoveSpawner(Spawner spawner) {
+    public float CountDown { get { return countDown; } }
 
-        spawner.StopSpawnCicle();
+    public int ActualWave { get { return actualWave; } }
 
-        spawners.Remove(spawner);
-
-    }
-
-    public void ClearSpawners() {
-
-        spawners.Clear();
-
-    }*/
+    public WaveStates ActualState { get { return actualState; } }
 
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class WavePanelManager : MonoBehaviour {
@@ -12,8 +11,6 @@ public class WavePanelManager : MonoBehaviour {
 
     private int actualCounterIndex, maxWaves;
     private ArrayList waveCounters;
-
-    private UnityAction action;
 
     private struct WaveCounterUIElements {
 
@@ -31,8 +28,7 @@ public class WavePanelManager : MonoBehaviour {
 
         CreateCounters();
 
-        action = UpdateCounters;
-        waveManager.waveEnd.RegisterListener(action);
+        waveManager.waveEndEvent.RegisterListener(UpdateCounters);
 
     }
 
