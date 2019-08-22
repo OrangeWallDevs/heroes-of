@@ -20,6 +20,7 @@ public class Hero_Movement : MonoBehaviour {
 
     private bool clickDown, clickUp;
     private float timeBetweenDownToUp, clickDownTime;
+    private Vector2 clickDownPosition, clickUpPosition;
 
     private void Start() {
 
@@ -33,6 +34,7 @@ public class Hero_Movement : MonoBehaviour {
         clickDownTime = 0f;
         timeBetweenDownToUp = 0.5f;
 
+        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
     }
 
     private void Awake() {
@@ -42,8 +44,6 @@ public class Hero_Movement : MonoBehaviour {
 
         heroRigidbody = GetComponent<Rigidbody2D>();
         heroTransform = GetComponent<Transform>();
-
-        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
 
         targetPosition = heroTransform.position;
 
@@ -118,7 +118,8 @@ public class Hero_Movement : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0) && isHeroSelected) {
 
-            hit = DetectHit(Input.mousePosition);
+            clickDownPosition = Input.mousePosition;
+            hit = DetectHit(clickDownPosition);
 
             clickDown = true;
             clickDownTime = Time.time;
@@ -128,13 +129,14 @@ public class Hero_Movement : MonoBehaviour {
         }
         else if (Input.GetMouseButtonUp(0) && isHeroSelected && clickDown) {
 
+            clickUpPosition = Input.mousePosition;
             clickUp = true;
 
             StopCoroutine(RestartClick());
 
         }
 
-        if (clickDown && clickUp) {
+        if (clickDown && clickUp && clickDownPosition == clickUpPosition) {
 
             if (hit.collider != null && hit.transform.tag == "Path") {
 
