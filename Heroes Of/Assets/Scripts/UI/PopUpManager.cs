@@ -12,9 +12,11 @@ public class PopUpManager : MonoBehaviour {
     private Canvas sceneCanvas;
 
     private void Awake() {
-        confirmationYesBtn = GameObject.Find("Confirm_YesBtn").GetComponent<Button>();
-        confirmationNoBtn = GameObject.Find("Confirm_NoBtn").GetComponent<Button>();
-        warningBtn = GameObject.Find("Warning_YesBtn").GetComponent<Button>();
+        Button[] confirmationPrefabButtons = ConfirmationPopUpPrefab.GetComponentsInChildren<Button>();
+        confirmationYesBtn = confirmationPrefabButtons[0];
+        confirmationNoBtn = confirmationPrefabButtons[1];
+        
+        warningBtn = WarningPopUpPrefab.GetComponentsInChildren<Button>()[0];
     }
 
     public void ShowConfirmationModal(string confirmationText, UnityAction yesCallback, UnityAction noCallback) {
