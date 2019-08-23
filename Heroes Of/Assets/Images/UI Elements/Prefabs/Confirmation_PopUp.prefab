@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 8362962533832005427, guid: d2a2621f050d7ed47a0b3f3345b73fed,
         type: 3}
       propertyPath: m_Name
-      value: Yes_Btn
+      value: Confirm_YesBtn
       objectReference: {fileID: 0}
     - target: {fileID: 3714211493733428516, guid: d2a2621f050d7ed47a0b3f3345b73fed,
         type: 3}
@@ -529,7 +529,7 @@ PrefabInstance:
     - target: {fileID: 8362962533832005427, guid: d2a2621f050d7ed47a0b3f3345b73fed,
         type: 3}
       propertyPath: m_Name
-      value: No_Btn
+      value: Confirm_NoBtn
       objectReference: {fileID: 0}
     - target: {fileID: 3714211493733428516, guid: d2a2621f050d7ed47a0b3f3345b73fed,
         type: 3}
