@@ -11,20 +11,21 @@ public class PopUpManager : MonoBehaviour {
     private Button confirmationYesBtn, confirmationNoBtn, warningBtn;
     private Canvas sceneCanvas;
 
-    private void Awake() {
+    void Awake() {
+        Debug.Log("Método awake do PopUpManager.cs foi chamado");
         Button[] confirmationPrefabButtons = ConfirmationPopUpPrefab.GetComponentsInChildren<Button>();
-        confirmationYesBtn = confirmationPrefabButtons[0];
-        confirmationNoBtn = confirmationPrefabButtons[1];
+        this.confirmationYesBtn = confirmationPrefabButtons[0];
+        this.confirmationNoBtn = confirmationPrefabButtons[1];
         
-        warningBtn = WarningPopUpPrefab.GetComponentsInChildren<Button>()[0];
+        this.warningBtn = WarningPopUpPrefab.GetComponentsInChildren<Button>()[0];
     }
 
     public void ShowConfirmationModal(string confirmationText, UnityAction yesCallback, UnityAction noCallback) {
         SetupCanvas();
 
-        TextMeshPro confirmationTMPComponent = ConfirmationPopUpPrefab.GetComponent<TextMeshPro>();
+        TextMeshProUGUI confirmationTMPComponent = ConfirmationPopUpPrefab.GetComponentInChildren<TextMeshProUGUI>();
         
-        confirmationTMPComponent.SetText(confirmationText);
+        confirmationTMPComponent.text = confirmationText;
         confirmationYesBtn.onClick.AddListener(yesCallback);
         confirmationNoBtn.onClick.AddListener(noCallback);
 
@@ -44,5 +45,4 @@ public class PopUpManager : MonoBehaviour {
     private void SetupCanvas() {
         sceneCanvas = FindObjectOfType(typeof(Canvas)) as Canvas;
     }
-
 }

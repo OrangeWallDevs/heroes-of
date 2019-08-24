@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PopUpTest : MonoBehaviour {
     public PopUpManager alertManager;
     private UnityAction yesFn, noFn;
+
     public void ConfirmationTest() {
         yesFn += ConfirmationSuccess;
         noFn += ConfirmationFailed;
