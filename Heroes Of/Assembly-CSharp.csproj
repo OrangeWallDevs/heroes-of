@@ -249,6 +249,7 @@
      <Compile Include="Assets\Scripts\Spawner\Spawner.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
      <Compile Include="Assets\Scripts\TesteAudio.cs" />
+     <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
      <Compile Include="Assets\Scripts\UI\PopUpManager.cs" />
      <Compile Include="Assets\Scripts\UI\PopUpTest.cs" />
      <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
