@@ -8,10 +8,15 @@ public class PopUpTest : MonoBehaviour {
     private UnityAction yesFn, noFn;
 
     public void ConfirmationTest() {
-        yesFn += ConfirmationSuccess;
-        noFn += ConfirmationFailed;
+        yesFn = ConfirmationSuccess;
+        noFn = ConfirmationFailed;
         alertManager.ShowConfirmationModal("Do you wanna choose yes?", yesFn, noFn);
     }
+
+    public void WarningTest() {
+        alertManager.ShowWarningModal("I'm warning you. You have to click 'OK'. Now.");
+    }
+    
     private void ConfirmationSuccess() {
         Debug.Log("The user choose 'yes'. That's nice :)");
     }
