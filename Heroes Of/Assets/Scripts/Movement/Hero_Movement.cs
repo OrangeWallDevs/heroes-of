@@ -75,10 +75,14 @@ public class Hero_Movement : MonoBehaviour {
             || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
 
             heroRigidbody.MovePosition(newPosition);
+            characterAnimatorScript.AnimateRun(targetPosition);
 
         }
+        else {
 
-        characterAnimatorScript.SetDirection(targetPosition);
+            characterAnimatorScript.AnimateStatic();
+
+        }
 
     }
 
