@@ -255,6 +255,7 @@
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Event\GameEvent.cs" />
     <Compile Include="Assets\Scripts\Event\GameEventListener.cs" />
+    <Compile Include="Assets\Scripts\MageTestAnimationKeys.cs" />
     <Compile Include="Assets\Scripts\Movement\Hero_Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PathColisionIgnore.cs" />
     <Compile Include="Assets\Scripts\Spawner\BarrackConstruction.cs" />
@@ -262,6 +263,7 @@
     <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
     <Compile Include="Assets\Scripts\TesteAudio.cs" />
     <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
+    <Compile Include="Assets\Scripts\TroopState.cs" />
     <Compile Include="Assets\Scripts\UI\BarracksPanel.cs" />
     <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
     <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
