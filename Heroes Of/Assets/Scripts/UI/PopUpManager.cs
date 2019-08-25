@@ -8,41 +8,47 @@ using TMPro;
 public class PopUpManager : MonoBehaviour {
     public GameObject WarningPopUpPrefab;
     public GameObject ConfirmationPopUpPrefab;
-    private Button confirmationYesBtn, confirmationNoBtn, warningBtn;
     private Canvas sceneCanvas;
-
-    void Awake() {
-        Debug.Log("Método awake do PopUpManager.cs foi chamado");
-        Button[] confirmationPrefabButtons = ConfirmationPopUpPrefab.GetComponentsInChildren<Button>();
-        this.confirmationYesBtn = confirmationPrefabButtons[0];
-        this.confirmationNoBtn = confirmationPrefabButtons[1];
-        
-        this.warningBtn = WarningPopUpPrefab.GetComponentsInChildren<Button>()[0];
-    }
-
+    
     public void ShowConfirmationModal(string confirmationText, UnityAction yesCallback, UnityAction noCallback) {
         SetupCanvas();
 
-        TextMeshProUGUI confirmationTMPComponent = ConfirmationPopUpPrefab.GetComponentInChildren<TextMeshProUGUI>();
+        GameObject confirmationPopUp = Instantiate(ConfirmationPopUpPrefab, sceneCanvas.transform);
+        TextMeshProUGUI confirmationTMPComponent = confirmationPopUp.GetComponentInChildren<TextMeshProUGUI>();
+        Button[] confirmationPrefabButtons = confirmationPopUp.GetComponentsInChildren<Button>();
+        Button confirmationYesBtn = confirmationPrefabButtons[0];
+        Button confirmationNoBtn = confirmationPrefabButtons[1];
         
         confirmationTMPComponent.text = confirmationText;
-        confirmationYesBtn.onClick.AddListener(yesCallback);
-        confirmationNoBtn.onClick.AddListener(noCallback);
 
-        Instantiate(ConfirmationPopUpPrefab, sceneCanvas.transform);
+        confirmationYesBtn.onClick.AddListener(() => {
+            yesCallback();
+            CloseModalInstance(confirmationPopUp);
+        });
+
+        confirmationNoBtn.onClick.AddListener(() => {
+            noCallback();
+            CloseModalInstance(confirmationPopUp);
+        });
     }
 
     public void ShowWarningModal(string warningMessage) {
         SetupCanvas();
         
-        TextMeshPro warningTMPComponent = WarningPopUpPrefab.GetComponent<TextMeshPro>();
+        GameObject warningPopUp = Instantiate(WarningPopUpPrefab, sceneCanvas.transform);
+        TextMeshProUGUI warningTMPComponent = warningPopUp.GetComponentInChildren<TextMeshProUGUI>();
+        Button warningRecievedBtn = warningPopUp.GetComponentInChildren<Button>();
 
-        warningTMPComponent.SetText(warningMessage);
+        warningTMPComponent.text = warningMessage;
 
-        Instantiate(WarningPopUpPrefab, sceneCanvas.transform);
+        warningRecievedBtn.onClick.AddListener(() => CloseModalInstance(warningPopUp));
     }
     
     private void SetupCanvas() {
         sceneCanvas = FindObjectOfType(typeof(Canvas)) as Canvas;
+    }
+
+    private void CloseModalInstance(GameObject modalInstance) {
+        Destroy(modalInstance);
     }
 }
