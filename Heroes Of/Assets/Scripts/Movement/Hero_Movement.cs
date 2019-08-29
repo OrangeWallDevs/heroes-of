@@ -14,17 +14,27 @@ public class Hero_Movement : MonoBehaviour {
     private Vector2 currentPosition, targetPosition;
 
     private RaycastHit2D hit;
-    private bool isHeroSelected, isCoroutineAllowed;
+    private bool isHeroSelected, isCoroutineAllowedSelection;
     private float firstClickTime, timeBetweenClicks;
     private int clickCounter;
+
+    private bool clickDown, clickUp;
+    private float timeBetweenDownToUp, clickDownTime;
+    private Vector2 clickDownPosition, clickUpPosition;
 
     private void Start() {
 
         firstClickTime = 0f;
         timeBetweenClicks = 0.2f;
         clickCounter = 0;
-        isCoroutineAllowed = true;
+        isCoroutineAllowedSelection = true;
 
+        clickDown = false;
+        clickUp = false;
+        clickDownTime = 0f;
+        timeBetweenDownToUp = 0.5f;
+
+        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
     }
 
     private void Awake() {
@@ -34,8 +44,6 @@ public class Hero_Movement : MonoBehaviour {
 
         heroRigidbody = GetComponent<Rigidbody2D>();
         heroTransform = GetComponent<Transform>();
-
-        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
 
         targetPosition = heroTransform.position;
 
@@ -67,10 +75,14 @@ public class Hero_Movement : MonoBehaviour {
             || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
 
             heroRigidbody.MovePosition(newPosition);
+            characterAnimatorScript.AnimateRun(targetPosition);
 
         }
+        else {
 
-        characterAnimatorScript.SetDirection(targetPosition);
+            characterAnimatorScript.AnimateStatic();
+
+        }
 
     }
 
@@ -87,7 +99,7 @@ public class Hero_Movement : MonoBehaviour {
 
                 clickCounter++;
 
-                if (clickCounter == 1 && isCoroutineAllowed) {
+                if (clickCounter == 1 && isCoroutineAllowedSelection) {
 
                     firstClickTime = Time.time;
                     StartCoroutine(HeroUnselection());
@@ -110,13 +122,35 @@ public class Hero_Movement : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0) && isHeroSelected) {
 
-            hit = DetectHit(Input.mousePosition);
+            clickDownPosition = Input.mousePosition;
+            hit = DetectHit(clickDownPosition);
+
+            clickDown = true;
+            clickDownTime = Time.time;
+
+            StartCoroutine(RestartClick());
+
+        }
+        else if (Input.GetMouseButtonUp(0) && isHeroSelected && clickDown) {
+
+            clickUpPosition = Input.mousePosition;
+            clickUp = true;
+
+            StopCoroutine(RestartClick());
+
+        }
+
+        if (clickDown && clickUp && clickDownPosition == clickUpPosition) {
 
             if (hit.collider != null && hit.transform.tag == "Path") {
 
                 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             }
+
+            clickUp = false;
+            clickDown = false;
+            clickDownTime = 0f;
 
         }
 
@@ -134,7 +168,7 @@ public class Hero_Movement : MonoBehaviour {
 
     private IEnumerator HeroUnselection() {
 
-        isCoroutineAllowed = false;
+        isCoroutineAllowedSelection = false;
 
         while (Time.time <= timeBetweenClicks + firstClickTime) {
 
@@ -152,7 +186,31 @@ public class Hero_Movement : MonoBehaviour {
 
         clickCounter = 0;
         firstClickTime = 0f;
-        isCoroutineAllowed = true;
+        isCoroutineAllowedSelection = true;
+
+    }
+
+    private IEnumerator RestartClick() {
+
+        while (Time.time <= timeBetweenDownToUp + clickDownTime) {
+
+            if (clickUp) {
+                break;
+            }
+
+            yield return new WaitForFixedUpdate();
+
+        }
+
+        if (!clickUp) {
+
+            clickUp = false;
+            clickDown = false;
+            clickDownTime = 0f;
+
+        }
+
+        yield break;
 
     }
 

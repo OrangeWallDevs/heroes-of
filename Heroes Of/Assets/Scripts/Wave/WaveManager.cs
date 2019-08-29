@@ -1,27 +1,20 @@
 ﻿using UnityEngine;
 
-public class WaveManager : MonoBehaviour {
+public class WaveManager : Singleton<WaveManager> {
 
-    public float timeCountDown = 5f;
-    public float countDown = 0f;
+    public float startTimeCountDown = 5f;
     public int maxWaves = 1;
 
+    public GameEvent waveStartEvent, waveEndEvent, finalWaveCompleted;
+
     private int actualWave = 0;
-    private WaveStates actualState = WaveStates.COUNTING;
+    private WaveStates actualState = WaveStates.WAITING;
 
-    private float winConditionCheckCount = 1f;
-    private Spawner[] spawners;
+    private float winConditionCheckCount = 1f, countDown = 0f;
 
-    private void Start() {
+    private void Awake() {
 
-        GameObject[] spawnersObjetcs = GameObject.FindGameObjectsWithTag("Spawner");
-        spawners = new Spawner[spawnersObjetcs.Length];
-
-        for (int i = 0; i < spawnersObjetcs.Length; i++) {
-            spawners[i] = spawnersObjetcs[i].GetComponent<Spawner>();
-        }
-
-        countDown = timeCountDown;
+        countDown = startTimeCountDown;
 
     }
 
@@ -29,19 +22,30 @@ public class WaveManager : MonoBehaviour {
 
         if (actualState == WaveStates.RUNNING) {
 
-            if (!StillHaveEnemys()) 
+            if (!StillHaveEnemys()) {
+
                 CompleteWave();
+
+            }
 
             return;
 
         }
 
-        if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
-            StartWave();
-        } 
-        else {
-            actualState = WaveStates.COUNTING;
-            countDown -= Time.deltaTime;
+        if (waveStartEvent.ListenersCount > 0) {
+
+            if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
+
+                StartWave();
+
+            } 
+            else {
+
+                actualState = WaveStates.COUNTING;
+                countDown -= Time.deltaTime;
+
+            }
+
         }
 
     }
@@ -51,24 +55,22 @@ public class WaveManager : MonoBehaviour {
         actualState = WaveStates.RUNNING;
         actualWave++;
 
-        foreach (Spawner spawnPoint in spawners) {
-
-            spawnPoint.countSpawnedEnemys = 0;
-            spawnPoint.actualState = SpawnerStates.SPAWNING;
-
-            StartCoroutine(spawnPoint.SpawnCicle());
-
-        }
+        waveStartEvent.Raise();
 
     }
 
     private void CompleteWave() {
 
+        waveEndEvent.Raise();
+
         if (actualWave >= maxWaves) {
-            Debug.Log("Nível Completo. Restart ... ");
+
+            finalWaveCompleted.Raise();
+            return;
+
         }
 
-        countDown = timeCountDown;
+        countDown = startTimeCountDown;
         actualState = WaveStates.COUNTING;
 
     }
@@ -88,8 +90,36 @@ public class WaveManager : MonoBehaviour {
 
     }
 
-    public int MaxWaves { get { return maxWaves; } }
+    public void RegisterSpawnerAsListener(Spawner spawner) {
+
+        waveStartEvent.RegisterListener(spawner.StartSpawnCicle);
+        waveEndEvent.RegisterListener(spawner.StopSpawnCicle);
+
+        if (actualState.Equals(WaveStates.RUNNING)) {
+
+            spawner.StartSpawnCicle();
+
+        }
+
+    }
+
+    public void UnregisterSpawnerAsListener(Spawner spawner) {
+
+        waveStartEvent.UnregisterListener(spawner.StartSpawnCicle);
+        waveEndEvent.UnregisterListener(spawner.StopSpawnCicle);
+
+        if (actualState.Equals(WaveStates.RUNNING)) {
+
+            spawner.StopSpawnCicle();
+
+        }
+
+    }
+
+    public float CountDown { get { return countDown; } }
 
     public int ActualWave { get { return actualWave; } }
+
+    public WaveStates ActualState { get { return actualState; } }
 
 }

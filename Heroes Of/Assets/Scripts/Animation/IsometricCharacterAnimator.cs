@@ -16,64 +16,78 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
     }
 
-    public void SetDirection(Vector2 rawTargetPosition) {
+    public void AnimateStatic() {
 
-        string animation = "";
+        PlayAnimation("Static " + lastDirection);
 
-        Vector2 actualPoint = character.position;
+    }
 
-        // Check if the Character is moving
-        if (Mathf.Ceil(rawTargetPosition.x) != Mathf.Ceil(actualPoint.x)
-            || Mathf.Ceil(rawTargetPosition.y) != Mathf.Ceil(actualPoint.y)) { // isMoving
+    public void AnimateAttack(Vector2 attackingPosition) {
 
-            animation += "Run ";
-            lastDirection = "";
+        PlayAnimationBasedOnDirection("Attack", attackingPosition);
 
-            // Check which vertical direction it have to take
-            if (actualPoint.y > rawTargetPosition.y) { // Down
+    }
 
-                animation += "S";
+    public void AnimateRun(Vector2 targetPosition) {
 
-            } 
-            else if (actualPoint.y < rawTargetPosition.y) { // Up
+        PlayAnimationBasedOnDirection("Run", targetPosition);
 
-                animation += "N";
+    }
 
-            } 
-            else { // No vertical movement
+    public void PlayAnimation(string animation) {
 
-                animation += "";
+        lastDirection = animation.Split()[1];
+        animator.Play(animation);
 
-            }
+    }
 
-            // Check which horizontal direction it have to take
-            if (actualPoint.x > rawTargetPosition.x) { // Left
+    private void PlayAnimationBasedOnDirection(string animation, Vector2 animationDirection) {
 
-                animation += "W";
+        animation += " ";
+        lastDirection = "";
 
-            } 
-            else if (actualPoint.x < rawTargetPosition.x) { // Right
-
-                animation += "E";
-
-            } 
-            else { // No horizontal movement
-
-                animation += "";
-
-            }
-
-            char[] animationSplit = animation.ToCharArray();
-            lastDirection = ("" + animationSplit[animationSplit.Length - 2] + animationSplit[animationSplit.Length - 1]);
-
-        }
-        else {
-
-            animation += "Static " + lastDirection;
-
-        }
+        lastDirection = GetDirection(character.position, animationDirection);
+        animation += lastDirection;
 
         animator.Play(animation);
+
+    }
+
+    private string GetDirection(Vector2 characterPosition, Vector2 eventPosition){
+
+        string direction = "";
+
+        // Check which vertical direction the character have to take
+        if (characterPosition.y > eventPosition.y) { // Down
+
+            direction += "S";
+
+        } else if (characterPosition.y < eventPosition.y) { // Up
+
+            direction += "N";
+
+        } else { // No vertical movement
+
+            direction += "";
+
+        }
+
+        // Check which horizontal direction the character have to take
+        if (characterPosition.x > eventPosition.x) { // Left
+
+            direction += "W";
+
+        } else if (characterPosition.x < eventPosition.x) { // Right
+
+            direction += "E";
+
+        } else { // No horizontal movement
+
+            direction += "";
+
+        }
+
+        return direction;
 
     }
 

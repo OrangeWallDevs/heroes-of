@@ -3,48 +3,87 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public Transform typeEnemy;
-    public int spawnLimit = 15;
-    public float spawnFrequency = 1f;
+    public GameObject enemyPrefab;
 
-    // Public apenas para Debug
-    public int countSpawnedEnemys = 0;
-    public SpawnerStates actualState = SpawnerStates.WAITING;
+    private int spawnLimit = 1;
+    private float spawnFrequency = 1f;
 
-    // Essa função apenas spawnad e seta o statos do spawner de acordo com o limimte
-    // Ela não controla os turnos
-    public IEnumerator SpawnCicle() {
+    private int countSpawnedEnemys = 0;
+    private SpawnerStates actualState = SpawnerStates.WAITING;
 
-        // Se o spawner atinge seu limite ele para
-        if (countSpawnedEnemys >= spawnLimit || actualState == SpawnerStates.WAITING) {
+    private Transform spawnPoint;
 
-            actualState = SpawnerStates.WAITING;
+    private void Awake() {
+        
+        spawnPoint = transform.Find("Spawn_Point");
 
-            Debug.Log("Limite spawn atingido estado de espera");
+    }
 
-            yield break;
+    private void Start() {
+
+        WaveManager waveManager = WaveManager.Instance;
+        waveManager.RegisterSpawnerAsListener(this);
+
+    }
+
+    public void StartSpawnCicle() {
+
+        actualState = SpawnerStates.SPAWNING;
+
+        StartCoroutine(SpawnCicle());
+
+    }
+
+    public void StopSpawnCicle() {
+
+        actualState = SpawnerStates.WAITING;
+
+        StopCoroutine(SpawnCicle());
+        
+    }
+
+    private IEnumerator SpawnCicle() {
+
+        for (countSpawnedEnemys = 1; countSpawnedEnemys < spawnLimit; countSpawnedEnemys++) {
+
+            if (!actualState.Equals(SpawnerStates.WAITING)) {
+
+                SpawnEnemy();
+                yield return new WaitForSeconds(spawnFrequency);
+
+            }
+            else {
+
+                break;
+
+            }
 
         }
 
-        for (int i = 0; i < spawnLimit; i++) {
+        StopSpawnCicle();
 
-            SpawnEnemy();
-
-            // Faz a cazerna esperar para spawnar o próximo
-            yield return new WaitForSeconds(spawnFrequency);
-
-        }
-
-        yield break;
     }
 
     private void SpawnEnemy() {
 
-        countSpawnedEnemys++;
-
-        Debug.Log("Spawn enemy: " + countSpawnedEnemys);
-
-        Instantiate(typeEnemy, transform.position, transform.rotation);
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
     }
+
+    public int SpawnLimit {
+
+        get { return spawnLimit; }
+
+        set { spawnLimit = value; }
+
+    }
+
+    public float SpawnFrequency {
+
+        get { return spawnFrequency; }
+
+        set { spawnFrequency = value; }
+
+    }
+
 }
