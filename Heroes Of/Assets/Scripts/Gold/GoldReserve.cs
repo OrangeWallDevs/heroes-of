@@ -14,6 +14,10 @@ public abstract class GoldReserve {
 
     public abstract void AddGold(GameObject obj);
 
+    public void AddGold(int goldToAdd) {
+        currentGold += goldToAdd;
+    }
+
     public bool SpendGold(int goldAmountToSpend) {
         if(currentGold >= goldAmountToSpend) {
             currentGold -= goldAmountToSpend;
