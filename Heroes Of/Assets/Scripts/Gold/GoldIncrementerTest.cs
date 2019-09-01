@@ -7,7 +7,6 @@ public class GoldIncrementerTest : ScriptableObject {
     public PlayerGoldReserve playerGoldReserve {get; private set;}
     public IntEvent goldChangeEvent;
     void OnEnable() {
-        playerGoldReserve = new PlayerGoldReserve(500, null, goldChangeEvent);
-        playerGoldReserve.SpendGold(200);
+        playerGoldReserve = new PlayerGoldReserve(25, null, goldChangeEvent);
     }
 }
