@@ -262,6 +262,11 @@
     <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
     <Compile Include="Assets\Scripts\TesteAudio.cs" />
     <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
+    <Compile Include="Assets\Scripts\Troop\RunTimeTroopData.cs" />
+    <Compile Include="Assets\Scripts\Troop\TroopAttackActions.cs" />
+    <Compile Include="Assets\Scripts\Troop\TroopIA.cs" />
+    <Compile Include="Assets\Scripts\Troop\TroopMovementActions.cs" />
+    <Compile Include="Assets\Scripts\Troop\TroopStates.cs" />
     <Compile Include="Assets\Scripts\UI\BarracksPanel.cs" />
     <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
     <Compile Include="Assets\Scripts\UI\PopUpManager.cs" />

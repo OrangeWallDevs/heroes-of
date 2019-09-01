@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Path
   - Spawner
-  - Enemy
+  - Troop
   layers:
   - Default
   - TransparentFX
