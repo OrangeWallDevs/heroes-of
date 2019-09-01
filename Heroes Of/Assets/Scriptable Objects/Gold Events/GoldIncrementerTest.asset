@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5297e35b4823949887d4d20f8156a2, type: 3}
   m_Name: GoldIncrementerTest
   m_EditorClassIdentifier: 
-  goldChangeEvent: {fileID: 0}
+  goldChangeEvent: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558, type: 2}
