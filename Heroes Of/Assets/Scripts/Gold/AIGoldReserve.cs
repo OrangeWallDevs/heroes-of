@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AIGoldReserve : GoldReserve {
+    public AIGoldReserve(int initialGold, GameEvent minionDeadEvent) : base(initialGold, minionDeadEvent) {}
     public override void AddGold(GameObject obj) {
         /*TODO: Verificar se obj é minion inimigo e adicionar ouro correspondente
 
@@ -10,7 +11,5 @@ public class AIGoldReserve : GoldReserve {
             currentGold += obj.GoldValue; 
         } (algo assim)
         */
-
-        ChangeCurrentGoldAmount.Raise(currentGold);
     }
 }
