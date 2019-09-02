@@ -24,7 +24,7 @@ public class PlayerGoldReserve : GoldReserve {
         playerGoldChangeEvent.Raise(currentGold);
     }
 
-    public bool SpendGold(int goldAmountToSpend) {
+    public override bool SpendGold(int goldAmountToSpend) {
         if(currentGold >= goldAmountToSpend) {
             currentGold -= goldAmountToSpend;
 

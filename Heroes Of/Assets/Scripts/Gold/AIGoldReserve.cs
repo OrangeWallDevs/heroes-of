@@ -12,4 +12,14 @@ public class AIGoldReserve : GoldReserve {
         } (algo assim)
         */
     }
+
+    public override bool SpendGold(int goldAmountToSpend) {
+        if(currentGold >= goldAmountToSpend) {
+            currentGold -= goldAmountToSpend;
+            
+            return true;
+        }
+        
+        return false;
+    }
 }

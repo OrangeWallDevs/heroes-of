@@ -35,7 +35,7 @@ public class BarrackConstruction : MonoBehaviour {
 
                 Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                BuildBarrack(clickPosition);
+                BuildBarrack(clickPosition, goldIncrementerTest.playerGoldReserve);
 
                 yield break;
 
@@ -50,13 +50,13 @@ public class BarrackConstruction : MonoBehaviour {
 
     }
 
-    private Barrack BuildBarrack(Vector2 position) {
+    private Barrack BuildBarrack(Vector2 position, GoldReserve goldReserve) {
 
         GameObject barrackGameObject = Instantiate(barrackPrefab, position, new Quaternion());
 
         Barrack barrack = LoadBarrackData(barrackGameObject);
 
-        if(goldIncrementerTest.playerGoldReserve.SpendGold(barrack.VlrCost)) {
+        if(goldReserve.SpendGold(barrack.VlrCost)) {
             foreach (Sprite sprite in barrackSprites) {
 
                 if (sprite.name == barrack.NamBarrack) {
@@ -69,6 +69,7 @@ public class BarrackConstruction : MonoBehaviour {
             }
 
             return barrack;
+            
         } else {
             alertManager.ShowWarningModal("Você não tem dinheiro suficiente para comprar essa caserna!");
             Destroy(barrackGameObject);

@@ -18,13 +18,5 @@ public abstract class GoldReserve {
         currentGold += goldToAdd;
     }
 
-    public bool SpendGold(int goldAmountToSpend) {
-        if(currentGold >= goldAmountToSpend) {
-            currentGold -= goldAmountToSpend;
-
-            return true;
-        }
-        
-        return false;
-    }
+    public abstract bool SpendGold(int goldAmountToSpend);
 }
