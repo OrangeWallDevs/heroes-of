@@ -6,6 +6,8 @@ public class TroopIA : MonoBehaviour {
 
     public Transform targetPoint;
 
+    public int range = 2;
+
     private TroopStates actualState;
 
     private List<RunTimeTroopData> enemysTroopsDetected;
@@ -25,31 +27,35 @@ public class TroopIA : MonoBehaviour {
     }
 
     private void Update() {
-        
+
+        // get all colliders in radius of 10 Physics.OverlapSphere(transform.position, 10, 8);
+        Debug.Log("Physics: " + Physics.OverlapSphere(transform.position, 100));
+
         if (enemysTroopsDetected.Count > 0) {
 
             RunTimeTroopData actualTargetEnemy = enemysTroopsDetected.ToArray()[0];
             Debug.Log("Enemy " + actualTargetEnemy);
 
             Vector2 actualTargetEnemyPosition = actualTargetEnemy.transform.position;
-            Debug.Log(IsInRange(actualTargetEnemyPosition, 3));
+            Debug.Log(IsInRange(actualTargetEnemyPosition, range));
 
             // Check the distance between thee troops isInRange()
-            if (IsInRange(actualTargetEnemyPosition, 3)) {
+            if (IsInRange(actualTargetEnemyPosition, range)) {
 
                 // Can attack
+                if (actualState != TroopStates.FIGHTING) {
+
+                    actualState = TroopStates.FIGHTING;
+                    StartCoroutine(attackAction.AttackTroop(actualTargetEnemy));
+
+                }
 
             }
             else {
 
                 // Get Closer
-
-            }
-
-            if (actualState != TroopStates.FIGHTING) {
-
-                actualState = TroopStates.FIGHTING;
-                StartCoroutine(attackAction.AttackTroop(actualTargetEnemy));
+                actualState = TroopStates.MOVING;
+                movementAction.MoveToPosition(actualTargetEnemyPosition);
 
             }
 
@@ -75,6 +81,7 @@ public class TroopIA : MonoBehaviour {
 
         Debug.Log("Collision");
         GameObject detectedObject = collision.gameObject;
+        Debug.Log("Detected collider: " + collision.collider);
 
         switch (detectedObject.tag) { // Detect which type of gameObject is
 
