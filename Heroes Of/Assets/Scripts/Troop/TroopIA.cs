@@ -8,7 +8,7 @@ public class TroopIA : MonoBehaviour {
 
     private TroopStates actualState;
 
-    private Queue<RunTimeTroopData> enemysDetected;
+    private List<RunTimeTroopData> enemysTroopsDetected;
 
     private RunTimeTroopData troopData;
     private TroopMovementActions movementAction;
@@ -16,7 +16,7 @@ public class TroopIA : MonoBehaviour {
 
     private void Start() {
 
-        enemysDetected = new Queue<RunTimeTroopData>();
+        enemysTroopsDetected = new List<RunTimeTroopData>();
 
         troopData = GetComponent<RunTimeTroopData>();
         movementAction = GetComponent<TroopMovementActions>();
@@ -26,15 +26,30 @@ public class TroopIA : MonoBehaviour {
 
     private void Update() {
         
-        if (enemysDetected.Count > 0) {
+        if (enemysTroopsDetected.Count > 0) {
 
-            RunTimeTroopData enemy = enemysDetected.ToArray()[0];
-            Debug.Log("Enemy " + enemy);
+            RunTimeTroopData actualTargetEnemy = enemysTroopsDetected.ToArray()[0];
+            Debug.Log("Enemy " + actualTargetEnemy);
+
+            Vector2 actualTargetEnemyPosition = actualTargetEnemy.transform.position;
+            Debug.Log(IsInRange(actualTargetEnemyPosition, 3));
+
+            // Check the distance between thee troops isInRange()
+            if (IsInRange(actualTargetEnemyPosition, 3)) {
+
+                // Can attack
+
+            }
+            else {
+
+                // Get Closer
+
+            }
 
             if (actualState != TroopStates.FIGHTING) {
 
                 actualState = TroopStates.FIGHTING;
-                StartCoroutine(attackAction.AttackTroop(enemy));
+                StartCoroutine(attackAction.AttackTroop(actualTargetEnemy));
 
             }
 
@@ -56,6 +71,40 @@ public class TroopIA : MonoBehaviour {
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+
+        Debug.Log("Collision");
+        GameObject detectedObject = collision.gameObject;
+
+        switch (detectedObject.tag) { // Detect which type of gameObject is
+
+            case ("Troop"):
+
+                // Get the proper data of the troop
+                RunTimeTroopData detectedTroop = detectedObject.GetComponent<RunTimeTroopData>();
+
+                if (detectedTroop.isEnemy != troopData.isEnemy) {
+
+                    Debug.Log("Enemy detected");
+                    enemysTroopsDetected.Add(detectedTroop);
+
+                }
+                break;
+
+            case ("Tower"):
+
+                Debug.Log("Attack Tower");
+                break;
+
+            case ("Hero"):
+
+                Debug.Log("Attack Hero");
+                break;
+
+        }
+
+    }
+
     private bool IsCloseToTower() {
 
         Vector2 towerPosition = targetPoint.position;
@@ -66,39 +115,42 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private bool IsInRange(Vector2 targetPosition, float minActionDistance) {
 
-        Debug.Log("Collision");
-        GameObject detectedObject = collision.gameObject;
+        Vector2 troopPosition = transform.position;
 
-        switch (detectedObject.tag) {
+        float distanceBetweenPositions = Mathf.Sqrt(Mathf.Pow((targetPosition.x - troopPosition.x), 2) 
+            + Mathf.Pow((targetPosition.y - troopPosition.y), 2));
 
-            case ("Troop"):
+        return (distanceBetweenPositions <= minActionDistance);
 
-                RunTimeTroopData detectedTroop = detectedObject.GetComponent<RunTimeTroopData>();
-
-                if (detectedTroop.isEnemy != troopData.isEnemy) {
-
-                    Debug.Log("Enemy detected");
-                    enemysDetected.Enqueue(detectedTroop);
-
-                }
-                break;
-
-        }
-        
     }
 
-    public void RecieveDamage(int vlrDamageRacived) {
+    public void ReceiveDamage(int vlrDamageReceived) {
 
-        troopData.vlrHp = troopData.vlrHp - vlrDamageRacived;
+        troopData.vlrHp -= vlrDamageReceived;
 
         Debug.Log("Hp: " + troopData.vlrHp + " GameObject: " + gameObject);
 
         if (troopData.vlrHp <= 0) {
 
             Debug.Log("Troop death");
-            //Destroy(gameObject);
+            // Raise event to remove troop from others lists and add money
+            // Destroy(gameObject);
+
+        }
+
+    }
+
+    private void OnTroopDeath(RunTimeTroopData troop) {
+
+        foreach (RunTimeTroopData detectedTroop in enemysTroopsDetected) {
+
+            if (troop.Equals(detectedTroop)) {
+
+                enemysTroopsDetected.Remove(detectedTroop);
+
+            }
 
         }
 
