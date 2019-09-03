@@ -718,7 +718,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 593202374}
+      objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -962,7 +962,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -18.299988, y: 413.12982}
+  m_SizeDelta: {x: -18.299988, y: 397.18512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245431788
 MonoBehaviour:
@@ -1561,9 +1561,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 767282054}
-  - {fileID: 108833300}
   - {fileID: 1142865241}
+  - {fileID: 108833300}
   - {fileID: 1033482662}
   - {fileID: 767282054}
   - {fileID: 444968718}
@@ -2866,6 +2865,7 @@ GameObject:
   - component: {fileID: 533104610}
   - component: {fileID: 533104612}
   - component: {fileID: 533104611}
+  - component: {fileID: 533104613}
   m_Layer: 5
   m_Name: Coin_Value
   m_TagString: Untagged
@@ -3015,6 +3015,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533104609}
   m_CullTransparentMesh: 0
+--- !u!114 &533104613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533104609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca80e631c40927244b88e73ec42d5815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGoldChangeEvent: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558,
+    type: 2}
+  goldIncrementerTest: {fileID: 11400000, guid: 9e4f9bfe2ab1d4241a10a8222c6a461a,
+    type: 2}
 --- !u!1 &562335476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3712,7 +3728,7 @@ RectTransform:
   - {fileID: 2030954082}
   - {fileID: 533104610}
   m_Father: {fileID: 341039987}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5045,7 +5061,7 @@ RectTransform:
   m_LocalScale: {x: 0.99900293, y: 0.99900293, z: 0.99900293}
   m_Children: []
   m_Father: {fileID: 341039987}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -8157,6 +8173,7 @@ GameObject:
   - component: {fileID: 1507352567}
   - component: {fileID: 1507352569}
   - component: {fileID: 1507352568}
+  - component: {fileID: 1507352570}
   m_Layer: 5
   m_Name: Coin_Value
   m_TagString: Untagged
@@ -8303,6 +8320,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507352566}
   m_CullTransparentMesh: 0
+--- !u!114 &1507352570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507352566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca80e631c40927244b88e73ec42d5815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGoldChangeEvent: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558,
+    type: 2}
+  goldIncrementerTest: {fileID: 11400000, guid: 9e4f9bfe2ab1d4241a10a8222c6a461a,
+    type: 2}
 --- !u!1 &1530823869
 GameObject:
   m_ObjectHideFlags: 0
@@ -42464,6 +42497,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c0fb938c98bab824abbf04f429a09bb3, type: 3}
   - {fileID: 21300000, guid: 2289d1b27ba5e4f448b413228ca671a9, type: 3}
   - {fileID: 21300000, guid: 3e6663b173efd7a40a83ab4cdc53ef98, type: 3}
+  goldIncrementerTest: {fileID: 11400000, guid: 9e4f9bfe2ab1d4241a10a8222c6a461a,
+    type: 2}
+  alertManager: {fileID: 8118500888245395079, guid: b6ef3290f5ae4c6429b26857b76dbc64,
+    type: 3}
 --- !u!95 &1923361010
 Animator:
   serializedVersion: 3
