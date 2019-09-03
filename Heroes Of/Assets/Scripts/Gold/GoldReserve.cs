@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public abstract class GoldReserve {
     public int currentGold {get; protected set;}
-    public GameEvent deadMinionEvent;
+    public GameEvent deadMinionEvent; //TODO: Replace this GameEvent for GameEvent<Minion> or something like that
     public GoldReserve(int initialGold, GameEvent minionDeadEvent) {
         currentGold = initialGold;
         deadMinionEvent = minionDeadEvent;
