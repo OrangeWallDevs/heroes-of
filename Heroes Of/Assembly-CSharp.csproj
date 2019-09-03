@@ -249,7 +249,6 @@
      <Compile Include="Assets\Scripts\Event\GameEvent.cs" />
      <Compile Include="Assets\Scripts\Event\GameEventListener.cs" />
      <Compile Include="Assets\Scripts\Gold\AIGoldReserve.cs" />
-     <Compile Include="Assets\Scripts\Gold\GoldAmountRetriever.cs" />
      <Compile Include="Assets\Scripts\Gold\GoldIncrementerTest.cs" />
      <Compile Include="Assets\Scripts\Gold\GoldReserve.cs" />
      <Compile Include="Assets\Scripts\Gold\PlayerGoldReserve.cs" />
@@ -263,6 +262,7 @@
      <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
      <Compile Include="Assets\Scripts\TroopState.cs" />
      <Compile Include="Assets\Scripts\UI\BarracksPanel.cs" />
+     <Compile Include="Assets\Scripts\UI\GoldAmountRetriever.cs" />
      <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
      <Compile Include="Assets\Scripts\UI\PopUpManager.cs" />
      <Compile Include="Assets\Scripts\UI\PopUpTest.cs" />
@@ -294,22 +294,22 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -489,16 +489,16 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.12f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/Sir Pedr/Documents/Bitbucket/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/Aluno/Music/a/heroes-of/Heroes Of/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
