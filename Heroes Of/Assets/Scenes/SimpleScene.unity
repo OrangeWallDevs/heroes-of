@@ -4889,6 +4889,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8606315497021646701, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1447279698923890147, guid: 8952081146540a44b920c9eb956999db,
         type: 3}
       propertyPath: m_Sprite
@@ -6176,7 +6181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1330754618
 Transform:
   m_ObjectHideFlags: 0
@@ -9018,6 +9023,11 @@ PrefabInstance:
     - target: {fileID: 1942809372799516714, guid: 8952081146540a44b920c9eb956999db,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8606315497021646701, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1447279698923890147, guid: 8952081146540a44b920c9eb956999db,
@@ -43660,7 +43670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2117422293
 Transform:
   m_ObjectHideFlags: 0
