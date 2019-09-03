@@ -7,7 +7,7 @@ using TMPro;
 public class GoldAmountRetriever : MonoBehaviour {
     private TextMeshProUGUI coinDisplay;
     public IntEvent playerGoldChangeEvent;
-    public GoldIncrementerTest goldIncrementerTest;
+    public GoldIncrementerTest goldIncrementerTest; //TODO: Replace this for "GameRuntimeData" SO
 
     public void Start() {
         coinDisplay = GetComponent<TextMeshProUGUI>();
