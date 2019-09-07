@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public abstract class GoldReserve {
-    public int currentGold {get; protected set;}
-    public GameEvent deadMinionEvent; //TODO: Replace this GameEvent for GameEvent<Minion> or something like that
-    public GoldReserve(int initialGold, GameEvent minionDeadEvent) {
+    public int currentGold { get; protected set; }
+
+    public TroopEvent deadMinionEvent;
+    
+    public GoldReserve(int initialGold, TroopEvent minionDeadEvent) {
         currentGold = initialGold;
         deadMinionEvent = minionDeadEvent;
-        //deadMinionEvent.RegisterListener(AddGold);
+        deadMinionEvent.RegisterListener(AddGold);
     }
 
-    public abstract void AddGold(GameObject obj);
+    public abstract void AddGold(RunTimeTroopData troopData);
 
     public void AddGold(int goldToAdd) {
         currentGold += goldToAdd;
