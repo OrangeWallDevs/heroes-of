@@ -42,7 +42,7 @@ public class TroopIA : MonoBehaviour {
 
                     actualState = TroopStates.FIGHTING;
                     actualAttackingTarget = actualTargetEnemy.gameObject;
-                    StartCoroutine(attackAction.AttackTroop(actualTargetEnemy));
+                    attackAction.AttackTroop(actualTargetEnemy);
 
                 }
 
@@ -75,6 +75,12 @@ public class TroopIA : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
 
         Transform detectedObject = collision.gameObject.transform.parent;
+
+        if (detectedObject == null) {
+
+            return;
+
+        }
 
         switch (detectedObject.tag) { // Detect which type of GameObject is
 
@@ -117,8 +123,7 @@ public class TroopIA : MonoBehaviour {
 
         Vector2 troopPosition = transform.position;
 
-        float distanceBetweenPositions = Mathf.Sqrt(Mathf.Pow((targetPosition.x - troopPosition.x), 2) 
-            + Mathf.Pow((targetPosition.y - troopPosition.y), 2));
+        float distanceBetweenPositions = Vector2.Distance(troopPosition, targetPosition);
 
         return (distanceBetweenPositions <= minActionDistance);
 
@@ -130,10 +135,17 @@ public class TroopIA : MonoBehaviour {
 
         if (troopData.vlrHp <= 0) {
 
-            troopDeathEvent.Raise(troopData);
-            Destroy(gameObject);
+            Die();
 
         }
+
+    }
+
+    public void Die() {
+
+        // Instanciate(deathEffect, transform.position, transform.rotation);
+        troopDeathEvent.Raise(troopData);
+        Destroy(gameObject);
 
     }
 
