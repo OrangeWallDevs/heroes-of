@@ -6,7 +6,9 @@ public class BarrackConstruction : MonoBehaviour {
 
     public GameObject barrackPrefab;
     public List<Sprite> barrackSprites;
+    public GoldIncrementerTest goldIncrementerTest;
 
+    public PopUpManager alertManager;
     private int barrackID;
 
     private bool isPlaceSelected;
@@ -19,7 +21,6 @@ public class BarrackConstruction : MonoBehaviour {
 
         isPlaceSelected = false;
         this.barrackID = barrackID;
-
         StartCoroutine(BuildPositionDetection());
 
     }
@@ -34,7 +35,7 @@ public class BarrackConstruction : MonoBehaviour {
 
                 Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                BuildBarrack(clickPosition);
+                BuildBarrack(clickPosition, goldIncrementerTest.playerGoldReserve);
 
                 yield break;
 
@@ -49,24 +50,32 @@ public class BarrackConstruction : MonoBehaviour {
 
     }
 
-    private Barrack BuildBarrack(Vector2 position) {
+    private Barrack BuildBarrack(Vector2 position, GoldReserve goldReserve) {
 
         GameObject barrackGameObject = Instantiate(barrackPrefab, position, new Quaternion());
 
         Barrack barrack = LoadBarrackData(barrackGameObject);
 
-        foreach (Sprite sprite in barrackSprites) {
+        if(goldReserve.SpendGold(barrack.VlrCost)) {
+            foreach (Sprite sprite in barrackSprites) {
 
-            if (sprite.name == barrack.NamBarrack) {
+                if (sprite.name == barrack.NamBarrack) {
 
-                barrack.GameObject.GetComponent<SpriteRenderer>().sprite = sprite;
-                break;
+                    barrack.GameObject.GetComponent<SpriteRenderer>().sprite = sprite;
+                    break;
+
+                }
 
             }
 
+            return barrack;
+            
+        } else {
+            alertManager.ShowWarningModal("Você não tem dinheiro suficiente para comprar essa caserna!");
+            Destroy(barrackGameObject);
         }
 
-        return barrack;
+        return null;   
 
     }
 
