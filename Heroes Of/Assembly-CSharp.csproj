@@ -250,11 +250,11 @@
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Speech.cs" />
-    <Compile Include="Assets\Scripts\EnemyRemoveTest.cs" />
     <Compile Include="Assets\Scripts\Entity\Barrack.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Event\GameEvent.cs" />
     <Compile Include="Assets\Scripts\Event\GameEventListener.cs" />
+    <Compile Include="Assets\Scripts\Event\TroopEvent.cs" />
     <Compile Include="Assets\Scripts\Movement\Hero_Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PathColisionIgnore.cs" />
     <Compile Include="Assets\Scripts\Spawner\BarrackConstruction.cs" />
@@ -262,6 +262,7 @@
     <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
     <Compile Include="Assets\Scripts\TesteAudio.cs" />
     <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
+    <Compile Include="Assets\Scripts\Troop\DynamicBattleColliderSize.cs" />
     <Compile Include="Assets\Scripts\Troop\RunTimeTroopData.cs" />
     <Compile Include="Assets\Scripts\Troop\TroopAttackActions.cs" />
     <Compile Include="Assets\Scripts\Troop\TroopIA.cs" />
