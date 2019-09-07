@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1685345961066567932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2387989349794947295}
+  - component: {fileID: 5637655056365667585}
+  m_Layer: 8
+  m_Name: Troop_Body_Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2387989349794947295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685345961066567932}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1942809372799516714}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &5637655056365667585
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685345961066567932}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.15828963, y: 0.2975606}
+  m_Direction: 0
 --- !u!1 &1834526373401714029
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +57,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7725808688804358057}
   - component: {fileID: 8606315497021646701}
-  m_Layer: 8
+  - component: {fileID: 4905199591621079848}
+  m_Layer: 10
   m_Name: Troop_Battle_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +95,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &4905199591621079848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834526373401714029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abb1861ef5c555409292f534c31fb39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionIncreasedDistance: 0
 --- !u!1 &6516010080651671553
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,6 +118,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1942809372799516714}
   - component: {fileID: 8285845562555603341}
+  - component: {fileID: 1264445405249823189}
+  - component: {fileID: 3027416756104048170}
+  - component: {fileID: 1723326687856318223}
+  - component: {fileID: 4543975368006533097}
   - component: {fileID: 2374547902290497560}
   m_Layer: 8
   m_Name: Troop
@@ -78,6 +143,7 @@ Transform:
   m_Children:
   - {fileID: 1624383296789550745}
   - {fileID: 7725808688804358057}
+  - {fileID: 2387989349794947295}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,7 +155,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6516010080651671553}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -102,6 +168,65 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1264445405249823189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb40b6a1de0a5674f8a57038526bad60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namTroop: 
+  vlrDamageDealt: 0
+  vlrHp: 0
+  vlrScore: 0
+  vlrDropMoney: 0
+  vlrMotionSpeed: 0
+  vlrAttackSpeed: 0
+  attackDistance: 0
+  isEnemy: 0
+--- !u!114 &3027416756104048170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65af89282c38674a84a6852bce5876c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {fileID: 0}
+  troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+--- !u!114 &1723326687856318223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551cd4ba2aa4510489e1ccf790ae87ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4543975368006533097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30881f67fc93834a8eb3fa0599ebe44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2374547902290497560
 MonoBehaviour:
   m_ObjectHideFlags: 0
