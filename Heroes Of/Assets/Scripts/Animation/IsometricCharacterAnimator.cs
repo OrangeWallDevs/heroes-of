@@ -91,4 +91,6 @@ public class IsometricCharacterAnimator : MonoBehaviour {
 
     }
 
+    public string LastDirection { get { return lastDirection; } }
+
 }

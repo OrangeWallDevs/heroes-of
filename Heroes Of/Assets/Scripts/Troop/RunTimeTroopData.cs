@@ -12,6 +12,7 @@ public class RunTimeTroopData : MonoBehaviour {
     public float vlrAttackSpeed;
     public float attackDistance;
     public bool isEnemy;
+    public bool attackAtDistance;
 
     public GameObject GameObject {
         get { return gameObject; }
