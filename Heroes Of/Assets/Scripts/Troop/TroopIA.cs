@@ -6,11 +6,12 @@ public class TroopIA : MonoBehaviour {
 
     public Transform targetPoint;
 
-    public int range = 2;
+    public TroopEvent troopDeathEvent;
 
     private TroopStates actualState;
 
     private List<RunTimeTroopData> enemysTroopsDetected;
+    private GameObject actualAttackingTarget;
 
     private RunTimeTroopData troopData;
     private TroopMovementActions movementAction;
@@ -24,36 +25,30 @@ public class TroopIA : MonoBehaviour {
         movementAction = GetComponent<TroopMovementActions>();
         attackAction = GetComponent<TroopAttackActions>();
 
+        troopDeathEvent.RegisterListener(OnTroopDeath);
+
     }
 
     private void Update() {
 
-        // get all colliders in radius of 10 Physics.OverlapSphere(transform.position, 10, 8);
-        Debug.Log("Physics: " + Physics.OverlapSphere(transform.position, 100));
-
         if (enemysTroopsDetected.Count > 0) {
 
             RunTimeTroopData actualTargetEnemy = enemysTroopsDetected.ToArray()[0];
-            Debug.Log("Enemy " + actualTargetEnemy);
-
             Vector2 actualTargetEnemyPosition = actualTargetEnemy.transform.position;
-            Debug.Log(IsInRange(actualTargetEnemyPosition, range));
 
-            // Check the distance between thee troops isInRange()
-            if (IsInRange(actualTargetEnemyPosition, range)) {
+            if (IsInRange(actualTargetEnemyPosition, troopData.attackDistance)) { // Attack
 
-                // Can attack
-                if (actualState != TroopStates.FIGHTING) {
+                if (actualTargetEnemy.gameObject != actualAttackingTarget) {
 
                     actualState = TroopStates.FIGHTING;
+                    actualAttackingTarget = actualTargetEnemy.gameObject;
                     StartCoroutine(attackAction.AttackTroop(actualTargetEnemy));
 
                 }
 
             }
-            else {
+            else { // Get colser to the Enemy
 
-                // Get Closer
                 actualState = TroopStates.MOVING;
                 movementAction.MoveToPosition(actualTargetEnemyPosition);
 
@@ -63,7 +58,7 @@ public class TroopIA : MonoBehaviour {
 
         }
 
-        if (IsCloseToTower()) {
+        if (!IsInTowerPosition()) {
 
             actualState = TroopStates.MOVING;
             movementAction.MoveToPosition(targetPoint.position);
@@ -77,22 +72,18 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
 
-        Debug.Log("Collision");
-        GameObject detectedObject = collision.gameObject;
-        Debug.Log("Detected collider: " + collision.collider);
+        Transform detectedObject = collision.gameObject.transform.parent;
 
-        switch (detectedObject.tag) { // Detect which type of gameObject is
+        switch (detectedObject.tag) { // Detect which type of GameObject is
 
             case ("Troop"):
 
-                // Get the proper data of the troop
                 RunTimeTroopData detectedTroop = detectedObject.GetComponent<RunTimeTroopData>();
 
                 if (detectedTroop.isEnemy != troopData.isEnemy) {
 
-                    Debug.Log("Enemy detected");
                     enemysTroopsDetected.Add(detectedTroop);
 
                 }
@@ -112,12 +103,12 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private bool IsCloseToTower() {
+    private bool IsInTowerPosition() {
 
         Vector2 towerPosition = targetPoint.position;
         Vector2 actualPosition = transform.position;
 
-        return (Mathf.Ceil(towerPosition.x) != Mathf.Ceil(actualPosition.x) 
+        return !(Mathf.Ceil(towerPosition.x) != Mathf.Ceil(actualPosition.x) 
             || Mathf.Ceil(towerPosition.y) != Mathf.Ceil(actualPosition.y));
 
     }
@@ -137,13 +128,10 @@ public class TroopIA : MonoBehaviour {
 
         troopData.vlrHp -= vlrDamageReceived;
 
-        Debug.Log("Hp: " + troopData.vlrHp + " GameObject: " + gameObject);
-
         if (troopData.vlrHp <= 0) {
 
-            Debug.Log("Troop death");
-            // Raise event to remove troop from others lists and add money
-            // Destroy(gameObject);
+            troopDeathEvent.Raise(troopData);
+            Destroy(gameObject);
 
         }
 
@@ -151,7 +139,9 @@ public class TroopIA : MonoBehaviour {
 
     private void OnTroopDeath(RunTimeTroopData troop) {
 
-        foreach (RunTimeTroopData detectedTroop in enemysTroopsDetected) {
+        RunTimeTroopData[] enemysTroopsDetectedCopy = enemysTroopsDetected.ToArray();
+
+        foreach (RunTimeTroopData detectedTroop in enemysTroopsDetectedCopy) {
 
             if (troop.Equals(detectedTroop)) {
 
