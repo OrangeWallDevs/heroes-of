@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Path
   - Spawner
-  - Enemy
+  - Troop
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - 
   - Characters
   - Path
-  - 
+  - Battle_Colliders
   - 
   - 
   - 
