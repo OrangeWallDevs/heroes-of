@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RunTimeTroopData : MonoBehaviour {
 
@@ -8,10 +6,11 @@ public class RunTimeTroopData : MonoBehaviour {
     public int vlrDamageDealt;
     public int vlrHp;
     public int vlrScore;
-    public int vlrMotionSpeed;
     public int vlrDropMoney;
-    public float vlrAttackSpeed;
 
+    public float vlrMotionSpeed;
+    public float vlrAttackSpeed;
+    public float attackDistance;
     public bool isEnemy;
 
     public GameObject GameObject {
