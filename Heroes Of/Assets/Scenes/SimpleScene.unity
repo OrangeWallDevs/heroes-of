@@ -2781,11 +2781,22 @@ PrefabInstance:
       propertyPath: attackDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1264445405249823189, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: attackAtDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3027416756104048170, guid: 8952081146540a44b920c9eb956999db,
         type: 3}
       propertyPath: targetPoint
       value: 
       objectReference: {fileID: 1175540859}
+    - target: {fileID: 4543975368006533097, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 6548416338181058666, guid: 27b88a331ab3dfb409ef1a027705114b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8952081146540a44b920c9eb956999db, type: 3}
 --- !u!1 &533104609
