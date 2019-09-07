@@ -25,6 +25,12 @@ public class TroopAttackActions : MonoBehaviour {
 
             yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
 
+            if (enemyIA == null) {
+
+                yield break;
+
+            }
+
             enemyIA.ReceiveDamage(troopData.vlrDamageDealt);
 
         }
