@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RunTimeTroopData : MonoBehaviour {
+public class RunTimeTroopData : RunTimeData {
 
     public string namTroop;
     public int vlrDamageDealt;
@@ -11,11 +11,8 @@ public class RunTimeTroopData : MonoBehaviour {
     public float vlrMotionSpeed;
     public float vlrAttackSpeed;
     public float attackDistance;
+    public PhaseObjectives troopObjective;
     public bool isEnemy;
     public bool attackAtDistance;
-
-    public GameObject GameObject {
-        get { return gameObject; }
-    }
 
 }
