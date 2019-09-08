@@ -20,34 +20,41 @@ public class ProjectileBehaviour : MonoBehaviour {
 
         }
 
+        HealthController objectHitHealthController = null;
+        RunTimeTroopData x = null;
+
         switch (objectHit.tag) {
 
             case ("Troop"):
 
-                handleTroopHit(objectHit);
+                objectHitHealthController = objectHit.GetComponent<TroopHealthController>();
                 break;
 
             case ("Hero"):
 
-                handleHeroHit(objectHit);
+                Debug.Log("TO:DO Create a Hero HealthController");
                 break;
 
             case ("Tower"):
 
-                handleTowerHit(objectHit);
+                objectHitHealthController = objectHit.GetComponent<TowerHealthController>();
                 break;
+
+        }
+
+        if (objectHitHealthController != null) {
+
+            handleHitDamage(objectHitHealthController);
 
         }
 
     }
 
-    private void handleTroopHit(Transform troopHit) {
+    private void handleHitDamage(HealthController healthController) {
 
-        TroopIA enemyIA = troopHit.GetComponent<TroopIA>();
+        if (healthController != null) {
 
-        if (enemyIA != null) {
-
-            enemyIA.ReceiveDamage(damage);
+            healthController.ReceiveDamage(damage);
 
         }
 
@@ -58,14 +65,6 @@ public class ProjectileBehaviour : MonoBehaviour {
         } 
 
         Destroy(gameObject);
-
-    }
-
-    private void handleHeroHit(Transform heroHit) {
-
-    }
-
-    private void handleTowerHit(Transform towerHit) {
 
     }
 

@@ -12,6 +12,6 @@ public abstract class TroopAttackI {
 
     }
 
-    public abstract IEnumerator Attack(RunTimeTroopData enemyData);
+    public abstract IEnumerator Attack(RunTimeData entityData);
 
 }

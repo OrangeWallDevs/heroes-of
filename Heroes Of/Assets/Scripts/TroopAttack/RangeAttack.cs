@@ -18,17 +18,37 @@ public class RangeAttack : TroopAttackI {
 
     }
 
-    public override IEnumerator Attack(RunTimeTroopData enemyData) {
+    public override IEnumerator Attack(RunTimeData entityData) {
 
-        while (enemyData.vlrHp > 0) {
+        HealthController entityHealthController = null;
+        GameObject entity = entityData.GameObject;
 
-            Vector2 enemyPosition = enemyData.GameObject.transform.position;
+        switch (entity.tag) {
+
+            case ("Troop"):
+
+                entityHealthController = entity.GetComponent<TroopHealthController>();
+                break;
+
+            case ("Hero"):
+
+                Debug.Log("TO:DO Create a Hero HealthController");
+                break;
+
+            case ("Tower"):
+
+                entityHealthController = entity.GetComponent<TowerHealthController>();
+                break;
+
+        }
+
+        while (entityHealthController.Health > 0) {
+
+            Vector2 enemyPosition = entity.transform.position;
 
             troopAnimations.AnimateAttack(enemyPosition);
 
-            // only create at certain point of the animation
-
-            Shoot(enemyPosition); // called by the animation
+            Shoot(enemyPosition);
 
             yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
 
