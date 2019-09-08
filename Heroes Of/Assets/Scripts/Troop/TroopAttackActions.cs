@@ -30,33 +30,10 @@ public class TroopAttackActions : MonoBehaviour {
         
     }
 
-    public void AttackTroop(RunTimeTroopData enemyData) {
+    public void Attack(RunTimeData entityData) {
 
-        StartCoroutine(attackType.Attack(enemyData));
+        StartCoroutine(attackType.Attack(entityData));
 
     }
-
-    /*public IEnumerator AttackTroop(RunTimeTroopData enemyData) {
-
-        Vector2 enemyPosition = enemyData.GameObject.transform.position;
-        TroopIA enemyIA = enemyData.GameObject.GetComponent<TroopIA>();
-
-        while (enemyData.vlrHp >= 0) {
-
-            troopAnimations.AnimateAttack(enemyPosition);
-
-            yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
-
-            if (enemyIA == null) {
-
-                yield break;
-
-            }
-
-            enemyIA.ReceiveDamage(troopData.vlrDamageDealt);
-
-        }
-
-    }*/
 
 }
