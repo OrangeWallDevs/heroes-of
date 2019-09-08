@@ -94,7 +94,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.5
 --- !u!114 &4905199591621079848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834526373401714029}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0abb1861ef5c555409292f534c31fb39, type: 3}
   m_Name: 
@@ -121,7 +121,7 @@ GameObject:
   m_Layer: 8
   m_Name: Troop_Shoting_Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 8285845562555603341}
   - component: {fileID: 1264445405249823189}
   - component: {fileID: 3027416756104048170}
+  - component: {fileID: 3442812173667367238}
   - component: {fileID: 1723326687856318223}
   - component: {fileID: 4543975368006533097}
   - component: {fileID: 2374547902290497560}
@@ -232,6 +233,7 @@ MonoBehaviour:
   vlrMotionSpeed: 0
   vlrAttackSpeed: 0
   attackDistance: 0
+  troopObjective: 0
   isEnemy: 0
   attackAtDistance: 0
 --- !u!114 &3027416756104048170
@@ -246,8 +248,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65af89282c38674a84a6852bce5876c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPoint: {fileID: 0}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+  towerBeingAttackedEvent: {fileID: 11400000, guid: dd643ed6d7e1e9d469af5e715bf4f016,
+    type: 2}
+  towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
+    type: 2}
+--- !u!114 &3442812173667367238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310f4d08e38d1e847ac4af8474d39e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+  deathEffect: {fileID: 0}
 --- !u!114 &1723326687856318223
 MonoBehaviour:
   m_ObjectHideFlags: 0
