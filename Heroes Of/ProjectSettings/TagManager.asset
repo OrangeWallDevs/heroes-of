@@ -7,6 +7,7 @@ TagManager:
   - Path
   - Spawner
   - Troop
+  - Tower
   layers:
   - Default
   - TransparentFX
