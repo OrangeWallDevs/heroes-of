@@ -315,6 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
     type: 2}
+  towerBeingAttackedEvent: {fileID: 11400000, guid: dd643ed6d7e1e9d469af5e715bf4f016,
+    type: 2}
   waveEndEvent: {fileID: 11400000, guid: fef4180933e2be34c950944cf69940e7, type: 2}
   destructionEffectPrefab: {fileID: 0}
 --- !u!1 &2551952516640521835

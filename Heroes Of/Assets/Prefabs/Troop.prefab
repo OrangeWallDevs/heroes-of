@@ -94,7 +94,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!114 &4905199591621079848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834526373401714029}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0abb1861ef5c555409292f534c31fb39, type: 3}
   m_Name: 
@@ -249,6 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+  attackingTowerEvent: {fileID: 11400000, guid: bfb14c1e3d3081d48bc279625d82f22b,
+    type: 2}
   towerBeingAttackedEvent: {fileID: 11400000, guid: dd643ed6d7e1e9d469af5e715bf4f016,
     type: 2}
   towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
