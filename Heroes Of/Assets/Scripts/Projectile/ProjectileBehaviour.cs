@@ -9,6 +9,7 @@ public class ProjectileBehaviour : MonoBehaviour {
     public GameObject collisionEffectPrefab;
 
     private int damage = 0;
+    private bool hadCollided = false;
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -21,7 +22,6 @@ public class ProjectileBehaviour : MonoBehaviour {
         }
 
         HealthController objectHitHealthController = null;
-        RunTimeTroopData x = null;
 
         switch (objectHit.tag) {
 
@@ -44,6 +44,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 
         if (objectHitHealthController != null) {
 
+            hadCollided = true;
             handleHitDamage(objectHitHealthController);
 
         }
@@ -78,14 +79,20 @@ public class ProjectileBehaviour : MonoBehaviour {
 
         Vector2 actualPosition = transform.position;
 
-        while (Mathf.Abs(targetPosition.x) != Mathf.Abs(actualPosition.x) ||
-            Mathf.Abs(targetPosition.y) != Mathf.Abs(actualPosition.y)) {
+        while (Mathf.Ceil(Mathf.Abs(targetPosition.x)) != Mathf.Ceil(Mathf.Abs(actualPosition.x)) ||
+            Mathf.Ceil(Mathf.Abs(targetPosition.y)) != Mathf.Ceil(Mathf.Abs(actualPosition.y))) {
 
             actualPosition = transform.position;
 
             transform.position = Vector2.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
 
             yield return new WaitForFixedUpdate();
+
+        }
+
+        if(!hadCollided) {
+
+            Destroy(gameObject);
 
         }
 
