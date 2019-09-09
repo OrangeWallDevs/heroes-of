@@ -3,6 +3,7 @@
 public class TowerHealthController : HealthController {
 
     public TowerEvent towerDestroyedEvent;
+    public TowerEvent towerBeingAttackedEvent;
     public GameEvent waveEndEvent;
     public GameObject destructionEffectPrefab;
 
@@ -32,6 +33,8 @@ public class TowerHealthController : HealthController {
 
         towerData.vlrHp -= vlrDamageReceived;
         Health = towerData.vlrHp;
+
+        towerBeingAttackedEvent.Raise(towerData);
 
         if (Health <= 0) {
 
