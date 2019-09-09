@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TroopIA : MonoBehaviour {
 
-    public TroopEvent troopDeathEvent;
-    public TowerEvent towerBeingAttackedEvent, towerDestroyedEvent;
+    public TroopEvent troopDeathEvent, attackingTowerEvent;
+    public TowerEvent towerDestroyedEvent;
 
     private TroopStates actualState;
+
+    private bool isAttacking;
 
     private List<RunTimeTroopData> enemysTroopsDetected;
     private GameObject actualAttackingTarget;
@@ -67,6 +69,8 @@ public class TroopIA : MonoBehaviour {
 
     private void Start() {
 
+        isAttacking = false;
+
         enemysTroopsDetected = new List<RunTimeTroopData>();
 
         troopData = GetComponent<RunTimeTroopData>();
@@ -75,6 +79,7 @@ public class TroopIA : MonoBehaviour {
         
         troopDeathEvent.RegisterListener(OnTroopDeath);
         towerDestroyedEvent.RegisterListener(OnTowerDestruction);
+        attackingTowerEvent.RegisterListener(OnTroopAttackingTower);
 
     }
 
@@ -97,6 +102,12 @@ public class TroopIA : MonoBehaviour {
                 HandleTowerAttack();
 
             }
+
+        }
+
+        if (isAttacking && actualState == TroopStates.ATTACKING) {
+
+            attackingTowerEvent.Raise(troopData);
 
         }
 
@@ -152,9 +163,11 @@ public class TroopIA : MonoBehaviour {
 
         if (IsInRange(actualTargetEnemyPosition, troopData.attackDistance)) { // Attack
 
-            if (actualTargetEnemy.gameObject != actualAttackingTarget) {
+            if (actualTargetEnemy.gameObject != actualAttackingTarget && !isAttacking) {
 
                 actualState = TroopStates.FIGHTING;
+                isAttacking = true;
+
                 actualAttackingTarget = actualTargetEnemy.gameObject;
                 attackAction.Attack(actualTargetEnemy);
 
@@ -164,6 +177,8 @@ public class TroopIA : MonoBehaviour {
         else { // Get colser to the Enemy
 
             actualState = TroopStates.MOVING;
+            isAttacking = false;
+
             movementAction.MoveToPosition(actualTargetEnemyPosition);
 
         }
@@ -179,10 +194,15 @@ public class TroopIA : MonoBehaviour {
         if (!IsInTowerPosition()) {
 
             actualState = TroopStates.MOVING;
+            isAttacking = false;
+
             movementAction.MoveToPosition(actualTargetTowerToWalk.transform.position);
 
         } 
         else {
+
+            actualState = TroopStates.DEFENDING;
+            isAttacking = false;
 
             movementAction.WaitOnActualPosition();
 
@@ -196,12 +216,12 @@ public class TroopIA : MonoBehaviour {
 
         if (IsInRange(actualTargetTowerToWalk.transform.position, troopData.attackDistance)) {
 
-            if (lastAttackedTower != detectedEnemyTower.GameObject) {
-                
+            if (lastAttackedTower != detectedEnemyTower.GameObject && !isAttacking) {
+
                 actualState = TroopStates.ATTACKING;
+                isAttacking = true;
 
                 lastAttackedTower = detectedEnemyTower.GameObject;
-                towerBeingAttackedEvent.Raise(detectedEnemyTower);
                 attackAction.Attack(detectedEnemyTower);
 
             }
@@ -210,6 +230,7 @@ public class TroopIA : MonoBehaviour {
         else {
 
             actualState = TroopStates.MOVING;
+            isAttacking = false;
 
             movementAction.MoveToPosition(actualTargetTowerToWalk.transform.position);
 
@@ -270,6 +291,12 @@ public class TroopIA : MonoBehaviour {
 
         }
 
+        if (actualAttackingTarget == troop.GameObject) {
+
+            isAttacking = false;
+
+        }
+
     }
 
     private void OnTowerDestruction(RunTimeTowerData tower) {
@@ -277,10 +304,25 @@ public class TroopIA : MonoBehaviour {
         if (detectedEnemyTower == tower) {
 
             detectedEnemyTower = null;
+            isAttacking = false;
 
         }
 
         towersList.Remove(tower);
+
+    }
+
+    private void OnTroopAttackingTower(RunTimeTroopData troop) {
+
+        if (troopData.troopObjective == PhaseObjectives.DEFEND && actualState == TroopStates.DEFENDING) {
+
+            if (!enemysTroopsDetected.Contains(troop)) {
+
+                enemysTroopsDetected.Add(troop);
+
+            }
+
+        }
 
     }
 
