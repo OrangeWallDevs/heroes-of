@@ -10,6 +10,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private int damage = 0;
     private bool hadCollided = false;
+    private Vector2 lastPosition;
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -77,12 +78,10 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private IEnumerator MoveTowardsTarget(Vector2 targetPosition) {
 
-        Vector2 actualPosition = transform.position;
+        while (Mathf.Abs(lastPosition.x - transform.position.x) >= 0.008f || 
+            Mathf.Abs(lastPosition.y - transform.position.y) >= 0.008f) {
 
-        while (Mathf.Ceil(Mathf.Abs(targetPosition.x)) != Mathf.Ceil(Mathf.Abs(actualPosition.x)) ||
-            Mathf.Ceil(Mathf.Abs(targetPosition.y)) != Mathf.Ceil(Mathf.Abs(actualPosition.y))) {
-
-            actualPosition = transform.position;
+            lastPosition = transform.position;
 
             transform.position = Vector2.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
 
