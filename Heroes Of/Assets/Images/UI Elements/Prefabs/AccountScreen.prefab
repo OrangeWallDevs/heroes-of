@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7028564830271307413}
   - component: {fileID: 684384573169372822}
   - component: {fileID: 2265153303033597635}
+  - component: {fileID: 2185453571807105865}
   m_Layer: 5
   m_Name: AccountScreen
   m_TagString: Untagged
@@ -75,6 +76,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &2185453571807105865
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872592223072068785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97df2e19140332e4f9057cef5840c8ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1362681282281695775
 GameObject:
   m_ObjectHideFlags: 0
