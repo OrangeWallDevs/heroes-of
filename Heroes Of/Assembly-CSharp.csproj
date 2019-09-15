@@ -247,6 +247,8 @@
     <Compile Include="Assets\Scripts\Audio\AudioSourceController.cs" />
     <Compile Include="Assets\Scripts\Audio\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\Collider\DynamicBattleColliderSize.cs" />
+    <Compile Include="Assets\Scripts\Collider\DynamicBodyColliderLayer.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Speech.cs" />
@@ -274,7 +276,6 @@
     <Compile Include="Assets\Scripts\ToggleButtonImageController.cs" />
     <Compile Include="Assets\Scripts\Tower\RunTimeTowerData.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerHealthController.cs" />
-    <Compile Include="Assets\Scripts\Troop\DynamicBattleColliderSize.cs" />
     <Compile Include="Assets\Scripts\Troop\RunTimeTroopData.cs" />
     <Compile Include="Assets\Scripts\Troop\TroopAim.cs" />
     <Compile Include="Assets\Scripts\Troop\TroopAttackActions.cs" />
