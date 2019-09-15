@@ -17,6 +17,14 @@ public class TroopHealthController : HealthController {
 
     public override void Die() {
 
+        TroopAttackActions attackAction = GetComponent<TroopAttackActions>();
+
+        if (attackAction.IsAttacking) {
+
+            attackAction.StopAttack();
+
+        }
+
         if (deathEffect != null) {
 
             Instantiate(deathEffect, transform.position, transform.rotation);
@@ -35,6 +43,7 @@ public class TroopHealthController : HealthController {
         if (troopData.vlrHp <= 0) {
 
             troopDeathEvent.Raise(troopData);
+
             Die();
 
         }
