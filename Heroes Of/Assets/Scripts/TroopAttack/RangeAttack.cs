@@ -7,6 +7,8 @@ public class RangeAttack : TroopAttackI {
     private GameObject projectilePrefab;
     private Transform shotingPoint;
 
+    private bool targetIsEnemy;
+
     public RangeAttack(IsometricCharacterAnimator isometricCharacterAnimations, RunTimeTroopData troopData,
         GameObject projectilePrefab, Transform shotingPoint) : base (isometricCharacterAnimations, troopData) {
 
@@ -28,16 +30,23 @@ public class RangeAttack : TroopAttackI {
             case ("Troop"):
 
                 entityHealthController = entity.GetComponent<TroopHealthController>();
+
+                RunTimeTroopData troopData = entity.GetComponentInParent<RunTimeTroopData>();
+                targetIsEnemy = troopData.isEnemy;
                 break;
 
             case ("Hero"):
 
                 Debug.Log("TO:DO Create a Hero HealthController");
+                Debug.Log("TO:DO Create a Hero RunTimeData");
                 break;
 
             case ("Tower"):
 
                 entityHealthController = entity.GetComponent<TowerHealthController>();
+
+                RunTimeTowerData towerData = entity.GetComponentInParent<RunTimeTowerData>();
+                targetIsEnemy = towerData.isEnemy;
                 break;
 
         }
@@ -60,6 +69,17 @@ public class RangeAttack : TroopAttackI {
 
         GameObject projectile = Object.Instantiate(projectilePrefab, shotingPoint.position, shotingPoint.rotation);
         ProjectileBehaviour projectileActions = projectile.GetComponent<ProjectileBehaviour>();
+
+        if (targetIsEnemy) {
+
+            projectile.layer = 11;
+
+        }
+        else {
+
+            projectile.layer = 12;
+
+        }
 
         projectileActions.Damage = troopData.vlrDamageDealt;
         projectileActions.MoveToTarget(target);
