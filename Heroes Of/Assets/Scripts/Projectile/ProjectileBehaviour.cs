@@ -22,26 +22,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 
         }
 
-        HealthController objectHitHealthController = null;
-
-        switch (objectHit.tag) {
-
-            case ("Troop"):
-
-                objectHitHealthController = objectHit.GetComponent<TroopHealthController>();
-                break;
-
-            case ("Hero"):
-
-                Debug.Log("TO:DO Create a Hero HealthController");
-                break;
-
-            case ("Tower"):
-
-                objectHitHealthController = objectHit.GetComponent<TowerHealthController>();
-                break;
-
-        }
+        HealthController objectHitHealthController = objectHit.GetComponent<HealthController>();
 
         if (objectHitHealthController != null) {
 

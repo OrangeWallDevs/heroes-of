@@ -32,48 +32,15 @@ public class TroopAttackActions : MonoBehaviour {
 
     public void Attack(RunTimeData entityData) {
 
-        GameObject entity = entityData.GameObject;
-
-        switch (entity.tag) {
-
-            case ("Troop"):
-
-                RunTimeTroopData troopData = entity.GetComponent<RunTimeTroopData>();
-                Attack(troopData);
-                break;
-
-            case ("Hero"):
-
-                Debug.Log("TO:DO Create a Hero HealthController");
-                break;
-
-            case ("Tower"):
-
-                RunTimeTowerData towerData = entity.GetComponent<RunTimeTowerData>();
-                Attack(towerData);
-                break;
-
-        }
+        Attack(entityData.GameObject);
 
     }
 
-    public void Attack(RunTimeTroopData troopData) {
+    public void Attack(GameObject entity) {
 
-        AttackCoroutine = attackType.Attack(troopData);
-
-    }
-
-    public void Attack(RunTimeTowerData towerData) {
-
-        AttackCoroutine = attackType.Attack(towerData);
+        AttackCoroutine = attackType.Attack(entity);
 
     }
-
-    /*public void Attack(RunTimeHeroData heroData) {
-
-        AttackCoroutine = attackType.Attack(heroData);
-
-    }*/
 
     public void StopAttack() {
 

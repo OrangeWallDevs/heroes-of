@@ -14,25 +14,13 @@ public abstract class TroopAttackI {
 
     }
 
-    public Coroutine Attack(RunTimeTroopData troopData) {
+    public Coroutine Attack(GameObject entityAttacked) {
 
-        GameObject enemyTroop = troopData.GameObject;
-        HealthController troopHealthController = enemyTroop.GetComponent<TroopHealthController>();
+        HealthController entityHealthController = entityAttacked.GetComponent<HealthController>();
 
-        return attackActions.StartCoroutine(AttackCoroutine(enemyTroop.transform, troopHealthController));
-
-    }
-
-    public Coroutine Attack(RunTimeTowerData towerData) {
-
-        GameObject enemyTower = towerData.GameObject;
-        HealthController towerHealthController = enemyTower.GetComponent<TowerHealthController>();
-
-        return attackActions.StartCoroutine(AttackCoroutine(enemyTower.transform, towerHealthController));
+        return attackActions.StartCoroutine(AttackCoroutine(entityAttacked.transform, entityHealthController));
 
     }
-
-    //public Coroutine Attack(RunTimeHeroData heroData) { }
 
     protected abstract IEnumerator AttackCoroutine(Transform enemy, HealthController enemyHealthController);
 
