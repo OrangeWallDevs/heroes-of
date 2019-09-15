@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TroopAttackActions : MonoBehaviour {
 
     public GameObject projectilePrefab = null;
     public Transform shotingPoint = null;
+
+    private Coroutine attackCoroutine = null;
 
     private RunTimeTroopData troopData;
     private IsometricCharacterAnimator troopAnimations;
@@ -32,8 +32,67 @@ public class TroopAttackActions : MonoBehaviour {
 
     public void Attack(RunTimeData entityData) {
 
-        StartCoroutine(attackType.Attack(entityData));
+        GameObject entity = entityData.GameObject;
+
+        switch (entity.tag) {
+
+            case ("Troop"):
+
+                RunTimeTroopData troopData = entity.GetComponent<RunTimeTroopData>();
+                Attack(troopData);
+                break;
+
+            case ("Hero"):
+
+                Debug.Log("TO:DO Create a Hero HealthController");
+                break;
+
+            case ("Tower"):
+
+                RunTimeTowerData towerData = entity.GetComponent<RunTimeTowerData>();
+                Attack(towerData);
+                break;
+
+        }
 
     }
+
+    public void Attack(RunTimeTroopData troopData) {
+
+        AttackCoroutine = attackType.Attack(troopData);
+
+    }
+
+    public void Attack(RunTimeTowerData towerData) {
+
+        AttackCoroutine = attackType.Attack(towerData);
+
+    }
+
+    /*public void Attack(RunTimeHeroData heroData) {
+
+        AttackCoroutine = attackType.Attack(heroData);
+
+    }*/
+
+    public void StopAttack() {
+
+        StopCoroutine(AttackCoroutine);
+        AttackCoroutine = null;
+
+    }
+
+    public Coroutine AttackCoroutine {
+
+        get { return attackCoroutine; }
+        private set { attackCoroutine = value; }
+
+    }
+
+    public bool IsAttacking {
+
+        get { return AttackCoroutine != null; }
+
+    } 
 
 }
