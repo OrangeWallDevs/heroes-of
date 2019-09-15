@@ -214,9 +214,9 @@ public class TroopIA : MonoBehaviour {
 
         actualTargetTowerToWalk = FindTargetTower();
 
-        if (IsInRange(actualTargetTowerToWalk.transform.position, troopData.attackDistance)) {
+        if (IsInRange(actualTargetTowerToWalk.transform.position, troopData.attackDistance) && detectedEnemyTower != null) {
 
-            if (lastAttackedTower != detectedEnemyTower.GameObject && !isAttacking) {
+            if (lastAttackedTower != detectedEnemyTower.gameObject && !isAttacking) {
 
                 actualState = TroopStates.ATTACKING;
                 isAttacking = true;
