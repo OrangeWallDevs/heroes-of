@@ -9,14 +9,13 @@ public class TroopIA : MonoBehaviour {
 
     private TroopStates actualState;
 
-    private bool isAttacking;
+    private GameObject actualAttackingTarget;
 
     private List<RunTimeTroopData> enemysTroopsDetected;
-    private GameObject actualAttackingTarget;
 
     private List<RunTimeTowerData> towersList;
     private RunTimeTowerData detectedEnemyTower;
-    private GameObject actualTargetTowerToWalk, lastAttackedTower;
+    private GameObject actualTargetTowerToWalk;
 
     private RunTimeTroopData troopData;
     private TroopMovementActions movementAction;
@@ -69,8 +68,6 @@ public class TroopIA : MonoBehaviour {
 
     private void Start() {
 
-        isAttacking = false;
-
         enemysTroopsDetected = new List<RunTimeTroopData>();
 
         troopData = GetComponent<RunTimeTroopData>();
@@ -105,7 +102,7 @@ public class TroopIA : MonoBehaviour {
 
         }
 
-        if (isAttacking && actualState == TroopStates.ATTACKING) {
+        if (attackAction.IsAttacking && actualState == TroopStates.ATTACKING) {
 
             attackingTowerEvent.Raise(troopData);
 
@@ -163,10 +160,9 @@ public class TroopIA : MonoBehaviour {
 
         if (IsInRange(actualTargetEnemyPosition, troopData.attackDistance)) { // Attack
 
-            if (actualTargetEnemy.gameObject != actualAttackingTarget && !isAttacking) {
+            if (actualTargetEnemy.gameObject != actualAttackingTarget && !attackAction.IsAttacking) {
 
                 actualState = TroopStates.FIGHTING;
-                isAttacking = true;
 
                 actualAttackingTarget = actualTargetEnemy.gameObject;
                 attackAction.Attack(actualTargetEnemy);
@@ -177,7 +173,6 @@ public class TroopIA : MonoBehaviour {
         else { // Get colser to the Enemy
 
             actualState = TroopStates.MOVING;
-            isAttacking = false;
 
             movementAction.MoveToPosition(actualTargetEnemyPosition);
 
@@ -194,7 +189,6 @@ public class TroopIA : MonoBehaviour {
         if (!IsInTowerPosition()) {
 
             actualState = TroopStates.MOVING;
-            isAttacking = false;
 
             movementAction.MoveToPosition(actualTargetTowerToWalk.transform.position);
 
@@ -202,7 +196,6 @@ public class TroopIA : MonoBehaviour {
         else {
 
             actualState = TroopStates.DEFENDING;
-            isAttacking = false;
 
             movementAction.WaitOnActualPosition();
 
@@ -216,12 +209,11 @@ public class TroopIA : MonoBehaviour {
 
         if (IsInRange(actualTargetTowerToWalk.transform.position, troopData.attackDistance) && detectedEnemyTower != null) {
 
-            if (lastAttackedTower != detectedEnemyTower.gameObject && !isAttacking) {
+            if (actualAttackingTarget != detectedEnemyTower.gameObject && !attackAction.IsAttacking) {
 
                 actualState = TroopStates.ATTACKING;
-                isAttacking = true;
 
-                lastAttackedTower = detectedEnemyTower.GameObject;
+                actualAttackingTarget = detectedEnemyTower.GameObject;
                 attackAction.Attack(detectedEnemyTower);
 
             }
@@ -230,7 +222,6 @@ public class TroopIA : MonoBehaviour {
         else {
 
             actualState = TroopStates.MOVING;
-            isAttacking = false;
 
             movementAction.MoveToPosition(actualTargetTowerToWalk.transform.position);
 
@@ -283,17 +274,17 @@ public class TroopIA : MonoBehaviour {
 
         foreach (RunTimeTroopData detectedTroop in enemysTroopsDetectedCopy) {
 
-            if (troop.Equals(detectedTroop)) {
+            if (troop == detectedTroop) {
 
                 enemysTroopsDetected.Remove(detectedTroop);
 
+                if (actualAttackingTarget == troop.GameObject) {
+
+                    attackAction.StopAttack();
+
+                }
+
             }
-
-        }
-
-        if (actualAttackingTarget == troop.GameObject) {
-
-            isAttacking = false;
 
         }
 
@@ -304,7 +295,12 @@ public class TroopIA : MonoBehaviour {
         if (detectedEnemyTower == tower) {
 
             detectedEnemyTower = null;
-            isAttacking = false;
+
+            if (actualAttackingTarget == tower.GameObject) {
+
+                attackAction.StopAttack();
+
+            }
 
         }
 
