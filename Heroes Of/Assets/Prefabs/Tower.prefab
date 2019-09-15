@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5113511219790939717}
   - component: {fileID: 3366350348000763145}
+  - component: {fileID: 6342338028026500973}
   m_Layer: 0
   m_Name: Tower_Body_Collider
   m_TagString: Untagged
@@ -136,6 +137,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3, y: 5.2}
   m_EdgeRadius: 0
+--- !u!114 &6342338028026500973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046819974932470523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79926a69de6d34c4299602c2d842b142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1329654001621803236
 GameObject:
   m_ObjectHideFlags: 0
