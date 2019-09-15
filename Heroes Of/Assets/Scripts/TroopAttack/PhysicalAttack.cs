@@ -12,45 +12,23 @@ public class PhysicalAttack : TroopAttackI {
 
     }
 
-    public override IEnumerator Attack(RunTimeData entityData) {
+    protected override IEnumerator AttackCoroutine(Transform enemy, HealthController enemyHealthController) {
 
-        HealthController entityHealthController = null;
-        GameObject entity = entityData.GameObject;
+        while (enemyHealthController.Health > 0) {
 
-        switch (entity.tag) {
-
-            case ("Troop"):
-
-                entityHealthController = entity.GetComponent<TroopHealthController>();
-                break;
-
-            case ("Hero"):
-
-                Debug.Log("TO:DO Create a Hero HealthController");
-                break;
-
-            case ("Tower"):
-
-                entityHealthController = entity.GetComponent<TowerHealthController>();
-                break;
-
-        }
-
-        while (entityHealthController.Health > 0) {
-
-            Vector2 enemyPosition = entity.transform.position;
+            Vector2 enemyPosition = enemy.position;
 
             troopAnimations.AnimateAttack(enemyPosition);
 
             yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
 
-            if (entityHealthController == null) {
+            if (enemyHealthController == null) {
 
                 yield break;
 
             }
 
-            entityHealthController.ReceiveDamage(troopData.vlrDamageDealt);
+            enemyHealthController.ReceiveDamage(troopData.vlrDamageDealt);
 
         }
 

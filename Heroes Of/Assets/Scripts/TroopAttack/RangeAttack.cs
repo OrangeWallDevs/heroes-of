@@ -20,40 +20,30 @@ public class RangeAttack : TroopAttackI {
 
     }
 
-    public override IEnumerator Attack(RunTimeData entityData) {
+    protected override IEnumerator AttackCoroutine(Transform enemy, HealthController enemyHealthController) {
 
-        HealthController entityHealthController = null;
-        GameObject entity = entityData.GameObject;
+        switch (enemy.tag) {
 
-        switch (entity.tag) {
+            case ("Tower"):
+
+                targetIsEnemy = enemy.GetComponent<RunTimeTowerData>().isEnemy;
+                break;
 
             case ("Troop"):
 
-                entityHealthController = entity.GetComponent<TroopHealthController>();
-
-                RunTimeTroopData troopData = entity.GetComponentInParent<RunTimeTroopData>();
-                targetIsEnemy = troopData.isEnemy;
+                targetIsEnemy = enemy.GetComponent<RunTimeTroopData>().isEnemy;
                 break;
 
             case ("Hero"):
 
-                Debug.Log("TO:DO Create a Hero HealthController");
-                Debug.Log("TO:DO Create a Hero RunTimeData");
-                break;
-
-            case ("Tower"):
-
-                entityHealthController = entity.GetComponent<TowerHealthController>();
-
-                RunTimeTowerData towerData = entity.GetComponentInParent<RunTimeTowerData>();
-                targetIsEnemy = towerData.isEnemy;
+                Debug.Log("TO:DO Create a RunTimeData for the Hero");
                 break;
 
         }
 
-        while (entityHealthController.Health > 0) {
+        while (enemyHealthController.Health > 0) {
 
-            Vector2 enemyPosition = entity.transform.position;
+            Vector2 enemyPosition = enemy.position;
 
             troopAnimations.AnimateAttack(enemyPosition);
 
