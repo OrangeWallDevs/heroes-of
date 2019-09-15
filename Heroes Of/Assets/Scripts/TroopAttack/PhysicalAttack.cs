@@ -12,26 +12,26 @@ public class PhysicalAttack : TroopAttackI {
 
     }
 
-    public override IEnumerator Attack(RunTimeTroopData enemyData) {
+    protected override IEnumerator AttackCoroutine(Transform enemy, HealthController enemyHealthController) {
 
-        Vector2 enemyPosition = enemyData.GameObject.transform.position;
-        TroopIA enemyIA = enemyData.GameObject.GetComponent<TroopIA>();
+        while (enemyHealthController.Health > 0) {
 
-        while (enemyData.vlrHp >= 0) {
+            Vector2 enemyPosition = enemy.position;
 
             troopAnimations.AnimateAttack(enemyPosition);
 
             yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
 
-            if (enemyIA == null) {
+            if (enemyHealthController == null) {
 
                 yield break;
 
             }
 
-            enemyIA.ReceiveDamage(troopData.vlrDamageDealt);
+            enemyHealthController.ReceiveDamage(troopData.vlrDamageDealt);
 
         }
 
     }
+
 }

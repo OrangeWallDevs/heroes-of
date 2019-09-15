@@ -9,6 +9,8 @@ public class ProjectileBehaviour : MonoBehaviour {
     public GameObject collisionEffectPrefab;
 
     private int damage = 0;
+    private bool hadCollided = false;
+    private Vector2 lastPosition;
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -20,34 +22,22 @@ public class ProjectileBehaviour : MonoBehaviour {
 
         }
 
-        switch (objectHit.tag) {
+        HealthController objectHitHealthController = objectHit.GetComponent<HealthController>();
 
-            case ("Troop"):
+        if (objectHitHealthController != null) {
 
-                handleTroopHit(objectHit);
-                break;
-
-            case ("Hero"):
-
-                handleHeroHit(objectHit);
-                break;
-
-            case ("Tower"):
-
-                handleTowerHit(objectHit);
-                break;
+            hadCollided = true;
+            handleHitDamage(objectHitHealthController);
 
         }
 
     }
 
-    private void handleTroopHit(Transform troopHit) {
+    private void handleHitDamage(HealthController healthController) {
 
-        TroopIA enemyIA = troopHit.GetComponent<TroopIA>();
+        if (healthController != null) {
 
-        if (enemyIA != null) {
-
-            enemyIA.ReceiveDamage(damage);
+            healthController.ReceiveDamage(damage);
 
         }
 
@@ -61,14 +51,6 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     }
 
-    private void handleHeroHit(Transform heroHit) {
-
-    }
-
-    private void handleTowerHit(Transform towerHit) {
-
-    }
-
     public void MoveToTarget(Vector2 targetPosition) {
 
         StartCoroutine(MoveTowardsTarget(targetPosition));
@@ -77,16 +59,20 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private IEnumerator MoveTowardsTarget(Vector2 targetPosition) {
 
-        Vector2 actualPosition = transform.position;
+        while (Mathf.Abs(lastPosition.x - transform.position.x) >= 0.008f || 
+            Mathf.Abs(lastPosition.y - transform.position.y) >= 0.008f) {
 
-        while (Mathf.Abs(targetPosition.x) != Mathf.Abs(actualPosition.x) ||
-            Mathf.Abs(targetPosition.y) != Mathf.Abs(actualPosition.y)) {
-
-            actualPosition = transform.position;
+            lastPosition = transform.position;
 
             transform.position = Vector2.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
 
             yield return new WaitForFixedUpdate();
+
+        }
+
+        if(!hadCollided) {
+
+            Destroy(gameObject);
 
         }
 

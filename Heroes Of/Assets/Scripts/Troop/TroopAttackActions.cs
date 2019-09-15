@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TroopAttackActions : MonoBehaviour {
 
     public GameObject projectilePrefab = null;
     public Transform shotingPoint = null;
+
+    private Coroutine attackCoroutine = null;
 
     private RunTimeTroopData troopData;
     private IsometricCharacterAnimator troopAnimations;
@@ -30,33 +30,36 @@ public class TroopAttackActions : MonoBehaviour {
         
     }
 
-    public void AttackTroop(RunTimeTroopData enemyData) {
+    public void Attack(RunTimeData entityData) {
 
-        StartCoroutine(attackType.Attack(enemyData));
+        Attack(entityData.GameObject);
 
     }
 
-    /*public IEnumerator AttackTroop(RunTimeTroopData enemyData) {
+    public void Attack(GameObject entity) {
 
-        Vector2 enemyPosition = enemyData.GameObject.transform.position;
-        TroopIA enemyIA = enemyData.GameObject.GetComponent<TroopIA>();
+        AttackCoroutine = attackType.Attack(entity);
 
-        while (enemyData.vlrHp >= 0) {
+    }
 
-            troopAnimations.AnimateAttack(enemyPosition);
+    public void StopAttack() {
 
-            yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
+        StopCoroutine(AttackCoroutine);
+        AttackCoroutine = null;
 
-            if (enemyIA == null) {
+    }
 
-                yield break;
+    public Coroutine AttackCoroutine {
 
-            }
+        get { return attackCoroutine; }
+        private set { attackCoroutine = value; }
 
-            enemyIA.ReceiveDamage(troopData.vlrDamageDealt);
+    }
 
-        }
+    public bool IsAttacking {
 
-    }*/
+        get { return AttackCoroutine != null; }
+
+    } 
 
 }

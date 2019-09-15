@@ -7,6 +7,8 @@ public class RangeAttack : TroopAttackI {
     private GameObject projectilePrefab;
     private Transform shotingPoint;
 
+    private bool targetIsEnemy;
+
     public RangeAttack(IsometricCharacterAnimator isometricCharacterAnimations, RunTimeTroopData troopData,
         GameObject projectilePrefab, Transform shotingPoint) : base (isometricCharacterAnimations, troopData) {
 
@@ -18,17 +20,34 @@ public class RangeAttack : TroopAttackI {
 
     }
 
-    public override IEnumerator Attack(RunTimeTroopData enemyData) {
+    protected override IEnumerator AttackCoroutine(Transform enemy, HealthController enemyHealthController) {
 
-        while (enemyData.vlrHp > 0) {
+        switch (enemy.tag) {
 
-            Vector2 enemyPosition = enemyData.GameObject.transform.position;
+            case ("Tower"):
+
+                targetIsEnemy = enemy.GetComponent<RunTimeTowerData>().isEnemy;
+                break;
+
+            case ("Troop"):
+
+                targetIsEnemy = enemy.GetComponent<RunTimeTroopData>().isEnemy;
+                break;
+
+            case ("Hero"):
+
+                Debug.Log("TO:DO Create a RunTimeData for the Hero");
+                break;
+
+        }
+
+        while (enemyHealthController.Health > 0) {
+
+            Vector2 enemyPosition = enemy.position;
 
             troopAnimations.AnimateAttack(enemyPosition);
 
-            // only create at certain point of the animation
-
-            Shoot(enemyPosition); // called by the animation
+            Shoot(enemyPosition);
 
             yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
 
@@ -40,6 +59,17 @@ public class RangeAttack : TroopAttackI {
 
         GameObject projectile = Object.Instantiate(projectilePrefab, shotingPoint.position, shotingPoint.rotation);
         ProjectileBehaviour projectileActions = projectile.GetComponent<ProjectileBehaviour>();
+
+        if (targetIsEnemy) {
+
+            projectile.layer = 11;
+
+        }
+        else {
+
+            projectile.layer = 12;
+
+        }
 
         projectileActions.Damage = troopData.vlrDamageDealt;
         projectileActions.MoveToTarget(target);
