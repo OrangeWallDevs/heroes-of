@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ToggleButtonImageController : MonoBehaviour {
    public Button button;
-   public Sprite soundOn;
-   public Sprite soundOff;
+   public Sprite imageOn;
+   public Sprite imageOff;
    public UnityAction<bool> action;
 
    void Start() {
@@ -16,9 +16,9 @@ public class ToggleButtonImageController : MonoBehaviour {
    
    void ToggleBackgroundImage(bool IsMuted) {
        if(IsMuted) {
-           button.GetComponent<Image>().sprite = soundOff;
+           button.GetComponent<Image>().sprite = imageOff;
        } else {
-           button.GetComponent<Image>().sprite = soundOn;
+           button.GetComponent<Image>().sprite = imageOn;
        }
    }
 }
