@@ -22,8 +22,8 @@ TagManager:
   - Battle_Colliders
   - Enemy_Body_Layer
   - Player_Body_Layer
-  - 
-  - 
+  - Projectile_Hit_Enemy
+  - Projectile_Hit_Player
   - 
   - 
   - 

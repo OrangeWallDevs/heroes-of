@@ -62,12 +62,12 @@ public class RangeAttack : TroopAttackI {
 
         if (targetIsEnemy) {
 
-            projectile.layer = 11;
+            projectile.layer = 13;
 
         }
         else {
 
-            projectile.layer = 12;
+            projectile.layer = 14;
 
         }
 
