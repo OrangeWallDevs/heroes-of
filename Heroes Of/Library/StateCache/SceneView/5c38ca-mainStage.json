@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":0.5322858095169067,"y":0.2702879309654236,"z":-13.591687202453614},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":20.532190322875978,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":664.0386352539063,"y":287.903076171875,"z":-1614.4024658203125},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":783.60888671875,"orthographic":true}
+>>>>>>> PlayGames_LoginSystem
