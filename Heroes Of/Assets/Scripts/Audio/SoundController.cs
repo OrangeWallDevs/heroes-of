@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundManager : MonoBehaviour { 
+public class SoundController : MonoBehaviour { 
     public AudioCategory referenceCategory;
     public AudioData song;
 
