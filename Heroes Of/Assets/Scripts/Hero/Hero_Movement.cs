@@ -6,7 +6,7 @@ public class Hero_Movement : MonoBehaviour {
     public float movementSpeed = 5f;
 
     private Rigidbody2D heroRigidbody;
-    private CircleCollider2D heroColider;
+    private CapsuleCollider2D heroColider;
     private Transform heroTransform;
 
     private IsometricCharacterAnimator characterAnimatorScript;
@@ -40,7 +40,7 @@ public class Hero_Movement : MonoBehaviour {
     private void Awake() {
 
         characterAnimatorScript = GetComponentInChildren<IsometricCharacterAnimator>();
-        heroColider = GetComponentInChildren<CircleCollider2D>();
+        heroColider = GetComponentInChildren<CapsuleCollider2D>();
 
         heroRigidbody = GetComponent<Rigidbody2D>();
         heroTransform = GetComponent<Transform>();
