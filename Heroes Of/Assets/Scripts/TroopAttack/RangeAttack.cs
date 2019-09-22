@@ -36,7 +36,7 @@ public class RangeAttack : TroopAttackI {
 
             case ("Hero"):
 
-                Debug.Log("TO:DO Create a RunTimeData for the Hero");
+                targetIsEnemy = enemy.GetComponent<RunTimeHeroData>().isEnemy;
                 break;
 
         }

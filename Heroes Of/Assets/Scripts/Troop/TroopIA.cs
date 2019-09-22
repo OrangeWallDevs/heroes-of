@@ -146,7 +146,13 @@ public class TroopIA : MonoBehaviour {
 
             case ("Hero"):
 
-                Debug.Log("Attack Hero");
+                RunTimeHeroData detectedHero = detectedObject.GetComponent<RunTimeHeroData>();
+
+                if (detectedHero.isEnemy != troopData.isEnemy) {
+
+                    //target hero
+
+                }
                 break;
 
         }
