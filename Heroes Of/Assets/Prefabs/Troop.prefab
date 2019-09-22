@@ -266,6 +266,7 @@ MonoBehaviour:
     type: 2}
   towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
     type: 2}
+  heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
 --- !u!114 &3442812173667367238
 MonoBehaviour:
   m_ObjectHideFlags: 0
