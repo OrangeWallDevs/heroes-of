@@ -868,7 +868,7 @@ PrefabInstance:
     - target: {fileID: 1058913854761823224, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3960337888166844361, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
@@ -913,7 +913,7 @@ PrefabInstance:
     - target: {fileID: 3960337888166844361, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: vlrAttackDistance
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8029188630721471568, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
@@ -8928,6 +8928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tower_Enemy 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572856720497322546, guid: d38d914760fd527448bc5065db9787c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8320936286118777709, guid: d38d914760fd527448bc5065db9787c4,
         type: 3}
@@ -43640,6 +43645,21 @@ PrefabInstance:
         type: 3}
       propertyPath: troopObjective
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027416756104048170, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: towerPrioritieWeight
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027416756104048170, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: heroPrioritieWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027416756104048170, guid: 8952081146540a44b920c9eb956999db,
+        type: 3}
+      propertyPath: troopPrioritieWeight
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1447279698923890147, guid: 8952081146540a44b920c9eb956999db,
         type: 3}

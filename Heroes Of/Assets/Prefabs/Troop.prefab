@@ -261,6 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65af89282c38674a84a6852bce5876c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerPrioritieWeight: 15
+  heroPrioritieWeight: 1
+  troopPrioritieWeight: 10
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   attackingTowerEvent: {fileID: 11400000, guid: bfb14c1e3d3081d48bc279625d82f22b,
     type: 2}
