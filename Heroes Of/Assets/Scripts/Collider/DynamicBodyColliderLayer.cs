@@ -22,7 +22,8 @@ public class DynamicBodyColliderLayer : MonoBehaviour {
 
             case ("Hero"):
 
-                Debug.Log("TO:DO: Create a hero RunTimeData");
+                RunTimeHeroData heroData = GetComponentInParent<RunTimeHeroData>();
+                isEnemy = heroData.isEnemy;
                 break;
 
         }
