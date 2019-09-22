@@ -22,6 +22,8 @@ public class HeroHealthController : HealthController {
 
         if (Health <= 0) {
 
+            heroDeathEvent.Raise(heroData);
+
             Die();
 
         }
