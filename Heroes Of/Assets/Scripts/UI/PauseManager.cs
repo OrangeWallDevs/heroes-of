@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour {
     public static bool IsGamePaused {get; private set;}
-    public GameObject PauseMenu;
+    public UIModalOpener PauseMenuOpener;
 
     private void Awake() {
         IsGamePaused = false;
     }
 
     public void TogglePause() {
-        PauseMenu.SetActive(!PauseMenu.activeSelf);
+        PauseMenuOpener.ToggleModal();
         IsGamePaused = !IsGamePaused;
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }

@@ -13,4 +13,8 @@ public class UIModalOpener : MonoBehaviour {
     public void CloseModal() {
         uiModal.SetActive(false);
     }
+
+    public void ToggleModal() {
+        uiModal.SetActive(!uiModal.activeSelf);
+    }
 }
