@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 0
     width: 334
     height: 767
-  m_MinSize: {x: 277, y: 122}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -138,10 +138,10 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 767
-  m_MinSize: {x: 713, y: 494}
-  m_MaxSize: {x: 18008, y: 14044}
+  m_MinSize: {x: 711, y: 472}
+  m_MaxSize: {x: 18006, y: 14022}
   vertical: 0
-  controlID: 68
+  controlID: 61
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,10 +163,10 @@ MonoBehaviour:
     y: 0
     width: 384
     height: 767
-  m_MinSize: {x: 232, y: 494}
-  m_MaxSize: {x: 10002, y: 14044}
+  m_MinSize: {x: 232, y: 472}
+  m_MaxSize: {x: 10002, y: 14022}
   vertical: 1
-  controlID: 133
+  controlID: 126
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -240,10 +240,10 @@ MonoBehaviour:
     y: 0
     width: 882
     height: 767
-  m_MinSize: {x: 204, y: 322}
-  m_MaxSize: {x: 4004, y: 8022}
+  m_MinSize: {x: 204, y: 344}
+  m_MaxSize: {x: 4004, y: 8044}
   vertical: 1
-  controlID: 69
+  controlID: 62
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -290,8 +290,8 @@ MonoBehaviour:
     y: 555
     width: 882
     height: 212
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 104, y: 122}
+  m_MaxSize: {x: 4004, y: 4022}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -443,23 +443,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 36980000
-      m_LastClickedID: 38966
-      m_ExpandedIDs: 2a3dfffff669ffff3ef9ffff103f0000383f00004c3f00005c3f00009e3f0000a63f0000fc3f00001a400000244000006840000096400000c0400000c6970000fa9700000698000036980000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: f08cffff18a4ffff92e3ffff48460000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Canvas
+        m_OriginalName: Canvas
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 18044
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -507,19 +507,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images/UI Elements/Cutscene
+    - Assets/Images/UI Elements/Prefabs
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Sir Pedr\Documents\Bitbucket\heroes-of\Heroes Of
+  m_LastProjectPath: "E:\\Vin\xEDcius\\heroes-of\\Heroes Of"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 02070000
     m_LastClickedID: 1794
-    m_ExpandedIDs: 00000000fa370000183800007238000078390000103a0000123a0000643c0000b03c0000943d0000f23d0000cc430000ce430000d0430000d2430000d4430000d6430000d8430000da430000dc430000de430000e0430000
+    m_ExpandedIDs: 0000000074360000403800004c3800007a41000084410000f44100001242000094420000ae420000d2420000d44200006c4300009c440000a0440000c6440000f04400001645000044450000aa450000f2450000ee460000f0460000f2460000f4460000f6460000f8460000fa460000fc460000fe4600000047000002470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -544,21 +544,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 152}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000fa370000043800005838000072380000b4380000e4380000b0390000de390000103a0000123a0000f83a0000b03c0000b43c0000f23c0000263d0000783d0000bc3d0000f23d0000583e0000e03e0000cc430000ce430000d0430000d2430000d4430000d6430000d8430000da430000dc430000de430000e0430000
+    m_ExpandedIDs: ffffffff0000000074360000403800004c3800007a41000084410000a24100001242000094420000ae420000d2420000d44200006c4300009c440000a0440000c6440000f044000016450000aa450000f2450000ee460000f0460000f2460000f4460000f6460000f8460000fa460000fc460000fe4600000047000002470000b84d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UIModalOpener
-      m_OriginalName: UIModalOpener
+      m_Name: AccountScreen
+      m_OriginalName: AccountScreen
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 11128
+      m_UserData: 17590
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -638,9 +638,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 943.2205, y: 593.07227, z: -898.1238}
+    m_Target: {x: 963.73, y: 536.98, z: 0}
     speed: 2
-    m_Value: {x: 989.7476, y: 581.52106, z: -894.01636}
+    m_Value: {x: 963.73, y: 536.98, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -673,9 +673,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1089.729
+    m_Target: 4936.6567
     speed: 2
-    m_Value: 1141.0775
+    m_Value: 4936.6567
   m_Ortho:
     m_Target: 1
     speed: 2
