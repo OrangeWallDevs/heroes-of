@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using System.Linq;
 
 public class TroopIA : MonoBehaviour {
 
@@ -18,7 +16,6 @@ public class TroopIA : MonoBehaviour {
     private float actualTargetPriority;
     private List<Transform> closeTargets;
     private List<Transform> towersList;
-    private List<Transform> attackingTowerTroops;
 
     private RunTimeTroopData troopData;
     private TroopMovementActions movementAction;
@@ -72,7 +69,6 @@ public class TroopIA : MonoBehaviour {
     private void Start() {
 
         closeTargets = new List<Transform>();
-        attackingTowerTroops = new List<Transform>();
 
         troopData = GetComponent<RunTimeTroopData>();
         movementAction = GetComponent<TroopMovementActions>();
@@ -87,11 +83,38 @@ public class TroopIA : MonoBehaviour {
 
     private void Update() {
 
-        if (actualTarget == null) {
+        Debug.Log("GameObject: " + gameObject + " Target: " + ActualTarget);
 
-            actualTarget = PickAnTarget();
+        if (ActualTarget == null) {
 
-        } else {
+            if (actualState != TroopStates.DEFENDING) {
+
+                ActualTarget = PickAnTarget();
+
+            }
+
+        } 
+        else {
+
+            if (!IsInRange(ActualTarget.position, troopData.attackDistance)) {
+
+                MoveTo(ActualTarget.position);
+
+            }
+            else {
+
+                if (troopData.troopObjective == PhaseObjectives.DEFEND && ActualTarget.tag == "Tower") {
+
+                    EnterInDefenseState();
+
+                }
+                else if (!attackAction.IsAttacking) {
+
+                    AttackTarget(ActualTarget);
+
+                }
+
+            }
 
         }
 
@@ -106,43 +129,67 @@ public class TroopIA : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
 
         Transform detectedObject = collision.gameObject.transform.parent;
-        float detectedObjectPriority = 0;
+        float detectedObjectPriority;
 
         if (detectedObject != null) {
 
-            // TO:DO --> Find a better way to set the priority weight
-            switch (detectedObject.tag) {
+            if (TargetIsEnemy(detectedObject)) {
 
-                case ("Tower"):
-
-                    detectedObjectPriority = towerPriorityWeight;
-                    break;
-
-                case ("Hero"):
-
-                    detectedObjectPriority = heroPriorityWeight;
-                    break;
-
-                case ("Troop"):
-
-                    detectedObjectPriority = troopPriorityWeight;
-                    break;
-
-            }
-
-            if (detectedObjectPriority > actualTargetPriority) {
-
-                closeTargets.Add(actualTarget);
-                attackAction.StopAttack();
-                actualTarget = detectedObject;
-
-            } else {
-
-                closeTargets.Add(detectedObject);
+                detectedObjectPriority = GetTargetPriority(detectedObject);
+    
+                if (detectedObjectPriority > actualTargetPriority) {
+    
+                    if (ActualTarget != null) {
+    
+                        closeTargets.Add(ActualTarget);
+    
+                    }
+    
+                    if (attackAction.IsAttacking) {
+    
+                        attackAction.StopAttack();
+    
+                    }
+    
+                    ActualTarget = detectedObject;
+    
+                }
+                else {
+    
+                    closeTargets.Add(detectedObject);
+    
+                }
 
             }
 
         }
+
+    }
+
+    private bool TargetIsEnemy(Transform detectedObject) {
+
+        bool isEnemy = false;
+
+        switch (detectedObject.tag) {
+
+            case ("Tower"):
+
+                isEnemy = detectedObject.GetComponent<RunTimeTowerData>().isEnemy;
+                break;
+
+            case ("Hero"):
+
+                isEnemy = detectedObject.GetComponent<RunTimeHeroData>().isEnemy;
+                break;
+
+            case ("Troop"):
+
+                isEnemy = detectedObject.GetComponent<RunTimeTroopData>().isEnemy;
+                break;
+
+        }
+
+        return isEnemy;
 
     }
 
@@ -152,23 +199,7 @@ public class TroopIA : MonoBehaviour {
 
         if (objectOutOfRadio != null) {
 
-            if (closeTargets.Contains(objectOutOfRadio)) {
-
-                closeTargets.Remove(objectOutOfRadio);
-
-            }
-
-            if (actualTarget == objectOutOfRadio) {
-
-                if (attackAction.IsAttacking) {
-
-                    attackAction.StopAttack();
-
-                }
-
-                actualTarget = null;
-
-            }
+            HandleEnemyLeavedAttackRadio(objectOutOfRadio);
 
         }
 
@@ -176,8 +207,75 @@ public class TroopIA : MonoBehaviour {
 
     private Transform PickAnTarget() {
 
-        return null;
+        Transform nextTarget = null;
 
+        if (closeTargets.Count <= 0) {
+
+            nextTarget = FindTargetTower();
+
+        }
+        else {
+
+            // Pega um aleatório do closeTargets de acordo com a prioridade.
+            // TO:DO --> Ver como incluir a torre nessa seleção aleatória.
+
+            int randomNumber = Random.Range(0, closeTargets.Capacity - 1);
+            Transform[] targets = closeTargets.ToArray();
+
+            nextTarget = targets[randomNumber];
+            closeTargets.Remove(nextTarget);
+
+        }
+
+        return nextTarget;
+
+    }
+
+    private int GetTargetPriority(Transform target) {
+
+        int priority = 0;
+
+        // TO:DO --> Find a better way to set the priority weight
+        if (target == null) {
+
+            priority = 0;
+
+        } 
+        else {
+
+            switch (target.tag) {
+    
+                case ("Tower"):
+
+                    priority = towerPriorityWeight;
+                    break;
+    
+                case ("Hero"):
+
+                    priority = heroPriorityWeight;
+                    break;
+    
+                case ("Troop"):
+
+                    priority = troopPriorityWeight;
+                    break;
+    
+            }
+
+        }
+
+        return priority;
+
+    }
+
+    private void EnterInDefenseState() {
+
+        actualState = TroopStates.DEFENDING;
+
+        ActualTarget = null;
+
+        movementAction.WaitOnActualPosition();
+        
     }
 
     private void AttackTarget(Transform attackTarget) {
@@ -194,6 +292,12 @@ public class TroopIA : MonoBehaviour {
 
         RunTimeData targetData = attackTarget.GetComponent<RunTimeData>();
         attackAction.Attack(targetData);
+
+    }
+
+    private void MoveTo(Vector2 position) {
+
+        movementAction.MoveToPosition(position);
 
     }
 
@@ -225,47 +329,11 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private void HandleEnemyDeath(Transform enemy) {
-
-        if (closeTargets.Contains(enemy)) {
-
-            closeTargets.Remove(enemy);
-
-        }
-
-        if (actualTarget == enemy) {
-
-            attackAction.StopAttack();
-            actualTarget = null;
-
-        }
-
-    }
-
     private void OnTroopDeath(RunTimeTroopData troop) {
 
         Transform troopTransform = troop.GameObject.transform;
 
-        HandleEnemyDeath(troopTransform);
-
-        /*RunTimeTroopData[] enemysTroopsDetectedCopy = enemysTroopsDetected.ToArray();
-
-        foreach (RunTimeTroopData detectedTroop in enemysTroopsDetectedCopy) {
-
-            if (troop == detectedTroop) {
-
-                enemysTroopsDetected.Remove(detectedTroop);
-
-                if (actualAttackingTarget == troop.GameObject) {
-
-                    attackAction.StopAttack();
-                    actualAction = null;
-
-                }
-
-            }
-
-        }*/
+        HandleEnemyLeavedAttackRadio(troopTransform);
 
     }
 
@@ -273,24 +341,9 @@ public class TroopIA : MonoBehaviour {
 
         Transform towerTransform = tower.GameObject.transform;
 
-        HandleEnemyDeath(towerTransform);
+        HandleEnemyLeavedAttackRadio(towerTransform);
 
         towersList.Remove(towerTransform);
-
-        /*if (detectedEnemyTower == tower) {
-
-            detectedEnemyTower = null;
-
-            if (actualAttackingTarget == tower.GameObject) {
-
-                attackAction.StopAttack();
-                actualAction = null;
-
-            }
-
-        }
-
-        towersList.Remove(tower);*/
 
     }
 
@@ -298,35 +351,65 @@ public class TroopIA : MonoBehaviour {
 
         Transform heroTransform = hero.GameObject.transform;
 
-        HandleEnemyDeath(heroTransform);
+        HandleEnemyLeavedAttackRadio(heroTransform);
 
-        /*if (actualAttackingTarget == hero.GameObject) {
+    }
 
-            attackAction.StopAttack();
-            actualAction = null;
+    private void HandleEnemyLeavedAttackRadio(Transform enemy) {
+
+        if (closeTargets.Contains(enemy)) {
+
+            closeTargets.Remove(enemy);
 
         }
 
-        if (detectedEnemyHero == hero) {
+        if (ActualTarget == enemy) {
 
-            detectedEnemyHero = null;
+            if (attackAction.IsAttacking) {
 
-        }*/
+                attackAction.StopAttack();
+
+            }
+
+            ActualTarget = null;
+
+        }
 
     }
 
     private void OnTroopAttackingTower(RunTimeTroopData troop) {
 
-        /*if (troopData.troopObjective == PhaseObjectives.DEFEND && actualState == TroopStates.DEFENDING) {
+        if (troopData.troopObjective == PhaseObjectives.DEFEND) {
 
-            if (!enemysTroopsDetected.Contains(troop)) {
+            Transform enemyAttackingTower = troop.GameObject.transform;
 
-                enemysTroopsDetected.Add(troop);
+            if (!closeTargets.Contains(enemyAttackingTower)) {
+
+                closeTargets.Add(enemyAttackingTower);
+
+            }
+
+            if (!attackAction.IsAttacking && ActualTarget == null) {
+
+                ActualTarget = PickAnTarget();
 
             }
 
         }
-        */
+        
+    }
+
+    public Transform ActualTarget {
+
+        get { return actualTarget; }
+
+        private set {
+
+            actualTarget = value;
+            actualTargetPriority = GetTargetPriority(actualTarget);
+
+        }
+
     }
 
 }
