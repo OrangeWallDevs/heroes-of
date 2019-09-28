@@ -83,8 +83,6 @@ public class TroopIA : MonoBehaviour {
 
     private void Update() {
 
-        Debug.Log("GameObject: " + gameObject + " Target: " + ActualTarget);
-
         if (ActualTarget == null) {
 
             if (actualState != TroopStates.DEFENDING) {
@@ -209,7 +207,7 @@ public class TroopIA : MonoBehaviour {
 
         Transform nextTarget = null;
 
-        if (closeTargets.Count <= 0) {
+        if (closeTargets.Count <= 0 && towersList.Count > 0) {
 
             nextTarget = FindTargetTower();
 
@@ -219,7 +217,7 @@ public class TroopIA : MonoBehaviour {
             // Pega um aleatório do closeTargets de acordo com a prioridade.
             // TO:DO --> Ver como incluir a torre nessa seleção aleatória.
 
-            int randomNumber = Random.Range(0, closeTargets.Capacity - 1);
+            int randomNumber = Random.Range(0, closeTargets.Count - 1);
             Transform[] targets = closeTargets.ToArray();
 
             nextTarget = targets[randomNumber];
