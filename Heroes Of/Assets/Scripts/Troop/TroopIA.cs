@@ -77,7 +77,7 @@ public class TroopIA : MonoBehaviour {
         troopData = GetComponent<RunTimeTroopData>();
         movementAction = GetComponent<TroopMovementActions>();
         attackAction = GetComponent<TroopAttackActions>();
-        
+
         troopDeathEvent.RegisterListener(OnTroopDeath);
         towerDestroyedEvent.RegisterListener(OnTowerDestruction);
         attackingTowerEvent.RegisterListener(OnTroopAttackingTower);
@@ -88,6 +88,10 @@ public class TroopIA : MonoBehaviour {
     private void Update() {
 
         if (actualTarget == null) {
+
+            actualTarget = PickAnTarget();
+
+        } else {
 
         }
 
@@ -132,8 +136,7 @@ public class TroopIA : MonoBehaviour {
                 attackAction.StopAttack();
                 actualTarget = detectedObject;
 
-            }
-            else {
+            } else {
 
                 closeTargets.Add(detectedObject);
 
@@ -146,7 +149,7 @@ public class TroopIA : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision) {
 
         Transform objectOutOfRadio = collision.gameObject.transform.parent;
-         
+
         if (objectOutOfRadio != null) {
 
             if (closeTargets.Contains(objectOutOfRadio)) {
@@ -171,14 +174,19 @@ public class TroopIA : MonoBehaviour {
 
     }
 
+    private Transform PickAnTarget() {
+
+        return null;
+
+    }
+
     private void AttackTarget(Transform attackTarget) {
 
         if (attackTarget.tag == "Tower") {
 
             actualState = TroopStates.ATTACKING;
 
-        }
-        else if (attackTarget.tag == "Troop" || attackTarget.tag == "Hero") {
+        } else if (attackTarget.tag == "Troop" || attackTarget.tag == "Hero") {
 
             actualState = TroopStates.FIGHTING;
 
@@ -199,18 +207,17 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private GameObject FindTargetTower() {
+    private Transform FindTargetTower() {
 
-        GameObject targetTower;
+        Transform targetTower;
 
         if (troopData.troopObjective == PhaseObjectives.ATTACK) { // Get the closest tower as target
 
-            targetTower = towersList.ToArray()[0].GameObject;
+            targetTower = towersList.ToArray()[0];
 
-        } 
-        else { // Get the most distant tower as target
+        } else { // Get the most distant tower as target
 
-            targetTower = towersList.ToArray()[towersList.Count - 1].GameObject;
+            targetTower = towersList.ToArray()[towersList.Count - 1];
 
         }
 
@@ -218,19 +225,30 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private bool IsInTowerPosition() {
+    private void HandleEnemyDeath(Transform enemy) {
 
-        Vector2 towerPosition = actualTargetTowerToWalk.transform.position;
-        Vector2 actualPosition = transform.position;
+        if (closeTargets.Contains(enemy)) {
 
-        return !(Mathf.Ceil(towerPosition.x) != Mathf.Ceil(actualPosition.x)
-            || Mathf.Ceil(towerPosition.y) != Mathf.Ceil(actualPosition.y));
+            closeTargets.Remove(enemy);
+
+        }
+
+        if (actualTarget == enemy) {
+
+            attackAction.StopAttack();
+            actualTarget = null;
+
+        }
 
     }
 
     private void OnTroopDeath(RunTimeTroopData troop) {
 
-        RunTimeTroopData[] enemysTroopsDetectedCopy = enemysTroopsDetected.ToArray();
+        Transform troopTransform = troop.GameObject.transform;
+
+        HandleEnemyDeath(troopTransform);
+
+        /*RunTimeTroopData[] enemysTroopsDetectedCopy = enemysTroopsDetected.ToArray();
 
         foreach (RunTimeTroopData detectedTroop in enemysTroopsDetectedCopy) {
 
@@ -247,13 +265,19 @@ public class TroopIA : MonoBehaviour {
 
             }
 
-        }
+        }*/
 
     }
 
     private void OnTowerDestruction(RunTimeTowerData tower) {
 
-        if (detectedEnemyTower == tower) {
+        Transform towerTransform = tower.GameObject.transform;
+
+        HandleEnemyDeath(towerTransform);
+
+        towersList.Remove(towerTransform);
+
+        /*if (detectedEnemyTower == tower) {
 
             detectedEnemyTower = null;
 
@@ -266,13 +290,17 @@ public class TroopIA : MonoBehaviour {
 
         }
 
-        towersList.Remove(tower);
+        towersList.Remove(tower);*/
 
     }
 
     private void OnHeroDeath(RunTimeHeroData hero) {
 
-        if (actualAttackingTarget == hero.GameObject) {
+        Transform heroTransform = hero.GameObject.transform;
+
+        HandleEnemyDeath(heroTransform);
+
+        /*if (actualAttackingTarget == hero.GameObject) {
 
             attackAction.StopAttack();
             actualAction = null;
@@ -283,13 +311,13 @@ public class TroopIA : MonoBehaviour {
 
             detectedEnemyHero = null;
 
-        }
+        }*/
 
     }
 
     private void OnTroopAttackingTower(RunTimeTroopData troop) {
 
-        if (troopData.troopObjective == PhaseObjectives.DEFEND && actualState == TroopStates.DEFENDING) {
+        /*if (troopData.troopObjective == PhaseObjectives.DEFEND && actualState == TroopStates.DEFENDING) {
 
             if (!enemysTroopsDetected.Contains(troop)) {
 
@@ -298,7 +326,7 @@ public class TroopIA : MonoBehaviour {
             }
 
         }
-
+        */
     }
 
 }
