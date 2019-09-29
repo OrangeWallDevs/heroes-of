@@ -246,6 +246,51 @@ public class PriorityList<T> : OrdenatedList<PriorityPair<T>> {
 
     }
 
+    public PriorityPair<T> Remove(T key) {
+
+        if (Count <= 0) {
+
+            return null;
+
+        }
+
+        BinaryCell<PriorityPair<T>> cell = finalCell.LeftCell;
+
+        while (!cell.Value.Key.Equals(key)) {
+
+            cell = cell.LeftCell;
+
+            if (cell == startCell) {
+
+                return null;
+
+            }
+
+        }
+
+        for (BinaryCell<PriorityPair<T>> decrementCell = finalCell; 
+            decrementCell != cell; decrementCell = decrementCell.LeftCell) {
+
+            decrementCell.Index--;
+
+        }
+
+        BinaryCell<PriorityPair<T>> leftCell = cell.LeftCell;
+        BinaryCell<PriorityPair<T>> rightCell = cell.RightCell;
+
+        leftCell.RightCell = rightCell;
+        rightCell.LeftCell = leftCell;
+
+        cell.RightCell = null;
+        cell.LeftCell = null;
+        cell.Index = -1;
+
+        Count--;
+
+        return cell.Value;
+
+    }
+
     public override List<PriorityPair<T>> ToList() {
 
         List<PriorityPair<T>> returnList = new List<PriorityPair<T>>();
