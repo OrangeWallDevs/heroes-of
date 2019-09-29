@@ -277,6 +277,7 @@
     <Compile Include="Assets\Scripts\Spawner\Spawner.cs" />
     <Compile Include="Assets\Scripts\Spawner\SpawnerStates.cs" />
     <Compile Include="Assets\Scripts\TesteAudio.cs" />
+    <Compile Include="Assets\Scripts\TestList.cs" />
     <Compile Include="Assets\Scripts\Tower\RunTimeTowerData.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerHealthController.cs" />
     <Compile Include="Assets\Scripts\Troop\RunTimeTroopData.cs" />
@@ -297,8 +298,12 @@
     <Compile Include="Assets\Scripts\UI\ToggleButtonImageController.cs" />
     <Compile Include="Assets\Scripts\UI\UIModalOpener.cs" />
     <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
+    <Compile Include="Assets\Scripts\Util\BinaryCell.cs" />
     <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Util\Logger.cs" />
+    <Compile Include="Assets\Scripts\Util\OrdenatedList.cs" />
+    <Compile Include="Assets\Scripts\Util\PriorityList.cs" />
+    <Compile Include="Assets\Scripts\Util\PriorityPair.cs" />
     <Compile Include="Assets\Scripts\Util\Reflection.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Wave\WaveManager.cs" />
