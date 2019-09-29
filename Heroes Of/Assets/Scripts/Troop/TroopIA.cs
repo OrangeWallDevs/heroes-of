@@ -15,7 +15,8 @@ public class TroopIA : MonoBehaviour {
     private Transform actualTarget;
     private float actualTargetPriority;
     private List<Transform> closeTargets;
-    private List<Transform> towersList;
+
+    private PriorityList<Transform> construcionsList;
 
     private RunTimeTroopData troopData;
     private TroopMovementActions movementAction;
@@ -23,44 +24,19 @@ public class TroopIA : MonoBehaviour {
 
     private void Awake() {
 
-        GameObject[] towersInGame = GameObject.FindGameObjectsWithTag("Tower");
-        float[] distancesBetweenTower = new float[towersInGame.Length];
+        construcionsList = new PriorityList<Transform>();
 
+        GameObject[] constructionsInGame = GameObject.FindGameObjectsWithTag("Tower");
         Vector2 troopPosition = transform.position;
 
-        for (int i = 0; i < towersInGame.Length; i++) {
+        foreach (GameObject construction in constructionsInGame) {
 
-            Vector2 towerPosition = towersInGame[i].transform.position;
-            distancesBetweenTower[i] = Vector2.Distance(troopPosition, towerPosition);
+            Vector2 constructionPosition = construction.transform.position;
+            int distance = (int) Vector2.Distance(troopPosition, constructionPosition);
 
-        }
+            PriorityPair<Transform> pair = new PriorityPair<Transform>(construction.transform, distance);
 
-        for (int i = 1; i < towersInGame.Length; i++) { // Order the towers by distance
-
-            float lastComparationDistance = distancesBetweenTower[i];
-            GameObject lastComparationTower = towersInGame[i];
-
-            int j = i - 1;
-
-            while (j >= 0 && distancesBetweenTower[j] > lastComparationDistance) {
-
-                distancesBetweenTower[j + 1] = distancesBetweenTower[j];
-                towersInGame[j + 1] = towersInGame[j];
-
-                j--;
-
-            }
-
-            distancesBetweenTower[j + 1] = lastComparationDistance;
-            towersInGame[j + 1] = lastComparationTower;
-
-        }
-
-        towersList = new List<Transform>();
-
-        foreach (GameObject tower in towersInGame) {
-
-            towersList.Add(tower.GetComponent<Transform>());
+            construcionsList.Add(pair);
 
         }
 
@@ -207,9 +183,9 @@ public class TroopIA : MonoBehaviour {
 
         Transform nextTarget = null;
 
-        if (closeTargets.Count <= 0 && towersList.Count > 0) {
+        if (closeTargets.Count <= 0 && construcionsList.Count > 0) {
 
-            nextTarget = FindTargetTower();
+            nextTarget = FindNextTargetBuilding();
 
         }
         else {
@@ -309,17 +285,18 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private Transform FindTargetTower() {
+    private Transform FindNextTargetBuilding() {
 
         Transform targetTower;
 
         if (troopData.troopObjective == PhaseObjectives.ATTACK) { // Get the closest tower as target
 
-            targetTower = towersList.ToArray()[0];
+            targetTower = construcionsList.GetLast().Key;
 
-        } else { // Get the most distant tower as target
+        }
+        else { // Get the most distant tower as target
 
-            targetTower = towersList.ToArray()[towersList.Count - 1];
+            targetTower = construcionsList.GetFirst().Key;
 
         }
 
@@ -341,7 +318,7 @@ public class TroopIA : MonoBehaviour {
 
         HandleEnemyLeavedAttackRadio(towerTransform);
 
-        towersList.Remove(towerTransform);
+        construcionsList.Remove(towerTransform);
 
     }
 
