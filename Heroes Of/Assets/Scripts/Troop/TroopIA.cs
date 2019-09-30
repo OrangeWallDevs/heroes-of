@@ -22,12 +22,15 @@ public class TroopIA : MonoBehaviour {
     private TroopMovementActions movementAction;
     private TroopAttackActions attackAction;
 
+    private PathFinding pathFinding;
+
     private void Awake() {
 
         construcionsList = new PriorityList<Transform>();
 
         GameObject[] constructionsInGame = GameObject.FindGameObjectsWithTag("Tower");
         Vector2 troopPosition = transform.position;
+
 
         foreach (GameObject construction in constructionsInGame) {
 

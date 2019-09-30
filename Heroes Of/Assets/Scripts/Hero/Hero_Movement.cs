@@ -21,6 +21,7 @@ public class Hero_Movement : MonoBehaviour {
     private bool clickDown, clickUp;
     private float timeBetweenDownToUp, clickDownTime;
     private Vector2 clickDownPosition, clickUpPosition;
+    private PathFinding pathFinding;
 
     private void Start() {
 
@@ -44,6 +45,8 @@ public class Hero_Movement : MonoBehaviour {
 
         heroRigidbody = GetComponent<Rigidbody2D>();
         heroTransform = GetComponent<Transform>();
+
+        pathFinding = GetComponent<PathFinding>();
 
         targetPosition = heroTransform.position;
 
@@ -79,7 +82,9 @@ public class Hero_Movement : MonoBehaviour {
 
         }
         else {
-
+            if(pathFinding.path != null && pathFinding.path.Count > 0) {
+                targetPosition = pathFinding.path.Pop();
+            }
             characterAnimatorScript.AnimateStatic();
 
         }
@@ -142,10 +147,21 @@ public class Hero_Movement : MonoBehaviour {
 
         if (clickDown && clickUp && clickDownPosition == clickUpPosition) {
 
-            if (hit.collider != null && hit.transform.tag == "Path") {
+            // if (hit.collider != null && hit.transform.tag == "Path") {
 
-                targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //     targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            // }
+
+            Vector3Int clickedCell = ScreenToCellPosition(Input.mousePosition);
+            if(pathFinding.tilemap.HasTile(clickedCell)) {
+                if(pathFinding.tilemap.GetTile<GameCustomTile>(clickedCell).isWalkable) {
+                    pathFinding.startPos = pathFinding.tilemap.WorldToCell(currentPosition);
+                    clickedCell.y++;
+                    clickedCell.x++;
+                    pathFinding.goalPos = clickedCell;
+                    pathFinding.FindPath();
+                }
             }
 
             clickUp = false;
@@ -164,6 +180,15 @@ public class Hero_Movement : MonoBehaviour {
 
         return Physics2D.Raycast(pick, Vector2.zero);
 
+    }
+
+    Vector3Int ScreenToCellPosition(Vector2 screenPos) {
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPos);
+        Vector3Int cellPos = pathFinding.tilemap.WorldToCell(worldPosition);
+        cellPos.x -= 1;
+        cellPos.y -= 1;
+        cellPos.z = 0; 
+        return cellPos;
     }
 
     private IEnumerator HeroUnselection() {

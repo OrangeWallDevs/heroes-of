@@ -7,6 +7,9 @@ public class TroopMovementActions : MonoBehaviour {
     private Rigidbody2D troopRigidBody2d;
     private RunTimeTroopData troopData;
     private IsometricCharacterAnimator troopAnimations;
+    private Vector2 currentPosition, targetPosition;
+    private PathFinding pathFinding;
+
 
     void Start() {
 
@@ -14,6 +17,11 @@ public class TroopMovementActions : MonoBehaviour {
         troopData = GetComponent<RunTimeTroopData>();
         troopAnimations = GetComponentInChildren<IsometricCharacterAnimator>();
 
+    }
+
+    void Awake() {
+        pathFinding = GetComponent<PathFinding>();
+        currentPosition = transform.position;
     }
 
     public void MoveToPosition(Vector2 targetPosition) {
