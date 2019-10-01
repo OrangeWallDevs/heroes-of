@@ -10,8 +10,8 @@ public class PauseManager : MonoBehaviour {
         IsGamePaused = false;
     }
 
-    public void TogglePause() {
-        PauseMenuOpener.ToggleModal();
+    public void TogglePause(GameObject pauseModal) {
+        PauseMenuOpener.ToggleModal(pauseModal);
         IsGamePaused = !IsGamePaused;
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }

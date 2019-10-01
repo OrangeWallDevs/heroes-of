@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UIModalOpener : MonoBehaviour {
-
-    public GameObject uiModal;
     
-    public void OpenModal() {
+    public void OpenModal(GameObject uiModal) {
         uiModal.SetActive(true);
     }
 
-    public void CloseModal() {
+    public void CloseModal(GameObject uiModal) {
         uiModal.SetActive(false);
     }
 
-    public void ToggleModal() {
+    public void ToggleModal(GameObject uiModal) {
         uiModal.SetActive(!uiModal.activeSelf);
     }
 }
