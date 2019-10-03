@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class Hero_Movement : MonoBehaviour {
@@ -68,14 +68,16 @@ public class Hero_Movement : MonoBehaviour {
 
         currentPosition = heroTransform.position;
 
-        Vector2 directionMovement = (targetPosition - currentPosition).normalized;
-        directionMovement = Vector2.ClampMagnitude(directionMovement, 1);
-
-        Vector2 movement = directionMovement * movementSpeed;
-        Vector2 newPosition = currentPosition + movement * Time.fixedDeltaTime;
-
         if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
             || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
+                
+            Vector2 directionMovement = (targetPosition - currentPosition).normalized;
+
+            directionMovement.x = Mathf.Round(directionMovement.x);
+            directionMovement.y = Mathf.Round(directionMovement.y);
+            
+            Vector2 movement = directionMovement * movementSpeed;
+            Vector2 newPosition = currentPosition + movement * Time.fixedDeltaTime;
 
             heroRigidbody.MovePosition(newPosition);
             characterAnimatorScript.AnimateRun(targetPosition);
