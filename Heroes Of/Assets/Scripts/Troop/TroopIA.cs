@@ -191,15 +191,68 @@ public class TroopIA : MonoBehaviour {
             nextTarget = FindNextTargetBuilding();
 
         }
-        else {
+        else if (closeTargets.Count > 0){
 
-            // Pega um aleatório do closeTargets de acordo com a prioridade.
-            // TO:DO --> Ver como incluir a torre nessa seleção aleatória.
+            PriorityList<string> tagsPriority = new PriorityList<string>();
 
-            int randomNumber = Random.Range(0, closeTargets.Count);
-            Transform[] targets = closeTargets.ToArray();
+            foreach (Transform target in closeTargets) {
 
-            nextTarget = targets[randomNumber];
+                if (!tagsPriority.ContainsKey(target.tag)) {
+
+                    PriorityPair<string> pair = new PriorityPair<string>(target.tag, GetTargetPriority(target));
+                    tagsPriority.Add(pair);
+
+                }
+
+            }
+
+            int randomNumber = Random.Range(0, troopPriorityWeight + towerPriorityWeight + heroPriorityWeight);
+            int lastPriority = 0;
+            string selectedTag = "";
+
+            for (int i = tagsPriority.Count - 1; i >= 0 ; i--) {
+
+                PriorityPair<string> pair = tagsPriority.Find(i);
+
+                if (i == 0) {
+
+                    if (randomNumber >= lastPriority) {
+
+                        selectedTag = pair.Key;
+
+                    }
+
+                }
+                else {
+
+                    if (randomNumber >= lastPriority && randomNumber < pair.Priority) {
+
+                        selectedTag = pair.Key;
+                        break;
+
+                    }
+
+                }
+
+                lastPriority = pair.Priority;
+
+            }
+
+            List<Transform> possibleTargets = new List<Transform>();
+
+
+            foreach (Transform target in closeTargets) {
+
+                if (target.tag == selectedTag) {
+
+                    possibleTargets.Add(target);
+
+                }
+
+            }
+
+            randomNumber = Random.Range(0, possibleTargets.Count - 1);
+            nextTarget = possibleTargets.ToArray()[randomNumber];
             closeTargets.Remove(nextTarget);
 
         }
