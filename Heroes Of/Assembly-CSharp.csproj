@@ -249,7 +249,18 @@
      <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Dialogue\Speech.cs" />
      <Compile Include="Assets\Scripts\Entity\Barrack.cs" />
+     <Compile Include="Assets\Scripts\Entity\Cutscene.cs" />
      <Compile Include="Assets\Scripts\Entity\Entity.cs" />
+     <Compile Include="Assets\Scripts\Entity\Hero.cs" />
+     <Compile Include="Assets\Scripts\Entity\Part.cs" />
+     <Compile Include="Assets\Scripts\Entity\Phase.cs" />
+     <Compile Include="Assets\Scripts\Entity\Scene.cs" />
+     <Compile Include="Assets\Scripts\Entity\Score.cs" />
+     <Compile Include="Assets\Scripts\Entity\Skill.cs" />
+     <Compile Include="Assets\Scripts\Entity\Speak.cs" />
+     <Compile Include="Assets\Scripts\Entity\Tower.cs" />
+     <Compile Include="Assets\Scripts\Entity\Troop.cs" />
+     <Compile Include="Assets\Scripts\Entity\User.cs" />
      <Compile Include="Assets\Scripts\Event\GameEvent.cs" />
      <Compile Include="Assets\Scripts\Event\GameEventListener.cs" />
      <Compile Include="Assets\Scripts\Event\HeroEvent.cs" />
@@ -264,6 +275,7 @@
      <Compile Include="Assets\Scripts\Hero\Hero_Movement.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroHealthController.cs" />
      <Compile Include="Assets\Scripts\Hero\RunTimeHeroData.cs" />
+     <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\Movement\PathColisionIgnore.cs" />
      <Compile Include="Assets\Scripts\Phase\PhaseObjectives.cs" />
      <Compile Include="Assets\Scripts\Projectile\ProjectileBehaviour.cs" />
@@ -295,6 +307,10 @@
      <Compile Include="Assets\Scripts\UI\UIModalOpener.cs" />
      <Compile Include="Assets\Scripts\UI\WavePanelManager.cs" />
      <Compile Include="Assets\Scripts\Util\BinaryCell.cs" />
+     <Compile Include="Assets\Scripts\Util\Data IO\DataUtil.cs" />
+     <Compile Include="Assets\Scripts\Util\Data IO\GamePrimaryData.cs" />
+     <Compile Include="Assets\Scripts\Util\Data IO\GameRuntimeData.cs" />
+     <Compile Include="Assets\Scripts\Util\HTTP.cs" />
      <Compile Include="Assets\Scripts\Util\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Util\Logger.cs" />
      <Compile Include="Assets\Scripts\Util\OrdenatedList.cs" />
