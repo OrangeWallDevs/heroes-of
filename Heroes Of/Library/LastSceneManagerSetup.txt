@@ -1,8 +1,12 @@
 sceneSetups:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 - path: Assets/Scenes/SimpleScene.unity
 =======
 - path: Assets/Scenes/LevelSelection.unity
+>>>>>>> Stashed changes
+=======
+- path: Assets/Scenes/SimpleScene.unity
 >>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
