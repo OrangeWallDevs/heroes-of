@@ -60,8 +60,8 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-    private Dictionary<Vector3Int, Node> _allNodes;
-    public Dictionary<Vector3Int, Node> allNodes {
+    private NodeTilemap _allNodes;
+    public NodeTilemap allNodes {
         get {
             return _allNodes;
         }
@@ -86,9 +86,7 @@ public class PathFinding : MonoBehaviour {
     private void Start() {
         Tilemap[] tilemaps = new Tilemap[1];
         tilemaps[0] = tilemap;
-        allNodes = new NodeTilemap(tilemaps).Nodes;
-        openSet = new HashSet<Node>();
-        closedSet = new HashSet<Node>();
+        allNodes = new NodeTilemap(tilemaps);
     }
     // private void Update() {
     //     if(Input.GetMouseButtonDown(0)) {
@@ -111,18 +109,18 @@ public class PathFinding : MonoBehaviour {
     // }
 
     private void Initialize() {
-        currentNode = GetNode(startPos);
+        currentNode = allNodes.GetNode(startPos);
+        openSet = new HashSet<Node>();
+        closedSet = new HashSet<Node>();
         openSet.Add(currentNode);
+        path = null;
     }
 
     public void FindPath() {
-
-        if(currentNode == null) {
-            Initialize();
-        }
-
+        Initialize();
+    
         while(openSet.Count > 0 && path == null) {
-            List<Node> neighbours = GetNeighbours(currentNode.position);
+            List<Node> neighbours = currentNode.neighbours;
 
             ExamineNeighbours(neighbours, currentNode);
 
@@ -132,46 +130,26 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-    private List<Node> GetNeighbours(Vector3Int nodePos) {
-        List<Node> neighbours = new List<Node>();
-
-        for(int x = -1; x <= 1; x++) {
-            for(int y = -1; y <= 1; y++) {
-                Vector3Int neighbourPos = new Vector3Int(nodePos.x - x, nodePos.y - y, nodePos.z);
-                GameCustomTile neighbourTile = tilemap.GetTile<GameCustomTile>(neighbourPos);
-                if(neighbourTile) {
-                    if(y != 0 || x != 0) {
-                        if(neighbourPos != startPos && neighbourTile.isWalkable) {
-                            Node neighbour = GetNode(neighbourPos);
-                            neighbours.Add(neighbour);
-                        }
-                    }
-                }
-            }
-        }
-
-        return neighbours;
-    }
 
     private void ExamineNeighbours(List<Node> neighbours, Node current) {
         for (int i = 0; i < neighbours.Count; i++) {
 
-            Node neighbour = neighbours[i];
+                Node neighbour = neighbours[i];
 
-            int gScore = DetermineGScore(neighbours[i], current);
+            if(neighbour.position != startPos) {
+                int gScore = DetermineGScore(neighbours[i], current);
 
-            if(openSet.Contains(neighbour)) {
-                if(current.gCost + gScore < neighbour.gCost) {
+                if(openSet.Contains(neighbour)) {
+                    if(current.gCost + gScore < neighbour.gCost) {
+                        CalcValues(current, neighbour, gScore);
+                    }
+                }
+                else if(!closedSet.Contains(neighbour)) {
                     CalcValues(current, neighbour, gScore);
+
+                    openSet.Add(neighbour);
                 }
             }
-            else if(!closedSet.Contains(neighbour)) {
-                CalcValues(current, neighbour, gScore);
-
-                openSet.Add(neighbour);
-            }
-
-            
         }
     }
 
@@ -205,15 +183,7 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-    private Node GetNode(Vector3Int position) {
-        if(allNodes.ContainsKey(position)) {
-            return allNodes[position];
-        }
-        else {
-            Node node = new Node(position);
-            return node;
-        }
-    }
+    
 
     Vector3Int ScreenToCellPosition(Vector2 screenPos) {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPos);
