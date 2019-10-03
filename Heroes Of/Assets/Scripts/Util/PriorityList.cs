@@ -123,6 +123,32 @@ public class PriorityList<T> : OrdenatedList<PriorityPair<T>> {
 
     }
 
+    public bool ContainsKey(T data) {
+
+        if (Count <= 0) {
+
+            return false;
+
+        }
+
+        BinaryCell<PriorityPair<T>> cell = finalCell.LeftCell;
+
+        while (!cell.Value.Key.Equals(data)) {
+
+            cell = cell.LeftCell;
+
+            if (cell == startCell) {
+
+                return false;
+
+            }
+
+        }
+
+        return (cell.Value.Key.Equals(data));
+
+    }
+
     public override PriorityPair<T> Find(int index) {
 
         if (Count <= 0 || index >= Count || index < 0) {
