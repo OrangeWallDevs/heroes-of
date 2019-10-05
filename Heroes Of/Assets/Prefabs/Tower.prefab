@@ -298,7 +298,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 100
 --- !u!114 &6993896455309812832
 MonoBehaviour:
   m_ObjectHideFlags: 0
