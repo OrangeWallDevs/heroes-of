@@ -101,8 +101,8 @@ MonoBehaviour:
   zoomSpeed: 0.05
   zoomOutMin: 3
   zoomOutMax: 10
-  leftLimit: 0
-  rightLimit: 0
-  topLimit: 0
-  bottomLimit: 0
+  leftLimit: -100
+  rightLimit: 100
+  topLimit: 100
+  bottomLimit: -100
   hero: {fileID: 0}
