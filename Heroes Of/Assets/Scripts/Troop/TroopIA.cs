@@ -28,9 +28,16 @@ public class TroopIA : MonoBehaviour {
 
         construcionsList = new PriorityList<Transform>();
 
-        GameObject[] constructionsInGame = GameObject.FindGameObjectsWithTag("Tower");
-        Vector2 troopPosition = transform.position;
+        List<GameObject> constructionsInGame = new List<GameObject>();
 
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
+
+            constructionsInGame.Add(tower);
+
+        }
+        //constructionsInGame.Add(GameObject.FindGameObjectWithTag("Core"));
+
+        Vector2 troopPosition = transform.position;
 
         foreach (GameObject construction in constructionsInGame) {
 
@@ -49,7 +56,7 @@ public class TroopIA : MonoBehaviour {
 
         closeTargets = new List<Transform>();
 
-        troopData = GetComponent<RunTimeTroopData>();
+        troopData = GetComponent<RunTimeTroopData>(); //TO:DO adapt to use Troop class with RunTimeData data
         movementAction = GetComponent<TroopMovementActions>();
         attackAction = GetComponent<TroopAttackActions>();
 
@@ -110,6 +117,7 @@ public class TroopIA : MonoBehaviour {
 
         if (detectedObject != null) {
 
+            // TO:DO use Troop data to find if the detected object is an enemy
             if (troopData.isEnemy != TargetIsEnemy(detectedObject)) {
 
                 detectedObjectPriority = GetTargetPriority(detectedObject);
@@ -188,72 +196,12 @@ public class TroopIA : MonoBehaviour {
 
         if (closeTargets.Count <= 0 && construcionsList.Count > 0) {
 
-            nextTarget = FindNextTargetBuilding();
+            nextTarget = GetNextTargetBuilding();
 
         }
         else if (closeTargets.Count > 0){
 
-            PriorityList<string> tagsPriority = new PriorityList<string>();
-
-            foreach (Transform target in closeTargets) {
-
-                if (!tagsPriority.ContainsKey(target.tag)) {
-
-                    PriorityPair<string> pair = new PriorityPair<string>(target.tag, GetTargetPriority(target));
-                    tagsPriority.Add(pair);
-
-                }
-
-            }
-
-            int randomNumber = Random.Range(0, troopPriorityWeight + towerPriorityWeight + heroPriorityWeight);
-            int lastPriority = 0;
-            string selectedTag = "";
-
-            for (int i = tagsPriority.Count - 1; i >= 0 ; i--) {
-
-                PriorityPair<string> pair = tagsPriority.Find(i);
-
-                if (i == 0) {
-
-                    if (randomNumber >= lastPriority) {
-
-                        selectedTag = pair.Key;
-
-                    }
-
-                }
-                else {
-
-                    if (randomNumber >= lastPriority && randomNumber < pair.Priority) {
-
-                        selectedTag = pair.Key;
-                        break;
-
-                    }
-
-                }
-
-                lastPriority = pair.Priority;
-
-            }
-
-            List<Transform> possibleTargets = new List<Transform>();
-
-
-            foreach (Transform target in closeTargets) {
-
-                if (target.tag == selectedTag) {
-
-                    possibleTargets.Add(target);
-
-                }
-
-            }
-
-            randomNumber = Random.Range(0, possibleTargets.Count - 1);
-            nextTarget = possibleTargets.ToArray()[randomNumber];
-            closeTargets.Remove(nextTarget);
+            nextTarget = GetNextCloseTarget();
 
         }
 
@@ -265,29 +213,23 @@ public class TroopIA : MonoBehaviour {
 
         int priority = 0;
 
-        // TO:DO --> Find a better way to set the priority weight
-        if (target == null) {
-
-            priority = 0;
-
-        } 
-        else {
+        if (target != null) {
 
             switch (target.tag) {
     
                 case ("Tower"):
 
-                    priority = towerPriorityWeight;
+                    priority = TowerPriorityWeight;
                     break;
     
                 case ("Hero"):
 
-                    priority = heroPriorityWeight;
+                    priority = HeroPriorityWeight;
                     break;
     
                 case ("Troop"):
 
-                    priority = troopPriorityWeight;
+                    priority = TroopPriorityWeight;
                     break;
     
             }
@@ -314,12 +256,14 @@ public class TroopIA : MonoBehaviour {
 
             actualState = TroopStates.ATTACKING;
 
-        } else if (attackTarget.tag == "Troop" || attackTarget.tag == "Hero") {
+        } 
+        else if (attackTarget.tag == "Troop" || attackTarget.tag == "Hero") {
 
             actualState = TroopStates.FIGHTING;
 
         }
 
+        // TO:DO use Entity class from RunTimeDate to pass on attackAction.Attack()
         RunTimeData targetData = attackTarget.GetComponent<RunTimeData>();
         attackAction.Attack(targetData);
 
@@ -341,22 +285,91 @@ public class TroopIA : MonoBehaviour {
 
     }
 
-    private Transform FindNextTargetBuilding() {
+    private Transform GetNextTargetBuilding() {
 
-        Transform targetTower;
+        Transform targetBuilding;
 
         if (troopData.troopObjective == PhaseObjectives.ATTACK) { // Get the closest tower as target
 
-            targetTower = construcionsList.GetLast().Key;
+            targetBuilding = construcionsList.GetLast().Key;
 
         }
         else { // Get the most distant tower as target
 
-            targetTower = construcionsList.GetFirst().Key;
+            targetBuilding = construcionsList.GetFirst().Key;
 
         }
 
-        return targetTower;
+        return targetBuilding;
+
+    }
+
+    private Transform GetNextCloseTarget() {
+
+        PriorityList<string> tagsPriority = new PriorityList<string>();
+
+        foreach (Transform target in closeTargets) {
+
+            if (!tagsPriority.ContainsKey(target.tag)) {
+
+                PriorityPair<string> pair = new PriorityPair<string>(target.tag, GetTargetPriority(target));
+                tagsPriority.Add(pair);
+
+            }
+
+        }
+
+        int randomNumber = Random.Range(0, TroopPriorityWeight + TowerPriorityWeight + HeroPriorityWeight);
+        int lastPriority = 0;
+        string selectedTag = "";
+
+        for (int i = tagsPriority.Count - 1; i >= 0; i--) {
+
+            PriorityPair<string> pair = tagsPriority.Find(i);
+
+            if (i == 0) {
+
+                if (randomNumber >= lastPriority) {
+
+                    selectedTag = pair.Key;
+
+                }
+
+            } 
+            else {
+
+                if (randomNumber >= lastPriority && randomNumber < pair.Priority) {
+
+                    selectedTag = pair.Key;
+                    break;
+
+                }
+
+            }
+
+            lastPriority = pair.Priority;
+
+        }
+
+        List<Transform> possibleTargets = new List<Transform>();
+
+        foreach (Transform target in closeTargets) {
+
+            if (target.tag == selectedTag) {
+
+                possibleTargets.Add(target);
+
+            }
+
+        }
+
+        Transform nextTarget;
+
+        randomNumber = Random.Range(0, possibleTargets.Count - 1);
+        nextTarget = possibleTargets.ToArray()[randomNumber];
+        closeTargets.Remove(nextTarget);
+
+        return nextTarget;
 
     }
 
@@ -440,6 +453,30 @@ public class TroopIA : MonoBehaviour {
             actualTargetPriority = GetTargetPriority(actualTarget);
 
         }
+
+    }
+
+    public int TowerPriorityWeight {
+
+        get { return towerPriorityWeight; }
+
+        set { towerPriorityWeight = value; }
+
+    }
+
+    public int HeroPriorityWeight {
+
+        get { return heroPriorityWeight; }
+
+        set { heroPriorityWeight = value; }
+
+    }
+
+    public int TroopPriorityWeight {
+
+        get { return troopPriorityWeight; }
+
+        set { towerPriorityWeight = value; }
 
     }
 
