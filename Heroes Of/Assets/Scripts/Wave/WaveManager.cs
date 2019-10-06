@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 
-public class WaveManager : Singleton<WaveManager> {
+public class WaveManager : MonoBehaviour {
 
     public float startTimeCountDown = 5f;
     public int maxWaves = 1;
 
+    public int ActualWave { get; private set; } = 0;
+    public WaveStates ActualState { get; private set; } = WaveStates.WAITING;
+
     public GameEvent waveStartEvent, waveEndEvent, finalWaveCompleted;
-
-    private int actualWave = 0;
-    private WaveStates actualState = WaveStates.WAITING;
-
     private float winConditionCheckCount = 1f, countDown = 0f;
 
     private void Awake() {
@@ -20,7 +19,7 @@ public class WaveManager : Singleton<WaveManager> {
 
     private void Update() {
 
-        if (actualState == WaveStates.RUNNING) {
+        if (ActualState == WaveStates.RUNNING) {
 
             if (!StillHaveEnemys()) {
 
@@ -34,14 +33,14 @@ public class WaveManager : Singleton<WaveManager> {
 
         if (waveStartEvent.ListenersCount > 0) {
 
-            if (countDown <= 0 && !actualState.Equals(WaveStates.RUNNING)) {
+            if (countDown <= 0 && !ActualState.Equals(WaveStates.RUNNING)) {
 
                 StartWave();
 
             } 
             else {
 
-                actualState = WaveStates.COUNTING;
+                ActualState = WaveStates.COUNTING;
                 countDown -= Time.deltaTime;
 
             }
@@ -52,8 +51,8 @@ public class WaveManager : Singleton<WaveManager> {
 
     private void StartWave() {
 
-        actualState = WaveStates.RUNNING;
-        actualWave++;
+        ActualState = WaveStates.RUNNING;
+        ActualWave++;
 
         waveStartEvent.Raise();
 
@@ -63,7 +62,7 @@ public class WaveManager : Singleton<WaveManager> {
 
         waveEndEvent.Raise();
 
-        if (actualWave >= maxWaves) {
+        if (ActualWave >= maxWaves) {
 
             finalWaveCompleted.Raise();
             return;
@@ -71,7 +70,7 @@ public class WaveManager : Singleton<WaveManager> {
         }
 
         countDown = startTimeCountDown;
-        actualState = WaveStates.COUNTING;
+        ActualState = WaveStates.COUNTING;
 
     }
 
@@ -95,7 +94,7 @@ public class WaveManager : Singleton<WaveManager> {
         waveStartEvent.RegisterListener(spawner.StartSpawnCicle);
         waveEndEvent.RegisterListener(spawner.StopSpawnCicle);
 
-        if (actualState.Equals(WaveStates.RUNNING)) {
+        if (ActualState.Equals(WaveStates.RUNNING)) {
 
             spawner.StartSpawnCicle();
 
@@ -108,7 +107,7 @@ public class WaveManager : Singleton<WaveManager> {
         waveStartEvent.UnregisterListener(spawner.StartSpawnCicle);
         waveEndEvent.UnregisterListener(spawner.StopSpawnCicle);
 
-        if (actualState.Equals(WaveStates.RUNNING)) {
+        if (ActualState.Equals(WaveStates.RUNNING)) {
 
             spawner.StopSpawnCicle();
 
@@ -117,9 +116,5 @@ public class WaveManager : Singleton<WaveManager> {
     }
 
     public float CountDown { get { return countDown; } }
-
-    public int ActualWave { get { return actualWave; } }
-
-    public WaveStates ActualState { get { return actualState; } }
 
 }
