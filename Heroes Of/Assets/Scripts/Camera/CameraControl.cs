@@ -15,7 +15,6 @@ public class CameraControl : MonoBehaviour {
 
     private Vector2 lastTouch, actualTouch;
     private Vector3 cameraPosition;
-    private RaycastHit2D hit;
     private Camera cam;
 
     private float lastSpeed, lastOrthographicSize;
@@ -31,8 +30,6 @@ public class CameraControl : MonoBehaviour {
 
         if (zoomSpeed == 0)
             zoomSpeed = 0.05f;
-
-        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
 
     }
 
@@ -58,9 +55,6 @@ public class CameraControl : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
 
             lastTouch = Input.mousePosition;
-
-            Vector2 pick = cam.ScreenToWorldPoint(lastTouch);
-            hit = Physics2D.Raycast(pick, Vector2.zero);
 
         } else if (Input.GetMouseButton(0)) {
 

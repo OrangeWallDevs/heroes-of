@@ -7,6 +7,8 @@ using System.Linq;
 public enum TileType {START, GOAL, WALKABLE, OBSTACLE, PATH, OPEN_SET, CLOSED_SET};
 
 public class PathFinding : MonoBehaviour {
+    [SerializeField]
+    private GameRuntimeData gameRuntimeData;
 
     private TileType tileType;
 
@@ -60,56 +62,22 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-    private NodeTilemap _allNodes;
-    public NodeTilemap allNodes {
+    private Dictionary<Vector3Int, Node> _nodes;
+    public Dictionary<Vector3Int, Node> nodes {
         get {
-            return _allNodes;
+            return _nodes;
         }
         set {
-            _allNodes = value;
-        }
-    }
-
-    [SerializeField]
-    private Tilemap _tilemap;
-    public Tilemap tilemap { 
-        get {
-            return _tilemap;
-        } 
-        set {
-            _tilemap = value;
+            _nodes = value;
         }
     }
 
     private Node currentNode;
 
-    private void Start() {
-        Tilemap[] tilemaps = new Tilemap[1];
-        tilemaps[0] = tilemap;
-        allNodes = new NodeTilemap(tilemaps);
-    }
-    // private void Update() {
-    //     if(Input.GetMouseButtonDown(0)) {
-    //         Vector3Int clickedCell = ScreenToCellPosition(Input.mousePosition);
-    //         if(tilemap.HasTile(clickedCell)) {
-    //             if(tilemap.GetTile<GameCustomTile>(clickedCell).isWalkable) {
-    //                 if(tileType == TileType.START) {
-    //                     startPos = clickedCell;
-    //                     ++tileType;
-    //                 }
-    //                 else {
-    //                     goalPos = clickedCell;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     if(Input.GetKeyDown(KeyCode.Space)) {
-    //         FindPath();
-    //     }
-    // }
-
     private void Initialize() {
-        currentNode = allNodes.GetNode(startPos);
+        nodes = new Dictionary<Vector3Int, Node>();
+        currentNode = gameRuntimeData.NodeTilemap.GetNode(startPos);
+        nodes.Add(currentNode.position, currentNode);
         openSet = new HashSet<Node>();
         closedSet = new HashSet<Node>();
         openSet.Add(currentNode);
@@ -133,9 +101,12 @@ public class PathFinding : MonoBehaviour {
 
     private void ExamineNeighbours(List<Node> neighbours, Node current) {
         for (int i = 0; i < neighbours.Count; i++) {
-
-                Node neighbour = neighbours[i];
-
+            
+            Node neighbour = neighbours[i];
+            if(!nodes.ContainsKey(neighbour.position)) {
+                nodes.Add(neighbour.position, neighbour);
+            }
+                
             if(neighbour.position != startPos) {
                 int gScore = DetermineGScore(neighbours[i], current);
 
@@ -183,23 +154,13 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-    
-
-    Vector3Int ScreenToCellPosition(Vector2 screenPos) {
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPos);
-        Vector3Int cellPos = tilemap.WorldToCell(worldPosition);
-        cellPos.x -= 1;
-        cellPos.y -= 1;
-        cellPos.z = 0; 
-        return cellPos;
-    }
 
     private Stack<Vector2> GeneratePath(Node current) {
         if(current.position == goalPos) {
             Stack<Vector2> finalPath = new Stack<Vector2>();
 
             while(current.position != startPos) {
-                finalPath.Push(tilemap.CellToWorld(current.position));
+                finalPath.Push(current.tilemapMember.CellToWorld(current.position));
 
                 current = current.parent;
             }

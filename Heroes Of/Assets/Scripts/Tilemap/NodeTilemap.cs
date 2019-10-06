@@ -29,6 +29,7 @@ public class NodeTilemap {
                 if (tile) {
                     Node node = new Node(tilePosition);
                     node.tilemapMember = tilemap;
+                    node.tile = tile;
                     Nodes.Add(tilePosition, node);
                 }
             }

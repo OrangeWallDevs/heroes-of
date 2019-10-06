@@ -7,6 +7,7 @@ public class Node {
     public int gCost { get; set; }
     public int hCost { get; set; }
     public int fCost { get { return gCost + hCost; } }
+    public GameCustomTile tile { get; set; }
     public Node parent { get; set; }
     public Vector3Int position { get; set; }
     public Tilemap tilemapMember;

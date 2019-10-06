@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Hero_Movement : MonoBehaviour {
 
@@ -22,6 +23,9 @@ public class Hero_Movement : MonoBehaviour {
     private float timeBetweenDownToUp, clickDownTime;
     private Vector2 clickDownPosition, clickUpPosition;
     private PathFinding pathFinding;
+
+    [SerializeField]
+    private TilemapHandler tilemapHandler;
 
     private void Start() {
 
@@ -149,19 +153,14 @@ public class Hero_Movement : MonoBehaviour {
 
         if (clickDown && clickUp && clickDownPosition == clickUpPosition) {
 
-            // if (hit.collider != null && hit.transform.tag == "Path") {
-
-            //     targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            // }
-
-            Vector3Int clickedCell = ScreenToCellPosition(Input.mousePosition);
-            if(pathFinding.tilemap.HasTile(clickedCell)) {
-                if(pathFinding.tilemap.GetTile<GameCustomTile>(clickedCell).isWalkable) {
-                    pathFinding.startPos = pathFinding.tilemap.WorldToCell(currentPosition);
-                    clickedCell.y++;
-                    clickedCell.x++;
-                    pathFinding.goalPos = clickedCell;
+            Vector2 clickedPos = Input.mousePosition;
+            Tilemap tilemap = new Tilemap();
+            if(tilemapHandler.IsTile(clickedPos, ref tilemap)) {
+                Vector3Int gridPos = tilemapHandler.ScreenToCellPosition(clickedPos, tilemap);
+                Node clickedCell = tilemapHandler.GetTile(gridPos, tilemap);
+                if(clickedCell.tile.isWalkable) {
+                    pathFinding.startPos = tilemap.WorldToCell(currentPosition);
+                    pathFinding.goalPos = clickedCell.position;
                     pathFinding.FindPath();
                 }
             }
@@ -184,14 +183,6 @@ public class Hero_Movement : MonoBehaviour {
 
     }
 
-    Vector3Int ScreenToCellPosition(Vector2 screenPos) {
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPos);
-        Vector3Int cellPos = pathFinding.tilemap.WorldToCell(worldPosition);
-        cellPos.x -= 1;
-        cellPos.y -= 1;
-        cellPos.z = 0; 
-        return cellPos;
-    }
 
     private IEnumerator HeroUnselection() {
 
