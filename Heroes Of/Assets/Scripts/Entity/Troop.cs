@@ -2,41 +2,42 @@ using UnityEngine;
 
 public class Troop : Entity {
 
-    private int codTroop;
-    private string namTroop;
-    private int vlrDamageDealt;
-    private int vlrHp;
-    private int vlrScore;
-    private int vlrMotionSpeed;
-    private int vlrAttackSpeed;
-    private int vlrDropMoney;
+    public int CodTroop { get; set; }
+    public string NamTroop { get; set; }
+    public int VlrDamageDealt { get; set; }
+    public int VlrHp { get; set; }
+    public int VlrScore { get; set; }
+    public float VlrMotionSpeed { get; set; }
+    public float VlrAttackSpeed { get; set; }
+    public int VlrDropMoney { get; set; }
+
+    public float VlrAttackDistance { get; set; }
+    public PhaseObjectives Objective { get; set; }
+    public bool AttackAtDistance { get; set; }
+    public bool IsEnemy { get; set; }
 
     public Troop(GameObject gameObject) : base(gameObject) {
 
     }
 
-    public Troop(int codTroop, string namTroop, int vlrDamageDealt, int vlrHp
-    , int vlrScore, int vlrMotionSpeed, int vlrAttackSpeed, int vlrDropMoney)
+    public Troop(int codTroop, string namTroop, int vlrDamageDealt, int vlrHp, 
+      int vlrScore, float vlrMotionSpeed, float vlrAttackSpeed, float vlrAttackDistance,
+      int vlrDropMoney, PhaseObjectives troopObjective, bool attackAtDistance, bool isEnemy)
     : base(null) {
-        this.codTroop = codTroop;
-        this.namTroop = namTroop;
-        this.vlrDamageDealt = vlrDamageDealt;
-        this.vlrHp = vlrHp;
-        this.vlrScore = vlrScore;
-        this.vlrMotionSpeed = vlrMotionSpeed;
-        this.vlrAttackSpeed = vlrAttackSpeed;
-        this.vlrDropMoney = vlrDropMoney;
+
+        CodTroop = codTroop;
+        NamTroop = namTroop;
+        VlrDamageDealt = vlrDamageDealt;
+        VlrHp = vlrHp;
+        VlrScore = vlrScore;
+        VlrMotionSpeed = vlrMotionSpeed;
+        VlrAttackSpeed = vlrAttackSpeed;
+        VlrDropMoney = vlrDropMoney;
+        VlrAttackDistance = vlrAttackDistance;
+        Objective = troopObjective;
+        AttackAtDistance = attackAtDistance;
+        IsEnemy = isEnemy;
+
     }
 
-    public int CodTroop { get => codTroop; set => codTroop = value; }
-    public string NamTroop { get => namTroop; set => namTroop = value; }
-    public int VlrDamageDealt { get => vlrDamageDealt; 
-    set => vlrDamageDealt = value; }
-    public int VlrHp { get => vlrHp; set => vlrHp = value; }
-    public int VlrScore { get => vlrScore; set => vlrScore = value; }
-    public int VlrMotionSpeed { get => vlrMotionSpeed;
-     set => vlrMotionSpeed = value; }
-    public int VlrAttackSpeed { get => vlrAttackSpeed; 
-    set => vlrAttackSpeed = value; }
-    public int VlrDropMoney { get => vlrDropMoney; set => vlrDropMoney = value; }
 }

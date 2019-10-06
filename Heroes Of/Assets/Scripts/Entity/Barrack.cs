@@ -11,6 +11,9 @@ public class Barrack : Entity {
     private int vlrCost;
     private int numTroopLimit;
 
+    public bool isEnemy;
+    public PhaseObjectives objective;
+
     public Barrack(GameObject gameObject) : base(gameObject) {
 
     }
@@ -64,4 +67,9 @@ public class Barrack : Entity {
 
         }
     }
+
+    public bool IsEnemy { get => isEnemy; set => isEnemy = value; }
+
+    public PhaseObjectives Objective { get => objective; set => objective = value; }
+
 }
