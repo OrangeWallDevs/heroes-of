@@ -19,5 +19,6 @@ public class TroopScriptableObject : ScriptableObject {
 
     public Sprite sprite;
     public RuntimeAnimatorController animatorController;
-    
+    public GameObject projectilePrefab;
+
 }

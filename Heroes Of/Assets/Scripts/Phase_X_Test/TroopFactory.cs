@@ -28,6 +28,12 @@ public class TroopFactory : MonoBehaviour {
         troop.GameObject.GetComponentInChildren<SpriteRenderer>().sprite = troopData.sprite;
         troop.GameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = troopData.animatorController;
 
+        if (troop.AttackAtDistance && troopData.projectilePrefab != null) {
+
+            troop.GameObject.GetComponent<TroopAttackActions>().projectilePrefab = troopData.projectilePrefab;
+
+        }
+
         troop.GameObject.GetComponent<RunTimeTroopData>().SetData(troop);
 
         return troop;

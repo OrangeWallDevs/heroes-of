@@ -21,8 +21,10 @@ MonoBehaviour:
   vlrAttackSpeed: 2
   vlrDropMoney: 5
   vlrAttackDistance: 8
-  troopObjective: 0
+  objective: 0
   attackAtDistance: 1
   isEnemy: 0
   sprite: {fileID: 21300000, guid: 94cbb1219a34ca64da677f6e5f628303, type: 3}
   animatorController: {fileID: 9100000, guid: e886993d502fbe84e8e7e1b98924152b, type: 2}
+  projectilePrefab: {fileID: 6548416338181058666, guid: 27b88a331ab3dfb409ef1a027705114b,
+    type: 3}
