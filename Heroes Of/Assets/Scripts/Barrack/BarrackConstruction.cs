@@ -47,7 +47,11 @@ public class BarrackConstruction : MonoBehaviour {
 
                 BuildBarrack(clickPosition, goldIncrementerTest.playerGoldReserve);
 
-                StopCoroutine(buildPositionSelection);
+                if (buildPositionSelection != null) {
+
+                    StopCoroutine(buildPositionSelection);
+
+                }
                 yield break;
 
             } 

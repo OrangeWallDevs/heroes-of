@@ -50,7 +50,12 @@ public class Spawner : MonoBehaviour {
 
         actualState = SpawnerStates.WAITING;
         animatorController.SetBool("IsSpawning", false);
-        StopCoroutine(spawnCicle);
+
+        if (spawnCicle != null) {
+
+            StopCoroutine(spawnCicle);
+
+        }
         spawnCicle = null;
         
     }
