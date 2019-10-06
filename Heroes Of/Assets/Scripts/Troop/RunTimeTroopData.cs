@@ -15,4 +15,20 @@ public class RunTimeTroopData : RunTimeData {
     public bool isEnemy;
     public bool attackAtDistance;
 
+    public void SetData(Troop troopData) {
+
+        namTroop = troopData.NamTroop;
+        vlrDamageDealt = troopData.VlrDamageDealt;
+        vlrHp = troopData.VlrHp;
+        vlrScore = troopData.VlrScore;
+        vlrDropMoney = troopData.VlrDropMoney;
+        vlrMotionSpeed = troopData.VlrMotionSpeed;
+        vlrAttackSpeed = troopData.VlrAttackSpeed;
+        attackDistance = troopData.VlrAttackDistance;
+        troopObjective = troopData.Objective;
+        isEnemy = troopData.IsEnemy;
+        attackAtDistance = troopData.AttackAtDistance;
+
+    }
+
 }
