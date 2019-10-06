@@ -21,4 +21,4 @@ MonoBehaviour:
   vlrCost: 275
   numTroopLimit: 15
   sprite: {fileID: 21300000, guid: 66ded04dc7693b645aa84305847dfc23, type: 3}
-  animator: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 70b5bbc3bad1c614c87e0b39e32419e6, type: 2}

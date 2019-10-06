@@ -30,7 +30,7 @@ public class BarrackFactory : MonoBehaviour {
         barrack.Objective = barrackObjective;
 
         barrack.GameObject.GetComponent<SpriteRenderer>().sprite = barrackData.sprite;
-        //barrack.GameObject.GetComponent<Animator>().runtimeAnimatorController = barrackData.animatorController;
+        barrack.GameObject.GetComponent<Animator>().runtimeAnimatorController = barrackData.animatorController;
 
         barrack.GameObject.GetComponent<RunTimeBarrackData>().SetData(barrack);
 

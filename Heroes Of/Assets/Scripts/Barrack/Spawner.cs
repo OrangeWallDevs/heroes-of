@@ -15,6 +15,8 @@ public class Spawner : MonoBehaviour {
     private SpawnerStates actualState = SpawnerStates.WAITING;
     private Coroutine spawnCicle;
 
+    private Animator animatorController;
+
     //TO:DO Use RunTimeData to load and create the barrack
     private TroopFactory troopFactory;
     private RunTimeBarrackData barrackData;
@@ -29,6 +31,7 @@ public class Spawner : MonoBehaviour {
     private void Start() {
 
         waveManager.RegisterSpawnerAsListener(this);
+        animatorController = GetComponent<Animator>();
 
         //TO:DO use RunTimeData to get the Barrack class to this respctive GO
         barrackData = GetComponent<RunTimeBarrackData>();
@@ -38,6 +41,7 @@ public class Spawner : MonoBehaviour {
     public void StartSpawnCicle() {
 
         actualState = SpawnerStates.SPAWNING;
+        animatorController.SetBool("IsSpawning", true);
         spawnCicle = StartCoroutine(SpawnCicle());
 
     }
@@ -45,6 +49,7 @@ public class Spawner : MonoBehaviour {
     public void StopSpawnCicle() {
 
         actualState = SpawnerStates.WAITING;
+        animatorController.SetBool("IsSpawning", false);
         StopCoroutine(spawnCicle);
         spawnCicle = null;
         
