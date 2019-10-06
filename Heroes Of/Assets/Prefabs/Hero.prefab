@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 0}
-  heroDeathEvent: {fileID: 0}
+  heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
 --- !u!114 &5498888348664089108
 MonoBehaviour:
   m_ObjectHideFlags: 0

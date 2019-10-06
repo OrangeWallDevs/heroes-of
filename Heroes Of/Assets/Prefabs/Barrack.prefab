@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8497729175216004032}
   - component: {fileID: 8497729175216004035}
   - component: {fileID: 8497729175216004033}
+  - component: {fileID: 3537497934388457893}
   m_Layer: 0
   m_Name: Barrack
   m_TagString: Spawner
@@ -123,5 +124,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ee648ee15e8db48915fabb7be4cce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6516010080651671553, guid: 8952081146540a44b920c9eb956999db,
+  troopPrefab: {fileID: 6516010080651671553, guid: 8952081146540a44b920c9eb956999db,
     type: 3}
+  spawnPoint: {fileID: 8497729174558715889}
+--- !u!114 &3537497934388457893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497729175216004034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e265b45edc9b2ea4ab896f2e132d8d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  codBarrack: 0
+  codPart: 0
+  codTroop: 0
+  namBarrack: 
+  desBarrack: 
+  vlrSpawnFrequency: 0
+  vlrCost: 0
+  numTroopLimit: 0
