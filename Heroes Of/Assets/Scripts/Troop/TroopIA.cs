@@ -50,15 +50,15 @@ public class TroopIA : MonoBehaviour {
 
         }
 
+        troopData = GetComponent<RunTimeTroopData>(); //TO:DO adapt to use Troop class with RunTimeData data
+        movementAction = GetComponent<TroopMovementActions>();
+        attackAction = GetComponent<TroopAttackActions>();
+
     }
 
     private void Start() {
 
         closeTargets = new List<Transform>();
-
-        troopData = GetComponent<RunTimeTroopData>(); //TO:DO adapt to use Troop class with RunTimeData data
-        movementAction = GetComponent<TroopMovementActions>();
-        attackAction = GetComponent<TroopAttackActions>();
 
         troopDeathEvent.RegisterListener(OnTroopDeath);
         towerDestroyedEvent.RegisterListener(OnTowerDestruction);
