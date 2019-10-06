@@ -8,9 +8,10 @@ public class WavePanelManager : MonoBehaviour {
     public GameObject counterPrefab;
 
     public int maxCountersDisplay;
-
-    private int actualCounterIndex, maxWaves;
     private ArrayList waveCounters;
+
+    private WaveManager waveManager;
+    private int actualCounterIndex, maxWaves;
 
     private struct WaveCounterUIElements {
 
@@ -22,7 +23,7 @@ public class WavePanelManager : MonoBehaviour {
 
     private void Awake() {
 
-        WaveManager waveManager = WaveManager.Instance;
+        waveManager = GameObject.FindGameObjectWithTag("Wave_Manager").GetComponent<WaveManager>();
 
         maxWaves = waveManager.maxWaves;
 
