@@ -9,6 +9,8 @@ TagManager:
   - Troop
   - Tower
   - Hero
+  - Wave_Manager
+  - Factory
   layers:
   - Default
   - TransparentFX
