@@ -10,6 +10,7 @@ public class TroopMovementActions : MonoBehaviour {
     private Vector2 currentPosition, targetPosition;
     private PathFinding pathFinding;
 
+    private float motionSpeed; //TO:DO get data from RunTimeData when initialized
 
     void Start() {
 
