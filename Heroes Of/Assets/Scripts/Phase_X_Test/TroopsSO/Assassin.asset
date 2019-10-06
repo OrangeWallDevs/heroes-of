@@ -26,3 +26,4 @@ MonoBehaviour:
   isEnemy: 0
   sprite: {fileID: 21300000, guid: 99db2c3bcfa99de4691c79e79430dc64, type: 3}
   animatorController: {fileID: 9100000, guid: 6d8111245c64f21408ef158c0151c344, type: 2}
+  projectilePrefab: {fileID: 0}
