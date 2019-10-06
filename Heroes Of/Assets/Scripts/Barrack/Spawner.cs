@@ -26,15 +26,15 @@ public class Spawner : MonoBehaviour {
         waveManager = GameObject.FindGameObjectWithTag("Wave_Manager").GetComponent<WaveManager>();
         troopFactory = GameObject.FindGameObjectWithTag("Factory").GetComponent<TroopFactory>();
 
+        animatorController = GetComponent<Animator>();
+        //TO:DO use RunTimeData to get the Barrack class to this respctive GO
+        barrackData = GetComponent<RunTimeBarrackData>();
+
     }
 
     private void Start() {
 
         waveManager.RegisterSpawnerAsListener(this);
-        animatorController = GetComponent<Animator>();
-
-        //TO:DO use RunTimeData to get the Barrack class to this respctive GO
-        barrackData = GetComponent<RunTimeBarrackData>();
 
     }
 
@@ -72,8 +72,6 @@ public class Spawner : MonoBehaviour {
             }
 
         }
-
-        StopSpawnCicle();
 
     }
 
