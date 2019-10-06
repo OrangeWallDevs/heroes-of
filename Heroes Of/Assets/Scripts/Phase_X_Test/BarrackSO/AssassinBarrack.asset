@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc511b45d087a04184fdbcbab3ce2d8, type: 3}
+  m_Name: AssassinBarrack
+  m_EditorClassIdentifier: 
+  codBarrack: 0
+  codPart: 2
+  codTroop: 0
+  namBarrack: Assassin_Barrack
+  desBarrack: A hidden clan of Assassins was payed to help you
+  vlrSpawnFrequency: 1.5
+  vlrCost: 360
+  numTroopLimit: 25
+  sprite: {fileID: 21300000, guid: 19380debf523e3448abf6f6f3643e59d, type: 3}
+  animator: {fileID: 0}

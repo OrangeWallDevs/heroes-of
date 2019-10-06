@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc511b45d087a04184fdbcbab3ce2d8, type: 3}
+  m_Name: MageBarrack
+  m_EditorClassIdentifier: 
+  codBarrack: 2
+  codPart: 1
+  codTroop: 2
+  namBarrack: Mage_Barrack
+  desBarrack: School of Arcane Arts send it's students to help
+  vlrSpawnFrequency: 2.5
+  vlrCost: 135
+  numTroopLimit: 25
+  sprite: {fileID: 21300000, guid: 2289d1b27ba5e4f448b413228ca671a9, type: 3}
+  animator: {fileID: 0}

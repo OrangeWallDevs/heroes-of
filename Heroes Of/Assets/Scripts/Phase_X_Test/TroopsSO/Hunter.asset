@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bff3cf9ec1241a46a81eb5f613911b3, type: 3}
+  m_Name: Hunter
+  m_EditorClassIdentifier: 
+  codTroop: 1
+  namTroop: Hunter
+  vlrDamageDealt: 5
+  vlrHp: 23
+  vlrScore: 20
+  vlrMorionSpeed: 4
+  vlrAttackSpeed: 1.5
+  vlrDropMoney: 15
+  vlrAttackDistance: 10
+  troopObjective: 0
+  attackAtDistance: 1
+  isEnemy: 0
+  sprite: {fileID: 21300000, guid: 4ea4c6f9008a6c24d93cbb374a2c804b, type: 3}
+  animator: {fileID: 0}

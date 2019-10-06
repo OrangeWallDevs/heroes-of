@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc511b45d087a04184fdbcbab3ce2d8, type: 3}
+  m_Name: HunterBarrack
+  m_EditorClassIdentifier: 
+  codBarrack: 1
+  codPart: 3
+  codTroop: 1
+  namBarrack: Hunter_Barrack
+  desBarrack: Wild Hunters Join in the Fight for Peace
+  vlrSpawnFrequency: 3
+  vlrCost: 275
+  numTroopLimit: 15
+  sprite: {fileID: 21300000, guid: 66ded04dc7693b645aa84305847dfc23, type: 3}
+  animator: {fileID: 0}
