@@ -10,6 +10,6 @@ public class GoldIncrementerTest : ScriptableObject {
     public TroopEvent troopDeathEvent;
 
     void OnEnable() {
-        playerGoldReserve = new PlayerGoldReserve(25, troopDeathEvent, goldChangeEvent);
+        playerGoldReserve = new PlayerGoldReserve(2500, troopDeathEvent, goldChangeEvent);
     }
 }
