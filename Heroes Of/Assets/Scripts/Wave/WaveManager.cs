@@ -95,7 +95,14 @@ public class WaveManager : MonoBehaviour {
         countDown = startTimeCountDown;
         ActualState = WaveStates.COUNTING;
 
-        //GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
+        GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
+        GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
+
+        foreach (GameObject troop in troopsArrayClone) {
+
+            Destroy(troop);
+
+        }
 
     }
 
