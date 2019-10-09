@@ -360,6 +360,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: -4422018227208212196, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: gameRuntimeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2261c7faa770d2905986c4cf2d90c3f9,
+        type: 2}
     - target: {fileID: 2902684285166463172, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -413,16 +419,6 @@ PrefabInstance:
     - target: {fileID: 2902684285166463172, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6904138380144130194, guid: 897ea3db4de7241449ac4388c119b29e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6904138380144130194, guid: 897ea3db4de7241449ac4388c119b29e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8884478557995849702, guid: 897ea3db4de7241449ac4388c119b29e,
@@ -501,6 +497,21 @@ PrefabInstance:
       propertyPath: desHero
       value: A Purple Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 6904138380144130194, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904138380144130194, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540181138211839138, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: tilemapHandler
+      value: 
+      objectReference: {fileID: 1880723583}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ea3db4de7241449ac4388c119b29e, type: 3}
 --- !u!1 &450561652
@@ -741,6 +752,11 @@ PrefabInstance:
       propertyPath: barrackFactory
       value: 
       objectReference: {fileID: 19157891}
+    - target: {fileID: 4772841154790663313, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: tilemapHandler
+      value: 
+      objectReference: {fileID: 1880723583}
     - target: {fileID: 4772841155797545355, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -927,6 +943,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 842116460}
     - target: {fileID: 2016541931899603832, guid: 75841ce6575415547af6c57563d1b1da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -982,11 +1003,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: hero
-      value: 
-      objectReference: {fileID: 842116460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75841ce6575415547af6c57563d1b1da, type: 3}
 --- !u!1001 &784149517
@@ -1143,6 +1159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa63023489218c40ad74981ccb44691, type: 3}
+--- !u!1839735485 &913349345 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 909090968666812863, guid: 5aa63023489218c40ad74981ccb44691,
+    type: 3}
+  m_PrefabInstance: {fileID: 913349343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1035562524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1234,6 +1256,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef0b21c7a29705418d642ee2a15e16d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1880723582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880723584}
+  - component: {fileID: 1880723583}
+  m_Layer: 0
+  m_Name: TilemapHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1880723583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880723582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6cf73e3241332c682c83ded4efd02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameRuntimeData: {fileID: 11400000, guid: 2261c7faa770d2905986c4cf2d90c3f9, type: 2}
+  tilemaps:
+  - {fileID: 913349345}
+--- !u!4 &1880723584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880723582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.3143373, y: -10.059764, z: -1.2619414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2031120768
 PrefabInstance:
   m_ObjectHideFlags: 0
