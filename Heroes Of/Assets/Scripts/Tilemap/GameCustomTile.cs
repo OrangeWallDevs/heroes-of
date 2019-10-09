@@ -7,5 +7,6 @@ using UnityEngine.Tilemaps;
 public class GameCustomTile : Tile {
 
     public bool isWalkable;
+    public bool isSlot;
     
 }
