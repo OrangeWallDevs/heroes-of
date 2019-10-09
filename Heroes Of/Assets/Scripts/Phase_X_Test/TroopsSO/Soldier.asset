@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codTroop: 3
   namTroop: Soldier
-  vlrDamageDealt: 2
-  vlrHp: 35
-  vlrScore: 10
-  vlrMorionSpeed: 2
-  vlrAttackSpeed: 1
-  vlrDropMoney: 5
-  vlrAttackDistance: 2
+  valDamageDealt: 2
+  valHp: 35
+  valScore: 10
+  valMorionSpeed: 2
+  valAttackSpeed: 1
+  valDropMoney: 5
+  valAttackDistance: 2
   objective: 0
   attackAtDistance: 0
   isEnemy: 0
   sprite: {fileID: 21300000, guid: 1733e8a0ed295ac40990d63ced509404, type: 3}
   animatorController: {fileID: 9100000, guid: fb1a881420372ac43b7f6442bb320e8e, type: 2}
+  projectilePrefab: {fileID: 0}

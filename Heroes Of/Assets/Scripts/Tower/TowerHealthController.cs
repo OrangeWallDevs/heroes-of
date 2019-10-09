@@ -4,7 +4,6 @@ public class TowerHealthController : HealthController {
 
     public TowerEvent towerDestroyedEvent;
     public TowerEvent towerBeingAttackedEvent;
-    public GameEvent waveEndEvent;
     public GameObject destructionEffectPrefab;
 
     private RunTimeTowerData towerData;
@@ -39,7 +38,6 @@ public class TowerHealthController : HealthController {
         if (Health <= 0) {
 
             towerDestroyedEvent.Raise(towerData);
-            waveEndEvent.Raise();
             Die();
 
         }

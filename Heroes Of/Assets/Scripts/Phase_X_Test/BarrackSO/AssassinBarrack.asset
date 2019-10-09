@@ -17,8 +17,8 @@ MonoBehaviour:
   codTroop: 0
   namBarrack: Assassin_Barrack
   desBarrack: A hidden clan of Assassins was payed to help you
-  vlrSpawnFrequency: 1.5
-  vlrCost: 360
+  valSpawnFrequency: 1.5
+  valCost: 360
   numTroopLimit: 25
   sprite: {fileID: 21300000, guid: 19380debf523e3448abf6f6f3643e59d, type: 3}
   animatorController: {fileID: 9100000, guid: ab6b29fc5892e4d4e9f8a11cd89fb96d, type: 2}

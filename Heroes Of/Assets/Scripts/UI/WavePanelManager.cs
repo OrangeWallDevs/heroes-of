@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WavePanelManager : MonoBehaviour {
 
     public GameObject counterPrefab;
+    public GameEvent waveEndEvent;
 
     public int maxCountersDisplay;
     private ArrayList waveCounters;
@@ -29,7 +30,7 @@ public class WavePanelManager : MonoBehaviour {
 
         CreateCounters();
 
-        waveManager.waveEndEvent.RegisterListener(UpdateCounters);
+        waveEndEvent.RegisterListener(UpdateCounters);
 
     }
 

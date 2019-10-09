@@ -248,6 +248,8 @@ GameObject:
   - component: {fileID: 5498888348664089108}
   - component: {fileID: 3540181138211839138}
   - component: {fileID: -4422018227208212196}
+  - component: {fileID: 7776042260269347953}
+  - component: {fileID: -4524275733250353903}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Hero
@@ -307,13 +309,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namHero: 
   desHero: 
-  vlrHp: 0
-  vlrScore: 0
-  vlrDamageDealt: 0
-  vlrDropMoney: 0
-  vlrMotionSpeed: 0
-  vlrAttackSpeed: 0
-  vlrAttackDistance: 0
+  valHp: 0
+  valScore: 0
+  valDamageDealt: 0
+  valDropMoney: 0
+  valMotionSpeed: 0
+  valAttackSpeed: 0
+  valAttackDistance: 0
   heroObjective: 0
   isEnemy: 0
   attackAtDistance: 0
@@ -355,7 +357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fb9f69a42ccd14bafecbad50922f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroSelectEvent: {fileID: 11400000, guid: 369252fd88da1ae438fc04f050ff4abf, type: 2}
+  placeSelectEvent: {fileID: 11400000, guid: b28c069bd0e71ea43a1637ce5bc6c121, type: 2}
   movementSpeed: 5
+  tilemapHandler: {fileID: 0}
 --- !u!114 &-4422018227208212196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,4 +373,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69b49e79fb8e9f55b19927f23635d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilemap: {fileID: 0}
+  gameRuntimeData: {fileID: 0}
+--- !u!114 &7776042260269347953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276142395535974193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270272a942ad6e14dbdcc92cf986b3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroSelectEvent: {fileID: 11400000, guid: 369252fd88da1ae438fc04f050ff4abf, type: 2}
+  heroFeedbackImage: {fileID: 4840389156238423990, guid: 399dffed4d01f8f45955234a47b4633e,
+    type: 3}
+--- !u!114 &-4524275733250353903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276142395535974193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0c9a9c2427764469411532aa1e2ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeSelectEvent: {fileID: 11400000, guid: b28c069bd0e71ea43a1637ce5bc6c121, type: 2}
+  heroFeedbackImage: {fileID: 4840389156238423990, guid: 399dffed4d01f8f45955234a47b4633e,
+    type: 3}
