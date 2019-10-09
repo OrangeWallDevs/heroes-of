@@ -13,7 +13,7 @@ public class PlayerGoldReserve : GoldReserve {
 
     public override void AddGold(RunTimeTroopData troopData) {
         if (troopData.isEnemy) {
-            AddGold(troopData.vlrDropMoney);
+            AddGold(troopData.valDropMoney);
             playerGoldChangeEvent.Raise(currentGold);
         }
     }

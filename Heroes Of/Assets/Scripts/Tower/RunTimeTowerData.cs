@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RunTimeTowerData : RunTimeData {
 
-    public int vlrHp;
+    public int valHp;
     public int numEffectArea;
 
     public bool isEnemy;

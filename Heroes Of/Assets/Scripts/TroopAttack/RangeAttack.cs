@@ -49,7 +49,7 @@ public class RangeAttack : TroopAttackI {
 
             Shoot(enemyPosition);
 
-            yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
+            yield return new WaitForSecondsRealtime(troopData.valAttackSpeed);
 
         }
 
@@ -71,7 +71,7 @@ public class RangeAttack : TroopAttackI {
 
         }
 
-        projectileActions.Damage = troopData.vlrDamageDealt;
+        projectileActions.Damage = troopData.valDamageDealt;
         projectileActions.MoveToTarget(target);
 
     }

@@ -9,8 +9,8 @@ public class RunTimeBarrackData : MonoBehaviour {
     public int codTroop;
     public string namBarrack;
     public string desBarrack;
-    public float vlrSpawnFrequency;
-    public int vlrCost;
+    public float valSpawnFrequency;
+    public int valCost;
     public int numTroopLimit;
     public bool isEnemy;
     public PhaseObjectives objective;
@@ -22,8 +22,8 @@ public class RunTimeBarrackData : MonoBehaviour {
         codTroop = barrackData.CodTroop;
         namBarrack = barrackData.NamBarrack;
         desBarrack = barrackData.DesBarrack;
-        vlrSpawnFrequency = barrackData.VlrSpawnFrequency;
-        vlrCost = barrackData.VlrCost;
+        valSpawnFrequency = barrackData.ValSpawnFrequency;
+        valCost = barrackData.ValCost;
         numTroopLimit = barrackData.NumTroopLimit;
         isEnemy = barrackData.IsEnemy;
         objective = barrackData.Objective;

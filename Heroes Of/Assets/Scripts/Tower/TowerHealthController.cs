@@ -13,7 +13,7 @@ public class TowerHealthController : HealthController {
 
         towerData = GetComponent<RunTimeTowerData>();
 
-        Health = towerData.vlrHp;
+        Health = towerData.valHp;
 
     }
 
@@ -29,10 +29,10 @@ public class TowerHealthController : HealthController {
 
     }
 
-    public override void ReceiveDamage(int vlrDamageReceived) {
+    public override void ReceiveDamage(int valDamageReceived) {
 
-        towerData.vlrHp -= vlrDamageReceived;
-        Health = towerData.vlrHp;
+        towerData.valHp -= valDamageReceived;
+        Health = towerData.valHp;
 
         towerBeingAttackedEvent.Raise(towerData);
 

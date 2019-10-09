@@ -4,14 +4,14 @@ public class Troop : Entity {
 
     public int CodTroop { get; set; }
     public string NamTroop { get; set; }
-    public int VlrDamageDealt { get; set; }
-    public int VlrHp { get; set; }
-    public int VlrScore { get; set; }
-    public float VlrMotionSpeed { get; set; }
-    public float VlrAttackSpeed { get; set; }
-    public int VlrDropMoney { get; set; }
+    public int ValDamageDealt { get; set; }
+    public int ValHp { get; set; }
+    public int ValScore { get; set; }
+    public float ValMotionSpeed { get; set; }
+    public float ValAttackSpeed { get; set; }
+    public int ValDropMoney { get; set; }
 
-    public float VlrAttackDistance { get; set; }
+    public float ValAttackDistance { get; set; }
     public PhaseObjectives Objective { get; set; }
     public bool AttackAtDistance { get; set; }
     public bool IsEnemy { get; set; }
@@ -20,20 +20,20 @@ public class Troop : Entity {
 
     }
 
-    public Troop(int codTroop, string namTroop, int vlrDamageDealt, int vlrHp, 
-      int vlrScore, float vlrMotionSpeed, float vlrAttackSpeed, float vlrAttackDistance,
-      int vlrDropMoney, PhaseObjectives troopObjective, bool attackAtDistance, bool isEnemy)
+    public Troop(int codTroop, string namTroop, int valDamageDealt, int valHp, 
+      int valScore, float valMotionSpeed, float valAttackSpeed, float valAttackDistance,
+      int valDropMoney, PhaseObjectives troopObjective, bool attackAtDistance, bool isEnemy)
     : base(null) {
 
         CodTroop = codTroop;
         NamTroop = namTroop;
-        VlrDamageDealt = vlrDamageDealt;
-        VlrHp = vlrHp;
-        VlrScore = vlrScore;
-        VlrMotionSpeed = vlrMotionSpeed;
-        VlrAttackSpeed = vlrAttackSpeed;
-        VlrDropMoney = vlrDropMoney;
-        VlrAttackDistance = vlrAttackDistance;
+        ValDamageDealt = valDamageDealt;
+        ValHp = valHp;
+        ValScore = valScore;
+        ValMotionSpeed = valMotionSpeed;
+        ValAttackSpeed = valAttackSpeed;
+        ValDropMoney = valDropMoney;
+        ValAttackDistance = valAttackDistance;
         Objective = troopObjective;
         AttackAtDistance = attackAtDistance;
         IsEnemy = isEnemy;

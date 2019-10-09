@@ -11,14 +11,14 @@ public class HeroHealthController : HealthController {
 
         heroData = GetComponent<RunTimeHeroData>();
 
-        Health = heroData.vlrHp;
+        Health = heroData.valHp;
 
     }
 
-    public override void ReceiveDamage(int vlrDamageReceived) {
+    public override void ReceiveDamage(int valDamageReceived) {
 
-        heroData.vlrHp -= vlrDamageReceived;
-        Health = heroData.vlrHp;
+        heroData.valHp -= valDamageReceived;
+        Health = heroData.valHp;
 
         if (Health <= 0) {
 

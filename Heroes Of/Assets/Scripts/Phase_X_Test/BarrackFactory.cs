@@ -24,8 +24,8 @@ public class BarrackFactory : MonoBehaviour {
         barrack.NamBarrack = barrackData.namBarrack;
         barrack.DesBarrack = barrackData.desBarrack;
         barrack.NumTroopLimit = barrackData.numTroopLimit;
-        barrack.VlrCost = barrackData.vlrCost;
-        barrack.VlrSpawnFrequency = barrackData.vlrSpawnFrequency;
+        barrack.ValCost = barrackData.valCost;
+        barrack.ValSpawnFrequency = barrackData.valSpawnFrequency;
         barrack.IsEnemy = isEnemy;
         barrack.Objective = barrackObjective;
 

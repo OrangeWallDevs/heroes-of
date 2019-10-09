@@ -7,8 +7,8 @@ public class Barrack : Entity {
     private int codTroop;
     private string namBarrack;
     private string desBarrack;
-    private float vlrSpawnFrequency;
-    private int vlrCost;
+    private float valSpawnFrequency;
+    private int valCost;
     private int numTroopLimit;
 
     public bool isEnemy;
@@ -19,15 +19,15 @@ public class Barrack : Entity {
     }
 
     public Barrack(int codBarrack, int codPart, int codTroop, string namBarrack
-    , string desBarrack, int vlrSpawnFrequency, int vlrCost, int numTroopLimit)
+    , string desBarrack, int valSpawnFrequency, int valCost, int numTroopLimit)
     : base(null) {
         this.codBarrack = codBarrack;
         this.codPart = codPart;
         this.codTroop = codTroop;
         this.namBarrack = namBarrack;
         this.desBarrack = desBarrack;
-        this.vlrSpawnFrequency = vlrSpawnFrequency;
-        this.vlrCost = vlrCost;
+        this.valSpawnFrequency = valSpawnFrequency;
+        this.valCost = valCost;
         this.numTroopLimit = numTroopLimit;
     }
 
@@ -36,22 +36,22 @@ public class Barrack : Entity {
     public int CodTroop { get => codTroop; set => codTroop = value; }
     public string NamBarrack { get => namBarrack; set => namBarrack = value; }
     public string DesBarrack { get => desBarrack; set => desBarrack = value; }
-    public float VlrSpawnFrequency {
-        get => vlrSpawnFrequency;
+    public float ValSpawnFrequency {
+        get => valSpawnFrequency;
         set {
 
-            vlrSpawnFrequency = value;
+            valSpawnFrequency = value;
 
             if (GameObject != null) {
 
                 Spawner spawner = GameObject.GetComponent<Spawner>();
-                spawner.SpawnFrequency = vlrSpawnFrequency;
+                spawner.SpawnFrequency = valSpawnFrequency;
 
             }
 
         }
     }
-    public int VlrCost { get => vlrCost; set => vlrCost = value; }
+    public int ValCost { get => valCost; set => valCost = value; }
     public int NumTroopLimit {
         get => numTroopLimit;
         set {

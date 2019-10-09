@@ -11,7 +11,7 @@ public class TroopHealthController : HealthController {
 
         troopData = GetComponent<RunTimeTroopData>();
 
-        Health = troopData.vlrHp;
+        Health = troopData.valHp;
 
     }
 
@@ -35,12 +35,12 @@ public class TroopHealthController : HealthController {
 
     }
 
-    public override void ReceiveDamage(int vlrDamageReceived) {
+    public override void ReceiveDamage(int valDamageReceived) {
 
-        troopData.vlrHp -= vlrDamageReceived;
-        Health = troopData.vlrHp;
+        troopData.valHp -= valDamageReceived;
+        Health = troopData.valHp;
 
-        if (troopData.vlrHp <= 0) {
+        if (troopData.valHp <= 0) {
 
             troopDeathEvent.Raise(troopData);
 

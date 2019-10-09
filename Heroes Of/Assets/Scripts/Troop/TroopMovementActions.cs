@@ -32,7 +32,7 @@ public class TroopMovementActions : MonoBehaviour {
         Vector2 movementDirection = (targetPosition - actualPosition).normalized;
         movementDirection = Vector2.ClampMagnitude(movementDirection, 1);
 
-        Vector2 movement = movementDirection * troopData.vlrMotionSpeed;
+        Vector2 movement = movementDirection * troopData.valMotionSpeed;
         Vector2 fixedTargetPosition = actualPosition + movement * Time.fixedDeltaTime;
 
         troopRigidBody2d.MovePosition(fixedTargetPosition);

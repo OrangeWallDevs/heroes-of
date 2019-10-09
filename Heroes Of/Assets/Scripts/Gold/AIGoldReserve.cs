@@ -8,7 +8,7 @@ public class AIGoldReserve : GoldReserve {
     
     public override void AddGold(RunTimeTroopData troopData) {
         if (!troopData.isEnemy) {
-            AddGold(troopData.vlrDropMoney);
+            AddGold(troopData.valDropMoney);
         }
     }
 

@@ -3,13 +3,13 @@
 public class RunTimeTroopData : RunTimeData {
 
     public string namTroop;
-    public int vlrDamageDealt;
-    public int vlrHp;
-    public int vlrScore;
-    public int vlrDropMoney;
+    public int valDamageDealt;
+    public int valHp;
+    public int valScore;
+    public int valDropMoney;
 
-    public float vlrMotionSpeed;
-    public float vlrAttackSpeed;
+    public float valMotionSpeed;
+    public float valAttackSpeed;
     public float attackDistance;
     public PhaseObjectives troopObjective;
     public bool isEnemy;
@@ -18,13 +18,13 @@ public class RunTimeTroopData : RunTimeData {
     public void SetData(Troop troopData) {
 
         namTroop = troopData.NamTroop;
-        vlrDamageDealt = troopData.VlrDamageDealt;
-        vlrHp = troopData.VlrHp;
-        vlrScore = troopData.VlrScore;
-        vlrDropMoney = troopData.VlrDropMoney;
-        vlrMotionSpeed = troopData.VlrMotionSpeed;
-        vlrAttackSpeed = troopData.VlrAttackSpeed;
-        attackDistance = troopData.VlrAttackDistance;
+        valDamageDealt = troopData.ValDamageDealt;
+        valHp = troopData.ValHp;
+        valScore = troopData.ValScore;
+        valDropMoney = troopData.ValDropMoney;
+        valMotionSpeed = troopData.ValMotionSpeed;
+        valAttackSpeed = troopData.ValAttackSpeed;
+        attackDistance = troopData.ValAttackDistance;
         troopObjective = troopData.Objective;
         isEnemy = troopData.IsEnemy;
         attackAtDistance = troopData.AttackAtDistance;

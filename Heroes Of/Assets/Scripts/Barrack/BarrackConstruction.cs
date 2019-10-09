@@ -69,7 +69,7 @@ public class BarrackConstruction : MonoBehaviour {
 
         Barrack barrack = barrackFactory.CreateBarrack(barrackID, buildForEnemy, buildForObjective);
 
-        if(goldReserve.SpendGold(barrack.VlrCost)) {
+        if(goldReserve.SpendGold(barrack.ValCost)) {
 
             barrack.GameObject.transform.position = new Vector3(position.x, position.y, 0);
             return barrack;

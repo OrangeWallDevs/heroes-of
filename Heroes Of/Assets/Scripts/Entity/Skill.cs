@@ -5,7 +5,7 @@ public class Skill : Entity {
     private int codHero;
     private string namSkill;
     private string desSkill;
-    private int vlrDamage;
+    private int valDamage;
     private int numEffectArea;
     private int numCooldown;
     private bool idtAttributeBuff;
@@ -15,13 +15,13 @@ public class Skill : Entity {
     }
 
     public Skill(int codSkill, int codHero, string namSkill, string desSkill
-    , int vlrDamage, int numEffectArea, int numCooldown, bool idtAttributeBuff)
+    , int valDamage, int numEffectArea, int numCooldown, bool idtAttributeBuff)
     : base(null) {
         this.codSkill = codSkill;
         this.codHero = codHero;
         this.namSkill = namSkill;
         this.desSkill = desSkill;
-        this.vlrDamage = vlrDamage;
+        this.valDamage = valDamage;
         this.numEffectArea = numEffectArea;
         this.numCooldown = numCooldown;
         this.idtAttributeBuff = idtAttributeBuff;
@@ -31,7 +31,7 @@ public class Skill : Entity {
     public int CodHero { get => codHero; set => codHero = value; }
     public string NamSkill { get => namSkill; set => namSkill = value; }
     public string DesSkill { get => desSkill; set => desSkill = value; }
-    public int VlrDamage { get => vlrDamage; set => vlrDamage = value; }
+    public int ValDamage { get => valDamage; set => valDamage = value; }
     public int NumEffectArea { get => numEffectArea; 
     set => numEffectArea = value; }
     public int NumCooldown { get => numCooldown; set => numCooldown = value; }

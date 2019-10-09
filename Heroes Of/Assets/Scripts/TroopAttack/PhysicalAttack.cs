@@ -20,7 +20,7 @@ public class PhysicalAttack : TroopAttackI {
 
             troopAnimations.AnimateAttack(enemyPosition);
 
-            yield return new WaitForSecondsRealtime(troopData.vlrAttackSpeed);
+            yield return new WaitForSecondsRealtime(troopData.valAttackSpeed);
 
             if (enemyHealthController == null) {
 
@@ -28,7 +28,7 @@ public class PhysicalAttack : TroopAttackI {
 
             }
 
-            enemyHealthController.ReceiveDamage(troopData.vlrDamageDealt);
+            enemyHealthController.ReceiveDamage(troopData.valDamageDealt);
 
         }
 

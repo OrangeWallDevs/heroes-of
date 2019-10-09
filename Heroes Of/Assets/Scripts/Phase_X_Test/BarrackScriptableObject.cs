@@ -8,8 +8,8 @@ public class BarrackScriptableObject : ScriptableObject {
     public int codTroop;
     public string namBarrack;
     public string desBarrack;
-    public float vlrSpawnFrequency;
-    public int vlrCost;
+    public float valSpawnFrequency;
+    public int valCost;
     public int numTroopLimit;
 
     public Sprite sprite;

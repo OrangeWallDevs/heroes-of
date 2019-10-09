@@ -4,22 +4,22 @@ public class Score : Entity {
 
     private string idtGoogleAccount;
     private int numPhase;
-    private int vlrRecordPoints;
+    private int valRecordPoints;
     
     public Score (GameObject gameObject) : base(gameObject) {
 
     }
 
-    public Score(string idtGoogleAccount, int numPhase, int vlrRecordPoints)
+    public Score(string idtGoogleAccount, int numPhase, int valRecordPoints)
      : base(null){
         this.idtGoogleAccount = idtGoogleAccount;
         this.numPhase = numPhase;
-        this.vlrRecordPoints = vlrRecordPoints;
+        this.valRecordPoints = valRecordPoints;
     }
 
     public string IdtGoogleAccount { get => idtGoogleAccount; 
     set => idtGoogleAccount = value; }
     public int NumPhase { get => numPhase; set => numPhase = value; }
-    public int VlrRecordPoints { get => vlrRecordPoints; 
-    set => vlrRecordPoints = value; }
+    public int ValRecordPoints { get => valRecordPoints; 
+    set => valRecordPoints = value; }
 }

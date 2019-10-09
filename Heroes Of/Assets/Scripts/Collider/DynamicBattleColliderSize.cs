@@ -20,7 +20,7 @@ public class DynamicBattleColliderSize : MonoBehaviour {
             case ("Hero"):
 
                 RunTimeHeroData heroData = GetComponentInParent<RunTimeHeroData>();
-                attackDistance = heroData.vlrAttackDistance;
+                attackDistance = heroData.valAttackDistance;
                 break;
 
         }

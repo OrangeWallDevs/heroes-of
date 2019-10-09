@@ -5,14 +5,14 @@ public class TroopScriptableObject : ScriptableObject {
 
     public int codTroop;
     public string namTroop;
-    public int vlrDamageDealt;
-    public int vlrHp;
-    public int vlrScore;
-    public float vlrMorionSpeed;
-    public float vlrAttackSpeed;
-    public int vlrDropMoney;
+    public int valDamageDealt;
+    public int valHp;
+    public int valScore;
+    public float valMorionSpeed;
+    public float valAttackSpeed;
+    public int valDropMoney;
 
-    public float vlrAttackDistance;
+    public float valAttackDistance;
     public PhaseObjectives objective;
     public bool attackAtDistance;
     public bool isEnemy;

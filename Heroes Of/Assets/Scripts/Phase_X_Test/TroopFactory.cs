@@ -14,13 +14,13 @@ public class TroopFactory : MonoBehaviour {
 
         troop.CodTroop = troopData.codTroop;
         troop.NamTroop = troopData.namTroop;
-        troop.VlrAttackDistance = troopData.vlrAttackDistance;
-        troop.VlrAttackSpeed = troopData.vlrAttackSpeed;
-        troop.VlrDamageDealt = troopData.vlrDamageDealt;
-        troop.VlrDropMoney = troopData.vlrDropMoney;
-        troop.VlrHp = troopData.vlrHp;
-        troop.VlrMotionSpeed = troopData.vlrMorionSpeed;
-        troop.VlrMotionSpeed = troopData.vlrScore;
+        troop.ValAttackDistance = troopData.valAttackDistance;
+        troop.ValAttackSpeed = troopData.valAttackSpeed;
+        troop.ValDamageDealt = troopData.valDamageDealt;
+        troop.ValDropMoney = troopData.valDropMoney;
+        troop.ValHp = troopData.valHp;
+        troop.ValMotionSpeed = troopData.valMorionSpeed;
+        troop.ValMotionSpeed = troopData.valScore;
         troop.AttackAtDistance = troopData.attackAtDistance;
         troop.Objective = troopObjective;
         troop.IsEnemy = isEnemy;
