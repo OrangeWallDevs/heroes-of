@@ -20,6 +20,7 @@ public class BarrackConstruction : MonoBehaviour {
     public bool buildForEnemy;
     public PhaseObjectives buildForObjective; 
 
+    public TilemapHandler tilemapHandler;
     public void SelectBuildPosition(int barrackID) {
 
         if (buildPositionSelection != null) {
@@ -43,9 +44,7 @@ public class BarrackConstruction : MonoBehaviour {
 
                 isPlaceSelected = true;
 
-                Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                BuildBarrack(clickPosition, goldIncrementerTest.playerGoldReserve);
+                BuildBarrack(Input.mousePosition, goldIncrementerTest.playerGoldReserve);
 
                 if (buildPositionSelection != null) {
 
@@ -67,17 +66,21 @@ public class BarrackConstruction : MonoBehaviour {
 
     private Barrack BuildBarrack(Vector2 position, GoldReserve goldReserve) {
 
-        Barrack barrack = barrackFactory.CreateBarrack(barrackID, buildForEnemy, buildForObjective);
+        if(tilemapHandler.PositionToTilemapNode(position).tile.isSlot){
+            Vector2 clickPosition = Camera.main.ScreenToWorldPoint(position);
 
-        if(goldReserve.SpendGold(barrack.ValCost)) {
+            Barrack barrack = barrackFactory.CreateBarrack(barrackID, buildForEnemy, buildForObjective);
 
-            barrack.GameObject.transform.position = new Vector3(position.x, position.y, 0);
-            return barrack;
-            
-        } 
-        else {
-            alertManager.ShowWarningModal("Você não tem dinheiro suficiente para comprar essa caserna!");
-            Destroy(barrack.GameObject);
+            if(goldReserve.SpendGold(barrack.ValCost)) {
+                barrack.GameObject.transform.position = new Vector3(clickPosition.x, clickPosition.y, 0);
+                return barrack;
+            } 
+            else {
+                alertManager.ShowWarningModal("Você não tem dinheiro suficiente para comprar essa caserna!");
+                Destroy(barrack.GameObject);
+            }
+        } else {
+            alertManager.ShowWarningModal("AAAAAAAAAAAAAAAAAAAAAAAAA");
         }
 
         return null;   
