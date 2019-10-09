@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 270272a942ad6e14dbdcc92cf986b3ff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - HeroSelectEvent: {fileID: 11400000, guid: 006596ecc3b7cf44787aa2b6fcb56fd0, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
