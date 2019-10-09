@@ -5,10 +5,11 @@ using UnityEngine.Tilemaps;
 public class TilemapHandler : MonoBehaviour {
     public GameRuntimeData gameRuntimeData;
 
-    private Tilemap[] tilemaps;
-
+    public Tilemap[] tilemaps;
+    private NodeTilemap nodeTilemap;
     private void Start() {
-        tilemaps = gameRuntimeData.CurrentLevel.Tilemaps;
+        nodeTilemap = new NodeTilemap(tilemaps);
+        //tilemaps = gameRuntimeData.CurrentLevel.Tilemaps;
     }
 
     public bool IsTile(Vector2 position, ref Tilemap containingTilemap) {
@@ -23,7 +24,8 @@ public class TilemapHandler : MonoBehaviour {
     }
 
     public Node GetTile(Vector3Int position, Tilemap tilemap) {
-        return gameRuntimeData.NodeTilemap.GetNode(position);
+        return nodeTilemap.GetNode(position);
+        //return gameRuntimeData.NodeTilemap.GetNode(position);
     }
 
     public Vector3Int ScreenToCellPosition(Vector2 screenPos, Tilemap tilemap) {
