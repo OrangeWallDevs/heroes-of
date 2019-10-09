@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e44948e58504083d1b8213a665c201d3, type: 3}
-  m_Name: FinalWaveCompleted
+  m_Name: FinalWaveStartEvent
   m_EditorClassIdentifier: 

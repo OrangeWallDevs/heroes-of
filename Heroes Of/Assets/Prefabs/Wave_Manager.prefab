@@ -47,4 +47,8 @@ MonoBehaviour:
   maxWaves: 1
   waveStartEvent: {fileID: 11400000, guid: 07ec5189294f2ae45bed6786037eaca0, type: 2}
   waveEndEvent: {fileID: 11400000, guid: fef4180933e2be34c950944cf69940e7, type: 2}
-  finalWaveCompleted: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
+  finalWaveStartEvent: {fileID: 11400000, guid: befbb803c0cecc645816930c1ebb6ae8,
+    type: 2}
+  finalWaveEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
+  towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
+    type: 2}
