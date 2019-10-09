@@ -34,4 +34,16 @@ public class TilemapHandler : MonoBehaviour {
         cellPos.z = 0;
         return cellPos;
     }
+
+    public Node PositionToTilemapNode(Vector2 position) {
+        Tilemap tempTilemap = new Tilemap();
+        if (IsTile(position, ref tempTilemap)) {
+            Vector3Int gridPos = ScreenToCellPosition(position, tempTilemap);
+            Node clickedCell = GetTile(gridPos, tempTilemap);
+
+            return clickedCell;
+        }
+
+        return null;
+    }
 } 
