@@ -3,10 +3,6 @@ using GooglePlayGames;
 using System.Collections.Generic;
 using UnityEngine;
 
-// public enum GameDataLoadOption {
-//     Local, Server
-// }
-
 public class AppInitialization : MonoBehaviour {
 
     public GamePrimaryData primaryData;
@@ -24,7 +20,7 @@ public class AppInitialization : MonoBehaviour {
         
         HTTPRequestTest();
         PlayGamesConfiguration();
-        primaryData.LoadLocal(onDataLoaded);
+        primaryData.LoadFromServer(onDataLoaded);
         // LoadPrimaryData(); // success callback after user login
         
     }
@@ -65,7 +61,7 @@ public class AppInitialization : MonoBehaviour {
                 onDataLoaded();
             });
         } else {
-            primaryData.LoadLocal(onDataLoaded);
+            primaryData.LoadFromDevice(onDataLoaded);
         }        
     }
 

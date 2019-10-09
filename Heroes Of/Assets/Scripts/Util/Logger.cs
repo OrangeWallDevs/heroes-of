@@ -8,10 +8,7 @@ public class Logger : Singleton<Logger> {
         var fields = Reflection.GetFields(obj);
         string message = "";
 
-        Debug.Log(fields.Count);
-
         foreach (var field in fields) {
-            // message += '#';
             message += String.Format("{0} = {1}\n", field.Key, field.Value ?? "null");
         }
 

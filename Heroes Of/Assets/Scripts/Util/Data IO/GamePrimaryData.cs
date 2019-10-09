@@ -5,23 +5,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 [CreateAssetMenu]
 public class GamePrimaryData : ScriptableObject {
 
     // Services:
     HTTP http;
+    DataUtil dataUtil;
 
     // Final attributes:
     const string PrimaryDataFileName = "PrimaryData.json";
     string primaryDataFilePath;
 
+    // Data collections:
+
+    // Methods:
+
     void OnEnable() {
         http = HTTP.Instance;
+        dataUtil = DataUtil.Instance;
         primaryDataFilePath = $"{Application.persistentDataPath}/{PrimaryDataFileName}";
     }
 
-    public void LoadLocal(Action onDataLoaded) {
+    public void LoadFromDevice(Action onDataLoaded) {
         Debug.Log("Loading primary data from local storage");
 
         if (File.Exists(primaryDataFilePath)) {
@@ -36,8 +43,9 @@ public class GamePrimaryData : ScriptableObject {
     public void LoadFromServer(Action onDataLoaded) {
         Debug.Log("Loading primary data from server");
 
-        http.Post("http://localhost:8080/HeroesOfServer/getGamePrimaryData", (up, down) => {
+        http.Post("http://localhost:8080/heroes-of-server/getGamePrimaryData", (up, down) => {
             string responseText = down.text;
+            Debug.Log($"Resposta: {responseText}");
 
             File.WriteAllText(primaryDataFilePath, responseText);
             Load(responseText, onDataLoaded);
@@ -50,8 +58,22 @@ public class GamePrimaryData : ScriptableObject {
 
         foreach (var table in unarrangedData) {
             string tableName = table.Key;
-            IEnumerable<string> primaryKeys = table.Value["primaryKeys"].Select(i => ToString()),
-                                records = table.Value["records"].Select(i => ToString());
+            IEnumerable<string> primaryKeys = table.Value["primaryKeys"].Select(i => ToString());
+            List<JObject> records = table.Value["records"].Cast<JObject>().ToList();
+
+            foreach (var record in records) {
+                switch (tableName) {
+                    case "part":
+                        break;
+                    case "phase":
+                        Logger.Instance.PrintObject(record.ToObject<Phase>());
+                        break;
+                    case "gameuser":
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         onDataLoaded();
