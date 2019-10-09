@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class User : Entity {
+public class GameUser : Entity {
 
     private string idtGoogleAccount;
     private int numCurrentPhase;
     private string namUser;
 
-    public User(GameObject gameObject) : base(gameObject) {
+    public GameUser(GameObject gameObject) : base(gameObject) {
 
     }
 
-    public User(string idtGoogleAccount, int numCurrentPhase, string namUser)
+    public GameUser(string idtGoogleAccount, int numCurrentPhase, string namUser)
     : base(null) {
         this.idtGoogleAccount = idtGoogleAccount;
         this.numCurrentPhase = numCurrentPhase;
