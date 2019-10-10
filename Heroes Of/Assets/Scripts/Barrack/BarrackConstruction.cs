@@ -22,6 +22,7 @@ public class BarrackConstruction : MonoBehaviour {
 
     public TilemapHandler tilemapHandler;
     public void SelectBuildPosition(int barrackID) {
+        AvaliableTileSelection.ChangeMask(tilemapHandler,true);
 
         if (buildPositionSelection != null) {
 
@@ -29,7 +30,6 @@ public class BarrackConstruction : MonoBehaviour {
             buildPositionSelection = null;
 
         }
-
         isPlaceSelected = false;
         this.barrackID = barrackID;
         buildPositionSelection = StartCoroutine(BuildPositionDetection());
@@ -73,6 +73,7 @@ public class BarrackConstruction : MonoBehaviour {
 
             if(goldReserve.SpendGold(barrack.ValCost)) {
                 barrack.GameObject.transform.position = new Vector3(clickPosition.x, clickPosition.y, 0);
+                AvaliableTileSelection.ChangeMask(tilemapHandler,false);
                 return barrack;
             } 
             else {
@@ -80,6 +81,7 @@ public class BarrackConstruction : MonoBehaviour {
                 Destroy(barrack.GameObject);
             }
         } else {
+            AvaliableTileSelection.ChangeMask(tilemapHandler,false);
             alertManager.ShowWarningModal("AAAAAAAAAAAAAAAAAAAAAAAAA");
         }
 
