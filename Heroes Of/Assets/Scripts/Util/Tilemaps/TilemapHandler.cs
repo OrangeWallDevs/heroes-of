@@ -6,7 +6,7 @@ public class TilemapHandler : MonoBehaviour {
     public GameRuntimeData gameRuntimeData;
 
     public Tilemap[] tilemaps;
-    private NodeTilemap nodeTilemap;
+    public NodeTilemap nodeTilemap {get; private set;}
     private void Start() {
         nodeTilemap = new NodeTilemap(tilemaps);
         //tilemaps = gameRuntimeData.CurrentLevel.Tilemaps;
