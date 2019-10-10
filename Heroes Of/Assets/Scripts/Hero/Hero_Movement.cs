@@ -4,6 +4,10 @@ using UnityEngine.Tilemaps;
 
 public class Hero_Movement : MonoBehaviour {
 
+    public BoolEvent heroSelectEvent;
+    public ObjectEvent placeSelectEvent;
+
+    private PositionAndState heroPositionAndState;
     public float movementSpeed = 5f;
 
     private Rigidbody2D heroRigidbody;
@@ -54,6 +58,8 @@ public class Hero_Movement : MonoBehaviour {
 
         targetPosition = heroTransform.position;
 
+        heroPositionAndState = new PositionAndState(targetPosition,false);
+
     }
 
     private void Update() {
@@ -93,6 +99,10 @@ public class Hero_Movement : MonoBehaviour {
             }
             characterAnimatorScript.AnimateStatic();
 
+            heroPositionAndState.Position = targetPosition;
+            heroPositionAndState.IsAtPosition = true;
+
+            placeSelectEvent.Raise(heroPositionAndState);
         }
 
     }
@@ -121,6 +131,7 @@ public class Hero_Movement : MonoBehaviour {
             else if (hit.collider == heroColider) { // Action to select
 
                 isHeroSelected = true;
+                heroSelectEvent.Raise(isHeroSelected);
                 Debug.Log("Hero Selected!");
 
             }
@@ -162,6 +173,10 @@ public class Hero_Movement : MonoBehaviour {
                     pathFinding.startPos = tilemap.WorldToCell(currentPosition);
                     pathFinding.goalPos = clickedCell.position;
                     pathFinding.FindPath();
+
+                    heroPositionAndState.Position = targetPosition;
+                    heroPositionAndState.IsAtPosition = false;
+                    placeSelectEvent.Raise(heroPositionAndState);
                 }
             }
 
@@ -193,6 +208,7 @@ public class Hero_Movement : MonoBehaviour {
             if (clickCounter >= 2) {
 
                 isHeroSelected = false;
+                heroSelectEvent.Raise(isHeroSelected);
                 Debug.Log("Hero Unselected :(");
                 break;
 

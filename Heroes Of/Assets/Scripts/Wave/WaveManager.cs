@@ -5,10 +5,12 @@ public class WaveManager : MonoBehaviour {
     public float startTimeCountDown = 5f;
     public int maxWaves = 1;
 
+    public GameEvent waveStartEvent, waveEndEvent, finalWaveStartEvent, finalWaveEndEvent;
+    public TowerEvent towerDestroyedEvent;
+
     public int ActualWave { get; private set; } = 0;
     public WaveStates ActualState { get; private set; } = WaveStates.WAITING;
 
-    public GameEvent waveStartEvent, waveEndEvent, finalWaveCompleted;
     private float winConditionCheckCount = 1f, countDown = 0f;
 
     private void Awake() {
@@ -17,31 +19,30 @@ public class WaveManager : MonoBehaviour {
 
     }
 
+    private void Start() {
+
+        waveEndEvent.RegisterListener(HandleWaveEnd);
+        towerDestroyedEvent.RegisterListener(HandleTowerDestroyed);
+        
+    }
+
     private void Update() {
 
-        if (ActualState == WaveStates.RUNNING) {
+        if (ActualState != WaveStates.RUNNING) {
 
-            if (!StillHaveEnemys()) {
+            if (waveStartEvent.ListenersCount > 0) {
 
-                CompleteWave();
+                if (countDown <= 0) {
 
-            }
+                    StartWave();
 
-            return;
+                } 
+                else {
 
-        }
+                    ActualState = WaveStates.COUNTING;
+                    countDown -= Time.deltaTime;
 
-        if (waveStartEvent.ListenersCount > 0) {
-
-            if (countDown <= 0 && !ActualState.Equals(WaveStates.RUNNING)) {
-
-                StartWave();
-
-            } 
-            else {
-
-                ActualState = WaveStates.COUNTING;
-                countDown -= Time.deltaTime;
+                }
 
             }
 
@@ -54,23 +55,69 @@ public class WaveManager : MonoBehaviour {
         ActualState = WaveStates.RUNNING;
         ActualWave++;
 
-        waveStartEvent.Raise();
+        if (ActualWave >= maxWaves) {
+
+            finalWaveStartEvent.Raise();
+
+        } 
+        else {
+
+            waveStartEvent.Raise();
+
+        }
+
 
     }
 
     private void CompleteWave() {
 
-        waveEndEvent.Raise();
-
         if (ActualWave >= maxWaves) {
 
-            finalWaveCompleted.Raise();
-            return;
+            finalWaveEndEvent.Raise();
+
+        }
+        else {
+
+            waveEndEvent.Raise();
 
         }
 
+    }
+
+    private void HandleTowerDestroyed(RunTimeTowerData tower) {
+
+        CompleteWave();
+
+    }
+
+    private void HandleWaveEnd() {
+
         countDown = startTimeCountDown;
         ActualState = WaveStates.COUNTING;
+
+        // TO:DO remove troops from game and from RunTimeData
+        GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
+        GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
+
+        foreach (GameObject troop in troopsArrayClone) {
+
+            Destroy(troop);
+
+        }
+
+    }
+
+    private void HandleFinalWaveEnd() {
+
+        GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
+        GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
+
+        foreach (GameObject troop in troopsArrayClone) {
+
+            TroopIA troopIA = troop.GetComponent<TroopIA>();
+            troopIA.enabled = false;
+
+        }
 
     }
 
@@ -93,6 +140,8 @@ public class WaveManager : MonoBehaviour {
 
         waveStartEvent.RegisterListener(spawner.StartSpawnCicle);
         waveEndEvent.RegisterListener(spawner.StopSpawnCicle);
+        finalWaveStartEvent.RegisterListener(spawner.StartSpawnCicle);
+        finalWaveEndEvent.RegisterListener(spawner.StopSpawnCicle);
 
         if (ActualState.Equals(WaveStates.RUNNING)) {
 
@@ -106,6 +155,8 @@ public class WaveManager : MonoBehaviour {
 
         waveStartEvent.UnregisterListener(spawner.StartSpawnCicle);
         waveEndEvent.UnregisterListener(spawner.StopSpawnCicle);
+        finalWaveStartEvent.UnregisterListener(spawner.StartSpawnCicle);
+        finalWaveEndEvent.UnregisterListener(spawner.StopSpawnCicle);
 
         if (ActualState.Equals(WaveStates.RUNNING)) {
 

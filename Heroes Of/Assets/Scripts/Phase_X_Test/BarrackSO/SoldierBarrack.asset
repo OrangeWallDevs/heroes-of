@@ -17,8 +17,8 @@ MonoBehaviour:
   codTroop: 3
   namBarrack: Soldier_Barrack
   desBarrack: Warriors of the kingdom fight for glory and thier home
-  vlrSpawnFrequency: 1
-  vlrCost: 90
+  valSpawnFrequency: 1
+  valCost: 90
   numTroopLimit: 25
   sprite: {fileID: 21300000, guid: 3e6663b173efd7a40a83ab4cdc53ef98, type: 3}
   animatorController: {fileID: 9100000, guid: 06b36676c7f026a4ebd8ec0298b51d68, type: 2}
