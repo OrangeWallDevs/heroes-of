@@ -12,8 +12,17 @@ public class Phase : Entity {
     private int valIniIAMoney;
     private string idtPhaseType;
 
-    public Grid TilemapsGrid { get; private set; }
-    
+    public int NumPhase { get => numPhase; set => numPhase = value; }
+    public int CodPart { get => codPart; set => codPart = value; }
+    public string NamPhase { get => namPhase; set => namPhase = value; }
+    public int ValIniPlayerMoney { get => valIniPlayerMoney; set => valIniPlayerMoney = value; }
+    public int ValIniIAMoney { get => valIniIAMoney; set => valIniIAMoney = value; }
+    public string IdtPhaseType { get => idtPhaseType; set => idtPhaseType = value; }
+
+    // Runtime members:
+    public Part Part { get; set; }
+    public Score UserScore { get; set; }
+    public Grid TilemapsGrid { get; private set; }    
     public Tilemap[] Tilemaps { get; private set; }
 
     public Phase(Grid tilemapsGrid) : base(null) {
@@ -31,11 +40,4 @@ public class Phase : Entity {
         this.idtPhaseType = idtPhaseType;
     }
 
-    public int NumPhase { get => numPhase; set => numPhase = value; }
-    public int CodPart { get => codPart; set => codPart = value; }
-    public string NamPhase { get => namPhase; set => namPhase = value; }
-    public int ValIniPlayerMoney { get => valIniPlayerMoney; 
-    set => valIniPlayerMoney = value; }
-    public int ValIniIAMoney { get => valIniIAMoney; set => valIniIAMoney = value; }
-    public string IdtPhaseType { get => idtPhaseType; set => idtPhaseType = value; }
 }

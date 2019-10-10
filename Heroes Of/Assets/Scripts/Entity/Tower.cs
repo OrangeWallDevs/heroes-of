@@ -6,6 +6,10 @@ public class Tower : Entity {
     private int valHp;
     private int numEffectArea;
 
+    public int CodTower { get => codTower; set => codTower = value; }
+    public int ValHp { get => valHp; set => valHp = value; }
+    public int NumEffectArea { get => numEffectArea; set => numEffectArea = value; }
+
     public Tower(GameObject gameObject) : base(gameObject) {
 
     }
@@ -15,8 +19,4 @@ public class Tower : Entity {
         this.valHp = valHp;
         this.numEffectArea = numEffectArea;
     }
-
-    public int CodTower { get => codTower; set => codTower = value; }
-    public int ValHp { get => valHp; set => valHp = value; }
-    public int NumEffectArea { get => numEffectArea; set => numEffectArea = value; }
 }
