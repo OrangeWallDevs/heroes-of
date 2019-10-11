@@ -26,6 +26,12 @@ public class DynamicBodyColliderLayer : MonoBehaviour {
                 isEnemy = heroData.isEnemy;
                 break;
 
+            case ("Core"):
+
+                RunTimeCoreData coreData = GetComponentInParent<RunTimeCoreData>();
+                isEnemy = coreData.isEnemy;
+                break;
+
         }
 
         if (isEnemy) {
