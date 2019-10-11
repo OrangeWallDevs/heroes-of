@@ -978,6 +978,11 @@ PrefabInstance:
       propertyPath: m_text
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 4772841154613031225, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 191.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7625669854080072949, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -987,6 +992,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FocusHero
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917520400222320024, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040463059492499568, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040463059492499568, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040463059492499568, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040463059492499568, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040463059492499568, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189002798274825169, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7, type: 3}
@@ -1498,6 +1538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxWaves
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790839962483705941, guid: 390b13677abc6e54e9de435ac3f5eb74,
+        type: 3}
+      propertyPath: startTimeCountDown
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390b13677abc6e54e9de435ac3f5eb74, type: 3}
