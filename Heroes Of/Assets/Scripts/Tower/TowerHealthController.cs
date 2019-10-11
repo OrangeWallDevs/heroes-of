@@ -8,10 +8,13 @@ public class TowerHealthController : HealthController {
 
     private RunTimeTowerData towerData;
 
+    private bool wasDestroyed;
+
     private void Start() {
 
         towerData = GetComponent<RunTimeTowerData>();
 
+        wasDestroyed = false;
         Health = towerData.valHp;
 
     }
@@ -35,8 +38,9 @@ public class TowerHealthController : HealthController {
 
         towerBeingAttackedEvent.Raise(towerData);
 
-        if (Health <= 0) {
+        if (Health <= 0 && !wasDestroyed) {
 
+            wasDestroyed = true;
             towerDestroyedEvent.Raise(towerData);
             Die();
 
