@@ -7,8 +7,18 @@ public class TroopMovementActions : MonoBehaviour {
     private Rigidbody2D troopRigidBody2d;
     private RunTimeTroopData troopData;
     private IsometricCharacterAnimator troopAnimations;
-    private Vector2 currentPosition, targetPosition;
+    private Vector2 currentPosition, targetPosition, prevTarget, _actualTarget;
+    public Vector2 actualTarget { 
+        set {
+            prevTarget = value;
+            _actualTarget = value;
+        } 
+        get {
+            return _actualTarget;
+        }
+    }
     private PathFinding pathFinding;
+    public TilemapHandler tilemapHandler;
 
     private float motionSpeed; //TO:DO get data from RunTimeData when initialized
 
@@ -22,15 +32,34 @@ public class TroopMovementActions : MonoBehaviour {
 
     void Awake() {
         pathFinding = GetComponent<PathFinding>();
-        currentPosition = transform.position;
+        tilemapHandler = GameObject.Find("TilemapHandler").GetComponent<TilemapHandler>();
     }
 
-    public void MoveToPosition(Vector2 targetPosition) {
+    private void FixedUpdate() {
+        currentPosition = transform.position;
+        if(actualTarget != prevTarget) {
+            pathFinding.startPos = tilemapHandler.PositionToTilemapNode(currentPosition).position;
+            pathFinding.goalPos = tilemapHandler.PositionToTilemapNode(actualTarget).position;
+            pathFinding.FindPath();
+        }
+        else if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
+            || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
+            MoveToTargetPosition();
+        }
+        else {
+            if(pathFinding.path != null && pathFinding.path.Count > 0) {
+                targetPosition = pathFinding.path.Pop();
+            }
+        }
+    }
+
+    public void MoveToTargetPosition() {
 
         Vector2 actualPosition = transform.position;
 
         Vector2 movementDirection = (targetPosition - actualPosition).normalized;
-        movementDirection = Vector2.ClampMagnitude(movementDirection, 1);
+        movementDirection.x = Mathf.Round(movementDirection.x);
+        movementDirection.y = Mathf.Round(movementDirection.y);
 
         Vector2 movement = movementDirection * troopData.valMotionSpeed;
         Vector2 fixedTargetPosition = actualPosition + movement * Time.fixedDeltaTime;

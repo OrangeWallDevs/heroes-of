@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 1723326687856318223}
   - component: {fileID: 4543975368006533097}
   - component: {fileID: 2374547902290497560}
+  - component: {fileID: -7387510753555890268}
   m_Layer: 8
   m_Name: Troop
   m_TagString: Troop
@@ -264,8 +265,6 @@ MonoBehaviour:
   towerPriorityWeight: 10
   heroPriorityWeight: 5
   troopPriorityWeight: 2
-  waveEndEvent: {fileID: 11400000, guid: fef4180933e2be34c950944cf69940e7, type: 2}
-  finalWaveEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   attackingTowerEvent: {fileID: 11400000, guid: bfb14c1e3d3081d48bc279625d82f22b,
     type: 2}
@@ -284,8 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310f4d08e38d1e847ac4af8474d39e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  troopRemovedFromGame: {fileID: 11400000, guid: c38f578a703089d4f92ba231d1741703,
-    type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   deathEffect: {fileID: 0}
 --- !u!114 &1723326687856318223
@@ -300,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551cd4ba2aa4510489e1ccf790ae87ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemapHandler: {fileID: 0}
 --- !u!114 &4543975368006533097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +324,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0b7d65b82abbd49a5dc9f19cb70f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7387510753555890268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516010080651671553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69b49e79fb8e9f55b19927f23635d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemapHandler: {fileID: 5291811850366765232, guid: 34eb2217027e686c0944f7795c864ad5,
+    type: 3}
 --- !u!1 &7039024901831482771
 GameObject:
   m_ObjectHideFlags: 0

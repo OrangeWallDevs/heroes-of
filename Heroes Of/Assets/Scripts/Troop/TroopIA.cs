@@ -22,8 +22,6 @@ public class TroopIA : MonoBehaviour {
     private TroopMovementActions movementAction;
     private TroopAttackActions attackAction;
 
-    private PathFinding pathFinding;
-
     private void Awake() {
 
         construcionsList = new PriorityList<Transform>();
@@ -82,7 +80,7 @@ public class TroopIA : MonoBehaviour {
 
             if (!IsInRange(ActualTarget.position, troopData.attackDistance)) {
 
-                MoveTo(ActualTarget.position);
+                movementAction.actualTarget = ActualTarget.position;
 
             }
             else {
@@ -266,12 +264,6 @@ public class TroopIA : MonoBehaviour {
         // TO:DO use Entity class from RunTimeDate to pass on attackAction.Attack()
         RunTimeData targetData = attackTarget.GetComponent<RunTimeData>();
         attackAction.Attack(targetData);
-
-    }
-
-    private void MoveTo(Vector2 position) {
-
-        movementAction.MoveToPosition(position);
 
     }
 
