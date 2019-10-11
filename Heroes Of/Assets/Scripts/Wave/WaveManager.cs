@@ -51,6 +51,12 @@ public class WaveManager : MonoBehaviour {
                     ActualState = WaveStates.COUNTING;
                     countDown -= Time.deltaTime;
 
+                    if (countDown <= 10) {
+
+                        startCountDownEvent.Raise();
+
+                    }
+
                 }
 
             }
