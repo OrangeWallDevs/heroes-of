@@ -4,13 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public enum TileType {START, GOAL, WALKABLE, OBSTACLE, PATH, OPEN_SET, CLOSED_SET};
-
 public class PathFinding : MonoBehaviour {
-    [SerializeField]
-    private GameRuntimeData gameRuntimeData;
-
-    private TileType tileType;
 
     private Vector3Int _startPos;
     public Vector3Int startPos {
@@ -62,22 +56,12 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-    private Dictionary<Vector3Int, Node> _nodes;
-    public Dictionary<Vector3Int, Node> nodes {
-        get {
-            return _nodes;
-        }
-        set {
-            _nodes = value;
-        }
-    }
-
     private Node currentNode;
 
+    public TilemapHandler tilemapHandler;
+
     private void Initialize() {
-        nodes = new Dictionary<Vector3Int, Node>();
-        currentNode = gameRuntimeData.NodeTilemap.GetNode(startPos);
-        nodes.Add(currentNode.position, currentNode);
+        currentNode = tilemapHandler.nodeTilemap.GetNode(startPos);
         openSet = new HashSet<Node>();
         closedSet = new HashSet<Node>();
         openSet.Add(currentNode);
@@ -98,14 +82,10 @@ public class PathFinding : MonoBehaviour {
         }
     }
 
-
     private void ExamineNeighbours(List<Node> neighbours, Node current) {
         for (int i = 0; i < neighbours.Count; i++) {
             
             Node neighbour = neighbours[i];
-            if(!nodes.ContainsKey(neighbour.position)) {
-                nodes.Add(neighbour.position, neighbour);
-            }
                 
             if(neighbour.position != startPos) {
                 int gScore = DetermineGScore(neighbours[i], current);
