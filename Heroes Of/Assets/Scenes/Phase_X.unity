@@ -346,6 +346,11 @@ PrefabInstance:
       propertyPath: isEnemy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9106349151271442219, guid: d38d914760fd527448bc5065db9787c4,
+        type: 3}
+      propertyPath: valHp
+      value: 360
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38d914760fd527448bc5065db9787c4, type: 3}
 --- !u!1 &351464157
@@ -357,6 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351464158}
+  - component: {fileID: 351464159}
   m_Layer: 0
   m_Name: '[Test] Spawn_Player'
   m_TagString: Spawn_Player
@@ -378,6 +384,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &351464159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351464157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82420bbf38c6c2f4082096e33532579f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTroopsRemoved: {fileID: 11400000, guid: c38f578a703089d4f92ba231d1741703, type: 2}
 --- !u!1001 &371679775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -959,6 +978,16 @@ PrefabInstance:
       propertyPath: m_text
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 7625669854080072949, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1334636331}
+    - target: {fileID: 7625669854080072949, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FocusHero
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7, type: 3}
 --- !u!1001 &701097001
@@ -1111,6 +1140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isEnemy
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106349151271442219, guid: d38d914760fd527448bc5065db9787c4,
+        type: 3}
+      propertyPath: valHp
+      value: 1200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38d914760fd527448bc5065db9787c4, type: 3}
@@ -1272,8 +1306,25 @@ PrefabInstance:
       propertyPath: isEnemy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9106349151271442219, guid: d38d914760fd527448bc5065db9787c4,
+        type: 3}
+      propertyPath: valHp
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38d914760fd527448bc5065db9787c4, type: 3}
+--- !u!114 &1334636331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+    type: 3}
+  m_PrefabInstance: {fileID: 701097001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d3f4915b00e214daded59e071857ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1336444266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4772841155229995840, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
@@ -1295,6 +1346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1766530420}
+  - component: {fileID: 1766530421}
   m_Layer: 0
   m_Name: '[Test] Spawn_Enemy'
   m_TagString: Spawn_Enemy
@@ -1316,6 +1368,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1766530421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766530419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82420bbf38c6c2f4082096e33532579f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTroopsRemoved: {fileID: 11400000, guid: c38f578a703089d4f92ba231d1741703, type: 2}
 --- !u!1 &1880723582
 GameObject:
   m_ObjectHideFlags: 0

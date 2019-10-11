@@ -239,12 +239,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namTroop: 
-  vlrDamageDealt: 0
-  vlrHp: 0
-  vlrScore: 0
-  vlrDropMoney: 0
-  vlrMotionSpeed: 0
-  vlrAttackSpeed: 0
+  valDamageDealt: 0
+  valHp: 0
+  valScore: 0
+  valDropMoney: 0
+  valMotionSpeed: 0
+  valAttackSpeed: 0
   attackDistance: 0
   troopObjective: 0
   isEnemy: 0
@@ -264,6 +264,8 @@ MonoBehaviour:
   towerPriorityWeight: 10
   heroPriorityWeight: 5
   troopPriorityWeight: 2
+  waveEndEvent: {fileID: 11400000, guid: fef4180933e2be34c950944cf69940e7, type: 2}
+  finalWaveEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   attackingTowerEvent: {fileID: 11400000, guid: bfb14c1e3d3081d48bc279625d82f22b,
     type: 2}
@@ -282,6 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310f4d08e38d1e847ac4af8474d39e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  troopRemovedFromGame: {fileID: 11400000, guid: c38f578a703089d4f92ba231d1741703,
+    type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   deathEffect: {fileID: 0}
 --- !u!114 &1723326687856318223

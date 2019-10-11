@@ -50,5 +50,8 @@ MonoBehaviour:
   finalWaveStartEvent: {fileID: 11400000, guid: befbb803c0cecc645816930c1ebb6ae8,
     type: 2}
   finalWaveEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
+  allTroopsRemoved: {fileID: 11400000, guid: c38f578a703089d4f92ba231d1741703, type: 2}
+  startCountDownEvent: {fileID: 11400000, guid: cc7bdaa71a748c34b8ab07259d0ddbc9,
+    type: 2}
   towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
     type: 2}

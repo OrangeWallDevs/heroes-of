@@ -5,23 +5,32 @@ public class WaveManager : MonoBehaviour {
     public float startTimeCountDown = 5f;
     public int maxWaves = 1;
 
-    public GameEvent waveStartEvent, waveEndEvent, finalWaveStartEvent, finalWaveEndEvent;
+    public GameEvent waveStartEvent, waveEndEvent;
+    public GameEvent finalWaveStartEvent, finalWaveEndEvent;
+    public GameEvent startCountDownEvent;
+    public GameEvent allTroopsRemoved;
     public TowerEvent towerDestroyedEvent;
 
     public int ActualWave { get; private set; } = 0;
     public WaveStates ActualState { get; private set; } = WaveStates.WAITING;
 
-    private float winConditionCheckCount = 1f, countDown = 0f;
+    private float countDown = 0f;
+
+    private GameObject playerSpawnGroup, enemySpawnGroup;
+    private bool isTurnTrasition = false;
 
     private void Awake() {
 
         countDown = startTimeCountDown;
+        enemySpawnGroup = GameObject.FindGameObjectWithTag("Spawn_Enemy");
+        playerSpawnGroup = GameObject.FindGameObjectWithTag("Spawn_Player");
 
     }
 
     private void Start() {
 
         waveEndEvent.RegisterListener(HandleWaveEnd);
+        allTroopsRemoved.RegisterListener(HandleAllTroopsRemoved);
         towerDestroyedEvent.RegisterListener(HandleTowerDestroyed);
         
     }
@@ -53,6 +62,7 @@ public class WaveManager : MonoBehaviour {
     private void StartWave() {
 
         ActualState = WaveStates.RUNNING;
+        isTurnTrasition = false;
         ActualWave++;
 
         if (ActualWave >= maxWaves) {
@@ -70,6 +80,8 @@ public class WaveManager : MonoBehaviour {
     }
 
     private void CompleteWave() {
+
+        isTurnTrasition = true;
 
         if (ActualWave >= maxWaves) {
 
@@ -96,20 +108,20 @@ public class WaveManager : MonoBehaviour {
         ActualState = WaveStates.COUNTING;
 
         // TO:DO remove troops from game and from RunTimeData
-        GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
+        /*GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
         GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
 
         foreach (GameObject troop in troopsArrayClone) {
 
             Destroy(troop);
 
-        }
+        }*/
 
     }
 
     private void HandleFinalWaveEnd() {
 
-        GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
+        /*GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
         GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
 
         foreach (GameObject troop in troopsArrayClone) {
@@ -117,22 +129,60 @@ public class WaveManager : MonoBehaviour {
             TroopIA troopIA = troop.GetComponent<TroopIA>();
             troopIA.enabled = false;
 
-        }
+        }*/
 
     }
 
-    private bool StillHaveEnemys() {
+    private void HandleAllTroopsRemoved() {
 
-        winConditionCheckCount -= Time.deltaTime;
+        GameObject spawnGroup = null;
+        bool checkIsEnemy = false;
 
-        if (winConditionCheckCount >= 0) {
-            return true;
+        if (isTurnTrasition) {
+
+            return;
+
         }
 
-        winConditionCheckCount = 1f;
-        bool hasEnemys = (GameObject.FindGameObjectWithTag("Enemy") != null);
+        if (playerSpawnGroup.transform.childCount == 0) {
 
-        return hasEnemys;
+            spawnGroup = playerSpawnGroup;
+            checkIsEnemy = false;
+
+        }
+        else if (enemySpawnGroup.transform.childCount == 0) {
+
+            spawnGroup = enemySpawnGroup;
+            checkIsEnemy = true;
+
+        }
+
+        if (spawnGroup != null) {
+
+            // TO:DO --> Use list of barracks from RunTimeData [This part of code is to heavy]
+            GameObject[] barracks = GameObject.FindGameObjectsWithTag("Spawner");
+            int activeBarracks = 0;
+
+            foreach (GameObject barrack in barracks) {
+
+                RunTimeBarrackData barrackData = barrack.GetComponent<RunTimeBarrackData>();
+                Spawner barrackSpawner = barrack.GetComponent<Spawner>();
+
+                if (barrackData.isEnemy == checkIsEnemy && barrackSpawner.ActualState == SpawnerStates.SPAWNING) {
+
+                    activeBarracks++;
+
+                }
+
+            }
+
+            if (activeBarracks == 0) {
+
+                CompleteWave();
+
+            }
+
+        }
 
     }
 
