@@ -11,6 +11,8 @@ TagManager:
   - Hero
   - Wave_Manager
   - Factory
+  - Spawn_Player
+  - Spawn_Enemy
   layers:
   - Default
   - TransparentFX
