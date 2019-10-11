@@ -13,6 +13,7 @@ TagManager:
   - Factory
   - Spawn_Player
   - Spawn_Enemy
+  - Core
   layers:
   - Default
   - TransparentFX
