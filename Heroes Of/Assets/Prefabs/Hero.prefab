@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abb1861ef5c555409292f534c31fb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionIncreasedDistance: 0
+  detectionIncreasedDistance: 1
 --- !u!1 &4329487523995089034
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69b49e79fb8e9f55b19927f23635d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameRuntimeData: {fileID: 0}
+  tilemapHandler: {fileID: 0}
 --- !u!114 &7776042260269347953
 MonoBehaviour:
   m_ObjectHideFlags: 0

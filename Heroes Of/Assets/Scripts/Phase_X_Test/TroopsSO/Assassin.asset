@@ -20,7 +20,7 @@ MonoBehaviour:
   valMorionSpeed: 5
   valAttackSpeed: 0.5
   valDropMoney: 10
-  valAttackDistance: 4
+  valAttackDistance: 1
   objective: 0
   attackAtDistance: 0
   isEnemy: 0
