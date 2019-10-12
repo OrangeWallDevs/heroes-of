@@ -33,7 +33,7 @@ public class TroopIA : MonoBehaviour {
             constructionsInGame.Add(tower);
 
         }
-        //constructionsInGame.Add(GameObject.FindGameObjectWithTag("Core"));
+        constructionsInGame.Add(GameObject.FindGameObjectWithTag("Core"));
 
         Vector2 troopPosition = transform.position;
 
