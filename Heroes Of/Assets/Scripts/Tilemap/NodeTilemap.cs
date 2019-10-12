@@ -53,23 +53,25 @@ public class NodeTilemap {
     }
 
     private List<Node> GetNeighbours(Node node) {
+       return GetNeighbours(node, 1);
+    }
+
+    public List<Node> GetNeighbours(Node node, int range) {
         List<Node> neighbours = new List<Node>();
 
-        for(int x = -1; x <= 1; x++) {
-            for(int y = -1; y <= 1; y++) {
-                Vector3Int neighbourPos = new Vector3Int(node.position.x - x, node.position.y - y, node.position.z);
-                GameCustomTile neighbourTile = node.tilemapMember.GetTile<GameCustomTile>(neighbourPos);
-                if(neighbourTile) {
-                    if(y != 0 || x != 0) {
-                        if(neighbourTile.isWalkable) {
+            for(int x = -range; x <= range; x++) {
+                for(int y = -range; y <= range; y++) {
+                    Vector3Int neighbourPos = new Vector3Int(node.position.x - x, node.position.y - y, node.position.z);
+                    GameCustomTile neighbourTile = node.tilemapMember.GetTile<GameCustomTile>(neighbourPos);
+                    if(neighbourTile) {
+                        if(y != 0 || x != 0) {
                             Node neighbour = GetNode(neighbourPos);
                             neighbours.Add(neighbour);
                         }
-                    }
+                    } 
                 }
             }
-        }
 
-        return neighbours;
+            return neighbours;
     }
 }

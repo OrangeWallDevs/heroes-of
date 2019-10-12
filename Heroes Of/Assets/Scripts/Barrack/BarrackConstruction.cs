@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BarrackConstruction : MonoBehaviour {
 
@@ -65,18 +66,20 @@ public class BarrackConstruction : MonoBehaviour {
     }
 
     private Barrack BuildBarrack(Vector2 position, GoldReserve goldReserve) {
+        Node clickedCell = tilemapHandler.PositionToTilemapNode(position);
 
-        if(tilemapHandler.PositionToTilemapNode(position).tile.isSlot){
+        if(clickedCell.tile.isSlot && clickedCell.tile.isSlotAvailable) {
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(position);
 
             Barrack barrack = barrackFactory.CreateBarrack(barrackID, buildForEnemy, buildForObjective);
 
             if(goldReserve.SpendGold(barrack.ValCost)) {
                 barrack.GameObject.transform.position = new Vector3(clickPosition.x, clickPosition.y, 0);
+
+                BlockSlot(clickedCell);
                 AvaliableTileSelection.ChangeMask(tilemapHandler,false);
                 return barrack;
-            } 
-            else {
+            } else {
                 alertManager.ShowWarningModal("Você não tem dinheiro suficiente para comprar essa caserna!");
                 Destroy(barrack.GameObject);
             }
@@ -87,6 +90,16 @@ public class BarrackConstruction : MonoBehaviour {
 
         return null;   
 
+    }
+
+    private void BlockSlot(Node slotTile) {
+        const int slotRange = 6;
+        List<Node> slotTilesNeighbours = tilemapHandler.GetAllTileNeighbours(slotTile, slotRange - 1)
+            .Where(node => node.tile.isSlot).ToList();
+        
+        foreach(Node slotNeighbour in slotTilesNeighbours) {
+            slotNeighbour.tile.isSlotAvailable = false;
+        }
     }
 
 }

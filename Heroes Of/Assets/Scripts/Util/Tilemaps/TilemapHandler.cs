@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 
 public class TilemapHandler : MonoBehaviour {
@@ -47,5 +48,9 @@ public class TilemapHandler : MonoBehaviour {
         }
 
         return null;
+    }
+
+    public List<Node> GetAllTileNeighbours(Node node, int range) {
+        return nodeTilemap.GetNeighbours(node, range);
     }
 } 
