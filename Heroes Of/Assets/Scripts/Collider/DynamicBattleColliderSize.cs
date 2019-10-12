@@ -26,7 +26,7 @@ public class DynamicBattleColliderSize : MonoBehaviour {
         }
 
         battleCollider = GetComponent<CircleCollider2D>();
-        battleCollider.radius = ((attackDistance / 10) + detectionIncreasedDistance);
+        battleCollider.radius = Mathf.Log10(attackDistance + detectionIncreasedDistance);
         
     }
 
