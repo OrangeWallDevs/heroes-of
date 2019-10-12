@@ -17,8 +17,6 @@ public class CameraControl : MonoBehaviour {
     private Vector3 cameraPosition;
     private Camera cam;
 
-    private float lastSpeed, lastOrthographicSize;
-
     private void Start() {
 
         cameraPosition = transform.position;
@@ -39,14 +37,18 @@ public class CameraControl : MonoBehaviour {
 
             HandleMovement();
 
-        } else if (Input.touchCount == 2) {
+        } 
+        else if (Input.touchCount == 2) {
 
             HandleTouchZoom();
 
         }
 
-        if (Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0) {
+
             HandleMouseZoom();
+
+        }
 
     }
 
@@ -56,7 +58,8 @@ public class CameraControl : MonoBehaviour {
 
             lastTouch = Input.mousePosition;
 
-        } else if (Input.GetMouseButton(0)) {
+        } 
+        else if (Input.GetMouseButton(0)) {
 
             actualTouch = Input.mousePosition;
 
@@ -76,6 +79,18 @@ public class CameraControl : MonoBehaviour {
             lastTouch = actualTouch;
 
         }
+
+    }
+
+    private void MoveCamera(Vector3 direction) {
+
+        // Limits the X and Y that the camera can move 
+        direction.x = Mathf.Clamp(direction.x, leftLimit, rightLimit);
+        direction.y = Mathf.Clamp(direction.y, bottomLimit, topLimit);
+
+        float cameraStep = Time.deltaTime * dragSpeed;
+
+        transform.position = Vector3.Lerp(transform.position, direction, cameraStep);
 
     }
 
@@ -102,26 +117,11 @@ public class CameraControl : MonoBehaviour {
 
     }
 
-    private void MoveCamera(Vector3 direction) {
-
-        // Limits the X and Y that the camera can move 
-        direction.x = Mathf.Clamp(direction.x, leftLimit, rightLimit);
-        direction.y = Mathf.Clamp(direction.y, bottomLimit, topLimit);
-
-        float cameraStep = Time.deltaTime * dragSpeed;
-
-        transform.position = Vector3.Lerp(transform.position, direction, cameraStep);
-
-    }
-
     private void Zoom(float increment) {
 
-        lastOrthographicSize = cam.orthographicSize;
-        float zoomValue = lastOrthographicSize - increment;
+        float zoomValue = cam.orthographicSize - increment;
 
         cam.orthographicSize = Mathf.Clamp(zoomValue, zoomOutMin, zoomOutMax);
-
-        dragSpeed = dragSpeed * cam.orthographicSize / lastOrthographicSize;
 
     }
 
