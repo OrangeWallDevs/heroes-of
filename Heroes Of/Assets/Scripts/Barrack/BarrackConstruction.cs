@@ -68,7 +68,7 @@ public class BarrackConstruction : MonoBehaviour {
     private Barrack BuildBarrack(Vector2 position, GoldReserve goldReserve) {
         Node clickedCell = tilemapHandler.PositionToTilemapNode(position);
 
-        if(clickedCell.tile.isSlot && clickedCell.tile.isSlotAvailable) {
+        if(clickedCell.tile.isSlot && clickedCell.isAvailable) {
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(position);
 
             Barrack barrack = barrackFactory.CreateBarrack(barrackID, buildForEnemy, buildForObjective);
@@ -98,7 +98,7 @@ public class BarrackConstruction : MonoBehaviour {
             .Where(node => node.tile.isSlot).ToList();
         
         foreach(Node slotNeighbour in slotTilesNeighbours) {
-            slotNeighbour.tile.isSlotAvailable = false;
+            slotNeighbour.isAvailable = false;
         }
     }
 
