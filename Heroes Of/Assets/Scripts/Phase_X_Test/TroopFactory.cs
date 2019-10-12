@@ -21,7 +21,7 @@ public class TroopFactory : MonoBehaviour {
         troop.ValHp = troopData.valHp;
         troop.ValMotionSpeed = troopData.valMorionSpeed;
         troop.ValMotionSpeed = troopData.valScore;
-        troop.AttackAtDistance = troopData.attackAtDistance;
+        troop.IdtAttackAtDistance = troopData.attackAtDistance;
         troop.GameObject = GameObject.Instantiate(troopPrefab);
         troop.Objective = troopObjective;
         troop.IsEnemy = isEnemy;
@@ -29,7 +29,7 @@ public class TroopFactory : MonoBehaviour {
         troop.GameObject.GetComponentInChildren<SpriteRenderer>().sprite = troopData.sprite;
         troop.GameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = troopData.animatorController;
 
-        if (troop.AttackAtDistance && troopData.projectilePrefab != null) {
+        if (troop.IdtAttackAtDistance && troopData.projectilePrefab != null) {
 
             troop.GameObject.GetComponent<TroopAttackActions>().projectilePrefab = troopData.projectilePrefab;
 

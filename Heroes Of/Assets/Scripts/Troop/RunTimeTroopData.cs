@@ -27,7 +27,7 @@ public class RunTimeTroopData : RunTimeData {
         attackDistance = troopData.ValAttackDistance;
         troopObjective = troopData.Objective;
         isEnemy = troopData.IsEnemy;
-        attackAtDistance = troopData.AttackAtDistance;
+        attackAtDistance = troopData.IdtAttackAtDistance;
 
     }
 

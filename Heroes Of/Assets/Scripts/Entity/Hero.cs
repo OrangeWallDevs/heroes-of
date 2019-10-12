@@ -14,6 +14,8 @@ public class Hero : Entity {
     private int valMotionSpeed;
     private int valAttackSpeed;
     private int valDropMoney;
+    float valAttackDistance;
+    bool idtAttackAtDistance;
 
     public int CodHero { get => codHero; set => codHero = value; }
     public int CodPart { get => codPart; set => codPart = value; }
@@ -26,6 +28,8 @@ public class Hero : Entity {
     public int ValMotionSpeed { get => valMotionSpeed; set => valMotionSpeed = value; }
     public int ValAttackSpeed { get => valAttackSpeed; set => valAttackSpeed = value; }
     public int ValDropMoney { get => valDropMoney; set => valDropMoney = value; }
+    public float ValAttackDistance { get => valAttackDistance; set => valAttackDistance = value; }
+    public bool IdtAttackAtDistance { get => idtAttackAtDistance; set => idtAttackAtDistance = value; }
 
     // Runtime members?
     public GameObject GameObject { get; set; }
