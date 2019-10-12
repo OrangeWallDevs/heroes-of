@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1024325270473854215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024325270473854214}
+  - component: {fileID: 1024325270473854212}
+  - component: {fileID: 1024325270473854213}
+  m_Layer: 0
+  m_Name: Phase_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024325270473854214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024325270473854215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024325270473854212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024325270473854215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380db1a3b1df7a14080f5d80052f1f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numPhase: 0
+  codPart: 0
+  namPhase: 
+  valIniPlayerMoney: 0
+  valIniIAMoney: 0
+  idtPhaseType: 0
+--- !u!114 &1024325270473854213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024325270473854215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cc92b35326b27489e09a42add4daed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalTurnEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
+  coreDestroyedEvent: {fileID: 11400000, guid: 23b7fc962fad4934193d24826a8e120b, type: 2}
+  heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
