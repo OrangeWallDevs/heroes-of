@@ -949,6 +949,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4772841155547827077, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: playerGoldChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558,
+        type: 2}
+    - target: {fileID: 4772841154441237402, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: playerGoldChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7, type: 3}
 --- !u!1001 &701097001
