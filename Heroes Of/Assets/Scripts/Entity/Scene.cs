@@ -14,6 +14,7 @@ public class Scene : Entity {
     public string TxtImagePath { get => txtImagePath; set => txtImagePath = value; }
 
     // Runtime members:
+    public Sprite Sprite { get; set; }
     public List<Speak> Texts { get; set; }
 
     public Scene() {

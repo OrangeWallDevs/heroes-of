@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -88,9 +88,13 @@ public class GamePrimaryData : ScriptableObject {
             List<JObject> records = table.Value["records"].Cast<JObject>().ToList();
 
             foreach (var record in records) {
+                AssetFilter filter = AssetFilterRecords
+                    .SingleOrDefault(i => i.NamTable == tableName);
+                
                 switch (tableName) {
                     case "assetfilter":
                         AssetFilter assetFilter = record.ToObject<AssetFilter>();
+                        assetFilter.TxtAssetPath = $"Assets/{assetFilter.TxtAssetPath}";
                         AssetFilterRecords.Add(assetFilter);
                         break;
                     case "score": // only current user scores are retrieved
@@ -108,6 +112,9 @@ public class GamePrimaryData : ScriptableObject {
                         phase.UserScore = ScoreRecords
                             .SingleOrDefault(i => i.NumPhase == phase.NumPhase);
                         PhaseRecords.Add(phase);
+                        phase.TilemapsGrid = dataUtil
+                            .LoadAsset<Grid>($"{filter.TxtAssetFilter} {phase.NumPhase} t:Grid",
+                                new[] { filter.TxtAssetPath });
                         break;
                     case "gameuser": // only current user data is retrieved
                         GameUser user = record.ToObject<GameUser>();
@@ -117,6 +124,9 @@ public class GamePrimaryData : ScriptableObject {
                         break;
                     case "troop":
                         Troop troop = record.ToObject<Troop>();
+                        troop.GameObject = dataUtil
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {troop.TxtAssetIdentifier} t:GameObject",
+                                new[] { filter.TxtAssetPath });
                         TroopRecords.Add(troop);
                         break;
                     case "barrack":
@@ -125,14 +135,23 @@ public class GamePrimaryData : ScriptableObject {
                             .SingleOrDefault(i => i.CodPart == barrack.CodPart);
                         barrack.Troop = TroopRecords
                             .SingleOrDefault(i => i.CodTroop == barrack.CodTroop);
+                        barrack.GameObject = dataUtil
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {barrack.Troop.TxtAssetIdentifier} t:GameObject",
+                                new[] { filter.TxtAssetPath });
                         BarrackRecords.Add(barrack);
                         break;
                     case "tower":
                         Tower tower = record.ToObject<Tower>();
+                        tower.GameObject = dataUtil
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {(tower.IdtIsEnemy ? "enemy" : "player")} t:GameObject",
+                                new[] { filter.TxtAssetPath });
                         TowerRecords.Add(tower);
                         break;
                     case "skill":
                         Skill skill = record.ToObject<Skill>();
+                        skill.Action = dataUtil
+                            .LoadAsset<SkillAction>($"{filter.TxtAssetFilter} {skill.TxtAssetIdentifier} t:SkillAction",
+                                new[] { filter.TxtAssetPath });
                         SkillRecords.Add(skill);
                         break;
                     case "hero":
@@ -141,7 +160,10 @@ public class GamePrimaryData : ScriptableObject {
                             .SingleOrDefault(i => i.CodPart == hero.CodPart);
                         hero.Skills = SkillRecords
                             .Where(i => i.CodHero == hero.CodHero)
-                            .ToList();                        
+                            .ToList();
+                        hero.GameObject = dataUtil
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {hero.TxtAssetIdentifier} t:GameObject",
+                                new[] { filter.TxtAssetPath });
                         HeroRecords.Add(hero);
                         break;
                     case "speak":
@@ -153,6 +175,8 @@ public class GamePrimaryData : ScriptableObject {
                         scene.Texts = SpeakRecords
                             .Where(i => i.CodCutscene == scene.CodCutscene && i.CodScene == scene.CodScene)
                             .ToList();
+                        scene.Sprite = dataUtil
+                            .LoadAsset<Sprite>(new[] { $"{filter.TxtAssetPath}/{scene.TxtImagePath}" });
                         SceneRecords.Add(scene);
                         break;
                     case "cutscene":

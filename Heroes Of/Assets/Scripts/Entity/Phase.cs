@@ -25,8 +25,10 @@ public class Phase : Entity {
     public Grid TilemapsGrid {
         get => TilemapsGrid;
         set {
-            TilemapsGrid = value;
-            Tilemaps = TilemapsGrid.GetComponentsInChildren<Tilemap>();
+            if (value) {
+                TilemapsGrid = value;
+                Tilemaps = TilemapsGrid.GetComponentsInChildren<Tilemap>();
+            }
         }
     }    
     public Tilemap[] Tilemaps { get; private set; }
