@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class Skill : Entity {
 
     private int codSkill;
@@ -10,6 +11,9 @@ public class Skill : Entity {
     private int numEffectArea;
     private int numCooldown;
     private bool idtAttributeBuff;
+
+    // Runtime members:
+    public SkillAction Action { get; set; }
     
     public Skill() {
     }
@@ -35,4 +39,11 @@ public class Skill : Entity {
         this.numCooldown = numCooldown;
         this.idtAttributeBuff = idtAttributeBuff;
     }
+
+    public void PerformAction(Hero hero) {
+        if (Action) {
+            Action.PerformAction(hero);
+        }
+    }
+
 }
