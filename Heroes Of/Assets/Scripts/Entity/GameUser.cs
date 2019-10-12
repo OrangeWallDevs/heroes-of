@@ -14,12 +14,10 @@ public class GameUser : Entity {
     // Runtime members:
     public Phase CurrentPhase { get; set; }
 
-    public GameUser(GameObject gameObject) : base(gameObject) {
-
+    public GameUser() {
     }
 
-    public GameUser(string idtGoogleAccount, int numCurrentPhase, string namUser)
-    : base(null) {
+    public GameUser(string idtGoogleAccount, int numCurrentPhase, string namUser) {
         this.idtGoogleAccount = idtGoogleAccount;
         this.numCurrentPhase = numCurrentPhase;
         this.namUser = namUser;

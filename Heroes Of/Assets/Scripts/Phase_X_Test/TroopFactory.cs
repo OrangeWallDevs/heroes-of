@@ -9,7 +9,7 @@ public class TroopFactory : MonoBehaviour {
 
     public Troop CreateTroop(int codTroop, bool isEnemy, PhaseObjectives troopObjective) {
 
-        Troop troop = new Troop(GameObject.Instantiate(troopPrefab));
+        Troop troop = new Troop();
         TroopScriptableObject troopData = GetTroopScriptableObject(codTroop);
 
         troop.CodTroop = troopData.codTroop;
@@ -22,6 +22,7 @@ public class TroopFactory : MonoBehaviour {
         troop.ValMotionSpeed = troopData.valMorionSpeed;
         troop.ValMotionSpeed = troopData.valScore;
         troop.AttackAtDistance = troopData.attackAtDistance;
+        troop.GameObject = GameObject.Instantiate(troopPrefab);
         troop.Objective = troopObjective;
         troop.IsEnemy = isEnemy;
 

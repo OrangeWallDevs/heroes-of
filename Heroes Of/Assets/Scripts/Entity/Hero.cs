@@ -28,16 +28,16 @@ public class Hero : Entity {
     public int ValDropMoney { get => valDropMoney; set => valDropMoney = value; }
 
     // Runtime members?
+    public GameObject GameObject { get; set; }
     public Part Part { get; set; }
     public List<Skill> Skills { get; set; }
 
-    public Hero(GameObject gameObject) : base(gameObject) {
-
+    public Hero() {
     }
 
-    public Hero(int codHero, int codPart, string namHero, string desHero
-    , int valHp, int valScore, int valDamageDealt, int valMotionSpeed
-    , int valAttackSpeed, int valDropMoney) : base(null) {
+    public Hero(int codHero, int codPart, string namHero, string desHero, int valHp,
+            int valScore, int valDamageDealt, int valMotionSpeed, int valAttackSpeed,
+            int valDropMoney) {
         this.codHero = codHero;
         this.codPart = codPart;
         this.namHero = namHero;

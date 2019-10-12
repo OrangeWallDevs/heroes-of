@@ -12,11 +12,10 @@ public class Cutscene : Entity {
     // Runtime members:
     public List<Scene> Scenes { get; set; }
 
-    public Cutscene(GameObject gameObject) : base(gameObject) {
-
+    public Cutscene() {
     }
 
-    public Cutscene(int codCutscene, int codPart) : base(null) {
+    public Cutscene(int codCutscene, int codPart) {
         this.codCutscene = codCutscene;
         this.codPart = codPart;
     }

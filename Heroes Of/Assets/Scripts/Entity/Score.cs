@@ -10,12 +10,10 @@ public class Score : Entity {
     public int NumPhase { get => numPhase; set => numPhase = value; }
     public int ValRecordPoints { get => valRecordPoints; set => valRecordPoints = value; }
     
-    public Score (GameObject gameObject) : base(gameObject) {
-
+    public Score () {
     }
 
-    public Score(string idtGoogleAccount, int numPhase, int valRecordPoints)
-     : base(null){
+    public Score(string idtGoogleAccount, int numPhase, int valRecordPoints) {
         this.idtGoogleAccount = idtGoogleAccount;
         this.numPhase = numPhase;
         this.valRecordPoints = valRecordPoints;

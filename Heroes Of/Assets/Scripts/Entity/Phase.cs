@@ -22,16 +22,20 @@ public class Phase : Entity {
     // Runtime members:
     public Part Part { get; set; }
     public Score UserScore { get; set; }
-    public Grid TilemapsGrid { get; private set; }    
+    public Grid TilemapsGrid {
+        get => TilemapsGrid;
+        set {
+            TilemapsGrid = value;
+            Tilemaps = TilemapsGrid.GetComponentsInChildren<Tilemap>();
+        }
+    }    
     public Tilemap[] Tilemaps { get; private set; }
 
-    public Phase(Grid tilemapsGrid) : base(null) {
-        TilemapsGrid = tilemapsGrid;
-        Tilemaps = tilemapsGrid.GetComponentsInChildren<Tilemap>();
+    public Phase() {
     }
 
-    public Phase(int numPhase, int codPart, string namPhase,
-     int valIniPlayerMoney, int valIniIAMoney, string idtPhaseType) : base(null) {
+    public Phase(int numPhase, int codPart, string namPhase, int valIniPlayerMoney,
+            int valIniIAMoney, string idtPhaseType) {
         this.numPhase = numPhase;
         this.codPart = codPart;
         this.namPhase = namPhase;

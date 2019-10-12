@@ -16,11 +16,10 @@ public class Scene : Entity {
     // Runtime members:
     public List<Speak> Texts { get; set; }
 
-    public Scene(GameObject gameObject) : base(gameObject) {
-
+    public Scene() {
     }
 
-    public Scene(int codCutscene, int codScene, string desScene) : base(null) {
+    public Scene(int codCutscene, int codScene, string desScene) {
         this.codCutscene = codCutscene;
         this.codScene = codScene;
         this.desScene = desScene;

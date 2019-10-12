@@ -22,13 +22,14 @@ public class Troop : Entity {
     public float ValAttackSpeed { get => valAttackSpeed; set => valAttackSpeed = value; }
     public int ValDropMoney { get => valDropMoney; set => valDropMoney = value; }    
 
+    // Runtime members:
+    public GameObject GameObject { get; set; }
     public float ValAttackDistance { get; set; }
     public PhaseObjectives Objective { get; set; }
     public bool AttackAtDistance { get; set; }
     public bool IsEnemy { get; set; }
 
-    public Troop(GameObject gameObject) : base(gameObject) {
-
+    public Troop() {
     }
 
 }

@@ -11,8 +11,7 @@ public class AssetFilter : Entity {
     public string TxtAssetFilter { get => txtAssetFilter; set => txtAssetFilter = value; }
     public string TxtAssetPath { get => txtAssetPath; set => txtAssetPath = value; }
     
-    public AssetFilter(GameObject gameObject) : base(gameObject) {
-
+    public AssetFilter() {
     }
     
 }

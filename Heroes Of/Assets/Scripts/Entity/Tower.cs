@@ -10,11 +10,13 @@ public class Tower : Entity {
     public int ValHp { get => valHp; set => valHp = value; }
     public int NumEffectArea { get => numEffectArea; set => numEffectArea = value; }
 
-    public Tower(GameObject gameObject) : base(gameObject) {
+    // Runtime members:
+    public GameObject GameObject { get; set; }
 
+    public Tower() {
     }
 
-    public Tower(int codTower, int valHp, int numEffectArea) : base(null) {
+    public Tower(int codTower, int valHp, int numEffectArea) {
         this.codTower = codTower;
         this.valHp = valHp;
         this.numEffectArea = numEffectArea;

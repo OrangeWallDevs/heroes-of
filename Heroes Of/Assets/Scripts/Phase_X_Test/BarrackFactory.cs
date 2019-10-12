@@ -15,7 +15,7 @@ public class BarrackFactory : MonoBehaviour {
     public Barrack CreateBarrack(int codBarrack, bool isEnemy, PhaseObjectives barrackObjective) {
 
         GameObject barrackGameObject = GameObject.Instantiate(barrackPrefab);
-        Barrack barrack = new Barrack(barrackGameObject);
+        Barrack barrack = new Barrack();
         BarrackScriptableObject barrackData = GetBarrackScriptableObject(codBarrack);
 
         barrack.CodBarrack = barrackData.codBarrack;
@@ -26,9 +26,11 @@ public class BarrackFactory : MonoBehaviour {
         barrack.NumTroopLimit = barrackData.numTroopLimit;
         barrack.ValCost = barrackData.valCost;
         barrack.ValSpawnFrequency = barrackData.valSpawnFrequency;
+        barrack.GameObject = barrackGameObject;
         barrack.IsEnemy = isEnemy;
         barrack.Objective = barrackObjective;
 
+        barrack.SetUpSpawner();
         barrack.GameObject.GetComponent<SpriteRenderer>().sprite = barrackData.sprite;
         barrack.GameObject.GetComponent<Animator>().runtimeAnimatorController = barrackData.animatorController;
 

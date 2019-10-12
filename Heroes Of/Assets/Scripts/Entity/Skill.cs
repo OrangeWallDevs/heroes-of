@@ -11,8 +11,7 @@ public class Skill : Entity {
     private int numCooldown;
     private bool idtAttributeBuff;
     
-    public Skill(GameObject gameObject) : base(gameObject) {
-
+    public Skill() {
     }
 
     public int CodSkill { get => codSkill; set => codSkill = value; }
@@ -25,9 +24,8 @@ public class Skill : Entity {
     public int NumCooldown { get => numCooldown; set => numCooldown = value; }
     public bool IdtAttributeBuff { get => idtAttributeBuff; set => idtAttributeBuff = value; }
 
-    public Skill(int codSkill, int codHero, string namSkill, string desSkill
-    , int valDamage, int numEffectArea, int numCooldown, bool idtAttributeBuff)
-    : base(null) {
+    public Skill(int codSkill, int codHero, string namSkill, string desSkill, int valDamage,
+        int numEffectArea, int numCooldown, bool idtAttributeBuff) {
         this.codSkill = codSkill;
         this.codHero = codHero;
         this.namSkill = namSkill;

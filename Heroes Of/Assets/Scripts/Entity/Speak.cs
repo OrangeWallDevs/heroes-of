@@ -12,12 +12,11 @@ public class Speak : Entity {
     public int CodScene { get => codScene; set => codScene = value; }
     public string TxtSpeech { get => txtSpeak; set => txtSpeak = value; }
 
-    public Speak(GameObject gameObject) : base(gameObject) {
-
+    public Speak() {
     }
 
-    public Speak(int codSpeech, int codCutscene, int codScene, string txtSpeech
-    , string txtSceneImgPath) : base(null) {
+    public Speak(int codSpeech, int codCutscene, int codScene, string txtSpeech,
+            string txtSceneImgPath) {
         this.codSpeak = codSpeech;
         this.codCutscene = codCutscene;
         this.codScene = codScene;

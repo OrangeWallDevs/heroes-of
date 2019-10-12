@@ -8,11 +8,10 @@ public class Part : Entity {
     public int CodPart { get => codPart; set => codPart = value; }
     public string NamPart { get => namPart; set => namPart = value; }
     
-    public Part (GameObject gameObject) : base(gameObject) {
-
+    public Part () {
     }
 
-    public Part(int codPart, string namPart) : base(null) {
+    public Part(int codPart, string namPart) {
         this.codPart = codPart;
         this.namPart = namPart;
     }
