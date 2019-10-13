@@ -192,7 +192,13 @@ public class GamePrimaryData : ScriptableObject {
             }
         }
 
-        onDataLoaded();
+        if (!(onDataLoaded is null)) {
+            onDataLoaded();
+        }
+    }
+
+    public GameUser GetUser() {
+        return UserRecords.SingleOrDefault(); // Mudar para utilizar classe apenas para dados do usuário
     }
 
 }

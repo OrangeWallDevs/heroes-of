@@ -6,7 +6,28 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu]
 public class GameRuntimeData : ScriptableObject {
 
-    // Runtime members:
+    /* --- Runtime Members --- */
+
+    // Initialized by primaryData:
+    public List<Part> Parts { get; set; }
+    public List<Phase> Phases { get; set; }
+    public GameUser User { get; set; }
+    public List<Troop> TroopPrototypes { get; set; }
+    public List<Barrack> BarrackPrototypes { get; set; }
+    public List<Tower> TowerPrototypes { get; set; }
+    public List<Hero> HeroPrototypes { get; set; }
+    public List<Cutscene> Cutscenes { get; set; }
+
+    // Runtime-only members:
+    public List<Troop> RuntimeTroops { get; set; }
+    public List<Barrack> RuntimeBarracks { get; set; }
+    public List<Tower> RuntimeTowers { get; set; }
+    public List<Hero> RuntimeHeros { get; set; }
+    public Hero PlayerHero { get; set; }
+    public Hero EnemyHero { get; set; }
+
+    // ~ Acrescentar turnos, ouro, slots etc ~
+
     public Phase CurrentLevel {
         get; private set;
     }
@@ -15,21 +36,43 @@ public class GameRuntimeData : ScriptableObject {
         get; private set;
     }
 
-    // Methods:
+    /* --- Methods --- */
 
     void OnEnable() {
-        // Carrega o tilemap da fase:
-        // Grid levelGrid = Instantiate(dataUtil
-        //         .LoadAsset<Grid>("test", new[] {"Assets/Prefabs"}));
 
-        // CurrentLevel = new Phase(levelGrid);
-        // NodeTilemap = new NodeTilemap(CurrentLevel.Tilemaps);
+        RuntimeTroops = new List<Troop>();
+        RuntimeBarracks = new List<Barrack>();
+        RuntimeTowers = new List<Tower>();
+        RuntimeHeros = new List<Hero>();
 
-        // Debug.Log(NodeTilemap.Nodes.Count);
     }
 
     public void Load(GamePrimaryData primaryData) {
 
+        Parts = primaryData.PartRecords;
+        Phases = primaryData.PhaseRecords;
+        User = primaryData.GetUser(); // mudar para método de verificação do primaryData
+        TroopPrototypes = primaryData.TroopRecords;
+        BarrackPrototypes = primaryData.BarrackRecords;
+        TowerPrototypes = primaryData.TowerRecords;
+        HeroPrototypes = primaryData.HeroRecords;
+        Cutscenes = primaryData.CutsceneRecords;
+
     }
+
+    public void StartPhase(Action onFinishLoading) {
+        // Carrega o tilemap da fase:
+        // Grid levelGrid = Instantiate(dataUtil
+        //         .LoadAsset<Grid>("test", new[] {"Assets/Prefabs"}));
+        // CurrentLevel = new Phase(levelGrid);
+        // NodeTilemap = new NodeTilemap(CurrentLevel.Tilemaps);
+
+        // Debug.Log(NodeTilemap.Nodes.Count);
+        if (!(onFinishLoading is null)) {
+            onFinishLoading();
+        }
+    }
+
+    // ~ Acrescentar métodos para filtrar/criar entidades, manipular dados da fase etc ~
 
 }
