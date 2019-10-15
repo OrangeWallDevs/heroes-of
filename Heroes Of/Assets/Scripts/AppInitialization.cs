@@ -18,7 +18,6 @@ public class AppInitialization : MonoBehaviour {
         http = HTTP.Instance;
         PlayerPrefs.DeleteAll(); // just for debugging
         
-        HTTPRequestTest();
         PlayGamesConfiguration();
         primaryData.LoadFromServer(onDataLoaded);
         // LoadPrimaryData(); // success callback after user login
@@ -36,21 +35,6 @@ public class AppInitialization : MonoBehaviour {
         // Initialize and activate the platform
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
-    }
-
-    void HTTPRequestTest() {
-        // Debug.Log("Fazendo requisição...");
-        // http.Post("http://localhost:8080/HeroesOfServer/getGamePrimaryData", (up, down) => {
-        //     Debug.Log("Dados recebidos.");
-        //     var response = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, List<object>>>>(down.text);
-        //     Debug.Log(JsonConvert.DeserializeObject<Scene>(response["scene"]["records"][0].ToString()));
-        // });
-        // Scene scene = new Scene(1, 2, "mensagem");
-        // http.Post("http://localhost:8080/HeroesOfServer/addNewScene",
-        //         JsonConvert.SerializeObject(scene), (up, down) => {
-        //     Debug.Log("Enviado.");
-        //     Debug.Log(down.isDone);
-        // });
     }
 
     void LoadPrimaryData() {
