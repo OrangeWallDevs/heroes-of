@@ -78,9 +78,11 @@ public class GamePrimaryData : ScriptableObject {
     public void LoadFromServer(String userId, Action onDataLoaded) {
         Debug.Log("Loading primary data from server");
         
-        var parameters = new Dictionary<string, string>() {
-            { "userId", userId }
-        };
+        var parameters = new Dictionary<string, string>();
+
+        if (!(userId is null)) {
+            parameters.Add("userId", userId);
+        }
 
         http.Post("http://localhost:8080/heroes-of-server/getPrimaryData", parameters, (up, down) => {
             string responseText = down.text;
