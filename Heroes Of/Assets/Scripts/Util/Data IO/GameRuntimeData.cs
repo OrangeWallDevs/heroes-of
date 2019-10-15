@@ -6,6 +6,10 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu]
 public class GameRuntimeData : ScriptableObject {
 
+    /* --- Dependencies and Private Members --- */    
+
+    Dictionary<Type, object> gamePrototypeTypes;
+
     /* --- Runtime Members --- */
 
     // Initialized by primaryData:
@@ -44,6 +48,12 @@ public class GameRuntimeData : ScriptableObject {
         RuntimeBarracks = new List<Barrack>();
         RuntimeTowers = new List<Tower>();
         RuntimeHeros = new List<Hero>();
+        gamePrototypeTypes = new Dictionary<Type, object> {
+            { typeof(Troop), RuntimeTroops },
+            { typeof(Barrack), RuntimeBarracks },
+            { typeof(Tower), RuntimeTowers },
+            { typeof(Hero), RuntimeHeros }
+        };
 
     }
 
@@ -73,6 +83,18 @@ public class GameRuntimeData : ScriptableObject {
         }
     }
 
+    public T Create<T>(T prototype) where T : IGamePrototype {
+        return (T) prototype.Clone();
+    }
+
+    public List<T> GetPrototypeList<T>() where T : IGamePrototype {
+        return (List<T>) gamePrototypeTypes[typeof(T)];
+    }
+
     // ~ Acrescentar métodos para filtrar/criar entidades, manipular dados da fase etc ~
+
+    public void ClearRuntimeData() {
+        
+    }
 
 }
