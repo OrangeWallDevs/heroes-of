@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Troop : Entity {
+public class Troop : Entity, IGamePrototype {
 
     int codTroop;
     string namTroop;

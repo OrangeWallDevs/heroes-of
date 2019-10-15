@@ -160,7 +160,7 @@ public class GamePrimaryData : ScriptableObject {
                     case "tower":
                         Tower tower = record.ToObject<Tower>();
                         tower.GameObject = dataUtil
-                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {(tower.IdtIsEnemy ? "enemy" : "player")} t:GameObject",
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {(tower.IsEnemy ? "enemy" : "player")} t:GameObject",
                                 new[] { filter.TxtAssetPath });
                         TowerRecords.Add(tower);
                         break;

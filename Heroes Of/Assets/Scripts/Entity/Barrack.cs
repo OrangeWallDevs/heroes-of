@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Barrack : Entity {
+public class Barrack : Entity, IGamePrototype {
 
     private int codBarrack;
     private int codPart;

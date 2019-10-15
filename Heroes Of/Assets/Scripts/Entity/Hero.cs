@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Entity {
+public class Hero : Entity, IGamePrototype {
 
     private int codHero;
     private int codPart;
@@ -33,6 +33,7 @@ public class Hero : Entity {
 
     // Runtime members?
     public GameObject GameObject { get; set; }
+    public bool IsEnemy { get; set; }
     public Part Part { get; set; }
     public List<Skill> Skills { get; set; }
 

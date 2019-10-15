@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tower : Entity {
+public class Tower : Entity, IGamePrototype {
 
     private int codTower;
     private int valHp;
@@ -10,7 +10,7 @@ public class Tower : Entity {
     public int CodTower { get => codTower; set => codTower = value; }
     public int ValHp { get => valHp; set => valHp = value; }
     public int NumEffectArea { get => numEffectArea; set => numEffectArea = value; }
-    public bool IdtIsEnemy { get => idtIsEnemy; set => idtIsEnemy = value; }
+    public bool IsEnemy { get => idtIsEnemy; set => idtIsEnemy = value; }
 
     // Runtime members:
     public GameObject GameObject { get; set; }
