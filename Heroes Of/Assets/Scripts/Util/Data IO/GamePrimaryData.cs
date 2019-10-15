@@ -15,7 +15,10 @@ public class GamePrimaryData : ScriptableObject {
 
     // Final attributes:
     const string PrimaryDataFileName = "PrimaryData.json";
+    const string UserDataFileName = "UserData.json";
     string primaryDataFilePath;
+    string userDataFilePath;
+    GameUser loadedUser;
 
     // Data collections:
     public List<AssetFilter> AssetFilterRecords { get; set; }
@@ -38,6 +41,7 @@ public class GamePrimaryData : ScriptableObject {
         http = HTTP.Instance;
         dataUtil = DataUtil.Instance;
         primaryDataFilePath = $"{Application.persistentDataPath}/{PrimaryDataFileName}";
+        userDataFilePath = $"{Application.persistentDataPath}/{UserDataFileName}";
 
         // Initialize Data collections:
         AssetFilterRecords = new List<AssetFilter>();
@@ -61,27 +65,40 @@ public class GamePrimaryData : ScriptableObject {
         if (File.Exists(primaryDataFilePath)) {
             string fileText = File.ReadAllText(primaryDataFilePath);
 
-            Load(fileText, onDataLoaded);
+            Load(fileText, null, onDataLoaded);
         }
 
         throw new FileNotFoundException($"File \"{primaryDataFilePath}\" was not found");
     }
 
     public void LoadFromServer(Action onDataLoaded) {
-        Debug.Log("Loading primary data from server");
+        LoadFromServer(null, onDataLoaded);
+    }
 
-        http.Post("http://localhost:8080/heroes-of-server/getPrimaryData", (up, down) => {
+    public void LoadFromServer(String userId, Action onDataLoaded) {
+        Debug.Log("Loading primary data from server");
+        
+        var parameters = new Dictionary<string, string>() {
+            { "userId", userId }
+        };
+
+        http.Post("http://localhost:8080/heroes-of-server/getPrimaryData", parameters, (up, down) => {
             string responseText = down.text;
 
             File.WriteAllText(primaryDataFilePath, responseText);
-            Load(responseText, onDataLoaded);
+            Load(responseText, userId, onDataLoaded);
         });
     }
 
-    void Load(String jsonUnarrangedData, Action onDataLoaded) {
+    void Load(String jsonUnarrangedData, String userId, Action onDataLoaded) {
         var unarrangedData = JsonConvert
                 .DeserializeObject<Dictionary<string, Dictionary<string, List<object>>>>(jsonUnarrangedData);
 
+        /* Quando o userId é nulo, isso indica que apenas os dados iniciais são
+           carregados, independentemente do usuário */
+
+        ClearRecords();
+        
         foreach (var table in unarrangedData) {
             string tableName = table.Key;
             IEnumerable<string> primaryKeys = table.Value["primaryKeys"].Select(i => ToString());
@@ -192,13 +209,64 @@ public class GamePrimaryData : ScriptableObject {
             }
         }
 
+        if (UserRecords.Count == 1) {
+            loadedUser = UserRecords.SingleOrDefault();
+        }
+
         if (!(onDataLoaded is null)) {
             onDataLoaded();
         }
     }
 
     public GameUser GetUser() {
-        return UserRecords.SingleOrDefault(); // Mudar para utilizar classe apenas para dados do usuário
+        if (loadedUser is null) {
+            LoadUserData();
+        }
+        return loadedUser;
+    }
+
+    public void LoadUserData() {
+        if (File.Exists(userDataFilePath)) {
+            string fileText = File.ReadAllText(primaryDataFilePath);
+            var data = JsonConvert.DeserializeObject<Dictionary<string, JObject>>(fileText);
+            GameUser user = data["user"].ToObject<GameUser>();
+            List<Score> scores = data["scores"].ToObject<List<Score>>();
+
+            user.CurrentPhase = PhaseRecords
+                .SingleOrDefault(i => i.NumPhase == user.NumCurrentPhase);
+            foreach (Phase phase in PhaseRecords) {
+                phase.UserScore = scores
+                    .SingleOrDefault(i => i.NumPhase == phase.NumPhase);
+            }
+            loadedUser = user;
+        }
+    }
+
+    public void SaveUserData(GameUser user) {
+        user.NumCurrentPhase = user.CurrentPhase.NumPhase;
+
+        var data = new Dictionary<string, object>() {
+            { "user",  user},
+            { "scores", PhaseRecords.Select(i => i.UserScore) }
+        };
+
+        File.WriteAllText(userDataFilePath, JsonConvert.SerializeObject(data));
+    }
+
+    public void ClearRecords() {
+        AssetFilterRecords.Clear();
+        PartRecords.Clear();
+        PhaseRecords.Clear();
+        UserRecords.Clear();
+        ScoreRecords.Clear();
+        TroopRecords.Clear();
+        BarrackRecords.Clear();
+        TowerRecords.Clear();
+        HeroRecords.Clear();
+        SkillRecords.Clear();
+        CutsceneRecords.Clear();
+        SceneRecords.Clear();
+        SpeakRecords.Clear();
     }
 
 }
