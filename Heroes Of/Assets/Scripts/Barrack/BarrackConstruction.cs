@@ -85,7 +85,7 @@ public class BarrackConstruction : MonoBehaviour {
             }
         } else {
             AvaliableTileSelection.ChangeMask(tilemapHandler,false);
-            alertManager.ShowWarningModal("AAAAAAAAAAAAAAAAAAAAAAAAA");
+            alertManager.ShowWarningModal("Esse slot está bloqueado!");
         }
 
         return null;   
