@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public interface IGamePrototype {
+public interface IGamePrototype : ICloneable {
     
     GameObject GameObject { get; set; }
     bool IsEnemy { get; set; }
