@@ -389,6 +389,9 @@ MonoBehaviour:
   heroSelectEvent: {fileID: 11400000, guid: 369252fd88da1ae438fc04f050ff4abf, type: 2}
   heroFeedbackImage: {fileID: 4840389156238423990, guid: 399dffed4d01f8f45955234a47b4633e,
     type: 3}
+  heroSelectionSound: {fileID: 11400000, guid: 444a0fae46b199747b4c7c58bda1e7b2, type: 2}
+  heroUnselectionSound: {fileID: 11400000, guid: 63400f1cb9527cc4c80952fa62171121,
+    type: 2}
 --- !u!114 &-4524275733250353903
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class HeroSelectListener : MonoBehaviour
     private GameObject heroFeedbackImageInstance;
     private bool isHeroSelected;
     private Vector2 differencePosition;
+    public AudioData heroSelectionSound;
+    public AudioData heroUnselectionSound;
     public Vector2 DifferencePosition { get => differencePosition;
      set => differencePosition = value; }
 
@@ -33,9 +35,12 @@ public class HeroSelectListener : MonoBehaviour
             , Quaternion.identity);
 
             heroFeedbackImageInstance.transform.SetParent(this.transform);
+
+            heroSelectionSound.Play();
             
         } else {
             Destroy(heroFeedbackImageInstance);
+            heroUnselectionSound.Play();
         }
     }
 }
