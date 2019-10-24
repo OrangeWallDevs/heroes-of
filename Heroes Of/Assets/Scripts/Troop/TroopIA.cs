@@ -42,8 +42,6 @@ public class TroopIA : MonoBehaviour {
         PriorityPair<Transform> corePair = new PriorityPair<Transform>(core.transform, lastTowerOrder + 1);
         construcionsList.Add(corePair);
 
-        Debug.Log(construcionsList);
-
         troopData = GetComponent<RunTimeTroopData>(); //TO:DO adapt to use Troop class with RunTimeData data
         movementAction = GetComponent<TroopMovementActions>();
         attackAction = GetComponent<TroopAttackActions>();
