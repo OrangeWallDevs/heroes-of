@@ -2713,6 +2713,11 @@ PrefabInstance:
       propertyPath: valHp
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 7756167839741636312, guid: d38d914760fd527448bc5065db9787c4,
+        type: 3}
+      propertyPath: orderInAttack
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38d914760fd527448bc5065db9787c4, type: 3}
 --- !u!1839735485 &815577545 stripped
@@ -2812,6 +2817,11 @@ PrefabInstance:
     - target: {fileID: 3245234539630912815, guid: d38d914760fd527448bc5065db9787c4,
         type: 3}
       propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756167839741636312, guid: d38d914760fd527448bc5065db9787c4,
+        type: 3}
+      propertyPath: orderInAttack
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2972,6 +2982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isEnemy
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440420449052184364, guid: 7dbcd58c8d555864f8f34db3c648d22b,
+        type: 3}
+      propertyPath: orderInAttack
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dbcd58c8d555864f8f34db3c648d22b, type: 3}
