@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 7788668775156981798}
   - component: {fileID: 8381225766894593992}
   - component: {fileID: 3631708990312502884}
+  - component: {fileID: 8416240363701263763}
   - component: {fileID: 6993896455309812832}
   - component: {fileID: 8029293102954161761}
   m_Layer: 0
@@ -299,6 +300,19 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
+--- !u!114 &8416240363701263763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312883727604914553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffbb4d7ed39e304da8cd88b1aa953c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderInAttack: 0
 --- !u!114 &6993896455309812832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a41dc423512cc3499457642c7d99da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vlrHp: 0
+  valHp: 0
   numEffectArea: 0
   isEnemy: 0
 --- !u!114 &8029293102954161761
@@ -330,7 +344,6 @@ MonoBehaviour:
     type: 2}
   towerBeingAttackedEvent: {fileID: 11400000, guid: dd643ed6d7e1e9d469af5e715bf4f016,
     type: 2}
-  waveEndEvent: {fileID: 11400000, guid: fef4180933e2be34c950944cf69940e7, type: 2}
   destructionEffectPrefab: {fileID: 0}
 --- !u!1 &2551952516640521835
 GameObject:
