@@ -26,27 +26,23 @@ public class TroopIA : MonoBehaviour {
 
         construcionsList = new PriorityList<Transform>();
 
-        List<GameObject> constructionsInGame = new List<GameObject>();
-
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
 
-            constructionsInGame.Add(tower);
+            int towerOrder = tower.GetComponent<TowerAttackOrder>().orderInAttack;
+
+            PriorityPair<Transform> towerPair = new PriorityPair<Transform>(tower.transform, towerOrder);
+
+            construcionsList.Add(towerPair);
 
         }
-        constructionsInGame.Add(GameObject.FindGameObjectWithTag("Core"));
 
-        Vector2 troopPosition = transform.position;
+        GameObject core = GameObject.FindGameObjectWithTag("Core");
+        int lastTowerOrder = construcionsList.GetFirst().Priority;
 
-        foreach (GameObject construction in constructionsInGame) {
+        PriorityPair<Transform> corePair = new PriorityPair<Transform>(core.transform, lastTowerOrder + 1);
+        construcionsList.Add(corePair);
 
-            Vector2 constructionPosition = construction.transform.position;
-            int distance = (int) Vector2.Distance(troopPosition, constructionPosition);
-
-            PriorityPair<Transform> pair = new PriorityPair<Transform>(construction.transform, distance);
-
-            construcionsList.Add(pair);
-
-        }
+        Debug.Log(construcionsList);
 
         troopData = GetComponent<RunTimeTroopData>(); //TO:DO adapt to use Troop class with RunTimeData data
         movementAction = GetComponent<TroopMovementActions>();
@@ -279,20 +275,7 @@ public class TroopIA : MonoBehaviour {
 
     private Transform GetNextTargetBuilding() {
 
-        Transform targetBuilding;
-
-        if (troopData.troopObjective == PhaseObjectives.ATTACK) { // Get the closest tower as target
-
-            targetBuilding = construcionsList.GetLast().Key;
-
-        }
-        else { // Get the most distant tower as target
-
-            targetBuilding = construcionsList.GetFirst().Key;
-
-        }
-
-        return targetBuilding;
+        return construcionsList.GetLast().Key;
 
     }
 
