@@ -9,6 +9,8 @@ public class BarrackConstruction : MonoBehaviour {
     public List<Sprite> barrackSprites;
     public GoldIncrementerTest goldIncrementerTest;
 
+    public SlotService slotService;
+
     public PopUpManager alertManager;
     private int barrackID;
 
@@ -76,7 +78,8 @@ public class BarrackConstruction : MonoBehaviour {
             if(goldReserve.SpendGold(barrack.ValCost)) {
                 barrack.GameObject.transform.position = new Vector3(clickPosition.x, clickPosition.y, 0);
 
-                BlockSlot(clickedCell);
+                slotService.BlockSlot(slotService.GetSlotTilesFromTile(clickedCell));
+
                 AvaliableTileSelection.ChangeMask(tilemapHandler,false);
                 return barrack;
             } else {
@@ -91,15 +94,4 @@ public class BarrackConstruction : MonoBehaviour {
         return null;   
 
     }
-
-    private void BlockSlot(Node slotTile) {
-        const int slotRange = 6;
-        List<Node> slotTilesNeighbours = tilemapHandler.GetAllTileNeighbours(slotTile, slotRange - 1)
-            .Where(node => node.tile.isSlot).ToList();
-        
-        foreach(Node slotNeighbour in slotTilesNeighbours) {
-            slotNeighbour.isAvailable = false;
-        }
-    }
-
 }
