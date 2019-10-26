@@ -47,7 +47,15 @@ public class BarrackConstruction : MonoBehaviour {
 
                 isPlaceSelected = true;
 
-                BuildBarrack(Input.mousePosition, goldIncrementerTest.playerGoldReserve);
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 clickWorldPosition = new Vector2(worldPosition.x, worldPosition.y);
+
+                if(Physics2D.OverlapPoint(clickWorldPosition) != null
+                && tilemapHandler.PositionToTilemapNode(Input.mousePosition).tile.isSlot) {
+                    alertManager.ShowWarningModal("Slot bloqueado pela torre!");
+                } else {
+                    BuildBarrack(Input.mousePosition, goldIncrementerTest.playerGoldReserve);
+                }
 
                 if (buildPositionSelection != null) {
 
