@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour {
     public static bool IsGamePaused {get; private set;}
@@ -17,7 +18,7 @@ public class PauseManager : MonoBehaviour {
     }
 
     public void RestartGame() {
-        Debug.Log("Restarting game...");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitGame() {
