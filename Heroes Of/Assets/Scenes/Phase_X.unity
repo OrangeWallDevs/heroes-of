@@ -188,8 +188,177 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &136292327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136292328}
+  - component: {fileID: 136292330}
+  - component: {fileID: 136292329}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &136292328
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136292327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 355495829}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &136292329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136292327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: KillAllTroops
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 514
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 136292329}
+    characterCount: 13
+    spriteCount: 0
+    spaceCount: 0
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &136292330
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136292327}
+  m_CullTransparentMesh: 0
+--- !u!114 &184809489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 486399556389858320, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 487478168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80bda185f74a04b4e99b7e424049c937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &206765504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,7 +456,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50ccbf55a2c40e4ea0f20712c466a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemapHandler: {fileID: 0}
+--- !u!1 &313488155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313488156}
+  - component: {fileID: 313488159}
+  - component: {fileID: 313488158}
+  - component: {fileID: 313488157}
+  m_Layer: 5
+  m_Name: KillHero
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &313488156
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313488155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2041557185}
+  m_Father: {fileID: 1219286850}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &313488157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313488155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 313488158}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1219286853}
+        m_MethodName: KillHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &313488158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313488155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &313488159
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313488155}
+  m_CullTransparentMesh: 0
 --- !u!1 &351464157
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &351464159
 MonoBehaviour:
@@ -332,6 +632,138 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allTroopsRemoved: {fileID: 11400000, guid: c38f578a703089d4f92ba231d1741703, type: 2}
+--- !u!1 &355495828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355495829}
+  - component: {fileID: 355495832}
+  - component: {fileID: 355495831}
+  - component: {fileID: 355495830}
+  m_Layer: 5
+  m_Name: KillAllTroops
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &355495829
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355495828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 136292328}
+  m_Father: {fileID: 1219286850}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &355495830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355495828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 355495831}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1219286853}
+        m_MethodName: KillAllTroops
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &355495831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355495828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &355495832
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355495828}
+  m_CullTransparentMesh: 0
 --- !u!1001 &371679775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,11 +1390,6 @@ PrefabInstance:
       propertyPath: m_text
       value: 135
       objectReference: {fileID: 0}
-    - target: {fileID: 4772841154613031225, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 191.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7625669854080072949, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1022,6 +1449,12 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7, type: 3}
+--- !u!224 &487478169 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4772841155423262483, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 487478168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &701097001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1108,6 +1541,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Phase_X_Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 909090968416782747, guid: 5aa63023489218c40ad74981ccb44691,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 909090968416782745, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1171,1487 +1609,1487 @@ PrefabInstance:
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3204].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3205].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3206].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3207].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3208].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3209].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3323].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3324].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3325].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3326].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3327].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3328].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3442].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3443].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3444].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3445].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3446].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3447].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3561].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3562].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3563].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3564].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3565].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3566].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3680].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3681].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3682].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3683].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3684].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3685].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3799].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3800].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3801].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3802].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3803].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[3804].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4574].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4575].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4576].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4577].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4578].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4579].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4693].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4694].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4695].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4696].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4697].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4698].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4812].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4813].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4814].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4815].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4816].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4817].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4931].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4932].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4933].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4934].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4935].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[4936].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5050].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5051].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5052].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5053].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5054].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5055].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5169].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5170].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5171].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5172].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5173].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5174].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5953].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5954].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5955].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5956].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5957].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[5958].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6072].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6073].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6074].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6075].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6076].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6077].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6191].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6192].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6193].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6194].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6195].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6196].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6310].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6311].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6312].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6313].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6314].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6315].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6390].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6391].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6392].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6393].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6394].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6395].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6429].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6430].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6431].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6432].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6433].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6434].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6509].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6510].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6511].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6512].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6513].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6514].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6548].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6549].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6550].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6551].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6552].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6553].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6628].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6629].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6630].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6631].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6632].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6633].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6655].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6656].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6657].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6658].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6659].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6660].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6747].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6748].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6749].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6750].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6751].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6752].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6774].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6775].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6776].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6777].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6778].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6779].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6866].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6867].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6868].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6869].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6870].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6871].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6893].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6894].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6895].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6896].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6897].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6898].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6985].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6986].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6987].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6988].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6989].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[6990].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7012].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7013].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7014].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7015].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7016].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7017].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7131].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7132].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7133].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7134].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7135].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7136].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7250].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7251].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7252].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7253].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7254].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[7255].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8214].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8215].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8216].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8217].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8218].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8219].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8333].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8334].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8335].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8336].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8337].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8338].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8452].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8453].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8454].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8455].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8456].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8457].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8571].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8572].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8573].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8574].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8575].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8576].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8690].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8691].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8692].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8693].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8694].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8695].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8809].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8810].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8811].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8812].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8813].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[8814].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10762].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10763].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10764].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10765].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10766].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10767].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10881].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10882].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10883].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10884].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10885].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[10886].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11000].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11001].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11002].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11003].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11004].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11005].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11119].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11120].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11121].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11122].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11123].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11124].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11238].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11239].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11240].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11241].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11242].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11243].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11357].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11358].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11359].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11360].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11361].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11362].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11507].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11508].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11509].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11510].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11511].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11512].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11626].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11627].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11628].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11629].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11630].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11631].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11745].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11746].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11747].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11748].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11749].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11750].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11864].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11865].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11866].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11867].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11868].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11869].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11983].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11984].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11985].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11986].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11987].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[11988].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[12102].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[12103].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[12104].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[12105].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[12106].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_Tiles.Array.data[12107].second.m_TileColorIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_RefCount
-      value: 288
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.g
-      value: 56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.b
-      value: 251
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_RefCount
-      value: 0
+      value: 288
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_Data.r
-      value: 0
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_Data.g
-      value: 0
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_Data.b
-      value: 0
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 2881495328042285414, guid: 5aa63023489218c40ad74981ccb44691,
         type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_Data.a
-      value: 0
+      value: 255
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa63023489218c40ad74981ccb44691, type: 3}
@@ -2910,6 +3348,279 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38d914760fd527448bc5065db9787c4, type: 3}
+--- !u!1 &1039721691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039721692}
+  - component: {fileID: 1039721694}
+  - component: {fileID: 1039721693}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1039721692
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039721691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613243426}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1039721693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039721691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: KillCore
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 514
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 1039721693}
+    characterCount: 8
+    spriteCount: 0
+    spaceCount: 0
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1039721694
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039721691}
+  m_CullTransparentMesh: 0
+--- !u!1 &1219286849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219286850}
+  - component: {fileID: 1219286852}
+  - component: {fileID: 1219286851}
+  - component: {fileID: 1219286853}
+  - component: {fileID: 1219286854}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1219286850
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219286849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 355495829}
+  - {fileID: 1613243426}
+  - {fileID: 313488156}
+  m_Father: {fileID: 487478169}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -279, y: 58.5}
+  m_SizeDelta: {x: 518.9, y: 64}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1219286851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219286849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1219286852
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219286849}
+  m_CullTransparentMesh: 0
+--- !u!114 &1219286853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219286849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde3be45892b1be43bfa359af1aab922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1219286854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219286849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -405508275, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!114 &1334636331 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
@@ -2934,6 +3645,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef0b21c7a29705418d642ee2a15e16d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1613243425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613243426}
+  - component: {fileID: 1613243429}
+  - component: {fileID: 1613243428}
+  - component: {fileID: 1613243427}
+  m_Layer: 5
+  m_Name: KillCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1613243426
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613243425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1039721692}
+  m_Father: {fileID: 1219286850}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1613243427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613243425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1613243428}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1219286853}
+        m_MethodName: KillTheCore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1613243428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613243425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1613243429
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613243425}
+  m_CullTransparentMesh: 0
 --- !u!1 &1635794946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,7 +3819,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1766530419
 GameObject:
@@ -3007,7 +3850,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1766530421
 MonoBehaviour:
@@ -3197,6 +4040,188 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390b13677abc6e54e9de435ac3f5eb74, type: 3}
+--- !u!1 &2041557184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041557185}
+  - component: {fileID: 2041557187}
+  - component: {fileID: 2041557186}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2041557185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041557184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 313488156}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2041557186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041557184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: KillHero
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 514
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 2041557186}
+    characterCount: 8
+    spriteCount: 0
+    spaceCount: 0
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2041557187
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041557184}
+  m_CullTransparentMesh: 0
+--- !u!1 &2098686636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4497969710279122674, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 487478168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2098686637
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098686636}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 960a8955d46e93d4b822761b7bd67b46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1024325271242544203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3279,6 +4304,11 @@ PrefabInstance:
       propertyPath: valIniIAMoney
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 1024325270473854213, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
+        type: 3}
+      propertyPath: conclusionScreenManager
+      value: 
+      objectReference: {fileID: 184809489}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b9570ff5a9f0f4ea5267939b2b7959, type: 3}
 --- !u!1001 &5291811850634778831
