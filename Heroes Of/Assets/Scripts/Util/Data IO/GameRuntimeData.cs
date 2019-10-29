@@ -84,7 +84,12 @@ public class GameRuntimeData : ScriptableObject {
     }
 
     public T Create<T>(T prototype) where T : IGamePrototype {
-        return (T) prototype.Clone();
+        T clone = (T) prototype.Clone();
+
+        // ~ Criar dicionário com eventos de destruição de cada IGamePrototype para remoção
+        clone.GameObject = Instantiate(prototype.GameObject);
+
+        return clone;
     }
 
     public List<T> GetPrototypeList<T>() where T : IGamePrototype {
