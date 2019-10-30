@@ -1,4 +1,5 @@
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class Score : Entity {
 
@@ -6,9 +7,9 @@ public class Score : Entity {
     private int numPhase;
     private int valRecordPoints;
 
-    public string IdtGoogleAccount { get => idtGoogleAccount; set => idtGoogleAccount = value; }
-    public int NumPhase { get => numPhase; set => numPhase = value; }
-    public int ValRecordPoints { get => valRecordPoints; set => valRecordPoints = value; }
+    [JsonIgnore] public string IdtGoogleAccount { get => idtGoogleAccount; set => idtGoogleAccount = value; }
+    [JsonIgnore] public int NumPhase { get => numPhase; set => numPhase = value; }
+    [JsonIgnore] public int ValRecordPoints { get => valRecordPoints; set => valRecordPoints = value; }
     
     public Score () {
     }

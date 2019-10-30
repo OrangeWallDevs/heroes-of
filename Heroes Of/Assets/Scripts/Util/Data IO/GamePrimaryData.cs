@@ -66,9 +66,9 @@ public class GamePrimaryData : ScriptableObject {
             string fileText = File.ReadAllText(primaryDataFilePath);
 
             Load(fileText, null, onDataLoaded);
+        } else {
+            throw new FileNotFoundException($"File \"{primaryDataFilePath}\" was not found");
         }
-
-        throw new FileNotFoundException($"File \"{primaryDataFilePath}\" was not found");
     }
 
     public void LoadFromServer(Action onDataLoaded) {
@@ -211,8 +211,9 @@ public class GamePrimaryData : ScriptableObject {
             }
         }
 
-        if (UserRecords.Count == 1) {
+        if (userId != null && userId.Length != 0 && UserRecords.Count == 1) {
             loadedUser = UserRecords.SingleOrDefault();
+            SaveUserData(loadedUser); // remove later
         }
 
         if (!(onDataLoaded is null)) {
@@ -229,7 +230,9 @@ public class GamePrimaryData : ScriptableObject {
 
     public void LoadUserData() {
         if (File.Exists(userDataFilePath)) {
-            string fileText = File.ReadAllText(primaryDataFilePath);
+            Debug.Log("Loading user data from file");
+
+            string fileText = File.ReadAllText(userDataFilePath);
             var data = JsonConvert.DeserializeObject<Dictionary<string, JObject>>(fileText);
             GameUser user = data["user"].ToObject<GameUser>();
             List<Score> scores = data["scores"].ToObject<List<Score>>();
@@ -241,6 +244,15 @@ public class GamePrimaryData : ScriptableObject {
                     .SingleOrDefault(i => i.NumPhase == phase.NumPhase);
             }
             loadedUser = user;
+        } else { // new user
+            Debug.Log("Creating new local user");
+            
+            GameUser newUser = new GameUser("teste", 2, "Rogério");
+
+            newUser.CurrentPhase = PhaseRecords.Single(i => i.NumPhase == 1);
+            newUser.CurrentPhase.UserScore = new Score(newUser.IdtGoogleAccount, 1, 7000);
+            SaveUserData(newUser);
+            loadedUser = newUser;
         }
     }
 
@@ -249,10 +261,19 @@ public class GamePrimaryData : ScriptableObject {
 
         var data = new Dictionary<string, object>() {
             { "user",  user},
-            { "scores", PhaseRecords.Select(i => i.UserScore) }
+            { "scores", PhaseRecords.Select(i => i.UserScore).Where(i => i != null) }
         };
 
         File.WriteAllText(userDataFilePath, JsonConvert.SerializeObject(data));
+    }
+
+    public void SyncUserData(GameUser user) {
+        var parameters = new Dictionary<string, string>() {
+            { "user",  JsonConvert.SerializeObject(user) },
+            { "scores", JsonConvert.SerializeObject(PhaseRecords.Select(i => i.UserScore).Where(i => i != null)) }
+        };
+
+        http.Post("http://localhost:8080/heroes-of-server/syncUserData", parameters, (up, down) => {});
     }
 
     public void ClearRecords() {

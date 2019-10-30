@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class GameUser : Entity {
 
@@ -7,12 +8,12 @@ public class GameUser : Entity {
     private int numCurrentPhase;
     private string namUser;
 
-    public string IdtGoogleAccount { get => idtGoogleAccount; set => idtGoogleAccount = value; }
-    public int NumCurrentPhase { get => numCurrentPhase; set => numCurrentPhase = value; }
-    public string NamUser { get => namUser; set => namUser = value; }
+    [JsonIgnore] public string IdtGoogleAccount { get => idtGoogleAccount; set => idtGoogleAccount = value; }
+    [JsonIgnore] public int NumCurrentPhase { get => numCurrentPhase; set => numCurrentPhase = value; }
+    [JsonIgnore] public string NamUser { get => namUser; set => namUser = value; }
 
     // Runtime members:
-    public Phase CurrentPhase { get; set; }
+    [JsonIgnore] public Phase CurrentPhase { get; set; }
 
     public GameUser() {
     }
@@ -21,6 +22,10 @@ public class GameUser : Entity {
         this.idtGoogleAccount = idtGoogleAccount;
         this.numCurrentPhase = numCurrentPhase;
         this.namUser = namUser;
+    }
+
+    public override string ToString() {
+        return $"id: {IdtGoogleAccount}\ncurrentPhase: {numCurrentPhase}\nname: {namUser}";
     }
 
 }

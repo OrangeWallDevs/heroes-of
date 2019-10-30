@@ -8,6 +8,7 @@ public class GameRuntimeData : ScriptableObject {
 
     /* --- Dependencies and Private Members --- */    
 
+    GamePrimaryData primaryData;
     Dictionary<Type, object> gamePrototypeTypes;
 
     /* --- Runtime Members --- */
@@ -59,6 +60,7 @@ public class GameRuntimeData : ScriptableObject {
 
     public void Load(GamePrimaryData primaryData) {
 
+        this.primaryData = primaryData;
         Parts = primaryData.PartRecords;
         Phases = primaryData.PhaseRecords;
         User = primaryData.GetUser(); // mudar para método de verificação do primaryData
@@ -67,6 +69,7 @@ public class GameRuntimeData : ScriptableObject {
         TowerPrototypes = primaryData.TowerRecords;
         HeroPrototypes = primaryData.HeroRecords;
         Cutscenes = primaryData.CutsceneRecords;
+        primaryData.SyncUserData(User);
 
     }
 
