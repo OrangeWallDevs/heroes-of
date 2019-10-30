@@ -68,6 +68,13 @@ public class PriorityList<T> : OrdenatedList<PriorityPair<T>> {
 
     }
 
+    public void Add(T key, int priority) {
+
+        PriorityPair<T> pair = new PriorityPair<T>(key, priority);
+        Add(pair);
+
+    }
+
     public override void Clear() {
         
         if (Count <= 0) {
