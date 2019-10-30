@@ -39,7 +39,7 @@ public class WaveManager : MonoBehaviour {
 
         if (ActualState != WaveStates.RUNNING) {
 
-            if (waveStartEvent.ListenersCount > 0) {
+            if (waveStartEvent.ListenersCount > 1) {
 
                 if (countDown <= 0) {
 
