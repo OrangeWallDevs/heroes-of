@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1024325270473854214}
   - component: {fileID: 1024325270473854212}
   - component: {fileID: 1024325270473854213}
+  - component: {fileID: 7805467205790411051}
   m_Layer: 0
   m_Name: Phase_Manager
   m_TagString: Untagged
@@ -65,3 +66,28 @@ MonoBehaviour:
   finalTurnEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
   coreDestroyedEvent: {fileID: 11400000, guid: 23b7fc962fad4934193d24826a8e120b, type: 2}
   heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
+  conclusionScreenManager: {fileID: 0}
+--- !u!114 &7805467205790411051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024325270473854215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef8b92ea6f02f64286f6cf6d6a9fe5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveStartEvent: {fileID: 11400000, guid: 07ec5189294f2ae45bed6786037eaca0, type: 2}
+  finalWaveStartEvent: {fileID: 11400000, guid: befbb803c0cecc645816930c1ebb6ae8,
+    type: 2}
+  towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
+    type: 2}
+  barracks:
+  - {fileID: 11400000, guid: 4cd8cd3416b3c6142b90be805b672029, type: 2}
+  - {fileID: 11400000, guid: a4c18a0154998cf42b47b8d6c315cea6, type: 2}
+  - {fileID: 11400000, guid: 91beab58fb147c245832895cce0b62d0, type: 2}
+  - {fileID: 11400000, guid: d0df1068d3ccc274ba522e963acc2810, type: 2}
+  barrackFactory: {fileID: 0}
+  goldIncrementer: {fileID: 11400000, guid: 9e4f9bfe2ab1d4241a10a8222c6a461a, type: 2}
