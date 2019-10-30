@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraControl : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class CameraControl : MonoBehaviour {
 
     public Transform hero;
 
+    private int fingerTouchID;
     private Vector2 lastTouch, actualTouch;
     private Vector3 cameraPosition;
     private Camera cam;
@@ -32,6 +34,14 @@ public class CameraControl : MonoBehaviour {
     }
 
     private void Update() {
+        fingerTouchID = -1;
+
+        if(Input.touchCount > 0) {
+            fingerTouchID = Input.GetTouch(0).fingerId;
+        }
+
+        if(EventSystem.current.IsPointerOverGameObject(fingerTouchID)) 
+            return;
 
         if (Input.touchCount <= 1) {
 
