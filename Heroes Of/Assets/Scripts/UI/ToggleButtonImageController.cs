@@ -9,13 +9,13 @@ public class ToggleButtonImageController : MonoBehaviour {
    public Sprite imageOn;
    public Sprite imageOff;
    public UnityAction<bool> action;
-
-   void Start() {
+   
+   void Awake() {
        action += ToggleBackgroundImage;
    }
    
    void ToggleBackgroundImage(bool IsMuted) {
-       if(IsMuted) {
+       if(!IsMuted) {
            GetComponent<Image>().sprite = imageOff;
        } else {
            GetComponent<Image>().sprite = imageOn;

@@ -8,6 +8,7 @@ public class SoundController : MonoBehaviour {
     public AudioData song;
 
     public ToggleButtonImageController toggleMuteBtnController;
+
     void Start() {
         referenceCategory.AudioToggleEvent.RegisterListener(toggleMuteBtnController.action);
         song.Play();
