@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceCategory: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
-  song: {fileID: 11400000, guid: fd40ca4b576e69e47bb5ced4e86df93f, type: 2}
+  song: {fileID: 11400000, guid: c1b867b8a69497d4a834fce9451a3b2e, type: 2}
   toggleMuteBtnController: {fileID: 235052439}
 --- !u!114 &151845290 stripped
 MonoBehaviour:
@@ -496,12 +496,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ef23fd613f667dd48b7e6a3c6777685f,
-        type: 3}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -532,6 +526,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ef23fd613f667dd48b7e6a3c6777685f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d1ee5f04c38174db0702c4b22700fd, type: 3}
 --- !u!224 &279269117 stripped
@@ -859,6 +859,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFXToggleBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139198, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -964,12 +969,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9b1b94e0bd41bae4e8336df7b53b7286,
-        type: 3}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1000,6 +999,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b1b94e0bd41bae4e8336df7b53b7286,
+        type: 3}
     - target: {fileID: 3165850124665887184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1630,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceCategory: {fileID: 11400000, guid: b02911689e651e629befd34b6990f7ae, type: 2}
-  song: {fileID: 11400000, guid: fd40ca4b576e69e47bb5ced4e86df93f, type: 2}
+  song: {fileID: 0}
   toggleMuteBtnController: {fileID: 1693710126}
 --- !u!114 &1886529162 stripped
 MonoBehaviour:
@@ -1655,6 +1660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MusicToggleBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139198, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
@@ -1761,12 +1771,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 43ceb02b82aae879d90cd2f47a06d64f,
-        type: 3}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1797,6 +1801,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 43ceb02b82aae879d90cd2f47a06d64f,
+        type: 3}
     - target: {fileID: 3165850124665887184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
