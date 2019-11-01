@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AISlotUnloocker : MonoBehaviour {
+public class AISlotUnlocker : MonoBehaviour {
 
     public GameObject prefabAIBuildSlot;
     public TowerEvent towerDestroyedEvent;

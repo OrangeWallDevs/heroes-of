@@ -159,7 +159,7 @@ public class BobEnemyAI : MonoBehaviour {
 
         if (!tower.isEnemy) {
 
-            Vector2 newBuildSlot = towerGameObject.GetComponentInChildren<AISlotUnloocker>().transform.position;
+            Vector2 newBuildSlot = towerGameObject.GetComponentInChildren<AISlotUnlocker>().transform.position;
             buildingPositions.Add(newBuildSlot);
 
         }
