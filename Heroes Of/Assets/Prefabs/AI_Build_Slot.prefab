@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3985849367395987039}
-  - component: {fileID: 916918579142376584}
+  - component: {fileID: 3848201873497517858}
   m_Layer: 0
   m_Name: AI_Build_Slot
   m_TagString: AI_Build_Position
@@ -31,8 +31,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &916918579142376584
-BoxCollider2D:
+--- !u!60 &3848201873497517858
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: 0, y: -0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -54,6 +54,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.35, y: 3.75}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.047234535, y: 1.826611}
+      - {x: -3.4781256, y: -0.16333199}
+      - {x: -1.8631296, y: -1.1396618}
+      - {x: 0.02096653, y: -2.2260656}
+      - {x: 3.5489807, y: -0.25780296}
