@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class TestbuttonsScript : MonoBehaviour {
 
+    private GameObject[] towers;
+    private int indexTowerToDestory = 0;
+
+    private void Awake() {
+
+        towers = GameObject.FindGameObjectsWithTag("Tower");
+
+    }
+
     public void KillAllTroops() {
 
         GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
@@ -34,6 +43,17 @@ public class TestbuttonsScript : MonoBehaviour {
 
         HealthController healthController = core.GetComponent<HealthController>();
         healthController.ReceiveDamage((int) healthController.Health);
+
+    }
+
+    public void DestroyTower() {
+
+        if (indexTowerToDestory <= towers.Length) {
+
+            towers[indexTowerToDestory].GetComponent<TowerHealthController>().ReceiveDamage(100000000);
+            indexTowerToDestory++;
+
+        }
 
     }
 
