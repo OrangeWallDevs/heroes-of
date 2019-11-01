@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3328683742200908197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240392171707573450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6676cd09ed595b441a7ae930f31f9842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabAIBuildSlot: {fileID: 3985849367395987038, guid: 3de3f45a84324e744a089abade0b8b61,
+    type: 3}
+  towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
+    type: 2}
 --- !u!1001 &8872987275389289467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,3 +181,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90104366322f69f49a9c9fe96467b28f, type: 3}
+--- !u!1 &4240392171707573450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4754614682476209969, guid: 90104366322f69f49a9c9fe96467b28f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8872987275389289467}
+  m_PrefabAsset: {fileID: 0}
