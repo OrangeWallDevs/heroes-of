@@ -37,7 +37,13 @@ public class TroopIA : MonoBehaviour {
         }
 
         GameObject core = GameObject.FindGameObjectWithTag("Core");
-        int lastTowerOrder = construcionsList.GetFirst().Priority;
+        int lastTowerOrder = 0;
+
+        if (construcionsList.GetFirst() != null) {
+
+            lastTowerOrder = construcionsList.GetFirst().Priority;
+
+        }
 
         PriorityPair<Transform> corePair = new PriorityPair<Transform>(core.transform, lastTowerOrder + 1);
         construcionsList.Add(corePair);
@@ -283,10 +289,14 @@ public class TroopIA : MonoBehaviour {
 
         foreach (Transform target in closeTargets) {
 
-            if (!tagsPriority.ContainsKey(target.tag)) {
+            if (target != null) {
 
-                PriorityPair<string> pair = new PriorityPair<string>(target.tag, GetTargetPriority(target));
-                tagsPriority.Add(pair);
+                if (!tagsPriority.ContainsKey(target.tag)) {
+
+                    PriorityPair<string> pair = new PriorityPair<string>(target.tag, GetTargetPriority(target));
+                    tagsPriority.Add(pair);
+
+                }
 
             }
 
