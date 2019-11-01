@@ -109,13 +109,13 @@ public class BobEnemyAI : MonoBehaviour {
 
             }
 
-            buildBarrack(barrackToBuild);
+            BuildBarrack(barrackToBuild);
 
         }
 
     }
 
-    private void buildBarrack(BarrackScriptableObject barrackToBuild) {
+    private void BuildBarrack(BarrackScriptableObject barrackToBuild) {
 
         // TO:DO --> Use RuntimeData to create the barrack
         Barrack barrack = barrackFactory.CreateBarrack(barrackToBuild.codBarrack, true, bobAIObjective);
@@ -155,11 +155,16 @@ public class BobEnemyAI : MonoBehaviour {
 
     private void HandleTowerDestroyedEvent(RunTimeTowerData tower) {
 
+        GameObject towerGameObject = tower.GameObject;
+
         if (!tower.isEnemy) {
 
-            // Add new slot to array of buldingPositions
+            Vector2 newBuildSlot = towerGameObject.GetComponentInChildren<AISlotUnloocker>().transform.position;
+            buildingPositions.Add(newBuildSlot);
 
         }
+
+        constructionsList.Remove(towerGameObject.transform);
 
     }
 
