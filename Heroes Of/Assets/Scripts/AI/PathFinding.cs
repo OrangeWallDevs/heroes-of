@@ -58,7 +58,11 @@ public class PathFinding : MonoBehaviour {
 
     private Node currentNode;
 
-    public TilemapHandler tilemapHandler;
+    private TilemapHandler tilemapHandler;
+
+    private void Awake() {
+        tilemapHandler = GameObject.Find("TilemapHandler").GetComponent<TilemapHandler>();
+    }
 
     private void Initialize() {
         currentNode = tilemapHandler.nodeTilemap.GetNode(startPos);
