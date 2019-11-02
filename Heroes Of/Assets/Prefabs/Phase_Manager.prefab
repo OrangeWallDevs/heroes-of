@@ -90,4 +90,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91beab58fb147c245832895cce0b62d0, type: 2}
   - {fileID: 11400000, guid: d0df1068d3ccc274ba522e963acc2810, type: 2}
   barrackFactory: {fileID: 0}
-  goldIncrementer: {fileID: 11400000, guid: 9e4f9bfe2ab1d4241a10a8222c6a461a, type: 2}
+  goldIncrementer: {fileID: 11400000, guid: 9ce973a6a21d1d44eac189ea2a839e26, type: 2}
