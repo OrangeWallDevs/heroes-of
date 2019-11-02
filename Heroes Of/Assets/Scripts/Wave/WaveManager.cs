@@ -113,30 +113,6 @@ public class WaveManager : MonoBehaviour {
         countDown = startTimeCountDown;
         ActualState = WaveStates.COUNTING;
 
-        // TO:DO remove troops from game and from RunTimeData
-        /*GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
-        GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
-
-        foreach (GameObject troop in troopsArrayClone) {
-
-            Destroy(troop);
-
-        }*/
-
-    }
-
-    private void HandleFinalWaveEnd() {
-
-        /*GameObject[] troops = GameObject.FindGameObjectsWithTag("Troop");
-        GameObject[] troopsArrayClone = (GameObject[]) troops.Clone();
-
-        foreach (GameObject troop in troopsArrayClone) {
-
-            TroopIA troopIA = troop.GetComponent<TroopIA>();
-            troopIA.enabled = false;
-
-        }*/
-
     }
 
     private void HandleAllTroopsRemoved() {
