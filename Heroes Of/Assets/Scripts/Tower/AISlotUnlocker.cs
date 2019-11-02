@@ -5,6 +5,8 @@ public class AISlotUnlocker : MonoBehaviour {
     public GameObject prefabAIBuildSlot;
     public TowerEvent towerDestroyedEvent;
 
+    public bool unlockSlot;
+
     private void Start() {
 
         towerDestroyedEvent.RegisterListener(HandleTowerDestroyed);
@@ -17,7 +19,11 @@ public class AISlotUnlocker : MonoBehaviour {
 
         if (tower == towerDestroyed.GameObject.transform) {
 
-            Instantiate(prefabAIBuildSlot, transform.position, Quaternion.identity);
+            if (unlockSlot) {
+
+                Instantiate(prefabAIBuildSlot, transform.position, Quaternion.identity);
+
+            }
             towerDestroyedEvent.UnregisterListener(HandleTowerDestroyed);
 
         }

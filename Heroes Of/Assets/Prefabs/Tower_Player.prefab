@@ -16,6 +16,7 @@ MonoBehaviour:
     type: 3}
   towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
     type: 2}
+  unlockSlot: 1
 --- !u!1001 &8872987275389289467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,22 +99,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1282253145641478341, guid: 90104366322f69f49a9c9fe96467b28f,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a1cbf778396335740863eaa10783fbb4,
-        type: 3}
-    - target: {fileID: 1282253145641478341, guid: 90104366322f69f49a9c9fe96467b28f,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3901265902463367239, guid: 90104366322f69f49a9c9fe96467b28f,
-        type: 3}
-      propertyPath: m_Radius
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3605156729193148836, guid: 90104366322f69f49a9c9fe96467b28f,
         type: 3}
       propertyPath: m_Sprite
@@ -130,13 +115,29 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 598678897652244098, guid: 90104366322f69f49a9c9fe96467b28f,
+    - target: {fileID: 3901265902463367239, guid: 90104366322f69f49a9c9fe96467b28f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282253145641478341, guid: 90104366322f69f49a9c9fe96467b28f,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ab699f925594e984e869e2db43a2e9b0,
+      objectReference: {fileID: 21300000, guid: a1cbf778396335740863eaa10783fbb4,
         type: 3}
-    - target: {fileID: 598678897652244098, guid: 90104366322f69f49a9c9fe96467b28f,
+    - target: {fileID: 1282253145641478341, guid: 90104366322f69f49a9c9fe96467b28f,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737116940232574355, guid: 90104366322f69f49a9c9fe96467b28f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b89acd5fe49a0364c83cc3e5f24e5b63,
+        type: 3}
+    - target: {fileID: 7737116940232574355, guid: 90104366322f69f49a9c9fe96467b28f,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -168,13 +169,13 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7737116940232574355, guid: 90104366322f69f49a9c9fe96467b28f,
+    - target: {fileID: 598678897652244098, guid: 90104366322f69f49a9c9fe96467b28f,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b89acd5fe49a0364c83cc3e5f24e5b63,
+      objectReference: {fileID: 21300000, guid: ab699f925594e984e869e2db43a2e9b0,
         type: 3}
-    - target: {fileID: 7737116940232574355, guid: 90104366322f69f49a9c9fe96467b28f,
+    - target: {fileID: 598678897652244098, guid: 90104366322f69f49a9c9fe96467b28f,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
