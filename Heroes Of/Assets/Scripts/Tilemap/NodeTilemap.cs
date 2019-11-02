@@ -9,12 +9,10 @@ public class NodeTilemap {
         get; private set;
     }
 
-    public NodeTilemap(Tilemap[] tilemaps) {
+    public NodeTilemap(Tilemap tilemap) {
         Nodes = new Dictionary<Vector3Int, Node>();
 
-        foreach (Tilemap tilemap in tilemaps) {
-            SetupNodeDictionary(tilemap);
-        }      
+        SetupNodeDictionary(tilemap);
     }
 
     void SetupNodeDictionary(Tilemap tilemap) {

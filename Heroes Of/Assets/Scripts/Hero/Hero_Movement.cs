@@ -165,12 +165,11 @@ public class Hero_Movement : MonoBehaviour {
         if (clickDown && clickUp && clickDownPosition == clickUpPosition) {
 
             Vector2 clickedPos = Input.mousePosition;
-            Tilemap tilemap = new Tilemap();
-            if(tilemapHandler.IsTile(clickedPos, ref tilemap)) {
-                Vector3Int gridPos = tilemapHandler.ScreenToCellPosition(clickedPos, tilemap);
-                Node clickedCell = tilemapHandler.GetTile(gridPos, tilemap);
+            if(tilemapHandler.IsTile(Camera.main.ScreenToWorldPoint(clickedPos))) {
+                Vector3Int gridPos = tilemapHandler.ScreenToCellPosition(clickedPos);
+                Node clickedCell = tilemapHandler.GetTile(gridPos);
                 if(clickedCell.tile.isWalkable) {
-                    pathFinding.startPos = tilemap.WorldToCell(currentPosition);
+                    pathFinding.startPos = tilemapHandler.WorldToCellPosition(currentPosition);
                     pathFinding.goalPos = clickedCell.position;
                     pathFinding.FindPath();
 
