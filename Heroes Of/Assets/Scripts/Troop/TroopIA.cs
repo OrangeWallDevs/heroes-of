@@ -6,7 +6,8 @@ public class TroopIA : MonoBehaviour {
 
     public int towerPriorityWeight, heroPriorityWeight, troopPriorityWeight;
 
-    public TroopEvent troopDeathEvent, attackingTowerEvent;
+    public GameEvent waveEndEvent;
+    public TroopEvent troopDeathEvent, troopRemovedOnWaveEndEvent, attackingTowerEvent;
     public TowerEvent towerDestroyedEvent;
     public HeroEvent heroDeathEvent;
 
@@ -58,6 +59,7 @@ public class TroopIA : MonoBehaviour {
 
         closeTargets = new List<Transform>();
 
+        waveEndEvent.RegisterListener(OnWaveEnd);
         troopDeathEvent.RegisterListener(OnTroopDeath);
         towerDestroyedEvent.RegisterListener(OnTowerDestruction);
         attackingTowerEvent.RegisterListener(OnTroopAttackingTower);
@@ -85,7 +87,7 @@ public class TroopIA : MonoBehaviour {
             }
             else {
 
-                if (troopData.troopObjective == PhaseObjectives.DEFEND && ActualTarget.tag == "Tower") {
+                if (troopData.troopObjective == PhaseObjectives.DEFEND && ActualTarget.CompareTag("Tower")) {
 
                     EnterInDefenseState();
 
@@ -250,12 +252,12 @@ public class TroopIA : MonoBehaviour {
 
     private void AttackTarget(Transform attackTarget) {
 
-        if (attackTarget.tag == "Tower") {
+        if (attackTarget.CompareTag("Tower")) {
 
             actualState = TroopStates.ATTACKING;
 
         } 
-        else if (attackTarget.tag == "Troop" || attackTarget.tag == "Hero") {
+        else if (attackTarget.CompareTag("Troop") || attackTarget.CompareTag("Hero")) {
 
             actualState = TroopStates.FIGHTING;
 
@@ -353,6 +355,26 @@ public class TroopIA : MonoBehaviour {
         closeTargets.Remove(nextTarget);
 
         return nextTarget;
+
+    }
+
+    private void OnWaveEnd() {
+
+        ActualTarget = null;
+
+        closeTargets.Clear();
+        construcionsList.Clear();
+
+        waveEndEvent.UnregisterListener(OnWaveEnd);
+        troopDeathEvent.UnregisterListener(OnTroopDeath);
+        towerDestroyedEvent.UnregisterListener(OnTowerDestruction);
+        attackingTowerEvent.UnregisterListener(OnTroopAttackingTower);
+        heroDeathEvent.UnregisterListener(OnHeroDeath);
+
+        enabled = false;
+
+        troopRemovedOnWaveEndEvent.Raise(troopData);
+        Destroy(troopData.GameObject);
 
     }
 
