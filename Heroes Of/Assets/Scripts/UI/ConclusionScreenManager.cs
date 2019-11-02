@@ -4,7 +4,6 @@ using UnityEngine;
 public class ConclusionScreenManager : MonoBehaviour {
 
     public GameObject conclusionScreen;
-    public GameObject dataPainel;
     public TextMeshProUGUI screenTitle;
 
     public void OpenWinScreen() {
@@ -16,7 +15,6 @@ public class ConclusionScreenManager : MonoBehaviour {
     public void OpenDefeatScreen() {
 
         conclusionScreen.SetActive(true);
-        dataPainel.SetActive(false);
         screenTitle.text = "Derrota";
 
     }
