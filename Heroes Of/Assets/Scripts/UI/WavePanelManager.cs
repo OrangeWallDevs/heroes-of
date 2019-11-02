@@ -27,9 +27,14 @@ public class WavePanelManager : MonoBehaviour {
         waveManager = GameObject.FindGameObjectWithTag("Wave_Manager").GetComponent<WaveManager>();
 
         maxWaves = waveManager.maxWaves;
+        actualCounterIndex = 0;
 
         CreateCounters();
 
+    }
+
+    private void Start() {
+        
         waveEndEvent.RegisterListener(UpdateCounters);
 
     }
