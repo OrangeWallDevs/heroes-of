@@ -1,12 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName="ScriptableObject/GameEvent")]
 public class GameEvent : ScriptableObject {
 
     List<GameEventListener> gameEventListeners = new List<GameEventListener>();
     List<UnityAction> simpleRuntimeListeners = new List<UnityAction>();
+
+    private void OnEnable() {
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode) {
+
+        ClearListeners();
+
+    }
 
     public void Raise() {
         for (int i = gameEventListeners.Count - 1; i >= 0; i--) {
@@ -31,6 +45,13 @@ public class GameEvent : ScriptableObject {
 
     public void UnregisterListener(UnityAction action) {
         simpleRuntimeListeners.Remove(action);
+    }
+
+    public void ClearListeners() {
+
+        gameEventListeners.Clear();
+        simpleRuntimeListeners.Clear();
+
     }
 
     public int ListenersCount {
