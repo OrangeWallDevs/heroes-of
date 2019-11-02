@@ -151,6 +151,29 @@ public class TroopIA : MonoBehaviour {
 
     }
 
+    private void OnDestroy() {
+
+        ActualTarget = null;
+
+        if (attackAction.IsAttacking) {
+
+            attackAction.StopAttack();
+
+        }
+
+        closeTargets.Clear();
+        construcionsList.Clear();
+
+        waveEndEvent.UnregisterListener(OnWaveEnd);
+        troopDeathEvent.UnregisterListener(OnTroopDeath);
+        towerDestroyedEvent.UnregisterListener(OnTowerDestruction);
+        attackingTowerEvent.UnregisterListener(OnTroopAttackingTower);
+        heroDeathEvent.UnregisterListener(OnHeroDeath);
+
+        enabled = false;
+
+    }
+
     private bool TargetIsEnemy(Transform detectedObject) {
 
         bool isEnemy = false;
@@ -359,19 +382,6 @@ public class TroopIA : MonoBehaviour {
     }
 
     private void OnWaveEnd() {
-
-        ActualTarget = null;
-
-        closeTargets.Clear();
-        construcionsList.Clear();
-
-        waveEndEvent.UnregisterListener(OnWaveEnd);
-        troopDeathEvent.UnregisterListener(OnTroopDeath);
-        towerDestroyedEvent.UnregisterListener(OnTowerDestruction);
-        attackingTowerEvent.UnregisterListener(OnTroopAttackingTower);
-        heroDeathEvent.UnregisterListener(OnHeroDeath);
-
-        enabled = false;
 
         troopRemovedOnWaveEndEvent.Raise(troopData);
         Destroy(troopData.GameObject);
