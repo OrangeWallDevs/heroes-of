@@ -10,7 +10,6 @@ public class TroopMovementActions : MonoBehaviour {
     private Vector2 currentPosition, targetPosition, prevTarget, _actualTarget;
     public Vector2 actualTarget { 
         set {
-            prevTarget = value;
             _actualTarget = value;
         } 
         get {
@@ -28,6 +27,8 @@ public class TroopMovementActions : MonoBehaviour {
         troopData = GetComponent<RunTimeTroopData>();
         troopAnimations = GetComponentInChildren<IsometricCharacterAnimator>();
 
+        prevTarget = transform.position;
+
     }
 
     void Awake() {
@@ -42,27 +43,27 @@ public class TroopMovementActions : MonoBehaviour {
             pathFinding.goalPos = tilemapHandler.PositionToTilemapNode(actualTarget).position;
             pathFinding.FindPath();
         }
-        else if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
+        if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
             || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
             MoveToTargetPosition();
         }
         else {
+            Debug.Log(pathFinding.path);
             if(pathFinding.path != null && pathFinding.path.Count > 0) {
                 targetPosition = pathFinding.path.Pop();
+                Debug.Log(targetPosition);
             }
         }
     }
 
     public void MoveToTargetPosition() {
 
-        Vector2 actualPosition = transform.position;
-
-        Vector2 movementDirection = (targetPosition - actualPosition).normalized;
+        Vector2 movementDirection = (targetPosition - currentPosition).normalized;
         movementDirection.x = Mathf.Round(movementDirection.x);
         movementDirection.y = Mathf.Round(movementDirection.y);
 
         Vector2 movement = movementDirection * troopData.valMotionSpeed;
-        Vector2 fixedTargetPosition = actualPosition + movement * Time.fixedDeltaTime;
+        Vector2 fixedTargetPosition = currentPosition + movement * Time.fixedDeltaTime;
 
         troopRigidBody2d.MovePosition(fixedTargetPosition);
         troopAnimations.AnimateRun(targetPosition);
