@@ -6,7 +6,8 @@ public class PlayerGoldReserve : GoldReserve {
     
     public IntEvent playerGoldChangeEvent;
 
-    public PlayerGoldReserve(int initialGold, TroopEvent minionDeadEvent, IntEvent goldChangeEvent) : base(initialGold, minionDeadEvent) {
+    public PlayerGoldReserve(int initialGold, TroopEvent minionDeadEvent, TroopEvent removedMinionEvent, 
+        IntEvent goldChangeEvent) : base(initialGold, minionDeadEvent, removedMinionEvent) {
         playerGoldChangeEvent = goldChangeEvent;
         playerGoldChangeEvent.Raise(initialGold);
     }
@@ -15,6 +16,12 @@ public class PlayerGoldReserve : GoldReserve {
         if (troopData.isEnemy) {
             AddGold(troopData.valDropMoney);
             playerGoldChangeEvent.Raise(currentGold);
+        }
+    }
+
+    public override void AddGoldOnWaveEnd(RunTimeTroopData troopData) {
+        if (!troopData.isEnemy) {
+            AddGold(troopData.valDropMoney);
         }
     }
 

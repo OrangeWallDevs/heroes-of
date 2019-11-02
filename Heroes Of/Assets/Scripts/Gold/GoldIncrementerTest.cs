@@ -9,9 +9,10 @@ public class GoldIncrementerTest : ScriptableObject {
     
     public IntEvent goldChangeEvent;
     public TroopEvent troopDeathEvent;
+    public TroopEvent removedTroopOnWaveEnd;
 
     void OnEnable() {
-        playerGoldReserve = new PlayerGoldReserve(2500, troopDeathEvent, goldChangeEvent);
-        BobAIGoldReserve = new AIGoldReserve(500, troopDeathEvent);
+        playerGoldReserve = new PlayerGoldReserve(2500, troopDeathEvent, removedTroopOnWaveEnd, goldChangeEvent);
+        BobAIGoldReserve = new AIGoldReserve(500, troopDeathEvent, removedTroopOnWaveEnd);
     }
 }

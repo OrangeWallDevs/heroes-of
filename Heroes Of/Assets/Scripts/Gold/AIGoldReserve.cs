@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class AIGoldReserve : GoldReserve {
 
-    public AIGoldReserve(int initialGold, TroopEvent minionDeadEvent) : base(initialGold, minionDeadEvent) { }
+    public AIGoldReserve(int initialGold, TroopEvent minionDeadEvent, 
+        TroopEvent removedMinionEvent) : base(initialGold, minionDeadEvent, removedMinionEvent) { }
     
     public override void AddGold(RunTimeTroopData troopData) {
         if (!troopData.isEnemy) {
+            AddGold(troopData.valDropMoney);
+        }
+    }
+
+    public override void AddGoldOnWaveEnd(RunTimeTroopData troopData) {
+        if (troopData.isEnemy) {
             AddGold(troopData.valDropMoney);
         }
     }

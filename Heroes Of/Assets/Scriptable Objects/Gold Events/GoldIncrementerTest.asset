@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldChangeEvent: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558, type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+  removedTroopOnWaveEnd: {fileID: 11400000, guid: e43cf78f0604498409f527242b5c0335,
+    type: 2}
