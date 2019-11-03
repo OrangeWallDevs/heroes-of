@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a42ad096b68f8d49187bdb53d7da0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceCategory: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
   song: {fileID: 0}
+  audioCategory: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
+--- !u!114 &1553417901912206396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813400707994907633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f5da58b0ff8bb4eb6d5a9e329eb5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioCategory: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
   toggleMuteBtnController: {fileID: 235052439}
 --- !u!114 &235052439
 MonoBehaviour:
@@ -171,11 +184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 151845288}
+      objectReference: {fileID: 1553417901912206396}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleMute
+      value: ToggleCategoryMute
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}

@@ -3469,6 +3469,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380178075}
   m_CullTransparentMesh: 0
+--- !u!114 &1399904220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4134115201432725736, guid: 62bb884e6bf675f42a037351c8d7e47a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579870805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f5da58b0ff8bb4eb6d5a9e329eb5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1524000421 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7911131577865455751, guid: 43e7a1330da2bff4b9dccc5541f895cf,
@@ -3591,6 +3603,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3362102184680418661, guid: 62bb884e6bf675f42a037351c8d7e47a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1399904220}
+    - target: {fileID: 3362102184680418661, guid: 62bb884e6bf675f42a037351c8d7e47a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCategoryMute
+      objectReference: {fileID: 0}
+    - target: {fileID: 3362102184680418661, guid: 62bb884e6bf675f42a037351c8d7e47a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3362102184034055557, guid: 62bb884e6bf675f42a037351c8d7e47a,
         type: 3}

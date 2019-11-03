@@ -15,7 +15,7 @@ public class ToggleButtonImageController : MonoBehaviour {
    }
    
    void ToggleBackgroundImage(bool IsMuted) {
-       if(!IsMuted) {
+       if(IsMuted) {
            GetComponent<Image>().sprite = imageOff;
        } else {
            GetComponent<Image>().sprite = imageOn;
