@@ -4,19 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SoundController : MonoBehaviour { 
-    public AudioCategory referenceCategory;
+    public AudioCategory audioCategory;
     public AudioData song;
-
-    public ToggleButtonImageController toggleMuteBtnController;
-
     void Start() {
-        referenceCategory.AudioToggleEvent.RegisterListener(toggleMuteBtnController.action);
-        song.Play();
+        if(!audioCategory.IsMuted) {
+            song.Play();
+        }
     }
-
-    public void ToggleMute() {
-        referenceCategory.ToggleMute();
-    }
-
-
 }
