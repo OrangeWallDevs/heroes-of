@@ -82,6 +82,7 @@ public class TroopIA : MonoBehaviour {
 
             if (!IsInRange(ActualTarget.position, troopData.attackDistance)) {
 
+                //Debug.Log("Alvo: " + ActualTarget.name + " na posição: " + ActualTarget.position + " da troop: " + transform.position);
                 movementAction.actualTarget = ActualTarget.position;
 
             }
