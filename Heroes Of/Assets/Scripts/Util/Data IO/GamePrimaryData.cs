@@ -233,7 +233,7 @@ public class GamePrimaryData : ScriptableObject {
             Debug.Log("Loading user data from file");
 
             string fileText = File.ReadAllText(userDataFilePath);
-            var data = JsonConvert.DeserializeObject<Dictionary<string, JObject>>(fileText);
+            var data = JsonConvert.DeserializeObject<Dictionary<string, JContainer>>(fileText);
             GameUser user = data["user"].ToObject<GameUser>();
             List<Score> scores = data["scores"].ToObject<List<Score>>();
 

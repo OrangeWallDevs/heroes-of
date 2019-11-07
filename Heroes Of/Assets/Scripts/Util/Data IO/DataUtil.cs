@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class DataUtil : Singleton<DataUtil> {
 
@@ -39,18 +38,18 @@ public class DataUtil : Singleton<DataUtil> {
 
     public List<T> LoadAssets<T>(string filter, string[] searchInFolders)
             where T : UnityEngine.Object {
-        string[] results = searchInFolders != null ? AssetDatabase.FindAssets(filter, searchInFolders)
-                                                   : AssetDatabase.FindAssets(filter);
+        // string[] results = searchInFolders != null ? AssetDatabase.FindAssets(filter, searchInFolders)
+        //                                            : AssetDatabase.FindAssets(filter);
         var assets = new List<T>();
 
-        foreach (string result in results) {
-            string path = AssetDatabase.GUIDToAssetPath(result);
-            T asset = AssetDatabase.LoadAssetAtPath<T>(path);
+        // foreach (string result in results) {
+        //     string path = AssetDatabase.GUIDToAssetPath(result);
+        //     T asset = AssetDatabase.LoadAssetAtPath<T>(path);
 
-            if (asset != null) {
-                assets.Add(asset);
-            }
-        }
+        //     if (asset != null) {
+        //         assets.Add(asset);
+        //     }
+        // }
 
         return assets;
     }
