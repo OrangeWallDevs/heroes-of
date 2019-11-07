@@ -31,9 +31,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
                     if (m_Instance == null) {
                         // Need to create a new GameObject to attach the singleton to.
                         var singletonObject = new GameObject();
-                        m_Instance = singletonObject.AddComponent<T>();
+                        singletonObject.hideFlags = singletonObject.hideFlags | HideFlags.HideAndDontSave;
                         singletonObject.name = typeof(T).ToString() + " (Singleton)";
+                        m_Instance = singletonObject.AddComponent<T>();
 
+                        if (!(m_Instance is null) && Application.isPlaying)
                         // Make instance persistent.
                         DontDestroyOnLoad(singletonObject);
                     }
