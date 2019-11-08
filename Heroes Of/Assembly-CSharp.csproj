@@ -233,6 +233,7 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
      <Compile Include="Assets\Scripts\Account\PlayGamesAuthenticationController.cs" />
+     <Compile Include="Assets\Scripts\AI\BobEnemyAI.cs" />
      <Compile Include="Assets\Scripts\AI\Node.cs" />
      <Compile Include="Assets\Scripts\AI\PathFinding.cs" />
      <Compile Include="Assets\Scripts\Animation\IsometricCharacterAnimator.cs" />
@@ -241,6 +242,7 @@
      <Compile Include="Assets\Scripts\Audio\AudioData.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioPoolManager.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioSourceController.cs" />
+     <Compile Include="Assets\Scripts\Audio\AudioToggleButtonsController.cs" />
      <Compile Include="Assets\Scripts\Audio\SoundController.cs" />
      <Compile Include="Assets\Scripts\Barrack\BarrackConstruction.cs" />
      <Compile Include="Assets\Scripts\Barrack\Spawner.cs" />
@@ -303,10 +305,14 @@
      <Compile Include="Assets\Scripts\Phase_X_Test\TroopScriptableObject.cs" />
      <Compile Include="Assets\Scripts\Projectile\ProjectileBehaviour.cs" />
      <Compile Include="Assets\Scripts\RunTimeData.cs" />
+     <Compile Include="Assets\Scripts\TestbuttonsScript.cs" />
      <Compile Include="Assets\Scripts\TesteAudio.cs" />
      <Compile Include="Assets\Scripts\Tilemap\GameCustomTile.cs" />
      <Compile Include="Assets\Scripts\Tilemap\NodeTilemap.cs" />
+     <Compile Include="Assets\Scripts\Tilemap\SlotService.cs" />
+     <Compile Include="Assets\Scripts\Tower\AISlotUnlocker.cs" />
      <Compile Include="Assets\Scripts\Tower\RunTimeTowerData.cs" />
+     <Compile Include="Assets\Scripts\Tower\TowerAttackOrder.cs" />
      <Compile Include="Assets\Scripts\Tower\TowerHealthController.cs" />
      <Compile Include="Assets\Scripts\Troop\RunTimeTroopData.cs" />
      <Compile Include="Assets\Scripts\Troop\TroopAim.cs" />
@@ -319,6 +325,7 @@
      <Compile Include="Assets\Scripts\TroopAttack\RangeAttack.cs" />
      <Compile Include="Assets\Scripts\TroopAttack\TroopAttackI.cs" />
      <Compile Include="Assets\Scripts\UI\BarracksPanel.cs" />
+     <Compile Include="Assets\Scripts\UI\ConclusionScreenManager.cs" />
      <Compile Include="Assets\Scripts\UI\GoldAmountRetriever.cs" />
      <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
      <Compile Include="Assets\Scripts\UI\PopUpManager.cs" />

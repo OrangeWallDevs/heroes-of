@@ -999,8 +999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 944, y: -105.4}
-  m_SizeDelta: {x: 1649.6, y: 125.3}
+  m_AnchoredPosition: {x: 849.2, y: -105.4}
+  m_SizeDelta: {x: 1485.9, y: 125.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1131349634
 MonoBehaviour:
@@ -1239,11 +1239,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1857071228}
     m_Modifications:
-    - target: {fileID: 3362102184680418667, guid: 62bb884e6bf675f42a037351c8d7e47a,
-        type: 3}
-      propertyPath: m_Name
-      value: SFXToggleBtn Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 3362102184680418660, guid: 62bb884e6bf675f42a037351c8d7e47a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1348,6 +1343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3362102184680418667, guid: 62bb884e6bf675f42a037351c8d7e47a,
+        type: 3}
+      propertyPath: m_Name
+      value: SFXToggleBtn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3362102184680418661, guid: 62bb884e6bf675f42a037351c8d7e47a,
         type: 3}
@@ -1718,8 +1718,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speeches:
   - image: {fileID: 21300000, guid: 98d86abd4e4dcb44eb3b2cd955c44290, type: 3}
-    setence: "H\xE1 muito tempo atr\xE1s, os reinos de Pharian e Herentil conviviam
-      em paz e harmonia...."
+    setence: " \u201COlha s\xF3, obviamente est\xE1 tudo indo como planejado, ap\xF3s
+      implantar a ideia de invas\xE3o na mente de Ganmor e outros ajustes e subornos,
+      tudo fluiu como imaginei.\u201D ele fala sozinho por mais alguns momentos, explicando
+      minuciosamente seu plano como se seu interlocutor imagin\xE1rio fosse um completo
+      imbecil, mas te pouparei disso, de nada."
   - image: {fileID: 21300000, guid: 43a7d98bd4222b64e933596512dc09ad, type: 3}
     setence: "Mas ent\xE3o, em uma bela manh\xE3 de ver\xE3o, tudo mudou."
   - image: {fileID: 0}
@@ -2110,11 +2113,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1857071228}
     m_Modifications:
-    - target: {fileID: 7813400707994907633, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
-        type: 3}
-      propertyPath: m_Name
-      value: MusicToggleBtn Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 7813400707994907646, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2219,6 +2217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813400707994907633, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
+        type: 3}
+      propertyPath: m_Name
+      value: MusicToggleBtn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 151845288, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
       propertyPath: song
