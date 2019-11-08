@@ -8,7 +8,7 @@ public class WinConditionObserver : MonoBehaviour {
     public GameEvent coreDestroyedEvent;
     public HeroEvent heroDeathEvent;
 
-    public ConclusionScreenManager conclusionScreenManager;
+    public GameEvent playerWinEvent, playerLooseEvent;
 
     private RunTimePhaseData phaseData;
 
@@ -27,13 +27,13 @@ public class WinConditionObserver : MonoBehaviour {
         if (phaseData.idtPhaseType == PhaseObjectives.ATTACK) {
 
             Debug.Log("Player não destruiu núcleo a tempo");
-            conclusionScreenManager.OpenDefeatScreen();
+            playerLooseEvent.Raise();
 
         }
         else if (phaseData.idtPhaseType == PhaseObjectives.DEFEND) {
 
             Debug.Log("Player teve sucesso em defender núcleo");
-            conclusionScreenManager.OpenWinScreen();
+            playerWinEvent.Raise();
 
         }
         PauseGame();
@@ -45,13 +45,13 @@ public class WinConditionObserver : MonoBehaviour {
         if (phaseData.idtPhaseType == PhaseObjectives.ATTACK) {
 
             Debug.Log("Player teve sucesso em destruir o núcleo");
-            conclusionScreenManager.OpenWinScreen();
+            playerWinEvent.Raise();
 
         }
         else if (phaseData.idtPhaseType == PhaseObjectives.DEFEND) {
 
             Debug.Log("Player fracassou em defender o núcleo");
-            conclusionScreenManager.OpenDefeatScreen();
+            playerLooseEvent.Raise();
 
         }
         PauseGame();
@@ -65,7 +65,7 @@ public class WinConditionObserver : MonoBehaviour {
             if (!heroDead.isEnemy) {
 
                 Debug.Log("Player falhou ao comandar o ataque das tropas");
-                conclusionScreenManager.OpenDefeatScreen();
+                playerLooseEvent.Raise();
 
             }
 
@@ -75,7 +75,7 @@ public class WinConditionObserver : MonoBehaviour {
             if (heroDead.isEnemy) {
 
                 Debug.Log("Player teve sucesso em derrotar o comandante atacante");
-                conclusionScreenManager.OpenWinScreen();
+                playerWinEvent.Raise();
 
             }
 
