@@ -15,6 +15,7 @@ TagManager:
   - Spawn_Enemy
   - Core
   - AI_Build_Position
+  - Phase_Manager
   layers:
   - Default
   - TransparentFX
