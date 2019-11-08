@@ -35,7 +35,17 @@ public class AppInitialization : MonoBehaviour {
         // Initialize and activate the platform
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
+
+        PlayGamesPlatform.Instance.Authenticate(SignInCallback, true);
     }
+
+    public void SignInCallback(bool success) {
+		if (success) {
+			Debug.Log("(Heroes Of) Signed in!");
+        } else {
+            Debug.Log("(Heroes Of) Sign-in failed.");
+        }
+	}
 
     void LoadPrimaryData() {
         if (!PlayerPrefs.HasKey("firstInitialization")) {
