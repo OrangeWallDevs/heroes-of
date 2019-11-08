@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valHp: 0
   numEffectArea: 0
+  valScore: 100
   isEnemy: 0
 --- !u!114 &8029293102954161761
 MonoBehaviour:

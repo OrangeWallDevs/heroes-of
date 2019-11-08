@@ -19,15 +19,14 @@ public class TestbuttonsScript : MonoBehaviour {
 
         foreach (GameObject troop in troops) {
 
-            troop.SetActive(false);
-            Destroy(troop);
+            HealthController healthController = troop.GetComponent<HealthController>();
+            healthController.ReceiveDamage((int) healthController.Health);
 
         }
 
     }
 
     public void KillTheCore() {
-
 
         GameObject core = GameObject.FindGameObjectWithTag("Core");
 
@@ -37,7 +36,6 @@ public class TestbuttonsScript : MonoBehaviour {
     }
 
     public void KillHero() {
-
 
         GameObject core = GameObject.FindGameObjectWithTag("Hero");
 
