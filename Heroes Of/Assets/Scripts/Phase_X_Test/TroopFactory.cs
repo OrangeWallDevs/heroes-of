@@ -20,7 +20,7 @@ public class TroopFactory : MonoBehaviour {
         troop.ValDropMoney = troopData.valDropMoney;
         troop.ValHp = troopData.valHp;
         troop.ValMotionSpeed = troopData.valMorionSpeed;
-        troop.ValMotionSpeed = troopData.valScore;
+        troop.ValScore = troopData.valScore;
         troop.IdtAttackAtDistance = troopData.attackAtDistance;
         troop.GameObject = GameObject.Instantiate(troopPrefab);
         troop.Objective = troopObjective;

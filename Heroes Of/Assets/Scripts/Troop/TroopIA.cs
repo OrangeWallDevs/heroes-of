@@ -289,7 +289,11 @@ public class TroopIA : MonoBehaviour {
 
         // TO:DO use Entity class from RunTimeDate to pass on attackAction.Attack()
         RunTimeData targetData = attackTarget.GetComponent<RunTimeData>();
-        attackAction.Attack(targetData);
+        if (targetData != null) {
+
+            attackAction.Attack(targetData);
+
+        }
 
     }
 
@@ -364,9 +368,13 @@ public class TroopIA : MonoBehaviour {
 
         foreach (Transform target in closeTargets) {
 
-            if (target.tag == selectedTag) {
+            if (target != null) {
 
-                possibleTargets.Add(target);
+                if (target.tag == selectedTag) {
+
+                    possibleTargets.Add(target);
+
+                }
 
             }
 
