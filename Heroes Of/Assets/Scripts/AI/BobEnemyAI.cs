@@ -12,7 +12,7 @@ public class BobEnemyAI : MonoBehaviour {
     public BarrackFactory barrackFactory;
 
     // TO:DO --> Use the instances in RuntimeData
-    public GoldIncrementerTest goldIncrementer;
+    private GoldManager goldManager;
 
     private PriorityList<BarrackScriptableObject> barracksPriorityList;
 
@@ -47,11 +47,14 @@ public class BobEnemyAI : MonoBehaviour {
         int lastTowerOrder = constructionsList.GetFirst().Priority;
         constructionsList.Add(core.transform, lastTowerOrder);
 
+        GameObject phaseManager = GameObject.FindGameObjectWithTag("Phase_Manager");
+        goldManager = phaseManager.GetComponent<GoldManager>();
+
     }
 
     private void Start() {
 
-        bobAIGoldReserve = goldIncrementer.BobAIGoldReserve;
+        bobAIGoldReserve = goldManager.BobAIGoldReserve;
 
         // TO:DO --> Use barracks in RuntimeData
         barracksPriorityList = new PriorityList<BarrackScriptableObject>();

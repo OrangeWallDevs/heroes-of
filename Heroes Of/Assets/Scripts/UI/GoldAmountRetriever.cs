@@ -5,14 +5,20 @@ using UnityEngine.UI;
 using TMPro;
 
 public class GoldAmountRetriever : MonoBehaviour {
-    private TextMeshProUGUI coinDisplay;
     public IntEvent playerGoldChangeEvent;
-    public GoldIncrementerTest goldIncrementerTest; //TODO: Replace this for "GameRuntimeData" SO
+
+    private TextMeshProUGUI coinDisplay;
+    private GoldManager goldManager; //TODO: Replace this for "GameRuntimeData" SO
+
+    private void Awake() {
+        GameObject phaseManager = GameObject.FindGameObjectWithTag("Phase_Manager");
+        goldManager = phaseManager.GetComponent<GoldManager>();
+    }
 
     public void Start() {
         coinDisplay = GetComponent<TextMeshProUGUI>();
         playerGoldChangeEvent.RegisterListener(UpdateCoinDisplay);
-        UpdateCoinDisplay(goldIncrementerTest.playerGoldReserve.currentGold);
+        UpdateCoinDisplay(goldManager.playerGoldReserve.currentGold);
     }
 
     private void UpdateCoinDisplay(int newGoldAmount) {

@@ -8,7 +8,7 @@ public class ScoreRecorder : MonoBehaviour {
     public TroopEvent troopDeathEvent;
     public HeroEvent heroDeathEvent;
 
-    public GoldIncrementerTest goldIncrementer;
+    public GoldManager goldManager;
 
     public int TroopsKilledScore { private set; get; }
     public int TroopsSurvivedScore { private set; get; }
@@ -118,7 +118,7 @@ public class ScoreRecorder : MonoBehaviour {
 
     private int CountGoldLeftScore() {
 
-        int score = goldIncrementer.playerGoldReserve.currentGold;
+        int score = goldManager.playerGoldReserve.currentGold;
 
         return score;
 

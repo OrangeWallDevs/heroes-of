@@ -7,7 +7,8 @@ public class BarrackConstruction : MonoBehaviour {
 
     public GameObject barrackPrefab;
     public List<Sprite> barrackSprites;
-    public GoldIncrementerTest goldIncrementerTest;
+
+    private GoldManager goldManager;
 
     public SlotService slotService;
 
@@ -24,6 +25,14 @@ public class BarrackConstruction : MonoBehaviour {
     public PhaseObjectives buildForObjective; 
 
     public TilemapHandler tilemapHandler;
+
+    private void Awake() {
+
+        GameObject phaseManager = GameObject.FindGameObjectWithTag("Phase_Manager");
+        goldManager = phaseManager.GetComponent<GoldManager>();
+
+    }
+
     public void SelectBuildPosition(int barrackID) {
         AvaliableTileSelection.ChangeMask(tilemapHandler,true);
 
@@ -54,7 +63,7 @@ public class BarrackConstruction : MonoBehaviour {
                 && tilemapHandler.ScreenPositionToTilemapNode(Input.mousePosition).tile.isSlot) {
                     alertManager.ShowWarningModal("Slot bloqueado pela torre!");
                 } else {
-                    BuildBarrack(Input.mousePosition, goldIncrementerTest.playerGoldReserve);
+                    BuildBarrack(Input.mousePosition, goldManager.playerGoldReserve);
                 }
 
                 if (buildPositionSelection != null) {
