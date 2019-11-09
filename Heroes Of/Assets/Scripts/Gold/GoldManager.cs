@@ -10,8 +10,14 @@ public class GoldManager : MonoBehaviour {
     public TroopEvent troopDeathEvent;
     public TroopEvent removedTroopOnWaveEnd;
 
-    void OnEnable() {
-        playerGoldReserve = new PlayerGoldReserve(2500, troopDeathEvent, removedTroopOnWaveEnd, goldChangeEvent);
-        BobAIGoldReserve = new AIGoldReserve(500, troopDeathEvent, removedTroopOnWaveEnd);
+    private RunTimePhaseData phaseData;
+
+    private void Awake() {
+
+        phaseData = GetComponent<RunTimePhaseData>();
+
+        playerGoldReserve = new PlayerGoldReserve(phaseData.valIniPlayerMoney, troopDeathEvent, removedTroopOnWaveEnd, goldChangeEvent);
+        BobAIGoldReserve = new AIGoldReserve(phaseData.valIniIAMoney, troopDeathEvent, removedTroopOnWaveEnd);
+
     }
 }
