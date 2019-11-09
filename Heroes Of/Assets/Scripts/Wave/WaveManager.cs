@@ -22,6 +22,8 @@ public class WaveManager : MonoBehaviour {
     private void Awake() {
 
         countDown = startTimeCountDown;
+        ActualWave = 0;
+
         enemySpawnGroup = GameObject.FindGameObjectWithTag("Spawn_Enemy");
         playerSpawnGroup = GameObject.FindGameObjectWithTag("Spawn_Player");
 
