@@ -46,12 +46,9 @@ public class ScoreRecorder : MonoBehaviour {
 
     private void HandleTroopDeath(RunTimeTroopData troop) {
 
-        Debug.Log(troop);
-
         if (troop.isEnemy) {
 
             TroopsKilledScore += troop.valScore;
-            Debug.Log(TroopsKilledScore + " | " + troop.valScore);
 
         }
 
@@ -85,15 +82,6 @@ public class ScoreRecorder : MonoBehaviour {
 
         TotalScore = CalculeTotalScore();
 
-        Debug.Log("[All] Gold: " + GoldLeftScore);
-        Debug.Log("[All] Hero Killed: " + HeroKilledScore);
-        Debug.Log("[DEF] Hero Survived: " + HeroSurvivedScore);
-        Debug.Log("[ATK] Towers Destroyed: " + TowersDestroyedScore);
-        Debug.Log("[DEF] Towers Defended: " + TowersProtectedScore);
-        Debug.Log("[All] Troops Killed: " + TroopsKilledScore);
-        Debug.Log("[All] Troops Survived: " + TroopsSurvivedScore);
-        Debug.Log("[All] Total Score: " + TotalScore);
-
     }
 
     private int CountTroopsSurvivedScore() {
@@ -107,7 +95,6 @@ public class ScoreRecorder : MonoBehaviour {
             
             if (!troopData.isEnemy) {
 
-                Debug.Log("lol");
                 score += troopData.valScore;
 
             }
