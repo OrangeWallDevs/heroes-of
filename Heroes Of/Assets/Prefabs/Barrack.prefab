@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6872284176056867971}
   - component: {fileID: 8497729175216004033}
   - component: {fileID: 3537497934388457893}
+  - component: {fileID: 685866159233404311}
   m_Layer: 0
   m_Name: Barrack
   m_TagString: Spawner
@@ -164,8 +165,20 @@ MonoBehaviour:
   codTroop: 0
   namBarrack: 
   desBarrack: 
-  vlrSpawnFrequency: 0
-  vlrCost: 0
+  valSpawnFrequency: 0
+  valCost: 0
   numTroopLimit: 0
   isEnemy: 0
   objective: 0
+--- !u!114 &685866159233404311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497729175216004034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca33652f4339284c99fe488eb3291bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

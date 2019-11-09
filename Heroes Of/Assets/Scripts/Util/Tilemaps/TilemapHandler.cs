@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using System.Linq;
+
 
 public class TilemapHandler : MonoBehaviour {
     public GameRuntimeData gameRuntimeData;
@@ -10,7 +12,6 @@ public class TilemapHandler : MonoBehaviour {
     public NodeTilemap nodeTilemap {get; private set;}
     private void Start() {
         nodeTilemap = new NodeTilemap(tilemap);
-        //tilemaps = gameRuntimeData.CurrentLevel.Tilemaps;
     }
 
     public bool IsTile(Vector2 position) {
@@ -19,14 +20,11 @@ public class TilemapHandler : MonoBehaviour {
 
     public Node GetTile(Vector3Int position) {
         return nodeTilemap.GetNode(position);
-        //return gameRuntimeData.NodeTilemap.GetNode(position);
     }
 
     public Vector3Int ScreenToCellPosition(Vector2 screenPos) {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPos);
         Vector3Int cellPos = tilemap.WorldToCell(worldPosition);
-        // cellPos.x -= 1;
-        // cellPos.y -= 1;
         cellPos.z = 0;
         return cellPos;
     }
@@ -57,5 +55,17 @@ public class TilemapHandler : MonoBehaviour {
 
     public List<Node> GetAllTileNeighbours(Node node, int range) {
         return nodeTilemap.GetNeighbours(node, range);
+    }
+
+    public Vector2 GetClosestWalkableTile(Vector2 current) {
+        Vector3Int currentPosition = WorldToCellPosition(current);
+        Node currentNode = nodeTilemap.GetNode(currentPosition);
+
+        List<Node> neighbours = GetAllTileNeighbours(currentNode, 6);
+        neighbours = neighbours.Where(neighbour => neighbour.tile.isWalkable).ToList();
+        
+        Vector3Int closestWalkableNodePosition = neighbours[1].position;
+
+        return tilemap.CellToWorld(closestWalkableNodePosition);
     }
 } 
