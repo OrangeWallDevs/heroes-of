@@ -83,20 +83,3 @@ public class GameEvent<T> : ScriptableObject {
     }
 
 }
-
-/* Parameterized Events Preset */
-
-[CreateAssetMenu(menuName="ScriptableObject/IntEvent")]
-public class IntEvent : GameEvent<int> {}
-
-[CreateAssetMenu(menuName="ScriptableObject/FloatEvent")]
-public class FloatEvent : GameEvent<float> {}
-
-[CreateAssetMenu(menuName="ScriptableObject/StringEvent")]
-public class StringEvent : GameEvent<string> {}
-
-[CreateAssetMenu(menuName="ScriptableObject/BoolEvent")]
-public class BoolEvent : GameEvent<bool> {}
-
-[CreateAssetMenu(menuName="ScriptableObject/ObjectEvent")]
-public class ObjectEvent : GameEvent<object> {}
