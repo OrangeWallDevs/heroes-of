@@ -8,7 +8,7 @@ public class WinConditionObserver : MonoBehaviour {
     public GameEvent coreDestroyedEvent;
     public HeroEvent heroDeathEvent;
 
-    public GameEvent playerWinEvent, playerLooseEvent;
+    public GameEvent playerWinEvent, playerLooseEvent, gameEndEvent;
 
     private RunTimePhaseData phaseData;
 
@@ -24,6 +24,8 @@ public class WinConditionObserver : MonoBehaviour {
 
     private void HandleFinalTurnVerification() {
 
+        gameEndEvent.Raise();
+
         if (phaseData.idtPhaseType == PhaseObjectives.ATTACK) {
 
             Debug.Log("Player não destruiu núcleo a tempo");
@@ -36,11 +38,14 @@ public class WinConditionObserver : MonoBehaviour {
             playerWinEvent.Raise();
 
         }
+
         PauseGame();
 
     }
 
     private void HandleCoreDestroyedVerification() {
+
+        gameEndEvent.Raise();
 
         if (phaseData.idtPhaseType == PhaseObjectives.ATTACK) {
 
@@ -54,11 +59,14 @@ public class WinConditionObserver : MonoBehaviour {
             playerLooseEvent.Raise();
 
         }
+
         PauseGame();
 
     }
 
     private void HandleHeroDeathVerification(RunTimeHeroData heroDead) {
+
+        gameEndEvent.Raise();
 
         if (phaseData.idtPhaseType == PhaseObjectives.ATTACK) {
 
@@ -80,6 +88,7 @@ public class WinConditionObserver : MonoBehaviour {
             }
 
         }
+
         PauseGame();
 
     }

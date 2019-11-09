@@ -70,6 +70,7 @@ MonoBehaviour:
   heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
   playerWinEvent: {fileID: 11400000, guid: 5b50da8efdb558d4b985740d5ba533e7, type: 2}
   playerLooseEvent: {fileID: 11400000, guid: b683d309b615aeb4b8f2f8d45c5e9eac, type: 2}
+  gameEndEvent: {fileID: 11400000, guid: e765d95ad5338f247b7d60290de3117a, type: 2}
 --- !u!114 &1885419664384223942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,13 +83,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79681df6d3f588746a5111be9536f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWinEvent: {fileID: 11400000, guid: 5b50da8efdb558d4b985740d5ba533e7, type: 2}
-  playerLooseEvent: {fileID: 11400000, guid: b683d309b615aeb4b8f2f8d45c5e9eac, type: 2}
-  finalWaveEndEvent: {fileID: 11400000, guid: aa714f32081db0f4e86636b0270b99ba, type: 2}
   towerDestroyedEvent: {fileID: 11400000, guid: 685e41f90faad4c439bb8e3fff869e91,
     type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
+  gameEndEvent: {fileID: 11400000, guid: e765d95ad5338f247b7d60290de3117a, type: 2}
   goldManager: {fileID: 4452019405155149625}
 --- !u!114 &4452019405155149625
 MonoBehaviour:
@@ -129,4 +128,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91beab58fb147c245832895cce0b62d0, type: 2}
   - {fileID: 11400000, guid: d0df1068d3ccc274ba522e963acc2810, type: 2}
   barrackFactory: {fileID: 0}
-  goldManager: {fileID: 0}

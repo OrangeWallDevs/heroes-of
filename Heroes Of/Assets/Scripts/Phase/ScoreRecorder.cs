@@ -2,11 +2,10 @@
 
 public class ScoreRecorder : MonoBehaviour {
 
-    public GameEvent playerWinEvent, playerLooseEvent;
-    public GameEvent finalWaveEndEvent;
     public TowerEvent towerDestroyedEvent;
     public TroopEvent troopDeathEvent;
     public HeroEvent heroDeathEvent;
+    public GameEvent gameEndEvent;
 
     public GoldManager goldManager;
 
@@ -29,8 +28,7 @@ public class ScoreRecorder : MonoBehaviour {
         troopDeathEvent.RegisterListener(HandleTroopDeath);
         towerDestroyedEvent.RegisterListener(HandleTowerDestruction);
 
-        playerWinEvent.RegisterListener(HandleFinalWaveEnd);
-        playerLooseEvent.RegisterListener(HandleFinalWaveEnd);
+        gameEndEvent.RegisterListener(HandleFinalWaveEnd);
 
     }
 
@@ -48,9 +46,12 @@ public class ScoreRecorder : MonoBehaviour {
 
     private void HandleTroopDeath(RunTimeTroopData troop) {
 
+        Debug.Log(troop);
+
         if (troop.isEnemy) {
 
             TroopsKilledScore += troop.valScore;
+            Debug.Log(TroopsKilledScore + " | " + troop.valScore);
 
         }
 
@@ -106,6 +107,7 @@ public class ScoreRecorder : MonoBehaviour {
             
             if (!troopData.isEnemy) {
 
+                Debug.Log("lol");
                 score += troopData.valScore;
 
             }
