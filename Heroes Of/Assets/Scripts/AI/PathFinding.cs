@@ -78,6 +78,8 @@ public class PathFinding : MonoBehaviour {
         while(openSet.Count > 0 && path == null) {
             List<Node> neighbours = currentNode.neighbours;
 
+            neighbours = neighbours.Where(neighbour => neighbour.tile.isWalkable).ToList();
+
             ExamineNeighbours(neighbours, currentNode);
 
             UpdateCurrentTile(ref currentNode);
