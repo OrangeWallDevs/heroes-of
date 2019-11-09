@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="ScriptableObject/GoldIncrementTest")]
-public class GoldIncrementerTest : ScriptableObject {
+public class GoldManager : MonoBehaviour {
     public GoldReserve playerGoldReserve {get; private set;}
     public GoldReserve BobAIGoldReserve { get; private set; }
     

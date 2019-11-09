@@ -5,7 +5,8 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - goldChangeEvent: {instanceID: 0}
-  - troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+  - troopDeathEvent: {instanceID: 0}
+  - removedTroopOnWaveEnd: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
