@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1024325270473854212}
   - component: {fileID: 1024325270473854213}
   - component: {fileID: 1885419664384223942}
+  - component: {fileID: 4452019405155149625}
   - component: {fileID: 7805467205790411051}
   m_Layer: 0
   m_Name: Phase_Manager
@@ -88,7 +89,23 @@ MonoBehaviour:
     type: 2}
   troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
   heroDeathEvent: {fileID: 11400000, guid: c712bbc085dbcb04da0b16549b7cb0f7, type: 2}
-  goldIncrementer: {fileID: 11400000, guid: 9ce973a6a21d1d44eac189ea2a839e26, type: 2}
+  goldManager: {fileID: 4452019405155149625}
+--- !u!114 &4452019405155149625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024325270473854215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5297e35b4823949887d4d20f8156a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldChangeEvent: {fileID: 11400000, guid: 8e1c032d4e7d304488387888b011b558, type: 2}
+  troopDeathEvent: {fileID: 11400000, guid: 052b1e4ad59602049a0d891416389f7c, type: 2}
+  removedTroopOnWaveEnd: {fileID: 11400000, guid: e43cf78f0604498409f527242b5c0335,
+    type: 2}
 --- !u!114 &7805467205790411051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,4 +129,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91beab58fb147c245832895cce0b62d0, type: 2}
   - {fileID: 11400000, guid: d0df1068d3ccc274ba522e963acc2810, type: 2}
   barrackFactory: {fileID: 0}
-  goldIncrementer: {fileID: 11400000, guid: 9ce973a6a21d1d44eac189ea2a839e26, type: 2}
+  goldManager: {fileID: 0}
