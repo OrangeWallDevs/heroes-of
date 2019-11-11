@@ -104,12 +104,12 @@ PrefabInstance:
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -241
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000034332
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
@@ -124,70 +124,33 @@ PrefabInstance:
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4134115201432725736, guid: 62bb884e6bf675f42a037351c8d7e47a,
-        type: 3}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleCategoryMute
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9b1b94e0bd41bae4e8336df7b53b7286,
-        type: 3}
     - target: {fileID: 3165850124665887184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -233,6 +196,43 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4134115201432725736, guid: 62bb884e6bf675f42a037351c8d7e47a,
+        type: 3}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCategoryMute
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b1b94e0bd41bae4e8336df7b53b7286,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d1ee5f04c38174db0702c4b22700fd, type: 3}
 --- !u!1 &3362102184680418667 stripped
