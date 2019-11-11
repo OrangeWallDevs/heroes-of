@@ -32,6 +32,8 @@ public class Spawner : MonoBehaviour {
         //TO:DO use RunTimeData to get the Barrack class to this respctive GO
         barrackData = GetComponent<RunTimeBarrackData>();
 
+        enabled = false;
+
     }
 
     private void Start() {

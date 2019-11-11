@@ -55,6 +55,7 @@ public class TroopMovementActions : MonoBehaviour {
 
             }*/
             targetPosition = pathFinding.path.Pop();
+            targetPosition.y += 1.5f;
         }
 
         /*Debug.Log("Movement current position: " + currentPosition.x + " " + currentPosition.y);
@@ -68,6 +69,7 @@ public class TroopMovementActions : MonoBehaviour {
             //Debug.Log("a");
             if(pathFinding.path != null && pathFinding.path.Count > 0) {
                 targetPosition = pathFinding.path.Pop();
+                targetPosition.y += 1.5f;
 
                 /*Debug.Log("Print Path");
                 foreach (Vector2 position in pathFinding.path) {
