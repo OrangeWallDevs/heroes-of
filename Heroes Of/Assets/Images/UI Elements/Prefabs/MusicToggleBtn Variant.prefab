@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a42ad096b68f8d49187bdb53d7da0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song: {fileID: 0}
   audioCategory: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
+  song: {fileID: 0}
 --- !u!114 &1553417901912206396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,12 +118,12 @@ PrefabInstance:
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000034332
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3165850123734139185, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
@@ -165,42 +165,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1553417901912206396}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleCategoryMute
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 43ceb02b82aae879d90cd2f47a06d64f,
-        type: 3}
     - target: {fileID: 3165850124665887184, guid: 36d1ee5f04c38174db0702c4b22700fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -246,6 +210,42 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1553417901912206396}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCategoryMute
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850123734139184, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165850124665887187, guid: 36d1ee5f04c38174db0702c4b22700fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 43ceb02b82aae879d90cd2f47a06d64f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d1ee5f04c38174db0702c4b22700fd, type: 3}
 --- !u!1 &7813400707994907633 stripped
