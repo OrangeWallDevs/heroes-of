@@ -1239,6 +1239,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1857071228}
     m_Modifications:
+    - target: {fileID: 3362102184680418667, guid: 62bb884e6bf675f42a037351c8d7e47a,
+        type: 3}
+      propertyPath: m_Name
+      value: SFXToggleBtn Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 3362102184680418660, guid: 62bb884e6bf675f42a037351c8d7e47a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1343,11 +1348,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3362102184680418667, guid: 62bb884e6bf675f42a037351c8d7e47a,
-        type: 3}
-      propertyPath: m_Name
-      value: SFXToggleBtn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3362102184680418661, guid: 62bb884e6bf675f42a037351c8d7e47a,
         type: 3}
@@ -1686,6 +1686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3932e28d1a1da4286b0a4da5328e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onRuntimeDataLoaded: {fileID: 11400000, guid: 7a1901f43a1cd9243a3fc33d96c2bbf4,
+    type: 2}
   cutsceneTitle: "O In\xEDcio"
   textField: {fileID: 1131349634}
   titleField: {fileID: 153465672}
