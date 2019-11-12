@@ -8,6 +8,7 @@ public class GameRuntimeData : ScriptableObject {
 
     /* --- Dependencies and Private Members --- */    
 
+    public RuntimeDataEvent onRuntimeDataLoaded;
     GamePrimaryData primaryData;
     Dictionary<Type, object> gamePrototypeTypes;
 
@@ -70,6 +71,8 @@ public class GameRuntimeData : ScriptableObject {
         HeroPrototypes = primaryData.HeroRecords;
         Cutscenes = primaryData.CutsceneRecords;
         primaryData.SyncUserData(User);
+
+        onRuntimeDataLoaded.Raise(this);
 
     }
 

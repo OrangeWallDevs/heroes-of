@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90e3b0a98708e3b94860745770398d8a, type: 3}
-  m_Name: GameRuntimeData
+  m_Script: {fileID: 11500000, guid: 1fb12a5b764561989bc0a90ed2ce07da, type: 3}
+  m_Name: New RuntimeDataEvent
   m_EditorClassIdentifier: 
-  onRuntimeDataLoaded: {fileID: 11400000, guid: 530737c3cd4a3252195ecf313e7ddcdf,
-    type: 2}

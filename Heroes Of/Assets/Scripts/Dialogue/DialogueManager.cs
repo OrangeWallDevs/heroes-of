@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
+    public RuntimeDataEvent onRuntimeDataLoaded;
     public string cutsceneTitle; // Get on BD
 
     public TextMeshProUGUI textField;
@@ -16,6 +17,9 @@ public class DialogueManager : MonoBehaviour {
 
     void Start() {
 
+        onRuntimeDataLoaded.RegisterListener(runtimeData => {
+            Logger.Instance.PrintObject(runtimeData.User.CurrentPhase);
+        });
         sentences = new ArrayList();
         countSentences = 0;
 
