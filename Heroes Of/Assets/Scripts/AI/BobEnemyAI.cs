@@ -112,7 +112,16 @@ public class BobEnemyAI : MonoBehaviour {
 
             }
 
-            BuildBarrack(barrackToBuild);
+            if (buildingPositions.Count > 0) {
+
+                BuildBarrack(barrackToBuild);
+
+            }
+            else {
+
+                return;
+
+            }
 
         }
 
