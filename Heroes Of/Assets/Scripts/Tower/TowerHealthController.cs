@@ -4,13 +4,14 @@ public class TowerHealthController : HealthController {
 
     public TowerEvent towerDestroyedEvent;
     public TowerEvent towerBeingAttackedEvent;
+    public FloatEvent towerHealthChangedEvent;
     public GameObject destructionEffectPrefab;
 
     private RunTimeTowerData towerData;
 
     private bool wasDestroyed;
 
-    private void Start() {
+    private void Awake() {
 
         towerData = GetComponent<RunTimeTowerData>();
 
@@ -36,6 +37,7 @@ public class TowerHealthController : HealthController {
         towerData.valHp -= valDamageReceived;
         Health = towerData.valHp;
 
+        towerHealthChangedEvent.Raise(Health);
         towerBeingAttackedEvent.Raise(towerData);
 
         if (Health <= 0 && !wasDestroyed) {

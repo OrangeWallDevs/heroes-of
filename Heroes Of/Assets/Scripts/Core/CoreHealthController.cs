@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoreHealthController : HealthController {
 
     public GameEvent coreDestroyedEvent;
+    public FloatEvent coreHealthChangedEvent;
     public GameObject destructionEffectPrefab;
 
     private RunTimeCoreData coreData;
@@ -35,6 +36,8 @@ public class CoreHealthController : HealthController {
 
         coreData.valHp -= valDamageReceived;
         Health = coreData.valHp;
+
+        coreHealthChangedEvent.Raise(Health);
 
         if (!wasDestroyed && Health <= 0) {
 
