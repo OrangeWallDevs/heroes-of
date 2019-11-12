@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e3b0a98708e3b94860745770398d8a, type: 3}
   m_Name: GameRuntimeData
   m_EditorClassIdentifier: 
-  onRuntimeDataLoaded: {fileID: 11400000, guid: 530737c3cd4a3252195ecf313e7ddcdf,
+  onRuntimeDataLoaded: {fileID: 11400000, guid: 7a1901f43a1cd9243a3fc33d96c2bbf4,
     type: 2}
