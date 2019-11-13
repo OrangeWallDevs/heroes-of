@@ -5,10 +5,20 @@ using UnityEngine.UI;
 
 public class SoundController : MonoBehaviour { 
     public AudioCategory audioCategory;
-    public AudioData song;
+    private AudioSourceController sceneSongController;
+    public AudioData sceneSong;
+    
+    public GameEvent gameEndEvent;
+
     void Start() {
         if(!audioCategory.IsMuted) {
-            song.Play();
+           sceneSongController = sceneSong.Play();
         }
+
+        gameEndEvent.RegisterListener(stopSceneSong);
+    }
+
+    public void stopSceneSong() {
+        sceneSongController.Stop();
     }
 }

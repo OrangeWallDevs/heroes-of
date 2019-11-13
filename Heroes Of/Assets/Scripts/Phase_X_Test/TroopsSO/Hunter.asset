@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codTroop: 1
   namTroop: Hunter
-  valDamageDealt: 5
-  valHp: 23
+  valDamageDealt: 3
+  valHp: 20
   valScore: 20
-  valMorionSpeed: 2
+  valMorionSpeed: 3.5
   valAttackSpeed: 1.5
-  valDropMoney: 15
-  valAttackDistance: 3.5
+  valDropMoney: 25
+  valAttackDistance: 4.5
   objective: 0
   attackAtDistance: 1
   isEnemy: 0

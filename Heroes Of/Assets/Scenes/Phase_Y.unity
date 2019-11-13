@@ -272,6 +272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 7276142395535974193, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2902684285166463172, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39268,7 +39273,7 @@ PrefabInstance:
     - target: {fileID: 6427432492804983168, guid: d6aca796cc255854ca68f18cf5302406,
         type: 3}
       propertyPath: valIniIAMoney
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6427432492804983168, guid: d6aca796cc255854ca68f18cf5302406,
         type: 3}

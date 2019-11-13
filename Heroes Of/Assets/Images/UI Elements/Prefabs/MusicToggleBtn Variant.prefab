@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioCategory: {fileID: 11400000, guid: 3fe1b51ce6e76ef268508fb647f33579, type: 2}
-  song: {fileID: 0}
+  sceneSong: {fileID: 0}
+  gameEndEvent: {fileID: 11400000, guid: e765d95ad5338f247b7d60290de3117a, type: 2}
 --- !u!114 &1553417901912206396
 MonoBehaviour:
   m_ObjectHideFlags: 0

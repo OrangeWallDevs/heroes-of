@@ -18,9 +18,9 @@ MonoBehaviour:
   valHp: 35
   valScore: 10
   valMorionSpeed: 2
-  valAttackSpeed: 1
-  valDropMoney: 5
-  valAttackDistance: 1
+  valAttackSpeed: 2
+  valDropMoney: 9
+  valAttackDistance: 2
   objective: 0
   attackAtDistance: 0
   isEnemy: 0
