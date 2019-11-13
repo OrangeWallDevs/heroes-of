@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,8 +7,9 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour {
 
     public RuntimeDataEvent onRuntimeDataLoaded;
+    private Cutscene cutscene;
     public string cutsceneTitle; // Get on BD
-
+    
     public TextMeshProUGUI textField;
     public TextMeshProUGUI titleField;
     public Image sceneImageField;
@@ -19,35 +21,40 @@ public class DialogueManager : MonoBehaviour {
 
         onRuntimeDataLoaded.RegisterListener(runtimeData => {
             Logger.Instance.PrintObject(runtimeData.User.CurrentPhase);
+
+            foreach (Cutscene cut in runtimeData.Cutscenes) {
+                if(cut.CodPart == runtimeData.User.CurrentPhase.CodPart)
+                    cutscene = cut;     
+            }
+            sentences = new ArrayList();
+            countSentences = 0;
+
+            StartConversations();
         });
-        sentences = new ArrayList();
-        countSentences = 0;
 
-        titleField.text = cutsceneTitle;
+        // titleField.text = cutsceneTitle;
 
-        StartConversation(GetComponent<Dialogue>());
+        // StartConversation(GetComponent<Dialogue>());
 
-        //StartConversation(LoadCutsceneDialogue());
 
     }
 
-    private Dialogue LoadCutsceneDialogue() {
+    private void StartConversations() {
+        
+        foreach(Scene scene in cutscene.Scenes){
 
-        // titleField.text = TO:DO Get from the BD the actual cutscene title
-        // Dialogue dialogue = TO:DO Get from the BD the sentences and imgs of the actual cutscene
-
-        return null;
-
-    }
-
-    public void StartConversation(Dialogue dialogue) {
-
-        sentences.Clear();
-        sentences.AddRange(dialogue.speeches);
-
-        DisplayNextSentence();
+            titleField.text = scene.DesScene;
+            sceneImageField.sprite = scene.Sprite;
+            Logger.Instance.PrintObject(scene);
+            
+            sentences.Clear();
+            sentences.AddRange(scene.Texts);
+            DisplayNextSentence();
+            countSentences = 0;
+        }
 
     }
+
 
     public void DisplayNextSentence() {
 
@@ -58,16 +65,16 @@ public class DialogueManager : MonoBehaviour {
 
         }
 
-        Speech actualSentence = (Speech) sentences[countSentences];
+        Speak actualSentence = (Speak) sentences[countSentences];
 
-        if (actualSentence.image != null) 
-            sceneImageField.sprite = actualSentence.image;
+        // if (actualSentence.image != null) 
+        //   sceneImageField.sprite = actualSentence.image;
 
         // Stop the letters animation when the speech is skiped
         StopAllCoroutines();
 
         // Start Coroutine to write the character speech
-        StartCoroutine(TypeSentence(actualSentence.setence));
+        StartCoroutine(TypeSentence(actualSentence.TxtSpeech));
 
         countSentences++;
 
