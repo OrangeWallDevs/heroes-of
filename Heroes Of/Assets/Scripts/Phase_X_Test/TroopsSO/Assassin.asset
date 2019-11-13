@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codTroop: 0
   namTroop: Assassin
-  valDamageDealt: 3
-  valHp: 20
+  valDamageDealt: 4
+  valHp: 16
   valScore: 25
-  valMorionSpeed: 5
-  valAttackSpeed: 0.5
-  valDropMoney: 10
-  valAttackDistance: 1
+  valMorionSpeed: 4
+  valAttackSpeed: 1.2
+  valDropMoney: 26
+  valAttackDistance: 2
   objective: 0
   attackAtDistance: 0
   isEnemy: 0

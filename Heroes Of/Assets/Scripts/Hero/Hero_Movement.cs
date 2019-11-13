@@ -28,10 +28,9 @@ public class Hero_Movement : MonoBehaviour {
     private Vector2 clickDownPosition, clickUpPosition;
     private PathFinding pathFinding;
 
-    [SerializeField]
     private TilemapHandler tilemapHandler;
 
-    private void Start() {
+    private void Start () {
 
         firstClickTime = 0f;
         timeBetweenClicks = 0.2f;
@@ -43,78 +42,82 @@ public class Hero_Movement : MonoBehaviour {
         clickDownTime = 0f;
         timeBetweenDownToUp = 0.5f;
 
-        hit = Physics2D.Raycast(Vector2.zero, Vector2.zero);
+        hit = Physics2D.Raycast (Vector2.zero, Vector2.zero);
     }
 
-    private void Awake() {
+    private void Awake () {
 
-        characterAnimatorScript = GetComponentInChildren<IsometricCharacterAnimator>();
-        heroColider = GetComponentInChildren<CapsuleCollider2D>();
+        characterAnimatorScript = GetComponentInChildren<IsometricCharacterAnimator> ();
+        heroColider = GetComponentInChildren<CapsuleCollider2D> ();
 
-        heroRigidbody = GetComponent<Rigidbody2D>();
-        heroTransform = GetComponent<Transform>();
+        heroRigidbody = GetComponent<Rigidbody2D> ();
+        heroTransform = GetComponent<Transform> ();
 
-        pathFinding = GetComponent<PathFinding>();
+        pathFinding = GetComponent<PathFinding> ();
 
         targetPosition = heroTransform.position;
 
-        heroPositionAndState = new PositionAndState(targetPosition,false);
+        heroPositionAndState = new PositionAndState (targetPosition, false);
+
+        tilemapHandler = GameObject.Find ("TilemapHandler").GetComponent<TilemapHandler> ();
 
     }
 
-    private void Update() {
+    private void Update () {
 
         if (Input.touchCount <= 1) {
+            Debug.Log('a');
 
-            HandleHeroSelection();
+            HandleHeroSelection ();
 
-            HandleMovement();
+            HandleMovement ();
 
         }
 
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate () {
 
         currentPosition = heroTransform.position;
 
-        if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
-            || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
-                
-            Vector2 directionMovement = (targetPosition - currentPosition).normalized;
+        if (Mathf.Ceil (currentPosition.x) != Mathf.Ceil (targetPosition.x) ||
+            Mathf.Ceil (currentPosition.y) != Mathf.Ceil (targetPosition.y)) {
 
-            directionMovement.x = Mathf.Round(directionMovement.x);
-            directionMovement.y = Mathf.Round(directionMovement.y);
-            
+            Vector2 roundedTarget = new Vector2 (Mathf.RoundToInt (targetPosition.x), Mathf.RoundToInt (targetPosition.y));
+            Vector2 roundedCurrent = new Vector2 (Mathf.RoundToInt (currentPosition.x), Mathf.RoundToInt (currentPosition.y));
+
+            Vector2 directionMovement = (roundedTarget - roundedCurrent).normalized;
+
+            directionMovement.x = Mathf.Round (directionMovement.x);
+            directionMovement.y = Mathf.Round (directionMovement.y);
+
             Vector2 movement = directionMovement * movementSpeed;
             Vector2 newPosition = currentPosition + movement * Time.fixedDeltaTime;
 
-            heroRigidbody.MovePosition(newPosition);
-            characterAnimatorScript.AnimateRun(targetPosition);
+            heroRigidbody.MovePosition (newPosition);
+            characterAnimatorScript.AnimateRun (targetPosition);
 
-        }
-        else {
-            if(pathFinding.path != null && pathFinding.path.Count > 0) {
-                targetPosition = pathFinding.path.Pop();
+        } else {
+            if (pathFinding.path != null && pathFinding.path.Count > 0) {
+                targetPosition = pathFinding.path.Pop ();
             }
-            characterAnimatorScript.AnimateStatic();
+            characterAnimatorScript.AnimateStatic ();
 
             heroPositionAndState.Position = targetPosition;
             heroPositionAndState.IsAtPosition = true;
 
-            placeSelectEvent.Raise(heroPositionAndState);
+            placeSelectEvent.Raise (heroPositionAndState);
         }
 
     }
 
-    private void HandleHeroSelection() {
+    private void HandleHeroSelection () {
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown (0)) {
 
-            hit = DetectHit(Input.mousePosition);
+            hit = DetectHit (Input.mousePosition);
 
-        }
-        else if (Input.GetMouseButtonUp(0)) {
+        } else if (Input.GetMouseButtonUp (0)) {
 
             if (hit.collider == null && isHeroSelected) { // Action to unselect
 
@@ -123,16 +126,15 @@ public class Hero_Movement : MonoBehaviour {
                 if (clickCounter == 1 && isCoroutineAllowedSelection) {
 
                     firstClickTime = Time.time;
-                    StartCoroutine(HeroUnselection());
+                    StartCoroutine (HeroUnselection ());
 
                 }
 
-            }
-            else if (hit.collider == heroColider) { // Action to select
+            } else if (hit.collider == heroColider) { // Action to select
 
                 isHeroSelected = true;
-                heroSelectEvent.Raise(isHeroSelected);
-                Debug.Log("Hero Selected!");
+                heroSelectEvent.Raise (isHeroSelected);
+                Debug.Log ("Hero Selected!");
 
             }
 
@@ -140,42 +142,41 @@ public class Hero_Movement : MonoBehaviour {
 
     }
 
-    private void HandleMovement() {
+    private void HandleMovement () {
 
-        if (Input.GetMouseButtonDown(0) && isHeroSelected) {
+        if (Input.GetMouseButtonDown (0) && isHeroSelected) {
 
             clickDownPosition = Input.mousePosition;
-            hit = DetectHit(clickDownPosition);
+            hit = DetectHit (clickDownPosition);
 
             clickDown = true;
             clickDownTime = Time.time;
 
-            StartCoroutine(RestartClick());
+            StartCoroutine (RestartClick ());
 
-        }
-        else if (Input.GetMouseButtonUp(0) && isHeroSelected && clickDown) {
+        } else if (Input.GetMouseButtonUp (0) && isHeroSelected && clickDown) {
 
             clickUpPosition = Input.mousePosition;
             clickUp = true;
 
-            StopCoroutine(RestartClick());
+            StopCoroutine (RestartClick ());
 
         }
 
         if (clickDown && clickUp && clickDownPosition == clickUpPosition) {
 
             Vector2 clickedPos = Input.mousePosition;
-            if(tilemapHandler.IsTile(Camera.main.ScreenToWorldPoint(clickedPos))) {
-                Vector3Int gridPos = tilemapHandler.ScreenToCellPosition(clickedPos);
-                Node clickedCell = tilemapHandler.GetTile(gridPos);
-                if(clickedCell.tile.isWalkable) {
-                    pathFinding.startPos = tilemapHandler.WorldToCellPosition(currentPosition);
+            if (tilemapHandler.IsTile (Camera.main.ScreenToWorldPoint (clickedPos))) {
+                Vector3Int gridPos = tilemapHandler.ScreenToCellPosition (clickedPos);
+                Node clickedCell = tilemapHandler.GetTile (gridPos);
+                if (clickedCell.tile.isWalkable) {
+                    pathFinding.startPos = tilemapHandler.WorldToCellPosition (currentPosition);
                     pathFinding.goalPos = clickedCell.position;
-                    pathFinding.FindPath();
+                    pathFinding.FindPath ();
 
                     heroPositionAndState.Position = targetPosition;
                     heroPositionAndState.IsAtPosition = false;
-                    placeSelectEvent.Raise(heroPositionAndState);
+                    placeSelectEvent.Raise (heroPositionAndState);
                 }
             }
 
@@ -187,18 +188,17 @@ public class Hero_Movement : MonoBehaviour {
 
     }
 
-    private RaycastHit2D DetectHit(Vector2 eventPosition) {
+    private RaycastHit2D DetectHit (Vector2 eventPosition) {
 
         Camera camera = Camera.main;
 
-        Vector2 pick = camera.ScreenToWorldPoint(eventPosition);
+        Vector2 pick = camera.ScreenToWorldPoint (eventPosition);
 
-        return Physics2D.Raycast(pick, Vector2.zero);
+        return Physics2D.Raycast (pick, Vector2.zero);
 
     }
 
-
-    private IEnumerator HeroUnselection() {
+    private IEnumerator HeroUnselection () {
 
         isCoroutineAllowedSelection = false;
 
@@ -207,13 +207,13 @@ public class Hero_Movement : MonoBehaviour {
             if (clickCounter >= 2) {
 
                 isHeroSelected = false;
-                heroSelectEvent.Raise(isHeroSelected);
-                Debug.Log("Hero Unselected :(");
+                heroSelectEvent.Raise (isHeroSelected);
+                Debug.Log ("Hero Unselected :(");
                 break;
 
             }
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame ();
 
         }
 
@@ -223,7 +223,7 @@ public class Hero_Movement : MonoBehaviour {
 
     }
 
-    private IEnumerator RestartClick() {
+    private IEnumerator RestartClick () {
 
         while (Time.time <= timeBetweenDownToUp + clickDownTime) {
 
@@ -231,7 +231,7 @@ public class Hero_Movement : MonoBehaviour {
                 break;
             }
 
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForFixedUpdate ();
 
         }
 

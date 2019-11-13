@@ -17,8 +17,8 @@ MonoBehaviour:
   codTroop: 2
   namBarrack: Mage_Barrack
   desBarrack: School of Arcane Arts send it's students to help
-  valSpawnFrequency: 2.5
+  valSpawnFrequency: 4
   valCost: 135
-  numTroopLimit: 25
+  numTroopLimit: 12
   sprite: {fileID: 21300000, guid: 2289d1b27ba5e4f448b413228ca671a9, type: 3}
   animatorController: {fileID: 9100000, guid: 429d168e07d6a3744ae46692a3c6b8f8, type: 2}

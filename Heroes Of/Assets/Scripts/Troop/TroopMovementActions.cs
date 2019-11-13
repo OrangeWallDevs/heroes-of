@@ -9,7 +9,7 @@ public class TroopMovementActions : MonoBehaviour {
     private Rigidbody2D troopRigidBody2d;
     private RunTimeTroopData troopData;
     private IsometricCharacterAnimator troopAnimations;
-    private Vector2 currentPosition, targetPosition, prevTarget, _actualTarget;
+    public Vector2 currentPosition, targetPosition, prevTarget, _actualTarget;
     public Vector2 actualTarget { 
         set {
             _actualTarget = value;
@@ -22,6 +22,12 @@ public class TroopMovementActions : MonoBehaviour {
     public TilemapHandler tilemapHandler;
 
     private float motionSpeed; //TO:DO get data from RunTimeData when initialized
+
+    public Vector2 movementDirection;
+
+    public Vector2 movement;
+
+    public Vector2 fixedTargetPosition;
 
     void Start() {
 
@@ -43,8 +49,8 @@ public class TroopMovementActions : MonoBehaviour {
         currentPosition = transform.position;
         /*Debug.Log("ActualTarget: " + actualTarget);
         Debug.Log("PrevTarget: " + prevTarget);*/
-        if(Mathf.Ceil(actualTarget.x) != Mathf.Ceil(prevTarget.x)
-           || Mathf.Ceil(actualTarget.y) != Mathf.Ceil(prevTarget.y)) {
+        if(Mathf.RoundToInt(actualTarget.x) != Mathf.RoundToInt(prevTarget.x)
+           || Mathf.RoundToInt(actualTarget.y) != Mathf.RoundToInt(prevTarget.y)) {
             pathFinding.startPos = tilemapHandler.PositionToTilemapNode(currentPosition).position;
             pathFinding.goalPos = tilemapHandler.PositionToTilemapNode(actualTarget).position;
             pathFinding.FindPath();
@@ -61,8 +67,8 @@ public class TroopMovementActions : MonoBehaviour {
         /*Debug.Log("Movement current position: " + currentPosition.x + " " + currentPosition.y);
         Debug.Log("Movement Target position: " + targetPosition.x + " " + targetPosition.y);*/
 
-        if (Mathf.Ceil(currentPosition.x) != Mathf.Ceil(targetPosition.x) 
-            || Mathf.Ceil(currentPosition.y) != Mathf.Ceil(targetPosition.y)) {
+        if (Mathf.RoundToInt(currentPosition.x) != Mathf.RoundToInt(targetPosition.x) 
+            || Mathf.RoundToInt(currentPosition.y) != Mathf.RoundToInt(targetPosition.y)) {
             MoveToTargetPosition();
         }
         else {
@@ -84,13 +90,14 @@ public class TroopMovementActions : MonoBehaviour {
     }
 
     public void MoveToTargetPosition() {
-
-        Vector2 movementDirection = (targetPosition - currentPosition).normalized;
+        Vector2 roundedTarget = new Vector2(Mathf.RoundToInt(targetPosition.x), Mathf.RoundToInt(targetPosition.y));
+        Vector2 roundedCurrent = new Vector2(Mathf.RoundToInt(currentPosition.x), Mathf.RoundToInt(currentPosition.y));
+        movementDirection = (roundedTarget - roundedCurrent).normalized;
         movementDirection.x = Mathf.Round(movementDirection.x);
         movementDirection.y = Mathf.Round(movementDirection.y);
 
-        Vector2 movement = movementDirection * troopData.valMotionSpeed;
-        Vector2 fixedTargetPosition = currentPosition + movement * Time.fixedDeltaTime;
+        movement = movementDirection * troopData.valMotionSpeed;
+        fixedTargetPosition = currentPosition + movement * Time.fixedDeltaTime;
 
         troopRigidBody2d.MovePosition(fixedTargetPosition);
         troopAnimations.AnimateRun(targetPosition);

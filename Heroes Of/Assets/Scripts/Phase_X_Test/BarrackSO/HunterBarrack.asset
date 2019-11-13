@@ -17,8 +17,8 @@ MonoBehaviour:
   codTroop: 1
   namBarrack: Hunter_Barrack
   desBarrack: Wild Hunters Join in the Fight for Peace
-  valSpawnFrequency: 3
+  valSpawnFrequency: 5
   valCost: 275
-  numTroopLimit: 15
+  numTroopLimit: 10
   sprite: {fileID: 21300000, guid: 66ded04dc7693b645aa84305847dfc23, type: 3}
   animatorController: {fileID: 9100000, guid: 70b5bbc3bad1c614c87e0b39e32419e6, type: 2}

@@ -38,6 +38,7 @@ public class AudioSourceController : MonoBehaviour {
             // throw new System.Exception("Audio Source Controller is missing the corresponding Audio Source component");
             _source = gameObject.AddComponent<AudioSource>();
         }
+        _source.dopplerLevel = 0;
     }
 
     void Start() {

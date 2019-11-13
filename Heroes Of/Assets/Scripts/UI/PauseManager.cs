@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour {
     public static bool IsGamePaused {get; private set;}
     public UIModalOpener PauseMenuOpener;
+    public PopUpManager popUpDialog;
 
+    public LevelManager levelTransitor;
     private void Awake() {
         IsGamePaused = false;
     }
@@ -22,6 +24,11 @@ public class PauseManager : MonoBehaviour {
     }
 
     public void QuitGame() {
-        Debug.Log("Quiting game...");
+        popUpDialog.ShowConfirmationModal("Tem certeza de que deseja sair?", QuitLevel, () => {});
     }
+
+    private void QuitLevel() {
+        levelTransitor.LoadScene(1);
+    }
+ 
 }
