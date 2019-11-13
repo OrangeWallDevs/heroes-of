@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI textField;
     public TextMeshProUGUI titleField;
     public Image sceneImageField;
-    private ArrayList sentences;
+    private List<Speak> sentences;
     private int countSentences;
     private int countScenes;
 
@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour {
                 if(cut.CodPart == runtimeData.User.CurrentPhase.CodPart)
                     cutscene = cut;     
             }
-            sentences = new ArrayList();
+            sentences = new List<Speak>();
             countSentences = 0;
             countScenes = 0;
 
@@ -61,12 +61,13 @@ public class DialogueManager : MonoBehaviour {
                     return;
                 } else {
                     countScenes++;
+                    countSentences = 0;
                     StartConversations(cutscene.Scenes[countScenes]);
                     return;
                 }
         } 
 
-        Speak actualSentence = (Speak) sentences[countSentences];
+        Speak actualSentence = sentences[countSentences];
 
         // if (actualSentence.image != null) 
         //   sceneImageField.sprite = actualSentence.image;
