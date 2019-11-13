@@ -521,16 +521,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1828298374078679347, guid: 6d2a65af51ba95846ba21d01f34f8c1e,
-        type: 3}
-      propertyPath: m_Name
-      value: PauseManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828298374078679347, guid: 6d2a65af51ba95846ba21d01f34f8c1e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1828298374078679345, guid: 6d2a65af51ba95846ba21d01f34f8c1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -585,6 +575,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828298374078679347, guid: 6d2a65af51ba95846ba21d01f34f8c1e,
+        type: 3}
+      propertyPath: m_Name
+      value: PauseManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828298374078679347, guid: 6d2a65af51ba95846ba21d01f34f8c1e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1828298374078679344, guid: 6d2a65af51ba95846ba21d01f34f8c1e,
         type: 3}
@@ -913,17 +913,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
-    - target: {fileID: -4422018227208212196, guid: 897ea3db4de7241449ac4388c119b29e,
-        type: 3}
-      propertyPath: gameRuntimeData
-      value: 
-      objectReference: {fileID: 11400000, guid: 2261c7faa770d2905986c4cf2d90c3f9,
-        type: 2}
-    - target: {fileID: -4422018227208212196, guid: 897ea3db4de7241449ac4388c119b29e,
-        type: 3}
-      propertyPath: tilemapHandler
-      value: 
-      objectReference: {fileID: 1880723583}
     - target: {fileID: 2902684285166463172, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1100,16 +1089,27 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3540181138211839138, guid: 897ea3db4de7241449ac4388c119b29e,
-        type: 3}
-      propertyPath: tilemapHandler
-      value: 
-      objectReference: {fileID: 1880723583}
     - target: {fileID: 6172226337495911052, guid: 897ea3db4de7241449ac4388c119b29e,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3540181138211839138, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: tilemapHandler
+      value: 
+      objectReference: {fileID: 1880723583}
+    - target: {fileID: -4422018227208212196, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: gameRuntimeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2261c7faa770d2905986c4cf2d90c3f9,
+        type: 2}
+    - target: {fileID: -4422018227208212196, guid: 897ea3db4de7241449ac4388c119b29e,
+        type: 3}
+      propertyPath: tilemapHandler
+      value: 
+      objectReference: {fileID: 1880723583}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ea3db4de7241449ac4388c119b29e, type: 3}
 --- !u!1 &450561652
@@ -1518,7 +1518,7 @@ PrefabInstance:
     - target: {fileID: 4772841155178068078, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
         type: 3}
       propertyPath: m_text
-      value: 360
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 4772841155346273267, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
         type: 3}
@@ -3945,11 +3945,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
-        type: 3}
-      propertyPath: hero
-      value: 
-      objectReference: {fileID: 842116460}
     - target: {fileID: 2016541931899603832, guid: 75841ce6575415547af6c57563d1b1da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4005,6 +4000,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016541931899603846, guid: 75841ce6575415547af6c57563d1b1da,
+        type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 842116460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75841ce6575415547af6c57563d1b1da, type: 3}
 --- !u!1001 &760433181
@@ -6863,16 +6863,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 487478169}
     m_Modifications:
-    - target: {fileID: 3570379972945962289, guid: fe9742334ef80974caa713ee1ae373d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LoadingScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 3570379972945962289, guid: fe9742334ef80974caa713ee1ae373d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3570379972945962293, guid: fe9742334ef80974caa713ee1ae373d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6993,6 +6983,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3570379972945962289, guid: fe9742334ef80974caa713ee1ae373d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LoadingScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570379972945962289, guid: fe9742334ef80974caa713ee1ae373d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3570379973695925859, guid: fe9742334ef80974caa713ee1ae373d7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -7045,11 +7045,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelTransitor
       objectReference: {fileID: 0}
-    - target: {fileID: 8192543778894186257, guid: 4b829c40156b9f8429ff7a694fbae998,
-        type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 1825115568}
     - target: {fileID: 8192543778894186256, guid: 4b829c40156b9f8429ff7a694fbae998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7105,6 +7100,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8192543778894186257, guid: 4b829c40156b9f8429ff7a694fbae998,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 1825115568}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b829c40156b9f8429ff7a694fbae998, type: 3}
 --- !u!114 &1923561772 stripped
@@ -7481,16 +7481,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7805467205790411051, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
-        type: 3}
-      propertyPath: barrackFactory
-      value: 
-      objectReference: {fileID: 19157891}
-    - target: {fileID: 7805467205790411051, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1024325270473854214, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7545,6 +7535,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805467205790411051, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
+        type: 3}
+      propertyPath: barrackFactory
+      value: 
+      objectReference: {fileID: 19157891}
+    - target: {fileID: 7805467205790411051, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1024325270473854212, guid: a3b9570ff5a9f0f4ea5267939b2b7959,
         type: 3}
@@ -7659,16 +7659,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TilemapHandler
       objectReference: {fileID: 0}
-    - target: {fileID: 5291811850366765232, guid: 34eb2217027e686c0944f7795c864ad5,
-        type: 3}
-      propertyPath: tilemaps.Array.data[0]
-      value: 
-      objectReference: {fileID: 815577545}
-    - target: {fileID: 5291811850366765232, guid: 34eb2217027e686c0944f7795c864ad5,
-        type: 3}
-      propertyPath: tilemap
-      value: 
-      objectReference: {fileID: 815577545}
     - target: {fileID: 5291811850366765135, guid: 34eb2217027e686c0944f7795c864ad5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7724,5 +7714,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5291811850366765232, guid: 34eb2217027e686c0944f7795c864ad5,
+        type: 3}
+      propertyPath: tilemaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 815577545}
+    - target: {fileID: 5291811850366765232, guid: 34eb2217027e686c0944f7795c864ad5,
+        type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 815577545}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34eb2217027e686c0944f7795c864ad5, type: 3}
