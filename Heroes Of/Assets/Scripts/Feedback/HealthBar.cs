@@ -5,12 +5,15 @@ public class HealthBar : MonoBehaviour {
     public Transform healthBar;
     public FloatEvent healthChangedEvent;
 
-    private float maxHealth;
+    private HealthController healthController;
+
+    private float maxHealth, previusHealth;
 
     private void Start() {
 
-        HealthController healthController = GetComponentInParent<HealthController>();
+        healthController = GetComponentInParent<HealthController>();
         maxHealth = healthController.Health;
+        previusHealth = healthController.Health;
 
         healthChangedEvent.RegisterListener(UpdateHealthBar);
 
@@ -24,9 +27,15 @@ public class HealthBar : MonoBehaviour {
 
     private void UpdateHealthBar(float newHealthValue) {
     
-        float healthPercentage = (newHealthValue / maxHealth);
+        if (previusHealth > healthController.Health) {
 
-        SetSize(healthPercentage);
+            previusHealth = healthController.Health;
+
+            float healthPercentage = (newHealthValue / maxHealth);
+
+            SetSize(healthPercentage);
+
+        }
 
     }
 
