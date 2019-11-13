@@ -3804,6 +3804,24 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7960481452654697878, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: victoryTheme
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e188fc2199164c43aacdbc9bf981318,
+        type: 2}
+    - target: {fileID: 7960481452654697878, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: playerWinEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b50da8efdb558d4b985740d5ba533e7,
+        type: 2}
+    - target: {fileID: 7960481452654697878, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7,
+        type: 3}
+      propertyPath: playerLooseEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: b683d309b615aeb4b8f2f8d45c5e9eac,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 7663719638523207871, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0f3498ab832ef8f4bad9b9ed65b5d2c7, type: 3}
