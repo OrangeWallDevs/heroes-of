@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codTroop: 2
   namTroop: Mage
-  valDamageDealt: 3
-  valHp: 15
+  valDamageDealt: 4
+  valHp: 22
   valScore: 15
-  valMorionSpeed: 2
-  valAttackSpeed: 2
-  valDropMoney: 5
-  valAttackDistance: 2.5
+  valMorionSpeed: 3
+  valAttackSpeed: 3
+  valDropMoney: 12
+  valAttackDistance: 3.5
   objective: 0
   attackAtDistance: 1
   isEnemy: 0
