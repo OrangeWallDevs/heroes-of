@@ -17,7 +17,7 @@ MonoBehaviour:
   valDamageDealt: 5
   valHp: 23
   valScore: 20
-  valMorionSpeed: 4
+  valMorionSpeed: 2
   valAttackSpeed: 1.5
   valDropMoney: 15
   valAttackDistance: 3.5

@@ -300,7 +300,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551cd4ba2aa4510489e1ccf790ae87ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iaSlot: {fileID: 0}
+  currentPosition: {x: 0, y: 0}
+  targetPosition: {x: 0, y: 0}
+  prevTarget: {x: 0, y: 0}
+  _actualTarget: {x: 0, y: 0}
   tilemapHandler: {fileID: 0}
+  movementDirection: {x: 0, y: 0}
+  movement: {x: 0, y: 0}
+  fixedTargetPosition: {x: 0, y: 0}
 --- !u!114 &4543975368006533097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,8 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69b49e79fb8e9f55b19927f23635d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemapHandler: {fileID: 5291811850366765232, guid: 34eb2217027e686c0944f7795c864ad5,
-    type: 3}
 --- !u!1 &7039024901831482771
 GameObject:
   m_ObjectHideFlags: 0
