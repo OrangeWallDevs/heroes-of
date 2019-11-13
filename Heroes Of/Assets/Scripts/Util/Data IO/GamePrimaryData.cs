@@ -113,7 +113,7 @@ public class GamePrimaryData : ScriptableObject {
                 switch (tableName) {
                     case "assetfilter":
                         AssetFilter assetFilter = record.ToObject<AssetFilter>();
-                        assetFilter.TxtAssetPath = $"Assets/{assetFilter.TxtAssetPath}";
+                        // assetFilter.TxtAssetPath = $"Assets/{assetFilter.TxtAssetPath}";
                         AssetFilterRecords.Add(assetFilter);
                         break;
                     case "score": // only current user scores are retrieved
@@ -132,7 +132,7 @@ public class GamePrimaryData : ScriptableObject {
                             .SingleOrDefault(i => i.NumPhase == phase.NumPhase);
                         PhaseRecords.Add(phase);
                         phase.TilemapsGrid = dataUtil
-                            .LoadAsset<Grid>($"{filter.TxtAssetFilter} {phase.NumPhase} t:Grid",
+                            .LoadAsset<Grid>($"Grid_{filter.TxtAssetFilter}_{phase.NumPhase}",
                                 new[] { filter.TxtAssetPath });
                         break;
                     case "gameuser": // only current user data is retrieved
@@ -144,7 +144,7 @@ public class GamePrimaryData : ScriptableObject {
                     case "troop":
                         Troop troop = record.ToObject<Troop>();
                         troop.GameObject = dataUtil
-                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {troop.TxtAssetIdentifier} t:GameObject",
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter}_{troop.TxtAssetIdentifier}",
                                 new[] { filter.TxtAssetPath });
                         TroopRecords.Add(troop);
                         break;
@@ -155,21 +155,21 @@ public class GamePrimaryData : ScriptableObject {
                         barrack.Troop = TroopRecords
                             .SingleOrDefault(i => i.CodTroop == barrack.CodTroop);
                         barrack.GameObject = dataUtil
-                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {barrack.Troop.TxtAssetIdentifier} t:GameObject",
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter}_{barrack.Troop.TxtAssetIdentifier}",
                                 new[] { filter.TxtAssetPath });
                         BarrackRecords.Add(barrack);
                         break;
                     case "tower":
                         Tower tower = record.ToObject<Tower>();
                         tower.GameObject = dataUtil
-                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {(tower.IsEnemy ? "enemy" : "player")} t:GameObject",
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter}_{(tower.IsEnemy ? "enemy" : "player")}",
                                 new[] { filter.TxtAssetPath });
                         TowerRecords.Add(tower);
                         break;
                     case "skill":
                         Skill skill = record.ToObject<Skill>();
                         skill.Action = dataUtil
-                            .LoadAsset<SkillAction>($"{filter.TxtAssetFilter} {skill.TxtAssetIdentifier} t:SkillAction",
+                            .LoadAsset<SkillAction>($"{filter.TxtAssetFilter}_{skill.TxtAssetIdentifier}",
                                 new[] { filter.TxtAssetPath });
                         SkillRecords.Add(skill);
                         break;
@@ -181,7 +181,7 @@ public class GamePrimaryData : ScriptableObject {
                             .Where(i => i.CodHero == hero.CodHero)
                             .ToList();
                         hero.GameObject = dataUtil
-                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter} {hero.TxtAssetIdentifier} t:GameObject",
+                            .LoadAsset<GameObject>($"{filter.TxtAssetFilter}_{hero.TxtAssetIdentifier}",
                                 new[] { filter.TxtAssetPath });
                         HeroRecords.Add(hero);
                         break;
