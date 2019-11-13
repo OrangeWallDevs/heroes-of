@@ -21,8 +21,7 @@ public class BarrackConstruction : MonoBehaviour {
 
     //TO:DO Use RunTimeData to load and create the barrack
     public BarrackFactory barrackFactory;
-    public bool buildForEnemy;
-    public PhaseObjectives buildForObjective; 
+    private PhaseObjectives playerObjective;
 
     public TilemapHandler tilemapHandler;
 
@@ -30,6 +29,7 @@ public class BarrackConstruction : MonoBehaviour {
 
         GameObject phaseManager = GameObject.FindGameObjectWithTag("Phase_Manager");
         goldManager = phaseManager.GetComponent<GoldManager>();
+        playerObjective = phaseManager.GetComponent<RunTimePhaseData>().idtPhaseType;
 
     }
 
@@ -90,7 +90,7 @@ public class BarrackConstruction : MonoBehaviour {
         if(clickedCell.tile.isSlot && clickedCell.isAvailable) {
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(position);
 
-            Barrack barrack = barrackFactory.CreateBarrack(barrackID, buildForEnemy, buildForObjective);
+            Barrack barrack = barrackFactory.CreateBarrack(barrackID, false, playerObjective);
 
             if(goldReserve.SpendGold(barrack.ValCost)) {
                 barrack.GameObject.transform.position = new Vector3(clickPosition.x, clickPosition.y, 0);
