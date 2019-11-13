@@ -13,9 +13,9 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI textField;
     public TextMeshProUGUI titleField;
     public Image sceneImageField;
-
     private ArrayList sentences;
     private int countSentences;
+    private int countScenes;
 
     void Start() {
 
@@ -28,8 +28,9 @@ public class DialogueManager : MonoBehaviour {
             }
             sentences = new ArrayList();
             countSentences = 0;
+            countScenes = 0;
 
-            StartConversations();
+            StartConversations(cutscene.Scenes[countSentences]);
         });
 
         // titleField.text = cutsceneTitle;
@@ -39,31 +40,31 @@ public class DialogueManager : MonoBehaviour {
 
     }
 
-    private void StartConversations() {
+    private void StartConversations(Scene scene) {
         
-        foreach(Scene scene in cutscene.Scenes){
-
             titleField.text = scene.DesScene;
-            sceneImageField.sprite = scene.Sprite;
+            // sceneImageField.sprite = scene.Sprite;
             Logger.Instance.PrintObject(scene);
             
             sentences.Clear();
             sentences.AddRange(scene.Texts);
             DisplayNextSentence();
-            countSentences = 0;
-        }
-
+            
     }
 
 
     public void DisplayNextSentence() {
 
         if (countSentences >= sentences.Count) { // Check if has reach the final speech
-
-            EndDialog();
-            return;
-
-        }
+                if(countScenes >= cutscene.Scenes.Count - 1){
+                    EndDialog();
+                    return;
+                } else {
+                    countScenes++;
+                    StartConversations(cutscene.Scenes[countScenes]);
+                    return;
+                }
+        } 
 
         Speak actualSentence = (Speak) sentences[countSentences];
 
