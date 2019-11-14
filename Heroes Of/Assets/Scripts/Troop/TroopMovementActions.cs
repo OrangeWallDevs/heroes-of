@@ -55,9 +55,14 @@ public class TroopMovementActions : MonoBehaviour {
             pathFinding.FindPath();
             prevTarget = actualTarget;
 
-            if(pathFinding.path != null && pathFinding.path.Count > 0)
+            if(pathFinding.path != null && pathFinding.path.Count > 0) {
                 targetPosition = pathFinding.path.Pop();
-                
+            }
+            else {
+                targetPosition = transform.position;
+            }
+
+
             targetPosition.y += 1.5f;
         }
 
