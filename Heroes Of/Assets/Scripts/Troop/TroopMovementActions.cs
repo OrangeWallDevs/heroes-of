@@ -47,44 +47,25 @@ public class TroopMovementActions : MonoBehaviour {
 
     private void FixedUpdate() {
         currentPosition = transform.position;
-        /*Debug.Log("ActualTarget: " + actualTarget);
-        Debug.Log("PrevTarget: " + prevTarget);*/
+        
         if(Mathf.RoundToInt(actualTarget.x) != Mathf.RoundToInt(prevTarget.x)
            || Mathf.RoundToInt(actualTarget.y) != Mathf.RoundToInt(prevTarget.y)) {
             pathFinding.startPos = tilemapHandler.PositionToTilemapNode(currentPosition).position;
             pathFinding.goalPos = tilemapHandler.PositionToTilemapNode(actualTarget).position;
             pathFinding.FindPath();
             prevTarget = actualTarget;
-            /*foreach (Vector2 position in pathFinding.path) {
-
-                Instantiate(iaSlot, position, Quaternion.identity);
-
-            }*/
             targetPosition = pathFinding.path.Pop();
             targetPosition.y += 1.5f;
         }
-
-        /*Debug.Log("Movement current position: " + currentPosition.x + " " + currentPosition.y);
-        Debug.Log("Movement Target position: " + targetPosition.x + " " + targetPosition.y);*/
 
         if (Mathf.RoundToInt(currentPosition.x) != Mathf.RoundToInt(targetPosition.x) 
             || Mathf.RoundToInt(currentPosition.y) != Mathf.RoundToInt(targetPosition.y)) {
             MoveToTargetPosition();
         }
         else {
-            //Debug.Log("a");
             if(pathFinding.path != null && pathFinding.path.Count > 0) {
                 targetPosition = pathFinding.path.Pop();
                 targetPosition.y += 1.5f;
-
-                /*Debug.Log("Print Path");
-                foreach (Vector2 position in pathFinding.path) {
-
-                    Debug.Log(position);
-
-                }*/
-
-                //Debug.Log(targetPosition);
             }
         }
     }
