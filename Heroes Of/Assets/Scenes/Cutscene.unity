@@ -286,8 +286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -99.099976, y: -45.2}
+  m_AnchoredPosition: {x: -0.0000038146973, y: 0}
+  m_SizeDelta: {x: 79, y: -45.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153465672
 MonoBehaviour:
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 64.16
+  m_fontSizeBase: 64.16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2115,6 +2115,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1857071228}
     m_Modifications:
+    - target: {fileID: 7813400707994907633, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
+        type: 3}
+      propertyPath: m_Name
+      value: MusicToggleBtn Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 7813400707994907646, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2220,13 +2225,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7813400707994907633, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
-        type: 3}
-      propertyPath: m_Name
-      value: MusicToggleBtn Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 151845288, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
       propertyPath: song
+      value: 
+      objectReference: {fileID: 11400000, guid: 881bd4b218110784b92bd7a0c259f75f,
+        type: 2}
+    - target: {fileID: 151845288, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
+      propertyPath: sceneSong
       value: 
       objectReference: {fileID: 11400000, guid: 881bd4b218110784b92bd7a0c259f75f,
         type: 2}

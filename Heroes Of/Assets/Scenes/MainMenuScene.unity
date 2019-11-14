@@ -2249,6 +2249,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c1b867b8a69497d4a834fce9451a3b2e,
         type: 2}
+    - target: {fileID: 151845288, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
+      propertyPath: sceneSong
+      value: 
+      objectReference: {fileID: 11400000, guid: c1b867b8a69497d4a834fce9451a3b2e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
 --- !u!1001 &8192543778687961331
@@ -2263,11 +2268,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelTransitor
       objectReference: {fileID: 0}
-    - target: {fileID: 8192543778894186257, guid: 4b829c40156b9f8429ff7a694fbae998,
-        type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 671018282}
     - target: {fileID: 8192543778894186256, guid: 4b829c40156b9f8429ff7a694fbae998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2323,5 +2323,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8192543778894186257, guid: 4b829c40156b9f8429ff7a694fbae998,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 671018282}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b829c40156b9f8429ff7a694fbae998, type: 3}

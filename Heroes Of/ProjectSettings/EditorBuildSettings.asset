@@ -5,20 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenuScene.unity
     guid: 97af58ab13b47f144b037ea60eeffb1c
-<<<<<<< Updated upstream
   - enabled: 1
-=======
-  - enabled: 0
-    path: Assets/Scenes/SimpleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
->>>>>>> Stashed changes
     path: Assets/Scenes/LevelSelection.unity
     guid: 8bf0ea58ee5177f4690d0015794b46e2
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: a7ca60908e549c14fb7746ab2076f37f
+  - enabled: 1
     path: Assets/Scenes/Phase_X.unity
     guid: bb0a57c2a1ddc0f41ac70968211ec953
+  - enabled: 1
+    path: Assets/Scenes/Phase_Y.unity
+    guid: c932dcea60987454f9f73bbc68be6bfc
   m_configObjects: {}
