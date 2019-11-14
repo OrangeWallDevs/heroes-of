@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 3570379972945962289, guid: fe9742334ef80974caa713ee1ae373d7,
     type: 3}
+  gameRuntimeData: {fileID: 11400000, guid: 2261c7faa770d2905986c4cf2d90c3f9, type: 2}

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
     public GameObject loadingScreen;
+    public GameRuntimeData gameRuntimeData;
 
     public void LoadScene(int sceneBuildIndex) {
         StartCoroutine(LoadSceneAsync(sceneBuildIndex));
