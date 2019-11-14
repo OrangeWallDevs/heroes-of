@@ -2115,6 +2115,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1857071228}
     m_Modifications:
+    - target: {fileID: 7813400707994907633, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
+        type: 3}
+      propertyPath: m_Name
+      value: MusicToggleBtn Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 7813400707994907646, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2220,13 +2225,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7813400707994907633, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19,
-        type: 3}
-      propertyPath: m_Name
-      value: MusicToggleBtn Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 151845288, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
       propertyPath: song
+      value: 
+      objectReference: {fileID: 11400000, guid: 881bd4b218110784b92bd7a0c259f75f,
+        type: 2}
+    - target: {fileID: 151845288, guid: 2e6598e5aeb9f9a4e98a1b4c36c52d19, type: 3}
+      propertyPath: sceneSong
       value: 
       objectReference: {fileID: 11400000, guid: 881bd4b218110784b92bd7a0c259f75f,
         type: 2}
