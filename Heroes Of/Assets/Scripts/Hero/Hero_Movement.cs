@@ -66,12 +66,8 @@ public class Hero_Movement : MonoBehaviour {
     private void Update () {
 
         if (Input.touchCount <= 1) {
-            Debug.Log('a');
-
             HandleHeroSelection ();
-
             HandleMovement ();
-
         }
 
     }
