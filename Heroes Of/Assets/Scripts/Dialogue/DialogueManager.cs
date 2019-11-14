@@ -10,6 +10,8 @@ public class DialogueManager : MonoBehaviour {
     private Cutscene cutscene;
     public string cutsceneTitle; // Get on BD
     
+    public LevelManager levelLoader;
+
     public TextMeshProUGUI textField;
     public TextMeshProUGUI titleField;
     public Image sceneImageField;
@@ -98,7 +100,7 @@ public class DialogueManager : MonoBehaviour {
 
         // Finish the cutscene and load the fase
         countSentences = sentences.Count;
-
+        levelLoader.LoadScene(1);
         Debug.Log("Final");
 
     }
