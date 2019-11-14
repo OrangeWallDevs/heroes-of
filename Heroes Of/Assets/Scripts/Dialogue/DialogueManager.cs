@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
-    public RuntimeDataEvent onRuntimeDataLoaded;
+    public GameRuntimeData runtimeData;
     private Cutscene cutscene;
     public string cutsceneTitle; // Get on BD
     
@@ -19,19 +19,17 @@ public class DialogueManager : MonoBehaviour {
 
     void Start() {
 
-        onRuntimeDataLoaded.RegisterListener(runtimeData => {
-            Logger.Instance.PrintObject(runtimeData.User.CurrentPhase);
+        Logger.Instance.PrintObject(runtimeData.User.CurrentPhase);
 
-            foreach (Cutscene cut in runtimeData.Cutscenes) {
-                if(cut.CodPart == runtimeData.User.CurrentPhase.CodPart)
-                    cutscene = cut;     
-            }
-            sentences = new List<Speak>();
-            countSentences = 0;
-            countScenes = 0;
+        foreach (Cutscene cut in runtimeData.Cutscenes) {
+            if(cut.CodPart == runtimeData.User.CurrentPhase.CodPart)
+                cutscene = cut;     
+        }
+        sentences = new List<Speak>();
+        countSentences = 0;
+        countScenes = 0;
 
-            StartConversations(cutscene.Scenes[countSentences]);
-        });
+        StartConversations(cutscene.Scenes[countSentences]);
 
         // titleField.text = cutsceneTitle;
 
