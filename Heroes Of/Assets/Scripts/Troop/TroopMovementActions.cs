@@ -47,14 +47,17 @@ public class TroopMovementActions : MonoBehaviour {
 
     private void FixedUpdate() {
         currentPosition = transform.position;
-        
+
         if(Mathf.RoundToInt(actualTarget.x) != Mathf.RoundToInt(prevTarget.x)
            || Mathf.RoundToInt(actualTarget.y) != Mathf.RoundToInt(prevTarget.y)) {
             pathFinding.startPos = tilemapHandler.PositionToTilemapNode(currentPosition).position;
             pathFinding.goalPos = tilemapHandler.PositionToTilemapNode(actualTarget).position;
             pathFinding.FindPath();
             prevTarget = actualTarget;
-            targetPosition = pathFinding.path.Pop();
+
+            if(pathFinding.path != null && pathFinding.path.Count > 0)
+                targetPosition = pathFinding.path.Pop();
+                
             targetPosition.y += 1.5f;
         }
 
