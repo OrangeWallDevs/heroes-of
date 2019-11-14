@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
     public GameObject loadingScreen;
+    private int numCurrentPhase;
+
     public GameRuntimeData gameRuntimeData;
 
     public void LoadScene(int sceneBuildIndex) {
@@ -27,5 +29,9 @@ public class LevelManager : MonoBehaviour {
 
             yield return null;
         }
+    }
+
+    public void SetNumPhase(int numPhase) {
+        numCurrentPhase = numPhase;  
     }
 }
